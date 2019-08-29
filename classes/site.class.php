@@ -5,7 +5,7 @@ class Site {
 	CONST HOST = "127.0.0.1";
 	CONST USER = "root";
 	CONST PASS = "";
-	CONST DB   = "base_llama";
+	CONST DB   = "llamaaqu_master";
 
 	protected $con;
 	protected $sess;
