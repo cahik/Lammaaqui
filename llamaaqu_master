@@ -1,5 +1,5 @@
 CREATE DATABASE IF NOT EXISTS `llamaaqu_master` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `base_llama`;
+USE `llamaaqu_master`;
 
 CREATE TABLE `cidade` (
   `Id` int(11) NOT NULL,
