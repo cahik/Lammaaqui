@@ -1,6 +1,6 @@
 <?php
 
-require_once "site.php";
+require_once "site.class.php";
 
 class Cadastro_login extends Site {
 

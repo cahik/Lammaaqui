@@ -1,4 +1,4 @@
-	<link rel="stylesheet" type="text/css" href="css_e_js/lhama.css">
+	<link rel="stylesheet" type="text/css" href="media/css/lhama.css">
 
 
 	<div class="animation-wrap">

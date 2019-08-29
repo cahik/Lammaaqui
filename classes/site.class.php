@@ -37,7 +37,6 @@ class Site {
 		$this->url = $_SERVER["REQUEST_URI"];
 
 
-<<<<<<< HEAD:classes/site.class.php
 		// if (!isset($_SESSION['logado']) || $_SESSION['logado'] <> true) {
 
 		// 	if ($this->url == "/matutino/GitHub/llamaaqui/Login.php" || $this->url == "/matutino/GitHub/llamaaqui/Cadastro.php" || $this->url == "/matutino/GitHub/llamaaqui/pagina_404.php") {
@@ -50,7 +49,7 @@ class Site {
 		// 	}
 
 		// }
-=======
+
 		//if (!isset($_SESSION['logado']) || $_SESSION['logado'] <> true) {
 
 			//if ($this->url == "/matutino/GitHub/llamaaqui/Login.php" || $this->url == "/matutino/GitHub/llamaaqui/Cadastro.php" || $this->url == "/matutino/GitHub/llamaaqui/pagina_404.php") {
@@ -63,7 +62,6 @@ class Site {
 			//}
 
 		//}
->>>>>>> 8f006a7b8c26ebd859845e7a23abb3a5c1cb39df:classes/site.php
 
 	}
 

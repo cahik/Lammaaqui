@@ -1,6 +1,6 @@
 <?php 
 
-require_once "classes/cadastro_login.php";
+require_once "classes/cadastro_login.class.php";
 
 $Executar_login = new Cadastro_login();
 $Executar_login->logar();
@@ -12,15 +12,16 @@ $Executar_login->logar();
 <head>
 	<title>Teste</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="css_e_js/padrao.css">
+	<link rel="stylesheet" type="text/css" href="media/css/padrao.css">
+	<link rel="stylesheet" type="text/css" href="media/css/media.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
 
 	<?php 
 
-	require_once "includes/lhama.php"; 
-	require_once "includes/navbar.php"; 
+	require_once "include/lhama.php"; 
+	require_once "include/navbar.php"; 
 
 	?>
 
@@ -69,7 +70,7 @@ $Executar_login->logar();
 	</div> -->
 
 
-	<?php require_once "includes/footer.php"; ?>
+	<?php require_once "include/footer.php"; ?>
 
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -8,6 +8,19 @@
 /* SM */
 @media(min-width: 576px) and (max-width: 768px) {
 
+	.imgfooter{
+		display: block !important;
+		float: none !important;
+		max-width: 50px !important;
+		margin-left: auto !important;
+		margin-right: auto !important;
+	} 
+
+	#e404 {
+		width: 450px !important;
+		height: 350px !important;
+	}
+
 }
 
 /* MD */
