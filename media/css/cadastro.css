@@ -1,0 +1,16 @@
+.p_cadastro {
+	margin: 0 0 15px 0 !important;
+	text-align: center;
+	font-weight: 900;
+	color: #d05b4f;
+}
+
+.select {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-radius: 5px;
+	border: 2px solid #a5404d !important;
+	padding: 1.5px;
+	width: 32%;
+	outline: none;
+}
