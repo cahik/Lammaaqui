@@ -27,7 +27,7 @@ html, body {
   top: 10%;
   z-index: 999;
   animation-name: ride-left;
-  animation-duration: 70s;
+  animation-duration: 60s;
   animation-iteration-count: infinite;
 }
 @keyframes ride-left {
