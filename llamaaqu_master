@@ -1,11 +1,44 @@
+-- phpMyAdmin SQL Dump
+-- version 4.8.0.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: 30-Ago-2019 às 14:20
+-- Versão do servidor: 10.1.32-MariaDB
+-- PHP Version: 7.2.5
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `llamaaqu_master`
+--
 CREATE DATABASE IF NOT EXISTS `llamaaqu_master` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `llamaaqu_master`;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `cidade`
+--
 
 CREATE TABLE `cidade` (
   `Id` int(11) NOT NULL,
   `Nome` varchar(120) DEFAULT NULL,
   `Estado` int(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `cidade`
+--
 
 INSERT INTO `cidade` (`Id`, `Nome`, `Estado`) VALUES
 (1, 'Afonso Cláudio', 8),
@@ -5575,9 +5608,17 @@ INSERT INTO `cidade` (`Id`, `Nome`, `Estado`) VALUES
 (5563, 'Wanderlândia', 27),
 (5564, 'Xambioá', 27);
 
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `dados_usuario`
+--
+
 CREATE TABLE `dados_usuario` (
+  `Id` int(11) NOT NULL,
   `Conta_verificada` tinyint(1) DEFAULT '0',
   `Nome` varchar(255) NOT NULL,
+  `Descricao` varchar(255) DEFAULT NULL,
   `Email` varchar(255) NOT NULL,
   `Senha` varchar(255) NOT NULL,
   `Sexo` enum('Masculino','Feminino') NOT NULL,
@@ -5602,11 +5643,21 @@ CREATE TABLE `dados_usuario` (
   `Aceita_pagar` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `estado`
+--
+
 CREATE TABLE `estado` (
   `Id` int(11) NOT NULL,
   `Nome` varchar(75) DEFAULT NULL,
   `UF` varchar(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `estado`
+--
 
 INSERT INTO `estado` (`Id`, `Nome`, `UF`) VALUES
 (1, 'Acre', 'AC'),
@@ -5637,11 +5688,21 @@ INSERT INTO `estado` (`Id`, `Nome`, `UF`) VALUES
 (26, 'São Paulo', 'SP'),
 (27, 'Tocantins', 'TO');
 
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `paises`
+--
+
 CREATE TABLE `paises` (
   `Id` int(11) NOT NULL,
   `Nome` varchar(50) NOT NULL,
   `Nome_ingles` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `paises`
+--
 
 INSERT INTO `paises` (`Id`, `Nome`, `Nome_ingles`) VALUES
 (1, 'AFEGANISTÃO', 'AFGHANISTAN'),
@@ -5897,33 +5958,79 @@ INSERT INTO `paises` (`Id`, `Nome`, `Nome_ingles`) VALUES
 (251, 'ZÂMBIA', 'ZAMBIA'),
 (252, 'ZIMBABUÉ', 'ZIMBABWE');
 
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `cidade`
+--
 ALTER TABLE `cidade`
   ADD PRIMARY KEY (`Id`),
   ADD KEY `fk_Cidade_estado` (`Estado`);
 
+--
+-- Indexes for table `dados_usuario`
+--
 ALTER TABLE `dados_usuario`
-  ADD PRIMARY KEY (`Email`),
+  ADD PRIMARY KEY (`Id`),
   ADD KEY `Id_pais` (`Id_pais`),
   ADD KEY `Id_estado` (`Id_estado`),
   ADD KEY `Id_cidade` (`Id_cidade`);
 
+--
+-- Indexes for table `estado`
+--
 ALTER TABLE `estado`
   ADD PRIMARY KEY (`Id`);
 
+--
+-- Indexes for table `paises`
+--
 ALTER TABLE `paises`
   ADD PRIMARY KEY (`Id`);
 
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `cidade`
+--
 ALTER TABLE `cidade`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5565;
+
+--
+-- AUTO_INCREMENT for table `dados_usuario`
+--
+ALTER TABLE `dados_usuario`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
 
+--
+-- AUTO_INCREMENT for table `estado`
+--
 ALTER TABLE `estado`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
+--
+-- AUTO_INCREMENT for table `paises`
+--
 ALTER TABLE `paises`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=253;
 
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Limitadores para a tabela `dados_usuario`
+--
 ALTER TABLE `dados_usuario`
   ADD CONSTRAINT `dados_usuario_ibfk_1` FOREIGN KEY (`Id_pais`) REFERENCES `paises` (`Id`),
-  ADD CONSTRAINT `dados_usuario_ibfk_2` FOREIGN KEY (`Id_estado`) REFERENCES `estado` (`id`),
-  ADD CONSTRAINT `dados_usuario_ibfk_3` FOREIGN KEY (`Id_cidade`) REFERENCES `cidade` (`id`);
+  ADD CONSTRAINT `dados_usuario_ibfk_2` FOREIGN KEY (`Id_estado`) REFERENCES `estado` (`Id`),
+  ADD CONSTRAINT `dados_usuario_ibfk_3` FOREIGN KEY (`Id_cidade`) REFERENCES `cidade` (`Id`);
 COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
