@@ -78,11 +78,6 @@ class Cadastro_login extends Site {
 					$_SESSION['nome'] = $this->nome;
 					$_SESSION['email'] = $this->email;
 
-					$mensagem = "Por favor $this->nome, confirme seu email para continuar a usar o site";
-
-					mail($this->email, "Confirmação de Email", $mensagem);
-					header("Location: modelo.php");
-
 				}
 
 			} else {
@@ -109,15 +104,16 @@ class Cadastro_login extends Site {
 				if ($resultado['Email'] == $this->email) {
 
 				// Se o login funcionar
-				die("Funfo");
+					$_SESSION['nome'] = $this->nome;
+					$_SESSION['email'] = $this->email;
 
 
-			} else {
+				} else {
 
 				// Se o login falhar
-				die("Não funfo");
+					die("Não funfo");
 
-			}
+				}
 
 
 			}
