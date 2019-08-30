@@ -11,7 +11,7 @@ class Selects extends Site {
 
 	public function select_dados() {
 
-		$this->email = "vergiliopoleza@hotmail.com";
+		$this->email = "vergiliopoleza@gmail.com";
 		$this->sql = "SELECT * FROM dados_usuario where Email = '$this->email'";
 
 		if (mysqli_query($this->con, $this->sql)) {

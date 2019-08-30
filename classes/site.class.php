@@ -7,6 +7,11 @@ class Site {
 	CONST PASS = "";
 	CONST DB   = "llamaaqu_master";
 
+	// CONST HOST = "llamaaqui.ml:3306";
+	// CONST USER = "llamaaqu_root";
+	// CONST PASS = "Entra21@Blusoft";
+	// CONST DB   = "llamaaqu_master";
+
 	protected $con;
 	protected $sess;
 	private $url;
@@ -26,7 +31,7 @@ class Site {
 		$this->con = mysqli_connect(self::HOST, self::USER, self::PASS, self::DB);
 
 
-		if (!$this->con) {die("Não foi -> ".mysqli_connect_error());}
+		if (!$this->con) {header("location: sem_conexao.php");}
 
 	}
 
@@ -50,18 +55,18 @@ class Site {
 
 		// }
 
-		//if (!isset($_SESSION['logado']) || $_SESSION['logado'] <> true) {
+		// if (!isset($_SESSION['logado']) || $_SESSION['logado'] <> true) {
 
-			//if ($this->url == "/matutino/GitHub/llamaaqui/Login.php" || $this->url == "/matutino/GitHub/llamaaqui/Cadastro.php" || $this->url == "/matutino/GitHub/llamaaqui/pagina_404.php") {
+		// 	if ($this->url == "/matutino/GitHub/llamaaqui/Login.php" || $this->url == "/matutino/GitHub/llamaaqui/Cadastro.php" || $this->url == "/matutino/GitHub/llamaaqui/pagina_404.php") {
 
-			//} else {
+		// 	} else {
 
-			//	$_SESSION['logado'] = false;
-			//	header("Location: pagina_404.php");
+		// 		$_SESSION['logado'] = false;
+		// 		header("Location: pagina_404.php");
 
-			//}
+		// 	}
 
-		//}
+		// }
 
 	}
 

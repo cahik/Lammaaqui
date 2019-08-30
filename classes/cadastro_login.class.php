@@ -33,7 +33,7 @@ class Cadastro_login extends Site {
 
 	}
 
-
+	// Recebe os posts do cadastro
 	protected function receber_posts_cadastro() {
 
 		$this->nome = $_POST['nome'];
@@ -47,7 +47,7 @@ class Cadastro_login extends Site {
 
 	}
 
-
+	// Recebe os posts do login
 	protected function receber_posts_login() {
 
 		$this->email = $_POST['email'];
@@ -55,11 +55,12 @@ class Cadastro_login extends Site {
 
 	}
 
-
+	// Função para fazer as verificações de cadastro e cadastrar
 	public function cadastrar() {
 
 		if (isset($_POST['cadastrar'])) {
 
+			// Permitindo que o telefone e o celular possam ser nulos
 			if ($this->telefone == "") {$this->telefone = "DEFAULT";};
 			if ($this->celular == "") {$this->celular = "DEFAULT";};
 
@@ -75,6 +76,7 @@ class Cadastro_login extends Site {
 
 					// Se conseguir cadastrar
 
+					$_SESSION['logado'] = true;
 					$_SESSION['nome'] = $this->nome;
 					$_SESSION['email'] = $this->email;
 
@@ -82,7 +84,7 @@ class Cadastro_login extends Site {
 
 			} else {
 
-				echo "As senhas estão diferentes";
+				// Se as senahs forem diferentes
 
 			}
 
@@ -92,10 +94,12 @@ class Cadastro_login extends Site {
 
 	public function logar() {
 
+		// Verificando se os inputs não são nulos e executando o login
 		if (!$this->email == "" and !$this->senha == "") {
 
 			$sql_login = "SELECT * FROM dados_usuario where Email = '$this->email' and Senha = '$this->senha'";
 
+			// Se a CONSULTA funcionar
 			if (mysqli_query($this->con, $sql_login)) {
 
 				$resultado = mysqli_fetch_array(mysqli_query($this->con, $sql_login));
@@ -104,6 +108,7 @@ class Cadastro_login extends Site {
 				if ($resultado['Email'] == $this->email) {
 
 				// Se o login funcionar
+					$_SESSION['logado'] = true;
 					$_SESSION['nome'] = $this->nome;
 					$_SESSION['email'] = $this->email;
 

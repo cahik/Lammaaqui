@@ -27,14 +27,19 @@ $teste->select_dados();
 			margin-top: 8%;
 		}
 
-		.foto_user {
-			width: 100%;
-			height: 350px;
+		.div_foto {
+			width: 320px;
+			height: 300px;
+			text-align: center;
+		}
+
+		.foto_usuario {
+			border-radius: 100%;
 		}
 
 		.dados_user {
 			width: 100%;
-			height: 200px;
+			max-height: 300px;
 			padding: 15px;
 		}
 
@@ -43,10 +48,10 @@ $teste->select_dados();
 
 
 	<div class="cartao">
-		<div class="foto_user"></div>
+		<div class="div_foto"><img src="media/images/alpaca.jpg" width="100%" height="100%" class="foto_usuario"></div>
 		<div class="dados_user">
 			<h2><?=$teste->resultado['Nome']?></h2>
-			<div></div>
+			<div class="descricao"><?=$teste->resultado['Descricao']?></div>
 		</div>
 	</div>
 
