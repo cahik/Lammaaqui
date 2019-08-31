@@ -13,42 +13,12 @@ $teste->select_pessoas();
 <html>
 <head>
 	<title>Teste</title>
+	<link rel="stylesheet" type="text/css" href="media/css/padrao.css">
+	<link rel="stylesheet" type="text/css" href="media/css/busca.css">
+	<link rel="stylesheet" type="text/css" href="media/css/media.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-<body>
-
-	<style type="text/css">
-
-		.cartao {
-			width: 400px;
-			background-color: lightgray;
-			border-radius: 8px;
-			margin-right: auto;
-			margin-left: auto;
-			margin-top: 8%;
-		}
-
-		.div_foto {
-			width: 320px;
-			height: 300px;
-			padding: 20px 40px;
-		}
-
-		.foto_usuario {
-			border-radius: 100%;
-		}
-
-		.dados_user {
-			width: 100%;
-			max-height: 300px;
-			padding: 15px;
-		}
-
-		h2 {
-			font-family: 
-		}
-
-
-	</style>
+<body style="color: white; padding: 10px;">
 
 	<form method="POST">
 
@@ -84,7 +54,7 @@ $teste->select_pessoas();
 		<input type="radio" name="Estuda" id="enao" value="0">
 		<label for="enao">Não</label><br><br><br>
 
-		<select name="Sexo">
+		<select class="select" name="Sexo">
 			<option value="">Sexo</option>
 			<option value="Masculino">Masculino</option>
 			<option value="Feminino">Feminino</option>
@@ -95,7 +65,7 @@ $teste->select_pessoas();
 		<span></span>
 		<input id="Aceita_pagar" type="range" name="Aceita_pagar" 
 		oninput="getElementById('Porcentagem').innerHTML = this.value;" 
-		min="0" max="10000" value="0" step="50" />
+		min="0" max="5000" value="0" step="50" />
 		<span id="Porcentagem">0</span><br><br>
 
 		<button type="submit" name="Enviar">Enviar</button>
@@ -104,7 +74,7 @@ $teste->select_pessoas();
 
 
 	<div class="cartao">
-		<div class="div_foto"><img src="media/images/alpaca.jpg" width="100%" height="100%" class="foto_usuario"></div>
+		<div class="div_foto"></div>
 		<div class="dados_user">
 			<h2><?=$teste->resultado['Nome']?></h2>
 			<div class="descricao"><?=$teste->resultado['Descricao']?></div>

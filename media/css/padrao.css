@@ -15,108 +15,64 @@
       padding: none;
     }
 
-.llama{
+    .llama{
      width: 32px;
-    height: 32px;
-    background: url( 'https://alpack.it/images/loading.png' ) 0 0;
-  background-size:1700%;
-    animation: walk 2s steps( 17, end ) infinite;
-    display:inline-block;
-}
+     height: 32px;
+     background: url( 'https://alpack.it/images/loading.png' ) 0 0;
+     background-size:1700%;
+     animation: walk 2s steps( 17, end ) infinite;
+     display:inline-block;
+   }
 
-    .titulo_padrao {
-    	text-align: center;
-    	margin-bottom: 50px;
-    	color: #d05b4f;
-    	font-weight: 900;
-    }
+   .links_navbar {
+     font-family: Century Gothic;
+   }
 
-    .links_navbar {
-    	font-family: Century Gothic;
-    }
+   
 
-    .forms {
-    	margin: 60px auto 60px auto;
-    	width: 440px;
-    	background-color: white;
-    	padding: 30px;
-    	border: 3px solid #a5404d;
-    	border-radius: 15px;
-    }
+   a:link {
+     font-weight: 900;
+     color: #d05b4f;
+     text-decoration: none;
+   }
 
+   a:hover {
+     font-weight: 900;
+     color: #d05b4f;
+     text-decoration: none;
+   }
 
-    label {
-    	font-weight: 900;
-    	color: #d05b4f;
-    }
+   a:visited {
+    font-weight: 900;
+    color: #d05b4f;
+    text-decoration: none;
+  }
 
-    .inputs {
-    	margin-bottom: 5px;
-    	width: 100%;
-    	height: 40px !important;
-    	outline: none;
-    	border-radius: 5px;
-    	border: 2px solid #a5404d !important;
-    	padding: 10px !important;
-    	font-weight: 900;
-    }
+  footer {
+    width: 100%;
+    font-weight: bold;
+  }
 
-    .btn_padrao {
-    	background-color: #d05b4f !important;
-    	border: 3px solid #a5404d !important;
-    	color: white !important;
-    	font-weight: 800 !important;
-      outline: none !important;
-    }
+  .imgfooter {
+    width: 54px;
+    margin-left: 50px;
+    margin-top: 10px;
+    /*background-color: white;*/
+    padding: 10px;
+  }
 
-    .btn_padrao:hover {
-      background-color: #bc4a57 !important;
-      border: 3px solid #bc4a57 !important;
-    }
-
-    a:link {
-    	font-weight: 900;
-    	color: #d05b4f;
-      text-decoration: none;
-    }
-
-    a:hover {
-    	font-weight: 900;
-    	color: #d05b4f;
-      text-decoration: none;
-    }
-
-    a:visited {
-      font-weight: 900;
-      color: #d05b4f;
-      text-decoration: none;
-    }
-
-    footer {
-      width: 100%;
-      font-weight: bold;
-    }
-
-    .imgfooter {
-      width: 54px;
-      margin-left: 50px;
-      margin-top: 10px;
-      /*background-color: white;*/
-      padding: 10px;
-    }
-
-    #e404 {
-      margin: 80px auto 80px auto;
-      width: 700px;
-      height: 410px;
-      background-color: white;
-      padding: 30px;
-      border: 3px solid #a5404d;
-      border-radius: 15px;
-      text-align: center;
-    }
+  #e404 {
+    margin: 80px auto 80px auto;
+    width: 700px;
+    height: 410px;
+    background-color: white;
+    padding: 30px;
+    border: 3px solid #a5404d;
+    border-radius: 15px;
+    text-align: center;
+  }
 
 
- 
+  
 
 

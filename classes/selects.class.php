@@ -47,15 +47,11 @@ class Selects extends Site {
 
 		if ($this->Aceita_genero = "NI") {$this->Aceita_genero = "";} else {$this->Aceita_genero = "and $this->Aceita_genero";}
 
-		$this->sql = "SELECT * FROM dados_usuario where Fuma = $this->Fuma and Bebe = $this->Bebe and Tem_animal = $this->Tem_animal and Trabalha = $this->Trabalha $this->Aceita_genero and Estuda = $this->Estuda and Aceita_pagar <= $this->Aceita_pagar;";
+		$this->sql = "SELECT * FROM dados_usuario where Fuma = $this->Fuma and Bebe = $this->Bebe and Tem_animal = $this->Tem_animal and Trabalha = $this->Trabalha $this->Aceita_genero and Estuda = $this->Estuda and Aceita_pagar >= $this->Aceita_pagar;";
 
 		if (mysqli_query($this->con, $this->sql)) {
 
 			$this->resultado = mysqli_fetch_array(mysqli_query($this->con, $this->sql));
-
-		} else {
-
-			echo "Não foi";
 
 		}
 
