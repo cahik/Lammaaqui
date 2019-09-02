@@ -3,12 +3,14 @@
 require_once "classes/selects.class.php";
 
 $teste = new Selects();
-$teste->select_pessoas();
 
+if (isset($_POST['Enviar'])) {
+
+	$teste->select_pessoas();
+
+}
 
 ?>
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,50 +25,50 @@ $teste->select_pessoas();
 	<form method="POST">
 
 		Filtros<br><br><br>
+		Caso não marque nenhuma da opções será considerado que não se importa.<br><br><br>
 
-		Pode fumar?<br>
-		<input type="radio" name="Fuma" id="fsim" value="1">
+		Deve fumar?<br>
+		<input type="radio" name="Fuma" id="fsim" value="1" <?php if (isset($_POST['Fuma']) and ($_POST['Fuma'] == "1")) {echo "checked=''";}?>>
 		<label for="fsim">Sim</label>
-		<input type="radio" name="Fuma" id="fnao" value="0">
+		<input type="radio" name="Fuma" id="fnao" value="0" <?php if (isset($_POST['Fuma']) and ($_POST['Fuma'] == "0")) {echo "checked=''";}?>>
 		<label for="fnao">Não</label><br><br><br>
 
-		Pode beber?<br>
-		<input type="radio" name="Bebe" id="bsim" value="1">
+		Deve beber?<br>
+		<input type="radio" name="Bebe" id="bsim" value="1" <?php if (isset($_POST['Bebe']) and ($_POST['Bebe'] == "1")) {echo "checked=''";}?>>
 		<label for="bsim">Sim</label>
-		<input type="radio" name="Bebe" id="bnao" value="0">
+		<input type="radio" name="Bebe" id="bnao" value="0" <?php if (isset($_POST['Bebe']) and ($_POST['Bebe'] == "0")) {echo "checked=''";}?>>
 		<label for="bnao">Não</label><br><br><br>
 
-		Pode ter animais?<br>
-		<input type="radio" name="Tem_animal" id="tasim" value="1">
+		Deve ter animais?<br>
+		<input type="radio" name="Tem_animal" id="tasim" value="1" <?php if (isset($_POST['Tem_animal']) and ($_POST['Tem_animal'] == "1")) {echo "checked=''";}?>>
 		<label for="tasim">Sim</label>
-		<input type="radio" name="Tem_animal" id="tanao" value="0">
+		<input type="radio" name="Tem_animal" id="tanao" value="0" <?php if (isset($_POST['Tem_animal']) and ($_POST['Tem_animal'] == "0")) {echo "checked=''";}?>>
 		<label for="tanao">Não</label><br><br><br>
 
 		Deve trabalhar?<br>
-		<input type="radio" name="Trabalha" id="trsim" value="1">
+		<input type="radio" name="Trabalha" id="trsim" value="1" <?php if (isset($_POST['Trabalha']) and ($_POST['Trabalha'] == "1")) {echo "checked=''";}?>>
 		<label for="trsim">Sim</label>
-		<input type="radio" name="Trabalha" id="trnao" value="0">
+		<input type="radio" name="Trabalha" id="trnao" value="0" <?php if (isset($_POST['Trabalha']) and ($_POST['Trabalha'] == "0")) {echo "checked=''";}?>>
 		<label for="trnao">Não</label><br><br><br>
 
 		Deve estudar?<br>
-		<input type="radio" name="Estuda" id="esim" value="1">
+		<input type="radio" name="Estuda" id="esim" value="1" <?php if (isset($_POST['Estuda']) and ($_POST['Estuda'] == "1")) {echo "checked=''";}?>>
 		<label for="esim">Sim</label>
-		<input type="radio" name="Estuda" id="enao" value="0">
+		<input type="radio" name="Estuda" id="enao" value="0" <?php if (isset($_POST['Estuda']) and ($_POST['Estuda'] == "0")) {echo "checked=''";}?>>
 		<label for="enao">Não</label><br><br><br>
 
 		<select class="select" name="Sexo">
-			<option value="">Sexo</option>
-			<option value="Masculino">Masculino</option>
-			<option value="Feminino">Feminino</option>
-			<option value="NI">Não me importo</option>
+			<option value="Masculino" <?php if (isset($_POST['Sexo']) and ($_POST['Sexo'] == "Masculino")) {echo "selected=''";}?>>Masculino</option>
+			<option value="Feminino" <?php if (isset($_POST['Sexo']) and ($_POST['Sexo'] == "Feminino")) {echo "selected=''";}?>>Feminino</option>
+			<option value="NI" <?php if (isset($_POST['Sexo']) and ($_POST['Sexo'] == "NI")) {echo "selected=''";}?>>Não me importo</option>
 		</select><br><br><br>
 
 		Qual o máximo que deseja pagar?<br><br>
 		<span></span>
 		<input id="Aceita_pagar" type="range" name="Aceita_pagar" 
 		oninput="getElementById('Porcentagem').innerHTML = this.value;" 
-		min="0" max="5000" value="0" step="50" />
-		<span id="Porcentagem">0</span><br><br>
+		min="0" max="5000" value="<?php if (isset($_POST['Aceita_pagar'])) {echo $_POST['Aceita_pagar'];} else {echo 0;}?>" step="50" />
+		<span id="Porcentagem"><?php if (isset($_POST['Aceita_pagar'])) {echo $_POST['Aceita_pagar'];} else {echo 0;}?></span><br><br>
 
 		<button type="submit" name="Enviar">Enviar</button>
 
