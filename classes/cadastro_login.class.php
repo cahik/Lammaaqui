@@ -77,8 +77,11 @@ class Cadastro_login extends Site {
 					// Se conseguir cadastrar
 
 					$_SESSION['logado'] = true;
-					$_SESSION['nome'] = $this->nome;
-					$_SESSION['email'] = $this->email;
+					$_SESSION['dados'] = $resultado;
+
+				} else {
+
+					// Se não for o cadastro
 
 				}
 
@@ -105,12 +108,11 @@ class Cadastro_login extends Site {
 				$resultado = mysqli_fetch_array(mysqli_query($this->con, $sql_login));
 
 
-				if ($resultado['Email'] == $this->email) {
+				if ($resultado['Email'] == $this->email and $resultado['Senha'] == $this->senha) {
 
 				// Se o login funcionar
 					$_SESSION['logado'] = true;
-					$_SESSION['nome'] = $this->nome;
-					$_SESSION['email'] = $this->email;
+					$_SESSION['dados'] = $resultado;
 
 
 				} else {

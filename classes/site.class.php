@@ -13,7 +13,6 @@ class Site {
 	// CONST DB   = "llamaaqu_master";
 
 	protected $con;
-	protected $sess;
 	private $url;
 
 
@@ -37,7 +36,11 @@ class Site {
 
 	protected function session() {
 
-		$this->sess = session_start();
+		if (session_status() !== PHP_SESSION_ACTIVE) {
+			
+			session_start();
+
+		}
 
 		$this->url = $_SERVER["REQUEST_URI"];
 
