@@ -1,0 +1,33 @@
+body{
+    background-color: rebeccapurple;
+}
+
+.card{
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 30px;
+    border-color: firebrick;
+}
+
+
+#like {
+    max-width: 80%;
+
+
+
+}
+
+
+
+#deslike {
+ max-width: 80%;
+
+}
+#foto {
+    border-radius: 100%;
+    border-color: firebrick;
+}
+#botao{
+    border-radius: 100%;
+
+}
