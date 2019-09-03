@@ -1,8 +1,11 @@
 var i = document.querySelectorAll(".cardlike");
 
 //fazer um foreach
+array.forEach(function (i) {
+    i[0].style.display = "block";
+    i[1].style.display = "none";
+});
 
-i[0].style.display = "block";
 
 
 
