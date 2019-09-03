@@ -61,6 +61,7 @@ $b = $a->receber_posts_login();
 
 
             </div>
+
             <div class="col-6 offset-2 text-center">
 
                 <?php
@@ -70,8 +71,9 @@ $b = $a->receber_posts_login();
 
 
                 ?>
-<div class="cardlike">
-                <div class="card">
+
+                <div class="card cardlike " style = "display: none;">
+
                     <div class="card-body ">
                         <h5 class="card-title mb-3"> <?= $b[$chave]['Nome'] ?> </h5>
                         <h6 class="card-subtitle mb-2 text-muted"><img id="foto" src="img/elenice.jpg"></h6>
@@ -97,6 +99,7 @@ $b = $a->receber_posts_login();
     </div>
 
     </div>
+
 
 </content>
 
