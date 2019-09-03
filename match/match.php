@@ -70,7 +70,7 @@ $b = $a->receber_posts_login();
 
 
                 ?>
-
+<div class="cardlike">
                 <div class="card">
                     <div class="card-body ">
                         <h5 class="card-title mb-3"> <?= $b[$chave]['Nome'] ?> </h5>
@@ -92,6 +92,7 @@ $b = $a->receber_posts_login();
             <?php
             }
             ?>
+            </div>
         </div>
     </div>
 
@@ -105,7 +106,7 @@ $b = $a->receber_posts_login();
     <?php require_once "../include/footer.php"; ?>
 </footer>
 
-<script src="index.js"></script>
+<script src="match.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -119,7 +120,5 @@ $b = $a->receber_posts_login();
 </body>
 
 </html>
-
-
 
 
