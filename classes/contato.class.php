@@ -25,10 +25,12 @@ class Contato extends Site {
 
 	private function receber_posts_contato() {
 
-		$this->Nome = $_POST['nome'];
-		$this->Email = $_POST['email'];
-		$this->Assunto = $_POST['assunto'];
-		$this->Mensagem = $_POST['mensagem'];
+		$this->Nome = utf8_encode($_POST['nome']);
+		$this->Email = utf8_encode($_POST['email']);
+		$this->Assunto = utf8_encode($_POST['assunto']);
+		$this->Mensagem = utf8_encode($_POST['mensagem']);
+
+		var_dump(utf8_encode($_POST['nome']));
 
 	}
 
