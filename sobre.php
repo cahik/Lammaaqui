@@ -29,8 +29,38 @@
 </head>
 
 <body>
+<<<<<<< HEAD
+<!--/ Inicio da Nav /-->
+  <nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
+    <div class="container">
+      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault"
+        aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <a class="navbar-brand text-brand" href="index.php">Llama<span class="color-b">Aqui</span></a>
+      <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.php">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="sobre.php">Sobre</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contato.php">Contato</a>
+          </li>
+        </ul>
+      </div>
+      <button type="button" class="btn btn-b-n d-none d-md-block">Login</button>
+    </div>
+  </nav>
+  <!--/ Fim da Nav /-->
+=======
 
  <?php require_once "include/navbar.php"; ?>
+>>>>>>> e0dab37be633de70dc882fdbcfc08d5c967e706f
 
   <!--/ Intro Single star /-->
   <section class="intro-single">
@@ -38,7 +68,7 @@
       <div class="row">
         <div class="col-md-12 col-lg-8">
           <div class="title-single-box">
-            <h1 class="title-single">Um pouco mais sobre nós</h1>
+            <h1 class="title-single">Sobre nós</h1>
           </div>
         </div>
       </div>
@@ -52,7 +82,7 @@
       <div class="row">
         <div class="col-sm-12">
           <div class="about-img-box">
-            <img src="media/images/slide-about-1.jpg" alt="" class="img-fluid">
+            <img src="media/images/cafe.jpg" alt="" class="img-fluid">
           </div>
           <div class="sinse-box">
             <h3 class="sinse-title">Llama Aqui</h3>
@@ -62,7 +92,7 @@
         <div class="col-md-12 section-t8">
           <div class="row">
             <div class="col-md-6 col-lg-5">
-              <img src="media/images/about-2.jpg" alt="" class="img-fluid">
+              <img src="media/images/oculos.jpg" alt="" class="img-fluid">
             </div>
             <div class="col-lg-2  d-none d-lg-block">
               <div class="title-vertical d-flex justify-content-start">
@@ -75,11 +105,7 @@
                   <span class="color-d">Entra21</span> 2019</h3>
               </div>
               <p class="color-text-a">
-                Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vivamus magna justo, lacinia eget
-                consectetur sed, convallis
-                at tellus. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum
-                ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit
-                neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.
+                O projeto 
               </p>
               <p class="color-text-a">
                 Sed porttitor lectus nibh. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.
@@ -210,7 +236,7 @@
       </div>
       <br>
 
-       <div class="row">
+       <div class="row text-center">
         <div class="col-md-4">
           <div class="card-box-d">
             <div class="card-img-d">
