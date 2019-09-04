@@ -21,6 +21,9 @@ class Selects extends Site {
 	private $Aceita_pagar_menos;
 	private $Usuario;
 	private $consulta;
+	private $idade;
+	private $Maior_idade;
+	private $Menor_idade
 	public $resultado;
 
 
@@ -46,6 +49,8 @@ class Selects extends Site {
 		$this->Estuda = $_POST['Estuda'];
 		$this->Aceita_genero = $_POST['Sexo'];
 		$this->Aceita_pagar = $_POST['Aceita_pagar'];
+		$this->Maior_idade = $_POST['maior_idade'];
+		$this->Menor_idade = $_POST['menor_idade'];
 
 	}
 
@@ -83,6 +88,11 @@ class Selects extends Site {
 
 			// Pegando os resultados da query em forma de array.
 			$this->consulta = mysqli_fetch_array(mysqli_query($this->con, $this->sql));
+
+			$nascimento = $this->consulta['Data_nascimento'];
+			$atual = date('Y-m-d');
+			
+			$this->idade = intval($atual) - intval($nascimento);
 
 
 			if ($this->consulta['Aceita_genero'] == $this->Usuario['Sexo'] || $this->consulta['Aceita_genero'] == "Não me importo") {
