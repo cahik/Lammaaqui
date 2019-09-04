@@ -103,7 +103,11 @@ class Selects extends Site {
 
 						if ($this->consulta['Aceita_animais'] == 1 or $this->consulta['Aceita_animais'] == 0 and $this->Usuario['Tem_animal'] == 0) {
 
-							$this->resultado = $this->consulta;
+							if ($this->idade > $this->menor_idade and $this->idade < $this->maior_idade) {
+
+								$this->resultado = $this->consulta;
+
+							}
 
 						}
 
