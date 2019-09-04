@@ -35,66 +35,67 @@ if (isset($_POST['Enviar'])) {
 
   <!-- Main Stylesheet File -->
   <link href="media/css/style.css" rel="stylesheet">
+  <link href="media/css/barra.css" rel="stylesheet">
 </head>
 
 <body>
 
   <?php require_once "include/navbar.php"; ?>
 
- <!--/ Intro Single star /-->
- <section class="intro-single">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 col-lg-8">
-        <div class="title-single-box">
-          <h1 class="title-single">Fale com a gente</h1>        
-        </div>          
-      </div>        
+  <!--/ Intro Single star /-->
+  <section class="intro-single">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-lg-8">
+          <div class="title-single-box">
+            <h1 class="title-single">Fale com a gente</h1>        
+          </div>          
+        </div>        
+      </div>
+    </div>
+  </section>
+  <!--/ Intro Single End /-->
+
+  <!--/ Contact Star /-->
+  <section class="contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7">
+          <form class="form-a" method="post">
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <div class="form-group">
+                  <input type="text" name="nome" class="form-control form-control-lg form-control-a" placeholder="Nome" required="">
+                  <div class="validation"></div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="form-group">
+                  <input name="email" type="email" class="form-control form-control-lg form-control-a" placeholder="Email" required="">
+                  <div class="validation"></div>
+                </div>
+              </div>
+              <div class="col-md-12 mb-3">
+                <div class="form-group">
+                  <input type="text" name="assunto" class="form-control form-control-lg form-control-a" placeholder="Assunto" required="">
+                  <div class="validation"></div>
+                </div>
+              </div>
+              <div class="col-md-12 mb-3">
+                <div class="form-group">
+                  <textarea name="mensagem" class="form-control" name="message" cols="45" rows="8" required="" placeholder="Mensagem"></textarea>
+                  <div class="validation"></div>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <button type="submit" name="Enviar" class="btn btn-a">Enviar Mensagem</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>                    
     </div>
   </div>
-</section>
-<!--/ Intro Single End /-->
-
-<!--/ Contact Star /-->
-<section class="contact">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-7">
-        <form class="form-a" method="post">
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <div class="form-group">
-                <input type="text" name="nome" class="form-control form-control-lg form-control-a" placeholder="Nome" required="">
-                <div class="validation"></div>
-              </div>
-            </div>
-            <div class="col-md-6 mb-3">
-              <div class="form-group">
-                <input name="email" type="email" class="form-control form-control-lg form-control-a" placeholder="Email" required="">
-                <div class="validation"></div>
-              </div>
-            </div>
-            <div class="col-md-12 mb-3">
-              <div class="form-group">
-                <input type="text" name="assunto" class="form-control form-control-lg form-control-a" placeholder="Assunto" required="">
-                <div class="validation"></div>
-              </div>
-            </div>
-            <div class="col-md-12 mb-3">
-              <div class="form-group">
-                <textarea name="mensagem" class="form-control" name="message" cols="45" rows="8" required="" placeholder="Mensagem"></textarea>
-                <div class="validation"></div>
-              </div>
-            </div>
-            <div class="col-md-12">
-              <button type="submit" name="Enviar" class="btn btn-a">Enviar Mensagem</button>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>                    
-  </div>
-</div>
 </div>
 </section>
 <!--/ Fim do formulário /-->

@@ -1,4 +1,3 @@
-<link href="../media/css/style.css" rel="stylesheet">
 <footer class="mt-5">
     <div class="container">
         <div class="row">

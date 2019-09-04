@@ -25,6 +25,7 @@
 
   <!-- Main Stylesheet File -->
   <link href="media/css/style.css" rel="stylesheet">
+  <link href="media/css/barra.css" rel="stylesheet">
 </head>
 
 <body>
