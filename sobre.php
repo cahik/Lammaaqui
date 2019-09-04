@@ -29,38 +29,9 @@
 </head>
 
 <body>
-<<<<<<< HEAD
-<!--/ Inicio da Nav /-->
-  <nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
-    <div class="container">
-      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault"
-        aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <a class="navbar-brand text-brand" href="index.php">Llama<span class="color-b">Aqui</span></a>
-      <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="index.php">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="sobre.php">Sobre</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contato.php">Contato</a>
-          </li>
-        </ul>
-      </div>
-      <button type="button" class="btn btn-b-n d-none d-md-block">Login</button>
-    </div>
-  </nav>
-  <!--/ Fim da Nav /-->
-=======
 
  <?php require_once "include/navbar.php"; ?>
->>>>>>> e0dab37be633de70dc882fdbcfc08d5c967e706f
+
 
   <!--/ Intro Single star /-->
   <section class="intro-single">
@@ -105,13 +76,16 @@
                   <span class="color-d">Entra21</span> 2019</h3>
               </div>
               <p class="color-text-a">
-                O projeto 
+                O Entra 21 se originou pela necessidade de profissionais qualificados no setor de informática do Vale do Itajaí. Para essa qualificação era preciso existir uma formação.
               </p>
               <p class="color-text-a">
-                Sed porttitor lectus nibh. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.
-                Mauris blandit aliquet
-                elit, eget tincidunt nibh pulvinar a. Vivamus magna justo, lacinia eget consectetur sed,
-                convallis at tellus.
+                O projeto é financiado por empresas e instituições que acreditam no potencial dos jovens blumenauenses e estes são beneficiados e encaminhados, na maior parte das vezes, para empregos. A demanda é imediata.
+              </p>
+              <p class="color-text-a">
+                 Nosso site surgiu com o intuito de promover encontros entre pessoas que buscam dividir os custos de moradia, respeitando os interesses e as necessidades de cada um.
+              </p>
+              <p class="color-text-a">
+                O resultado da busca dos perfis aparece por meio de filtros de pesquisa e se for de interesse de ambos, poderão se conectar e conversar via chat. Experamos que você encontre o que busca!                
               </p>
             </div>
           </div>
