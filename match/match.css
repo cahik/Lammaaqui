@@ -32,3 +32,39 @@ content{
     border-radius: 100%;
 
 }
+::-webkit-scrollbar {
+    scroll-margin-right: 10px!important;
+    background-color: #0b2e13;
+    height: 20px;
+}
+#jp {
+    background-color: yellow;
+    border-radius: 2px;
+}
+input[type=range] {
+    -webkit-appearance: none;
+    appearance: none;
+    display: inline-block;
+
+height: 5px;
+    position: relative;
+
+    border-radius: 5px;
+    background-color: yellow;
+    outline: none;
+}
+
+input[type=range]::-webkit-slider-thumb{
+    border-radius: 50%;
+}
+#Aceita_pagar::-webkit-slider-thumb{
+
+    all:unset; /* limpa os estilos iniciais */
+    -webkit-appearance: none; /* remove a aparencia padão */
+    border: none;
+
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: yellow;
+}
