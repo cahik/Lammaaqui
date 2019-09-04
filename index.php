@@ -34,7 +34,7 @@
   <!--/ Carousel /-->
   <div class="intro intro-carousel">
     <div id="carousel" class="owl-carousel owl-theme">
-      <div class="carousel-item-a intro-item bg-image" style="background-image: url(media/images/slide-1.jpg)">
+      <div class="carousel-item-a intro-item bg-image" style="background-image: url(media/images/cozinha.jpg)">
         <div class="overlay overlay-a"></div>
         <div class="intro-content display-table">
           <div class="table-cell">
@@ -57,7 +57,7 @@
           </div>
         </div>
       </div>
-      <div class="carousel-item-a intro-item bg-image" style="background-image: url(media/images/slide-2.jpg)">
+      <div class="carousel-item-a intro-item bg-image" style="background-image: url(media/images/cama.jpg)">
         <div class="overlay overlay-a"></div>
         <div class="intro-content display-table">
           <div class="table-cell">
@@ -80,7 +80,7 @@
           </div>
         </div>
       </div>
-      <div class="carousel-item-a intro-item bg-image" style="background-image: url(media/images/slide-3.jpg)">
+      <div class="carousel-item-a intro-item bg-image" style="background-image: url(media/images/salona.jpg)">
         <div class="overlay overlay-a"></div>
         <div class="intro-content display-table">
           <div class="table-cell">
