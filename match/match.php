@@ -2,18 +2,10 @@
 
 require_once "../classes/selects.class.php";
 
-$teste = new Selects();
+require_once "../classes/selects.class.php";
 
-if (isset($_POST['Enviar'])) {
-
-    $teste->select_pessoas();
-
-}
-
-
-require_once "match.class.php";
-$a = new match();
-$b = $a->receber_posts_login();
+$a = new Selects();
+$a->select_pessoas();
 
 
 ?>
@@ -23,10 +15,14 @@ $b = $a->receber_posts_login();
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="match.css">
-    <link rel="stylesheet" type="text/css" href="media/css/padrao.css">
-    <link rel="stylesheet" type="text/css" href="media/css/busca.css">
-    <link rel="stylesheet" type="text/css" href="media/css/media.css">
+    <link href="match.css" rel="stylesheet" >
+
+    <link href="../media/css/busca.css" rel="stylesheet" type="text/css" >
+
+    <link href="../media/css/style.css" rel="stylesheet" type="text/css">
+    <link href="../media/css/barra.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+
     <title>Tinder</title>
 </head>
 
@@ -36,12 +32,12 @@ $b = $a->receber_posts_login();
 
 
 <content>
-    <br><br><br><br><br><br>
-    <div class="container-fluid ">
+<br><br><br><br><br>
+    <div class="container-fluid mt-2">
 
         <div class="row">
             <div class=" col-2 ">
-                <div class="card mb-5 text-center" style="max-height: 30rem;  ">
+                <div class="card mb-5 text-center" style="max-height: 32rem;  "id="filtros">
                     <div class="card-body" style="overflow: auto;  ">
 
                         <form method="POST">
@@ -129,7 +125,7 @@ $b = $a->receber_posts_login();
                                     echo $_POST['Aceita_pagar'];
                                 } else {
                                     echo 0;
-                                } ?></span>
+                                } ?></span><br>
                             <input id="Aceita_pagar" type="range" name="Aceita_pagar"
                                    oninput="getElementById('Porcentagem').innerHTML = this.value;"
                                    min="0" max="5000" value="<?php if (isset($_POST['Aceita_pagar'])) {
@@ -145,13 +141,6 @@ $b = $a->receber_posts_login();
                         </form>
 
 
-                        <div class="cartao">
-                            <div class="div_foto"></div>
-                            <div class="dados_user">
-                                <h2><?= $teste->resultado['Nome'] ?></h2>
-                                <div class="descricao"><?= $teste->resultado['Descricao'] ?></div>
-                            </div>
-                        </div>
 
 
                         <script type="text/javascript">
@@ -175,7 +164,7 @@ $b = $a->receber_posts_login();
             <div class="col-6 offset-2 text-center">
 
                 <?php
-                foreach ($b
+                foreach ($a->resultado
 
                 as $chave => $valor) {
 
@@ -185,14 +174,14 @@ $b = $a->receber_posts_login();
                 <div class="card cardlike " style="display: none;">
 
                     <div class="card-body ">
-                        <h5 class="card-title mb-3"> <?= $b[$chave]['Nome'] ?> </h5>
+                        <h1 class="card-title mb-3"> <?= $a->resultado['Nome'] ?> </h1>
                         <h6 class="card-subtitle mb-2 text-muted"><img id="foto" src="img/elenice.jpg"></h6>
-                        <p class="card-text"><?= $b[$chave]['Descricao'] ?></p>
-                        <div id="botao"
+                        <p class="card-text"><?= $a->resultado['Descricao'] ?></p>
+                        <div id="botao">
                         <button type="buttton" name="usuario_deu" class="btn" onclick="like()"><img id="like"
                                                                                                     src="img/like.png">
                         </button>
-                        <button type="button" name="bntdeslike" class="btn" onclick="deslike()"><img id="deslike"
+                        <button type="button" name="bntdeslike" class="btn " onclick="deslike()"><img id="deslike"
                                                                                                      src="img/dislike.png">
                         </button>
                     </div>

@@ -1,18 +1,16 @@
-content{
-    background-color: lavenderblush;
-}
 
 .card{
     margin-left: auto;
     margin-right: auto;
-    border-radius: 30px;
-    border-color: yellow;
+    border-radius: 10px;
+    border-color: #ebbf31;
+    padding: 10px;
 
 }
 
 
 #like {
-    max-width: 80%;
+    max-width: 60%;
 
 
 
@@ -21,7 +19,7 @@ content{
 
 
 #deslike {
- max-width: 80%;
+ max-width: 60%;
 
 }
 #foto {
@@ -32,13 +30,13 @@ content{
     border-radius: 100%;
 
 }
-::-webkit-scrollbar {
-    scroll-margin-right: 10px!important;
-    background-color: #0b2e13;
-    height: 20px;
-}
+/*::-webkit-scrollbar {*/
+/*    scroll-margin-right: 10px!important;*/
+/*    background-color: #0b2e13;*/
+/*    height: 20px;*/
+/*}*/
 #jp {
-    background-color: yellow;
+    background-color:#ebbf31;
     border-radius: 2px;
 }
 input[type=range] {
@@ -50,7 +48,7 @@ height: 5px;
     position: relative;
 
     border-radius: 5px;
-    background-color: yellow;
+    background-color: #ebbf31;
     outline: none;
 }
 
@@ -66,5 +64,9 @@ input[type=range]::-webkit-slider-thumb{
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: yellow;
+    background: #ebbf31;
+}
+#filtros {
+    height: auto;
+    width: 250px;
 }
