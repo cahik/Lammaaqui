@@ -1,3 +1,14 @@
+<?php
+
+require_once "classes/contato.class.php";
+
+$Mandar_contato = new Contato();
+
+if (isset($_POST['Enviar'])) {
+  $Mandar_contato->mandar_mensagem();
+}
+
+?>
 <!DOCTYPE html>
 <head>
   <meta charset="utf-8">
@@ -27,87 +38,83 @@
 </head>
 
 <body>
- 
- <?php require_once "include/navbar.php"; ?>
 
-  <!--/ Intro Single star /-->
-  <section class="intro-single">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 col-lg-8">
-          <div class="title-single-box">
-            <h1 class="title-single">Fale com a gente</h1>        
-          </div>          
-        </div>        
-      </div>
+  <?php require_once "include/navbar.php"; ?>
+
+ <!--/ Intro Single star /-->
+ <section class="intro-single">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-lg-8">
+        <div class="title-single-box">
+          <h1 class="title-single">Fale com a gente</h1>        
+        </div>          
+      </div>        
     </div>
-  </section>
-  <!--/ Intro Single End /-->
+  </div>
+</section>
+<!--/ Intro Single End /-->
 
-  <!--/ Contact Star /-->
-  <section class="contact">
-    <div class="container">
+<!--/ Contact Star /-->
+<section class="contact">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+        <form class="form-a" method="post">
           <div class="row">
-            <div class="col-md-7">
-              <form class="form-a contactForm" action="" method="post" role="form">
-                <div id="sendmessage">Your message has been sent. Thank you!</div>
-                <div id="errormessage"></div>
-                <div class="row">
-                  <div class="col-md-6 mb-3">
-                    <div class="form-group">
-                      <input type="text" name="name" class="form-control form-control-lg form-control-a" placeholder="Nome" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-                      <div class="validation"></div>
-                    </div>
-                  </div>
-                  <div class="col-md-6 mb-3">
-                    <div class="form-group">
-                      <input name="email" type="email" class="form-control form-control-lg form-control-a" placeholder="Email" data-rule="email" data-msg="Please enter a valid email">
-                      <div class="validation"></div>
-                    </div>
-                  </div>
-                  <div class="col-md-12 mb-3">
-                    <div class="form-group">
-                      <input type="text" name="subject" class="form-control form-control-lg form-control-a" placeholder="Assunto" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject">
-                      <div class="validation"></div>
-                    </div>
-                  </div>
-                  <div class="col-md-12 mb-3">
-                    <div class="form-group">
-                      <textarea name="message" class="form-control" name="message" cols="45" rows="8" data-rule="required" data-msg="Please write something for us" placeholder="Mensagem"></textarea>
-                      <div class="validation"></div>
-                    </div>
-                  </div>
-                  <div class="col-md-12">
-                    <button type="submit" class="btn btn-a">Enviar Mensagem</button>
-                  </div>
-                </div>
-              </form>
+            <div class="col-md-6 mb-3">
+              <div class="form-group">
+                <input type="text" name="nome" class="form-control form-control-lg form-control-a" placeholder="Nome" required="">
+                <div class="validation"></div>
+              </div>
             </div>
-           </div>                    
-        </div>
+            <div class="col-md-6 mb-3">
+              <div class="form-group">
+                <input name="email" type="email" class="form-control form-control-lg form-control-a" placeholder="Email" required="">
+                <div class="validation"></div>
+              </div>
+            </div>
+            <div class="col-md-12 mb-3">
+              <div class="form-group">
+                <input type="text" name="assunto" class="form-control form-control-lg form-control-a" placeholder="Assunto" required="">
+                <div class="validation"></div>
+              </div>
+            </div>
+            <div class="col-md-12 mb-3">
+              <div class="form-group">
+                <textarea name="mensagem" class="form-control" name="message" cols="45" rows="8" required="" placeholder="Mensagem"></textarea>
+                <div class="validation"></div>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <button type="submit" name="Enviar" class="btn btn-a">Enviar Mensagem</button>
+            </div>
+          </div>
+        </form>
       </div>
-    </div>
-  </section>
-  <!--/ Fim do formulário /-->
+    </div>                    
+  </div>
+</div>
+</div>
+</section>
+<!--/ Fim do formulário /-->
 
-   <?php require_once "include/footer.php"; ?>
+<?php require_once "include/footer.php"; ?>
 
-  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-  <div id="preloader"></div>
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+<div id="preloader"></div>
 
-  <!-- JavaScript Libraries -->
-  <script src="lib/jquery/jquery.min.js"></script>
-  <script src="lib/jquery/jquery-migrate.min.js"></script>
-  <script src="lib/popper/popper.min.js"></script>
-  <script src="lib/bootstrap/js/bootstrap.min.js"></script>
-  <script src="lib/easing/easing.min.js"></script>
-  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-  <script src="lib/scrollreveal/scrollreveal.min.js"></script>
-  <!-- Contact Form JavaScript File -->
-  <script src="contactform/contactform.js"></script>
+<!-- JavaScript Libraries -->
+<script src="lib/jquery/jquery.min.js"></script>
+<script src="lib/jquery/jquery-migrate.min.js"></script>
+<script src="lib/popper/popper.min.js"></script>
+<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="lib/easing/easing.min.js"></script>
+<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="lib/scrollreveal/scrollreveal.min.js"></script>
 
-  <!-- Template Main Javascript File -->
-  <script src="media/js/main.js"></script>
+<!-- Template Main Javascript File -->
+<script src="media/js/main.js"></script>
 
 </body>
 </html>
