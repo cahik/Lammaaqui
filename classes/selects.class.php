@@ -20,6 +20,7 @@ class Selects extends Site {
 	private $Aceita_pagar_mais;
 	private $Aceita_pagar_menos;
 	private $Usuario;
+	private $consulta;
 	public $resultado;
 
 
@@ -81,12 +82,24 @@ class Selects extends Site {
 		if (mysqli_query($this->con, $this->sql)) {
 
 			// Pegando os resultados da query em forma de array.
-			$this->resultado = mysqli_fetch_array(mysqli_query($this->con, $this->sql));
+			$this->consulta = mysqli_fetch_array(mysqli_query($this->con, $this->sql));
 
 
-			if ($this->resultado['Aceita_genero'] == $this->Usuario['Sexo'] || $this->resultado['Aceita_genero'] == "Não me importo") {
+			if ($this->consulta['Aceita_genero'] == $this->Usuario['Sexo'] || $this->consulta['Aceita_genero'] == "Não me importo") {
 
-				echo "Foii";
+				if ($this->consulta['Aceita_fumar'] == 1 or $this->consulta['Aceita_fumar'] == 0 and $this->Usuario['Fuma'] == 0) {
+
+					if ($this->consulta['Aceita_beber'] == 1 or $this->consulta['Aceita_beber'] == 0 and $this->Usuario['Bebe'] == 0) {
+
+						if ($this->consulta['Aceita_animais'] == 1 or $this->consulta['Aceita_animais'] == 0 and $this->Usuario['Tem_animal'] == 0) {
+
+							$this->resultado = $this->consulta;
+
+						}
+
+					}
+
+				}
 
 			}
 
