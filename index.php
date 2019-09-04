@@ -27,33 +27,8 @@
 </head>
 
 <body>
-  <!--/ Inicio da Nav /-->
-  <nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
-    <div class="container">
-      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault"
-        aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <a class="navbar-brand text-brand" href="index.php">Llama<span class="color-b">Aqui</span></a>
-      <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-links" href="index.php">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="sobre.php">Sobre</a>
-          </li>          
-          <li class="nav-item">
-            <a class="nav-link" href="contato.php">Contato</a>
-          </li>
-        </ul>
-      </div>
-      <button type="button" class="btn btn-b-n d-none d-md-block">Login</button>
-    </div>
-  </nav>
-  <!--/ Fim da Nav /-->
+ 
+  <?php require_once "include/navbar.php"; ?>
 
   <!--/ Carousel /-->
   <div class="intro intro-carousel">
@@ -208,35 +183,7 @@
  
 
   
-  <!--/ footer Star /-->
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <nav class="nav-footer">
-            <ul class="list-inline">
-              <li class="list-inline-item">
-                <a href="#">Home</a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">Sobre</a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">Contato</a>
-              </li>              
-            </ul>
-          </nav>
-
-          <div class="copyright-footer">
-            <p class="copyright color-text-a">
-              Desenvolvido com muita dedicação e café pelos alunos do curso de Programação em PHP
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <!--/ Footer End /-->
+   <?php require_once "include/footer.php"; ?>
 
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
   <div id="preloader"></div>
