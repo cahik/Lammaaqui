@@ -74,7 +74,7 @@ class Selects extends Site {
 
 
 		// Montando o SQL, não deve ser adicionado "AND", a não ser que seja um caso especial, e pelo amor de Odin, não aperte "Enter" pra quebrar a linha.
-		$this->sql = "SELECT * FROM dados_usuario where $this->Aceita_genero $this->Fuma $this->Bebe $this->Tem_animal $this->Trabalha  $this->Estuda Aceita_pagar <= $this->Aceita_pagar;";
+		$this->sql = "SELECT * FROM dados_usuario WHERE $this->Aceita_genero $this->Fuma $this->Bebe $this->Tem_animal $this->Trabalha  $this->Estuda Aceita_pagar <= $this->Aceita_pagar;";
 
 		$this->Usuario = $_SESSION['dados'];
 

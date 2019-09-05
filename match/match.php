@@ -1,5 +1,5 @@
 <?php
-error_reporting(0);
+error_reporting();
 require_once "../classes/selects.class.php";
 
 require_once "../classes/selects.class.php";
