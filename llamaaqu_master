@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 30-Ago-2019 às 14:20
+-- Generation Time: 05-Set-2019 às 14:12
 -- Versão do servidor: 10.1.32-MariaDB
 -- PHP Version: 7.2.5
 
@@ -21,8 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `llamaaqu_master`
 --
-CREATE DATABASE IF NOT EXISTS `llamaaqu_master` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `llamaaqu_master`;
 
 -- --------------------------------------------------------
 
@@ -5611,6 +5609,30 @@ INSERT INTO `cidade` (`Id`, `Nome`, `Estado`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `contato`
+--
+
+CREATE TABLE `contato` (
+  `Id` int(11) NOT NULL,
+  `Nome` varchar(255) DEFAULT NULL,
+  `Email` varchar(255) DEFAULT NULL,
+  `Assunto` varchar(255) DEFAULT NULL,
+  `Mensagem` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `contato`
+--
+
+INSERT INTO `contato` (`Id`, `Nome`, `Email`, `Assunto`, `Mensagem`) VALUES
+(1, 'João', 'joaozinho@gmail.com', 'Reclamação', 'Isso tá ótimo'),
+(2, 'João', 'joaozinho@gmail.com', 'Reclamação', 'Isso tá ótimo'),
+(3, 'João', 'joaozinho@gmail.com', 'Reclamação', 'Isso tá ótimo'),
+(4, 'João', 'joaozinho@gmail.com', 'Reclamação', 'Isso tá ótimo');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `dados_usuario`
 --
 
@@ -5635,13 +5657,21 @@ CREATE TABLE `dados_usuario` (
   `Bebe` tinyint(1) DEFAULT NULL,
   `Aceita_beber` tinyint(1) DEFAULT NULL,
   `Tem_animal` tinyint(1) DEFAULT NULL,
-  `Quais_animais` varchar(40) DEFAULT NULL,
   `Aceita_animais` tinyint(1) DEFAULT NULL,
   `Trabalha` tinyint(1) DEFAULT NULL,
   `Estuda` tinyint(1) DEFAULT NULL,
   `Aceita_genero` enum('Masculino','Feminino','Não me importo') DEFAULT NULL,
   `Aceita_pagar` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `dados_usuario`
+--
+
+INSERT INTO `dados_usuario` (`Id`, `Conta_verificada`, `Nome`, `Descricao`, `Email`, `Senha`, `Sexo`, `Data_nascimento`, `Telefone`, `Celular`, `Cep`, `Rua`, `Id_cidade`, `Id_pais`, `Id_estado`, `Fuma`, `Aceita_fumar`, `Bebe`, `Aceita_beber`, `Tem_animal`, `Aceita_animais`, `Trabalha`, `Estuda`, `Aceita_genero`, `Aceita_pagar`) VALUES
+(1, 0, 'Elecine', 'Tenho os melhores semi-filmes', 'elenice@paterno.terra.pt', '1548', 'Feminino', '1992-12-05', 564654, 65468, 68468445, 'Legal', 1, 2, 8, 1, 1, 0, 0, 1, 1, 0, 1, 'Masculino', 200),
+(2, 0, 'Gustavo', 'Sou foda, eu, eu sou sinistro, tum tum tum tum', 'vergiliopoleza@gmail.com', '123', 'Masculino', '2003-05-18', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 'Feminino', 1500),
+(3, 0, 'Juninho', NULL, 'junior@gmail.com', '123', 'Masculino', '2001-12-05', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 'Não me importo', 1500);
 
 -- --------------------------------------------------------
 
@@ -5970,6 +6000,12 @@ ALTER TABLE `cidade`
   ADD KEY `fk_Cidade_estado` (`Estado`);
 
 --
+-- Indexes for table `contato`
+--
+ALTER TABLE `contato`
+  ADD PRIMARY KEY (`Id`);
+
+--
 -- Indexes for table `dados_usuario`
 --
 ALTER TABLE `dados_usuario`
@@ -6001,10 +6037,16 @@ ALTER TABLE `cidade`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5565;
 
 --
+-- AUTO_INCREMENT for table `contato`
+--
+ALTER TABLE `contato`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `dados_usuario`
 --
 ALTER TABLE `dados_usuario`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `estado`

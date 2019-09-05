@@ -320,7 +320,7 @@ iframe {
   background: transparent;
   font-family: Montserrat-Regular;
   font-size: 18px;
-  color: #555555;
+  /*color: #555555;*/
   line-height: 1.2;
   padding: 0 26px;
 }
@@ -390,6 +390,11 @@ input.input100 {
 .input100:focus + .focus-input100 + .label-input100 {
   top: 14px;
   font-size: 13px;
+}
+
+.input100:hover {
+  background: lightyellow ;
+  
 }
 
 .has-val {
@@ -478,7 +483,7 @@ input.input100 {
   width: 100%;
   height: 50px;
   border-radius: 10px;
-  background: #6675df;
+  background: #ebbf31;
 
   font-family: Montserrat-Bold;
   font-size: 12px;
@@ -494,7 +499,7 @@ input.input100 {
 }
 
 .login100-form-btn:hover {
-  background: #333333;
+  background: lightyellow;
 }
 
 

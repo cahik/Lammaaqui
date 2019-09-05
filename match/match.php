@@ -1,11 +1,14 @@
 <?php
-
+error_reporting(0);
 require_once "../classes/selects.class.php";
 
 require_once "../classes/selects.class.php";
 
 $a = new Selects();
 $a->select_pessoas();
+
+//var_dump($a->resultado);
+//die();
 
 
 ?>
@@ -15,9 +18,9 @@ $a->select_pessoas();
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="match.css" rel="stylesheet" >
+    <link href="match.css" rel="stylesheet">
 
-    <link href="../media/css/busca.css" rel="stylesheet" type="text/css" >
+    <link href="../media/css/busca.css" rel="stylesheet" type="text/css">
 
     <link href="../media/css/style.css" rel="stylesheet" type="text/css">
     <link href="../media/css/barra.css" rel="stylesheet" type="text/css">
@@ -32,12 +35,12 @@ $a->select_pessoas();
 
 
 <content>
-<br><br><br><br><br>
+    <br><br><br><br><br><br><br>
     <div class="container-fluid mt-2">
 
         <div class="row">
             <div class=" col-2 ">
-                <div class="card mb-5 text-center" style="max-height: 32rem;  "id="filtros">
+                <div class="card mb-5 text-center" style="max-height: 32rem;  " id="filtros">
                     <div class="card-body" style="overflow: auto;  ">
 
                         <form method="POST">
@@ -134,13 +137,11 @@ $a->select_pessoas();
                                 echo 0;
                             } ?>" step="50"/>
 
-                           <br><br>
+                            <br><br>
 
                             <button type="submit" name="Enviar" class="btn-block" id="jp">Enviar</button>
 
                         </form>
-
-
 
 
                         <script type="text/javascript">
@@ -164,37 +165,35 @@ $a->select_pessoas();
             <div class="col-6 offset-2 text-center">
 
                 <?php
-                foreach ($a->resultado
-
-                as $chave => $valor) {
+                foreach ($a->resultado as $chave => $valor) {
 
 
-                ?>
+                    ?>
 
-                <div class="card cardlike " style="display: none;">
+                    <div class="card cardlike  card_<?=$chave?>" data-numero="<?=$chave?>" style="display: none;">
 
-                    <div class="card-body ">
-                        <h1 class="card-title mb-3"> <?= $a->resultado['Nome'] ?> </h1>
-                        <h6 class="card-subtitle mb-2 text-muted"><img id="foto" src="img/elenice.jpg"></h6>
-                        <p class="card-text"><?= $a->resultado['Descricao'] ?></p>
-                        <div id="botao">
-                        <button type="buttton" name="usuario_deu" class="btn" onclick="like()"><img id="like"
-                                                                                                    src="img/like.png">
-                        </button>
-                        <button type="button" name="bntdeslike" class="btn " onclick="deslike()"><img id="deslike"
-                                                                                                     src="img/dislike.png">
-                        </button>
+                        <div class="card-body ">
+                            <h1 class="card-title mb-3"> <?= $a->resultado[$chave]['Nome'] ?> </h1>
+                            <h6 class="card-subtitle mb-2 text-muted"><img id="foto" src="img/elenice.jpg"></h6>
+                            <p class="card-text"><?= $a->resultado[$chave] ['Descricao'] ?></p>
+                            <div id="botao">
+                                <button type="buttton" name="usuario_deu" class="btn btnlike" onclick="like()"><img
+                                            src="img/like.png">
+                                </button>
+                                <button type="button" name="bntdeslike" class="btn btndeslike" onclick="deslike()"><img
+                                            src="img/dislike.png">
+                                </button>
+                            </div>
+
+                        </div>
                     </div>
 
-                </div>
+
+                    <?php
+                }
+                ?>
             </div>
-
-
-            <?php
-            }
-            ?>
         </div>
-    </div>
     </div>
 
     </div>
@@ -203,22 +202,20 @@ $a->select_pessoas();
 </content>
 
 
+<?php require_once "../include/footer.php"; ?>
 
 
-    <?php require_once "../include/footer.php"; ?>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
 
-<script src="match.js"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-
+<script src="match.js"></script>
 </body>
 
 </html>

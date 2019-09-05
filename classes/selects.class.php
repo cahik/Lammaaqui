@@ -17,13 +17,11 @@ class Selects extends Site {
 	private $Estuda;
 	private $Aceita_genero;
 	private $Aceita_pagar;
-	private $Aceita_pagar_mais;
-	private $Aceita_pagar_menos;
 	private $Usuario;
 	private $consulta;
 	private $idade;
 	private $Maior_idade;
-	private $Menor_idade
+	private $Menor_idade;
 	public $resultado;
 
 
@@ -74,12 +72,9 @@ class Selects extends Site {
 
 		if (!isset($this->Estuda)) {$this->Estuda = "";} else {$this->Estuda = "Estuda = '$this->Estuda' and";}
 
-		$this->Aceita_pagar_mais = $this->Aceita_pagar + 100;
-		$this->Aceita_pagar_menos = $this->Aceita_pagar - 100;
-
 
 		// Montando o SQL, não deve ser adicionado "AND", a não ser que seja um caso especial, e pelo amor de Odin, não aperte "Enter" pra quebrar a linha.
-		$this->sql = "SELECT * FROM dados_usuario where $this->Aceita_genero $this->Fuma $this->Bebe $this->Tem_animal $this->Trabalha  $this->Estuda Aceita_pagar <= $this->Aceita_pagar_mais and Aceita_pagar >= $this->Aceita_pagar_menos;";
+		$this->sql = "SELECT * FROM dados_usuario where $this->Aceita_genero $this->Fuma $this->Bebe $this->Tem_animal $this->Trabalha  $this->Estuda Aceita_pagar <= $this->Aceita_pagar;";
 
 		$this->Usuario = $_SESSION['dados'];
 
@@ -87,7 +82,7 @@ class Selects extends Site {
 		if (mysqli_query($this->con, $this->sql)) {
 
 			// Pegando os resultados da query em forma de array.
-			$this->consulta = mysqli_fetch_array(mysqli_query($this->con, $this->sql));
+			$this->consulta = mysqli_fetch_all(mysqli_query($this->con, $this->sql), MYSQLI_ASSOC);
 
 			$nascimento = $this->consulta['Data_nascimento'];
 			$atual = date('Y-m-d');

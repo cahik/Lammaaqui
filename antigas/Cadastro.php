@@ -5,6 +5,8 @@ require_once "classes/cadastro_login.class.php";
 $Executar_cadastro = new Cadastro_login();
 $Executar_cadastro->cadastrar();
 
+
+var_dump($_SESSION['logado']);
 ?>
 
 
