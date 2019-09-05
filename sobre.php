@@ -118,7 +118,7 @@
               <div class="card-header-d">
                 <div class="card-title-d align-self-center">
                   <h3 class="title-d">
-                    <a href="agent-single.html" class="link-two">Cahik Matos</a>
+                    <a href="" class="link-two">Cahik Matos</a>
                   </h3>
                 </div>
               </div>
@@ -131,8 +131,8 @@
                 <div class="socials-footer d-flex justify-content-center">
                   <ul class="list-inline">
                     <li class="list-inline-item">
-                      <a href="#" class="link-one">
-                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                      <a href="https://www.linkedin.com/in/cahik-matos-2725a657/" class="link-one">
+                        <img class="linkedin" src="media/images/linkedin.png">
                       </a>
                     </li>
                   </ul>
@@ -163,8 +163,8 @@
                 <div class="socials-footer d-flex justify-content-center">
                   <ul class="list-inline">
                     <li class="list-inline-item">
-                      <a href="#" class="link-one">
-                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                      <a href="https://www.linkedin.com/in/elenicempaterno/" class="link-one">
+                        <img class="linkedin" src="media/images/linkedin.png">
                       </a>
                     </li>
                   </ul>
@@ -183,7 +183,7 @@
               <div class="card-header-d">
                 <div class="card-title-d align-self-center">
                   <h3 class="title-d">
-                    <a href="agent-single.html" class="link-two">Gustavo Poleza</a>
+                    <a href="" class="link-two">Gustavo Poleza</a>
                   </h3>
                 </div>
               </div>
@@ -197,8 +197,8 @@
                   <ul class="list-inline">
 
                     <li class="list-inline-item">
-                      <a href="#" class="link-one">
-                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                      <a href="https://www.linkedin.com/in/gustavo-vergilio-aa2a8217b/" class="link-one">
+                        <img class="linkedin" src="media/images/linkedin.png">
                       </a>
                     </li>
                   </ul>
@@ -211,7 +211,7 @@
       <br>
 
        <div class="row text-center">
-        <div class="col-md-4 offset-2">
+        <div class="col-md-4 offset-md-2">
           <div class="card-box-d">
             <div class="card-img-d">
               <img src="media/images/quarto.jpg" alt="" class="img-d img-fluid">
@@ -220,12 +220,12 @@
               <div class="card-header-d">
                 <div class="card-title-d align-self-center">
                   <h3 class="title-d">
-                    <a class="link-two">Louyza</a>
+                    <a style="text-align: left !important;" class="link-two">Louyza Duarte</a>
                   </h3>
                 </div>
               </div>
               <div class="card-body-d">
-                <p class="content-d color-text-a">
+                <p style="text-align: left !important;" class="content-d color-text-a">
                   Sed porttitor lectus nibh, Cras ultricies ligula sed magna dictum porta two.
                 </p>
               </div>
@@ -234,7 +234,7 @@
                   <ul class="list-inline">
                     <li class="list-inline-item">
                       <a href="#" class="link-one">
-                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                       <img class="linkedin" src="media/images/linkedin.png">
                       </a>
                     </li>
                   </ul>
@@ -255,12 +255,12 @@
               <div class="card-header-d">
                 <div class="card-title-d align-self-center">
                   <h3 class="title-d">
-                    <a class="link-two">Lucas Vinter</a>
+                    <a style="text-align: left !important; " class="link-two">Lucas Vinter</a>
                   </h3>
                 </div>
               </div>
               <div class="card-body-d">
-                <p class="content-d color-text-a">
+                <p style="text-align: left !important;" class="content-d color-text-a">
                   Sed porttitor lectus nibh, Cras ultricies ligula sed magna dictum porta two.
                 </p>
               </div>
@@ -268,8 +268,8 @@
                 <div class="socials-footer d-flex justify-content-center">
                   <ul class="list-inline">
                     <li class="list-inline-item">
-                      <a href="#" class="link-one">
-                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                      <a href="https://www.linkedin.com/in/lucas-vinter-3b7a67185/" class="link-one">
+                       <img class="linkedin" src="media/images/linkedin.png">
                       </a>
                     </li>
                   </ul>
