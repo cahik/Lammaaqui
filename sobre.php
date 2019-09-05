@@ -112,7 +112,7 @@
         <div class="col-md-4">
           <div class="card-box-d">
             <div class="card-img-d">
-              <img src="media/images/agent-7.jpg" alt="" class="img-d img-fluid">
+              <img src="media/images/quarto.jpg" alt="" class="img-d img-fluid">
             </div>
             <div class="card-overlay card-overlay-hover">
               <div class="card-header-d">
@@ -144,7 +144,7 @@
         <div class="col-md-4">
           <div class="card-box-d">
             <div class="card-img-d">
-              <img src="media/images/agent-6.jpg" alt="" class="img-d img-fluid">
+              <img src="media/images/quarto.jpg" alt="" class="img-d img-fluid">
             </div>
             <div class="card-overlay card-overlay-hover">
               <div class="card-header-d">
@@ -177,7 +177,7 @@
         <div class="col-md-4">
           <div class="card-box-d">
             <div class="card-img-d">
-              <img src="media/images/agent-5.jpg" alt="" class="img-d img-fluid">
+              <img src="media/images/quarto.jpg" alt="" class="img-d img-fluid">
             </div>
             <div class="card-overlay card-overlay-hover">
               <div class="card-header-d">
@@ -211,10 +211,10 @@
       <br>
 
        <div class="row text-center">
-        <div class="col-md-4">
+        <div class="col-md-4 offset-2">
           <div class="card-box-d">
             <div class="card-img-d">
-              <img src="media/images/agent-7.jpg" alt="" class="img-d img-fluid">
+              <img src="media/images/quarto.jpg" alt="" class="img-d img-fluid">
             </div>
             <div class="card-overlay card-overlay-hover">
               <div class="card-header-d">
@@ -244,10 +244,12 @@
           </div>
         </div>
 
-        <div class="col-md-4">
+
+  
+        <div class="col-md-4 text-center">
           <div class="card-box-d">
             <div class="card-img-d">
-              <img src="media/images/agent-7.jpg" alt="" class="img-d img-fluid">
+              <img src="media/images/quarto.jpg" alt="" class="img-d img-fluid">
             </div>
             <div class="card-overlay card-overlay-hover">
               <div class="card-header-d">
@@ -271,12 +273,13 @@
                       </a>
                     </li>
                   </ul>
-                </div>
+                
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
 
     </div>
   </section>
