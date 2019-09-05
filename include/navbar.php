@@ -15,9 +15,17 @@
             <li class="nav-item">
                 <a class="nav-link" href="sobre.php">Sobre</a>
             </li>
+
+<?php if (isset($_SESSION['logado']) && $_SESSION['logado'] === true) { ?>
+
             <li class="nav-item">
                 <a class="nav-link" href="perfil.php">Perfil</a>
             </li>
+
+        <?php } ?>
+
+
+
             <li class="nav-item">
                 <a class="nav-link" href="contato.php">Contato</a>
             </li>
