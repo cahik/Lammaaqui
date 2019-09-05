@@ -23,7 +23,7 @@ class Selects extends Site {
 	private $consulta;
 	private $idade;
 	private $Maior_idade;
-	private $Menor_idade
+	private $Menor_idade;
 	public $resultado;
 
 
