@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
   <meta charset="utf-8">
   <title>Perfil</title>
@@ -52,15 +51,7 @@
     <div class="row">
       <div class="col-md-4">
 
-        <!-- Foto -->
-        <div class="profile-img">
-          <img src="media/images/agent-5.jpg" alt=""/>
-          <div class="file btn btn-lg btn-primary">
-            Carregar Foto
-            <input type="file" name="file"/>
-          </div>
-        </div>
-      </div>
+<?php include_once("include/upload_imagem.php"); ?>
 
       <!-- Navegação - Dados pessoais, Filtros e Match -->
 
@@ -265,11 +256,16 @@
   <div class="row mt-4 mb-3">
    <label>Aceita sexo?</label>
   </div>
-    <select class="select" name="Sexo">
+    <div class="row">
+      <div class="select_sexo col-md-2">
+    <select class="select custom-select custom-select-sm" name="Sexo">
+      <option selected>Escolha uma opção</option>
       <option value="Masculino" <?php if (isset($_POST['Sexo']) and ($_POST['Sexo'] == "Masculino")) {echo "selected=''";}?>>Masculino</option>
       <option value="Feminino" <?php if (isset($_POST['Sexo']) and ($_POST['Sexo'] == "Feminino")) {echo "selected=''";}?>>Feminino</option>
       <option value="NI" <?php if (isset($_POST['Sexo']) and ($_POST['Sexo'] == "NI")) {echo "selected=''";}?>>Não me importo</option>
     </select>
+  </div>
+</div>
 
   <!-- Pagar até quanto? -->
 <div class="row mt-5">
