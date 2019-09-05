@@ -6,7 +6,11 @@
 body {
   font-family: 'Poppins', sans-serif;
   color: #555555;
+<<<<<<< HEAD
 
+=======
+  background-color: white !important;
+>>>>>>> a6a1d00d1eeab69f1d4e806f2ab8cfaca2416e88
 }
 
 h1,
@@ -2018,3 +2022,102 @@ footer .credits {
     font-size: 1.3rem;
   }
 }
+
+   /* Pagina de perfil */
+
+  /*  Fundo */
+
+  body{
+    background: #555555;
+}
+  /* Container principal */
+.emp-profile{
+    padding: 3%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    border-radius: 0.5rem;
+    background: #fff;
+}
+  /* Foto */
+
+.profile-img{
+    text-align: center;
+}
+.profile-img img{
+    width: 70%;
+    height: 100%;
+}
+.profile-img .file {
+    position: relative;
+    overflow: hidden;
+    margin-top: -20%;
+    width: 70%;
+    border: none;
+    border-radius: 0;
+    font-size: 15px;
+    background: #212529b8;
+}
+.profile-img .file input {
+    position: absolute;
+    opacity: 0;
+    right: 0;
+    top: 0;
+}
+  
+  /* Nome usuário */
+
+.profile-head h5{
+    color: #333;
+}
+
+  /* Botão editar */
+
+.profile-edit-btn{
+    border: none;
+    width: 70%;
+    padding: 4%;
+    font-weight: 600;
+    color: #ebbf31;
+    cursor: pointer;
+}
+
+  /* Navegação Dados e Match */
+
+.profile-head {
+  padding-top: 5%;
+}
+.profile-head .nav-tabs{
+    margin-bottom:5%;
+}
+.profile-head .nav-tabs .nav-link{
+    font-weight:600;
+    border: none;
+}
+.profile-head .nav-tabs .nav-link.active{
+    border: none;
+    border-bottom:2px solid #ebbf31;
+}
+.profile-tab label, p {
+    font-weight: 600;
+}
+
+/* Filtros */
+
+/* Ranger do "Pagar até quanto" */
+
+input[type=range] {
+-webkit-appearance: none;
+appearance: none;
+display: inline-block;
+
+height: 5px;
+position: relative;
+
+border-radius: 5px;
+background-color: yellow;
+outline: none;
+}
+
+input[type=range]::-webkit-slider-thumb{
+border-radius: 50%;
+

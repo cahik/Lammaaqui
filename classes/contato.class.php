@@ -25,12 +25,10 @@ class Contato extends Site {
 
 	private function receber_posts_contato() {
 
-		$this->Nome = utf8_encode($_POST['nome']);
-		$this->Email = utf8_encode($_POST['email']);
-		$this->Assunto = utf8_encode($_POST['assunto']);
-		$this->Mensagem = utf8_encode($_POST['mensagem']);
-
-		var_dump(utf8_encode($_POST['nome']));
+		$this->Nome = utf8_decode($_POST['nome']);
+		$this->Email = utf8_decode($_POST['email']);
+		$this->Assunto = utf8_decode($_POST['assunto']);
+		$this->Mensagem = utf8_decode($_POST['mensagem']);
 
 	}
 
@@ -39,7 +37,7 @@ class Contato extends Site {
 
 		if ($this->Nome <> "" and $this->Email <> "" and $this->Assunto <> "" and $this->Mensagem <> "") {
 
-			$sql = "INSERT INTO contato values('$this->Nome', '$this->Email', '$this->Assunto', '$this->Mensagem');";
+			$sql = "INSERT INTO contato values(DEFAULT, '$this->Nome', '$this->Email', '$this->Assunto', '$this->Mensagem');";
 
 			if (mysqli_query($this->con, $sql)) {
 
