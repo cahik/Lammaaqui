@@ -9,7 +9,7 @@ class Site {
 
 	// CONST HOST = "llamaaqui.ml:3306";
 	// CONST USER = "llamaaqu_root";
-	// CONST PASS = "Entra21@Blusoft";
+	// CONST PASS = "entra21@Blusoft";
 	// CONST DB   = "llamaaqu_master";
 
 	protected $con;
