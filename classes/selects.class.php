@@ -40,7 +40,7 @@ class Selects extends Site {
 	// Pegando os POSTS dos filtros do site de busca.
 	private function receber_filtro() {
 
-		$this->Fuma = $_POST['Fuma'];
+		$this->Fuma = (isset($_POST['Fuma']) ? $_POST['Fuma'] : null);
 		$this->Bebe = $_POST['Bebe'];
 		$this->Tem_animal = $_POST['Tem_animal'];
 		$this->Trabalha = $_POST['Trabalha'];
@@ -76,7 +76,7 @@ class Selects extends Site {
 		// Montando o SQL, não deve ser adicionado "AND", a não ser que seja um caso especial, e pelo amor de Odin, não aperte "Enter" pra quebrar a linha.
 		$this->sql = "SELECT * FROM dados_usuario WHERE $this->Aceita_genero $this->Fuma $this->Bebe $this->Tem_animal $this->Trabalha  $this->Estuda Aceita_pagar <= $this->Aceita_pagar;";
 
-		$this->Usuario = $_SESSION['dados'];
+		//$this->Usuario = $_SESSION['dados'];
 
 
 		if (mysqli_query($this->con, $this->sql)) {
@@ -98,11 +98,11 @@ class Selects extends Site {
 
 						if ($this->consulta['Aceita_animais'] == 1 or $this->consulta['Aceita_animais'] == 0 and $this->Usuario['Tem_animal'] == 0) {
 
-							if ($this->idade > $this->menor_idade and $this->idade < $this->maior_idade) {
+							//if ($this->idade > $this->menor_idade and $this->idade < $this->maior_idade) {
 
 								$this->resultado = $this->consulta;
 
-							}
+							//}
 
 						}
 

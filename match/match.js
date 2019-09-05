@@ -53,7 +53,7 @@ $(document).ready(function() {
 
     });
     $(".btndeslike").click(function() {
-        $(this).parent().parent().parent().hide("slide", { direction: "right" }, 1000);
+        $(this).parent().parent().parent().animate({ marginRight: "-1000px", opacity: 0 }, 300).fadeOut(0);
         var numero = Number($(this).parent().parent().parent().attr("data-numero"));
         var proximo = ".card_"+(numero+1);
         $(proximo).show();

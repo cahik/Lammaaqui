@@ -2,8 +2,6 @@
 error_reporting();
 require_once "../classes/selects.class.php";
 
-require_once "../classes/selects.class.php";
-
 $a = new Selects();
 $a->select_pessoas();
 
@@ -43,7 +41,7 @@ $a->select_pessoas();
                 <div class="card mb-5 text-center" style="max-height: 32rem;  " id="filtros">
                     <div class="card-body" style="overflow: auto;  ">
 
-                        <form method="POST">
+                        <form method="POST" action="">
 
                             <h5 class="text-center">Filtros</h5>
                             Caso não marque nenhuma da opções será considerado que não se importa.<br><br><br>
