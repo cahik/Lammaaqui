@@ -82,7 +82,7 @@ class Selects extends Site {
 		if (mysqli_query($this->con, $this->sql)) {
 
 			// Pegando os resultados da query em forma de array.
-			$this->consulta = mysqli_fetch_array(mysqli_query($this->con, $this->sql));
+			$this->consulta = mysqli_fetch_all(mysqli_query($this->con, $this->sql), MYSQLI_ASSOC);
 
 
 			if ($this->consulta['Aceita_genero'] == $this->Usuario['Sexo'] || $this->consulta['Aceita_genero'] == "Não me importo") {

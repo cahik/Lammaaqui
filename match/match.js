@@ -13,24 +13,24 @@ i[0].style.display = "block";
 
 
 
-function like() {
+// function like() {
+//
+//     $.ajax({
+//         url: "match.php",
+//         type: "POST",
+//         data:onclick = like ,
+//
+//
+//
+//
+//
+//     }).done(function(resposta) {
+//         console.log(resposta);
+//
+//     });
 
-    $.ajax({
-        url: "match.php",
-        type: "POST",
-        data:onclick = like ,
 
-
-
-
-
-    }).done(function(resposta) {
-        console.log(resposta);
-
-    });
-
-
-}
+//}
 
 // function deslike() {
 //     $.ajax({
@@ -42,3 +42,22 @@ function like() {
 // //
 // //
 // //     }
+$(document).ready(function() {
+    $(".btnlike").click(function() {
+        $(this).parent().parent().parent().animate({ marginLeft: "-1000px", opacity: 0 }, 300).fadeOut(0);
+        var numero = Number($(this).parent().parent().parent().attr("data-numero"));
+        var proximo = ".card_"+(numero+1);
+        $(proximo).show();
+
+
+
+    });
+    $(".btndeslike").click(function() {
+        $(this).parent().parent().parent().hide("slide", { direction: "right" }, 1000);
+        var numero = Number($(this).parent().parent().parent().attr("data-numero"));
+        var proximo = ".card_"+(numero+1);
+        $(proximo).show();
+
+
+    });
+});
