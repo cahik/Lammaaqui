@@ -3,10 +3,10 @@ error_reporting();
 require_once "../classes/selects.class.php";
 
 $a = new Selects();
-$a->select_pessoas();
+$b = $a->select_pessoas();
 
-//var_dump($a->resultado);
-//die();
+var_dump($b->resultado);
+die();
 
 
 ?>
@@ -163,7 +163,7 @@ $a->select_pessoas();
             <div class="col-6 offset-2 text-center">
 
                 <?php
-                foreach ($a->resultado as $chave => $valor) {
+                foreach ($b->resultado as $chave => $valor) {
 
 
                     ?>
@@ -171,9 +171,9 @@ $a->select_pessoas();
                     <div class="card cardlike  card_<?=$chave?>" data-numero="<?=$chave?>" style="display: none;">
 
                         <div class="card-body ">
-                            <h1 class="card-title mb-3"> <?= $a->resultado[$chave]['Nome'] ?> </h1>
+                            <h1 class="card-title mb-3"> <?= $b->resultado[$chave]['Nome'] ?> </h1>
                             <h6 class="card-subtitle mb-2 text-muted"><img id="foto" src="img/elenice.jpg"></h6>
-                            <p class="card-text"><?= $a->resultado[$chave] ['Descricao'] ?></p>
+                            <p class="card-text"><?= $b->resultado[$chave] ['Descricao'] ?></p>
                             <div id="botao">
                                 <button type="buttton" name="usuario_deu" class="btn btnlike" onclick="like()"><img
                                             src="img/like.png">
