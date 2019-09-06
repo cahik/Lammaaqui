@@ -13,6 +13,7 @@ class Cadastro_login extends Site {
 	public $data_nascimento;
 	public $telefone;
 	public $celular;
+	private $sql;
 
 
 	public function __construct() {
@@ -70,14 +71,16 @@ class Cadastro_login extends Site {
 
 			if ($this->senha == $this->senha2) {
 
-				$sql_cadastro = "INSERT INTO dados_usuario (Nome, Email, Senha, Sexo, Data_nascimento, Telefone, Celular) values ('$this->nome', '$this->email', '$this->senha', '$this->sexo', '$this->data_nascimento', $this->telefone, $this->celular);";
+				$this->sql = "INSERT INTO dados_usuario (Nome, Email, Senha, Sexo, Data_nascimento, Telefone, Celular) values ('$this->nome', '$this->email', '$this->senha', '$this->sexo', '$this->data_nascimento', $this->telefone, $this->celular);";
 
 
-				if (mysqli_query($this->con, $sql_cadastro)) {
+				if (mysqli_query($this->con, $this->sql_cadastro)) {
 
 					// Se conseguir cadastrar
 
-					$resultado = mysqli_fetch_array(mysqli_query($this->con, $sql_cadastro));
+					$this->sql = "SELECT * FROM dados_usuario where Email = '$this->email' and Senha = '$this->senha'";
+
+					$resultado = mysqli_fetch_array(mysqli_query($this->con, $this->sql));
 
 					$_SESSION['logado'] = true;
 					$_SESSION['dados'] = $resultado;
@@ -103,12 +106,12 @@ class Cadastro_login extends Site {
 		// Verificando se os inputs não são nulos e executando o login
 		if (!$this->email == "" and !$this->senha == "") {
 
-			$sql_login = "SELECT * FROM dados_usuario where Email = '$this->email' and Senha = '$this->senha'";
+			$this->sql = "SELECT * FROM dados_usuario where Email = '$this->email' and Senha = '$this->senha'";
 
 			// Se a CONSULTA funcionar
-			if (mysqli_query($this->con, $sql_login)) {
+			if (mysqli_query($this->con, $this->sql)) {
 
-				$resultado = mysqli_fetch_array(mysqli_query($this->con, $sql_login));
+				$resultado = mysqli_fetch_array(mysqli_query($this->con, $this->sql));
 
 
 				if ($resultado['Email'] == $this->email and $resultado['Senha'] == $this->senha) {
@@ -116,7 +119,7 @@ class Cadastro_login extends Site {
 				// Se o login funcionar
 					$_SESSION['logado'] = true;
 					$_SESSION['dados'] = $resultado;
-					header("location: ");
+					//header("location: ");
 				}
 				
 			} else {
@@ -131,13 +134,6 @@ class Cadastro_login extends Site {
 	}
 
 }
-
-
-
-
-
-
-var_dump($_POST);
 
 
 
