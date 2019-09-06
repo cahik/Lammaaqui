@@ -40,6 +40,7 @@ class Selects extends Site {
 	// Pegando os POSTS dos filtros do site de busca.
 	private function receber_filtro() {
 
+
 		$this->Fuma = (isset($_POST['Fuma']) ? $_POST['Fuma'] : "");
 		$this->Bebe = (isset($_POST['Bebe']) ? $_POST['Bebe'] : "");
 		$this->Tem_animal = (isset($_POST['Tem_animal']) ? $_POST['Tem_animal'] : "");
