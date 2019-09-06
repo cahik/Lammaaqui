@@ -49,28 +49,6 @@ $Executar_login->logar();
 	</form>
 
 
-	<!-- //aqui é o carroussel de imagens  -->
-
-<!-- 	<div id="carouselExampleSlidesOnly" class="carousel slide " style="margin-top: -600px; z-index: -1; " data-ride="carousel">
-
-
-		<div class="carousel-inner">
-
-			<div class="carousel-item active">
-				<img src="img/caixas.jpg" class="d-block w-100" alt="...">
-			</div>
-			<div class="carousel-item">
-				<img src="img/net.png" class="d-block w-100" alt="...">
-			</div>
-			<div class="carousel-item">
-				<img src="img/img3.jpg" class="d-block w-100" alt="...">
-			</div>
-
-		</div>
-
-	</div> -->
-
-
 	<?php require_once "include/footer.php"; ?>
 
 

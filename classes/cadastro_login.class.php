@@ -76,6 +76,8 @@ class Cadastro_login extends Site {
 
 					// Se conseguir cadastrar
 
+					$resultado = mysqli_fetch_array(mysqli_query($this->con, $sql_cadastro));
+
 					$_SESSION['logado'] = true;
 					$_SESSION['dados'] = $resultado;
 
@@ -113,15 +115,13 @@ class Cadastro_login extends Site {
 				// Se o login funcionar
 					$_SESSION['logado'] = true;
 					$_SESSION['dados'] = $resultado;
-
-
-				} else {
+					// header("location: ");
+				}
+				
+			} else {
 
 				// Se o login falhar
-					die("Não funfo");
-
-				}
-
+				die("Não funfo");
 
 			}
 

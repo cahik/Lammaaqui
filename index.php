@@ -1,3 +1,8 @@
+<?php
+
+require_once "classes/site.class.php";
+
+?>
 <!DOCTYPE html>
 <head>
   <meta charset="utf-8">
