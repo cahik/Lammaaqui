@@ -5732,7 +5732,6 @@ ALTER TABLE `contato`
 --
 ALTER TABLE `dados_usuario`
   ADD PRIMARY KEY (`Id`),
-  ADD KEY `Id_pais` (`Id_pais`),
   ADD KEY `Id_estado` (`Id_estado`),
   ADD KEY `Id_cidade` (`Id_cidade`);
 
