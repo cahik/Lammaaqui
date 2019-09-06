@@ -1,131 +1,167 @@
-<?php 
+<?php
 
 require_once "site.class.php";
 
 error_reporting();
 
-class Selects extends Site {
+class Selects extends Site
+{
 
-	private $sql;
-	private $Fuma;
-	private $Aceita_fumar;
-	private $Bebe;
-	private $Aceita_beber;
-	private $Tem_animal;
-	private $Aceita_animais;
-	private $Trabalha;
-	private $Estuda;
-	private $Aceita_genero;
-	private $Aceita_pagar;
-	private $Usuario;
-	private $consulta;
-	private $idade;
-	private $Maior_idade;
-	private $Menor_idade;
-	public $resultado;
-
-
-	public function __construct() {
-
-		parent::__construct();
-
-		if (isset($_POST['Enviar'])) {
-
-			$this->receber_filtro();
-			
-		}
-
-	}
-
-	// Pegando os POSTS dos filtros do site de busca.
-	private function receber_filtro() {
+    private $sql;
+    private $Fuma;
+    private $Aceita_fumar;
+    private $Bebe;
+    private $Aceita_beber;
+    private $Tem_animal;
+    private $Aceita_animais;
+    private $Trabalha;
+    private $Estuda;
+    private $Aceita_genero;
+    private $Aceita_pagar;
+    private $Usuario;
+    private $consulta;
+    private $idade;
+    private $Maior_idade;
+    private $Menor_idade;
+    public $resultado;
 
 
-		$this->Fuma = (isset($_POST['Fuma']) ? $_POST['Fuma'] : "");
-		$this->Bebe = (isset($_POST['Bebe']) ? $_POST['Bebe'] : "");
-		$this->Tem_animal = (isset($_POST['Tem_animal']) ? $_POST['Tem_animal'] : "");
-		$this->Trabalha = (isset($_POST['Trabalha']) ? $_POST['Trabalha'] : "");
-		$this->Estuda = (isset($_POST['Estuda']) ? $_POST['Estuda'] : "");
-		$this->Fuma = (isset($_POST['Fuma']) ? $_POST['Fuma'] : null);
-		$this->Bebe = $_POST['Bebe'];
-		$this->Tem_animal = $_POST['Tem_animal'];
-		$this->Trabalha = $_POST['Trabalha'];
-		$this->Estuda = $_POST['Estuda'];
-		$this->Aceita_genero = $_POST['Sexo'];
-		$this->Aceita_pagar = $_POST['Aceita_pagar'];
-		$this->Maior_idade = $_POST['maior_idade'];
-		$this->Menor_idade = $_POST['menor_idade'];
+    public function __construct()
+    {
 
-	}
+        parent::__construct();
 
-	// Aplicando os filtros na busca pelo banco de dados, caso um dos filtros não seja preenchido deverá ser feita a pesquisa mesmo assim, somente deverá ser retirado do SQL. 
+        if (isset($_POST['Enviar'])) {
 
-	//IMPORTANTE!!! Se for adicionar mais filtros adicione antes dos "Aceita_pagar" no $this->sql.
+            $this->receber_filtro();
 
-	public function select_pessoas() {
+        }
 
-		// Se o Sexo for "Não me importo 'NI' ".
-		if ($this->Aceita_genero == "NI" or $this->Aceita_genero == "") {$this->Aceita_genero = "";} else {$this->Aceita_genero = "Sexo = '$this->Aceita_genero' and";}
+    }
 
-	// Verificando se os POSTS estão setados, se não, eles ficam como "Não me importo '' ".
-		if (!isset($this->Fuma)) {$this->Fuma = "";} else {$this->Fuma = "Fuma = '$this->Fuma' and";}
-
-		if (!isset($this->Bebe)) {$this->Bebe = "";} else {$this->Bebe = "Bebe = '$this->Bebe' and";}
-
-		if (!isset($this->Tem_animal)) {$this->Tem_animal = "";} else {$this->Tem_animal = "Tem_animal = '$this->Tem_animal' and";}
-
-		if (!isset($this->Trabalha)) {$this->Trabalha = "";} else {$this->Trabalha = "Trabalha = '$this->Trabalha' and";}
-
-		if (!isset($this->Estuda)) {$this->Estuda = "";} else {$this->Estuda = "Estuda = '$this->Estuda' and";}
+    // Pegando os POSTS dos filtros do site de busca.
+    private function receber_filtro()
+    {
 
 
-		// Montando o SQL, não deve ser adicionado "AND", a não ser que seja um caso especial, e pelo amor de Odin, não aperte "Enter" pra quebrar a linha.
-		$this->sql = "SELECT * FROM dados_usuario WHERE $this->Aceita_genero $this->Fuma $this->Bebe $this->Tem_animal $this->Trabalha  $this->Estuda Aceita_pagar <= $this->Aceita_pagar;";
+        $this->Fuma = (isset($_POST['Fuma']) ? $_POST['Fuma'] : "");
+        $this->Bebe = (isset($_POST['Bebe']) ? $_POST['Bebe'] : "");
+        $this->Tem_animal = (isset($_POST['Tem_animal']) ? $_POST['Tem_animal'] : "");
+        $this->Trabalha = (isset($_POST['Trabalha']) ? $_POST['Trabalha'] : "");
+        $this->Estuda = (isset($_POST['Estuda']) ? $_POST['Estuda'] : "");
+        $this->Aceita_genero = $_POST['Sexo'];
+        $this->Aceita_pagar = $_POST['Aceita_pagar'];
+        $this->Maior_idade = $_POST['maior_idade'];
+        $this->Menor_idade = $_POST['menor_idade'];
 
-		//$this->Usuario = $_SESSION['dados'];
+    }
+
+    // Aplicando os filtros na busca pelo banco de dados, caso um dos filtros não seja preenchido deverá ser feita a pesquisa mesmo assim, somente deverá ser retirado do SQL.
+
+    //IMPORTANTE!!! Se for adicionar mais filtros adicione antes dos "Aceita_pagar" no $this->sql.
+
+    public function select_pessoas()
+    {
+
+        if (isset($_POST)) {
+
+            // Se o Sexo for "Não me importo 'NI' ".
+            if ($this->Aceita_genero == "NI" or $this->Aceita_genero == "") {
+                $this->Aceita_genero = "";
+            } else {
+                $this->Aceita_genero = "Sexo = '$this->Aceita_genero' and";
+            }
+
+            // Verificando se os POSTS estão setados, se não, eles ficam como "Não me importo '' ".
+            if (!isset($this->Fuma)) {
+                $this->Fuma = "";
+            } else {
+                $this->Fuma = "Fuma = '$this->Fuma' and";
+            }
+
+            if (!isset($this->Bebe)) {
+                $this->Bebe = "";
+            } else {
+                $this->Bebe = "Bebe = '$this->Bebe' and";
+            }
+
+            if (!isset($this->Tem_animal)) {
+                $this->Tem_animal = "";
+            } else {
+                $this->Tem_animal = "Tem_animal = '$this->Tem_animal' and";
+            }
+
+            if (!isset($this->Trabalha)) {
+                $this->Trabalha = "";
+            } else {
+                $this->Trabalha = "Trabalha = '$this->Trabalha' and";
+            }
+
+            if (!isset($this->Estuda)) {
+                $this->Estuda = "";
+            } else {
+                $this->Estuda = "Estuda = '$this->Estuda' and";
+            }
 
 
-		if (mysqli_query($this->con, $this->sql)) {
+            // Montando o SQL, não deve ser adicionado "AND", a não ser que seja um caso especial, e pelo amor de Odin, não aperte "Enter" pra quebrar a linha.
+            $this->sql = "SELECT * FROM dados_usuario WHERE $this->Aceita_genero $this->Fuma $this->Bebe $this->Tem_animal $this->Trabalha  $this->Estuda Aceita_pagar <= $this->Aceita_pagar;";
 
-			// Pegando os resultados da query em forma de array.
-			$this->consulta = mysqli_fetch_all(mysqli_query($this->con, $this->sql), MYSQLI_ASSOC);
-
-			$nascimento = $this->consulta['Data_nascimento'];
-			$atual = date('Y-m-d');
-			
-			$this->idade = intval($atual) - intval($nascimento);
+            //$this->Usuario = $_SESSION['dados'];
 
 
-			if ($this->consulta['Aceita_genero'] == $this->Usuario['Sexo'] || $this->consulta['Aceita_genero'] == "Não me importo") {
+            if (mysqli_query($this->con, $this->sql)) {
 
-				if ($this->consulta['Aceita_fumar'] == 1 or $this->consulta['Aceita_fumar'] == 0 and $this->Usuario['Fuma'] == 0) {
+                // Pegando os resultados da query em forma de array.
+                $this->consulta = mysqli_fetch_all(mysqli_query($this->con, $this->sql), MYSQLI_ASSOC);
 
-					if ($this->consulta['Aceita_beber'] == 1 or $this->consulta['Aceita_beber'] == 0 and $this->Usuario['Bebe'] == 0) {
+                $nascimento = $this->consulta['Data_nascimento'];
+                $atual = date('Y-m-d');
 
-						if ($this->consulta['Aceita_animais'] == 1 or $this->consulta['Aceita_animais'] == 0 and $this->Usuario['Tem_animal'] == 0) {
-
-							//if ($this->idade > $this->menor_idade and $this->idade < $this->maior_idade) {
-
-								$this->resultado = $this->consulta;
-
-							//}
-
-						}
-
-					}
-
-				}
-
-			}
-
-		}
+                $this->idade = intval($atual) - intval($nascimento);
 
 
-	}
+                if ($this->consulta['Aceita_genero'] == $this->Usuario['Sexo'] || $this->consulta['Aceita_genero'] == "Não me importo") {
+
+                    if ($this->consulta['Aceita_fumar'] == 1 or $this->consulta['Aceita_fumar'] == 0 and $this->Usuario['Fuma'] == 0) {
+
+                        if ($this->consulta['Aceita_beber'] == 1 or $this->consulta['Aceita_beber'] == 0 and $this->Usuario['Bebe'] == 0) {
+
+                            if ($this->consulta['Aceita_animais'] == 1 or $this->consulta['Aceita_animais'] == 0 and $this->Usuario['Tem_animal'] == 0) {
+
+                                //if ($this->idade > $this->menor_idade and $this->idade < $this->maior_idade) {
+
+                                $this->resultado = $this->consulta;
+
+                                //}
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
 
 
+        } else {
 
+            $this->sql = "SELECT * FROM dados_usuarios;";
+            if (mysqli_query($this->con, $this->sql)) {
+
+                // Pegando os resultados da query em forma de array.
+                $this->resultado = mysqli_fetch_all(mysqli_query($this->con, $this->sql), MYSQLI_ASSOC);
+var_dump($this->resultado);
+
+            }
+        }
+
+
+    }
 }
-
+$php = new Selects();
+$php->select_pessoas();
 
 ?>
