@@ -5650,7 +5650,6 @@ CREATE TABLE `dados_usuario` (
   `Cep` int(8) DEFAULT NULL,
   `Rua` varchar(255) DEFAULT NULL,
   `Id_cidade` int(11) DEFAULT NULL,
-  `Id_pais` int(11) DEFAULT NULL,
   `Id_estado` int(5) DEFAULT NULL,
   `Fuma` tinyint(1) DEFAULT NULL,
   `Aceita_fumar` tinyint(1) DEFAULT NULL,
@@ -5667,13 +5666,6 @@ CREATE TABLE `dados_usuario` (
 --
 -- Extraindo dados da tabela `dados_usuario`
 --
-
-INSERT INTO `dados_usuario` (`Id`, `Conta_verificada`, `Nome`, `Descricao`, `Email`, `Senha`, `Sexo`, `Data_nascimento`, `Telefone`, `Celular`, `Cep`, `Rua`, `Id_cidade`, `Id_pais`, `Id_estado`, `Fuma`, `Aceita_fumar`, `Bebe`, `Aceita_beber`, `Tem_animal`, `Aceita_animais`, `Trabalha`, `Estuda`, `Aceita_genero`, `Aceita_pagar`) VALUES
-(1, 0, 'Elecine', 'Tenho os melhores semi-filmes', 'elenice@paterno.terra.pt', '1548', 'Feminino', '1992-12-05', 564654, 65468, 68468445, 'Legal', 1, 2, 8, 1, 1, 0, 0, 1, 1, 0, 1, 'Masculino', 200),
-(2, 0, 'Gustavo', 'Sou foda, eu, eu sou sinistro, tum tum tum tum', 'vergiliopoleza@gmail.com', '123', 'Masculino', '2003-05-18', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 'Feminino', 1500),
-(3, 0, 'Juninho', NULL, 'junior@gmail.com', '123', 'Masculino', '2001-12-05', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 'Não me importo', 1500);
-
--- --------------------------------------------------------
 
 --
 -- Estrutura da tabela `estado`
