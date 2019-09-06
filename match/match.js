@@ -48,7 +48,19 @@ $(document).ready(function() {
         var numero = Number($(this).parent().parent().parent().attr("data-numero"));
         var proximo = ".card_"+(numero+1);
         $(proximo).show();
+    $.ajax({
+        url: "match.php",
+        type: "POST",
+        data:onclick = "" ,
 
+
+
+
+
+    }).done(function(resposta) {
+        console.log(resposta);
+
+    });
 
 
     });

@@ -3,10 +3,10 @@ error_reporting();
 require_once "../classes/selects.class.php";
 
 $a = new Selects();
-$b = $a->select_pessoas();
+$a->select_pessoas();
 
-var_dump($b->resultado);
-die();
+//var_dump($b->resultado);
+//die();
 
 
 ?>
@@ -59,17 +59,35 @@ die();
                             <label for="fnao">Não</label><br><br><br>
 
                             Deve beber?<br>
-                            <input type="radio" name="Bebe" id="bsim"
+
+                            <input  type="radio" name="Bebe" id="bsim"
                                    value="1" <?php if (isset($_POST['Bebe']) and ($_POST['Bebe'] == "1")) {
                                 echo "checked=''";
                             } ?>>
-                            <label for="bsim">Sim</label>
+   <label for="bsim">Sim</label>
+
+
+
                             <input type="radio" name="Bebe" id="bnao"
                                    value="0" <?php if (isset($_POST['Bebe']) and ($_POST['Bebe'] == "0")) {
                                 echo "checked=''";
                             } ?>>
                             <label for="bnao">Não</label><br><br><br>
 
+                            <label for="maior-idade">Idade máxima</label><br>
+                            <input style="width: 130px;" max="100" min="18" type="number" name="maior_idade" id="maior_idade" value="<?php if (isset($_POST['maior_idade'])) {
+                                echo $_POST['maior_idade'];
+                            } else {
+                                echo 100;
+                            } ?>">
+                            <br>
+                            <label for="menor_idade">Idade minima</label><br>
+                            <input style="width: 130px;" max="100" min="18" type="number" name="menor_idade" id="menor_idade"  value="<?php if (isset($_POST['menor_idade'])) {
+                                echo $_POST['menor_idade'];
+                            } else {
+                                echo 18;
+                            } ?>">
+<br><br><br>
                             Deve ter animais?<br>
                             <input type="radio" name="Tem_animal" id="tasim"
                                    value="1" <?php if (isset($_POST['Tem_animal']) and ($_POST['Tem_animal'] == "1")) {
@@ -163,7 +181,7 @@ die();
             <div class="col-6 offset-2 text-center">
 
                 <?php
-                foreach ($b->resultado as $chave => $valor) {
+                foreach ($a->resultado as $chave => $valor) {
 
 
                     ?>
@@ -171,9 +189,9 @@ die();
                     <div class="card cardlike  card_<?=$chave?>" data-numero="<?=$chave?>" style="display: none;">
 
                         <div class="card-body ">
-                            <h1 class="card-title mb-3"> <?= $b->resultado[$chave]['Nome'] ?> </h1>
+                            <h1 class="card-title mb-3"> <?= $a->resultado[$chave]['Nome'] ?> </h1>
                             <h6 class="card-subtitle mb-2 text-muted"><img id="foto" src="img/elenice.jpg"></h6>
-                            <p class="card-text"><?= $b->resultado[$chave] ['Descricao'] ?></p>
+                            <p class="card-text"><?= $a->resultado[$chave] ['Descricao'] ?></p>
                             <div id="botao">
                                 <button type="buttton" name="usuario_deu" class="btn btnlike" onclick="like()"><img
                                             src="img/like.png">

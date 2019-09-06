@@ -21,8 +21,8 @@ class Selects extends Site
     private $Usuario;
     private $consulta;
     private $idade;
-    private $Maior_idade;
-    private $Menor_idade;
+    private $maior_idade;
+    private $menor_idade;
     public $resultado;
 
 
@@ -51,8 +51,8 @@ class Selects extends Site
         $this->Estuda = (isset($_POST['Estuda']) ? $_POST['Estuda'] : "");
         $this->Aceita_genero = $_POST['Sexo'];
         $this->Aceita_pagar = $_POST['Aceita_pagar'];
-        $this->Maior_idade = $_POST['maior_idade'];
-        $this->Menor_idade = $_POST['menor_idade'];
+        $this->maior_idade = $_POST['maior_idade'];
+        $this->menor_idade = $_POST['menor_idade'];
 
     }
 
@@ -63,7 +63,9 @@ class Selects extends Site
     public function select_pessoas()
     {
 
-        if (isset($_POST)) {
+
+
+        if (count($_POST)>0) {
 
             // Se o Sexo for "Não me importo 'NI' ".
             if ($this->Aceita_genero == "NI" or $this->Aceita_genero == "") {
@@ -119,7 +121,7 @@ class Selects extends Site
                 $atual = date('Y-m-d');
 
                 $this->idade = intval($atual) - intval($nascimento);
-
+var_dump($this->idade);
 
                 if ($this->consulta['Aceita_genero'] == $this->Usuario['Sexo'] || $this->consulta['Aceita_genero'] == "Não me importo") {
 
@@ -129,11 +131,11 @@ class Selects extends Site
 
                             if ($this->consulta['Aceita_animais'] == 1 or $this->consulta['Aceita_animais'] == 0 and $this->Usuario['Tem_animal'] == 0) {
 
-                                //if ($this->idade > $this->menor_idade and $this->idade < $this->maior_idade) {
+//                                if ($this->idade > $this->menor_idade and $this->idade < $this->maior_idade) {
 
                                 $this->resultado = $this->consulta;
 
-                                //}
+//                                }
 
                             }
 
@@ -148,20 +150,23 @@ class Selects extends Site
 
         } else {
 
-            $this->sql = "SELECT * FROM dados_usuarios;";
+            $this->sql = "SELECT * FROM dados_usuario;";
             if (mysqli_query($this->con, $this->sql)) {
 
                 // Pegando os resultados da query em forma de array.
                 $this->resultado = mysqli_fetch_all(mysqli_query($this->con, $this->sql), MYSQLI_ASSOC);
-var_dump($this->resultado);
+
+
+
+            } else {
+                var_dump(mysqli_error($this->con));
 
             }
+
         }
 
 
     }
 }
-$php = new Selects();
-$php->select_pessoas();
 
 ?>
