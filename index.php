@@ -53,7 +53,7 @@ require_once "classes/site.class.php";
                       NÃO SABE QUEM CHAMAR? <br>
                       <span class="color-b"> LLAMA AQUI </span>
                     <p class="intro-subtitle intro-price">
-                      <a href="#"><span class="price-a">VER PERFIS</span></a>
+                      <a href="login.php"><span class="price-a">VER PERFIS</span></a>
                     </p>
                   </div>
                 </div>
@@ -76,7 +76,7 @@ require_once "classes/site.class.php";
                       NÃO SABE QUEM CHAMAR? <br>
                       <span class="color-b"> LLAMA AQUI </span>
                     <p class="intro-subtitle intro-price">
-                      <a href="#"><span class="price-a">VER PERFIS</span></a>
+                      <a href="login.php"><span class="price-a">VER PERFIS</span></a>
                     </p>
                   </div>
                 </div>
@@ -99,7 +99,7 @@ require_once "classes/site.class.php";
                       NÃO SABE QUEM CHAMAR? <br>
                       <span class="color-b"> LLAMA AQUI </span>
                     <p class="intro-subtitle intro-price">
-                      <a href="#"><span class="price-a">VER PERFIS</span></a>
+                      <a href="login.php"><span class="price-a">VER PERFIS</span></a>
                     </p>
                   </div>
                 </div>

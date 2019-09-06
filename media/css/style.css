@@ -5,17 +5,9 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-<<<<<<< HEAD
-  /*color: #555555;*/
   background-color: #ffffff !important;
-=======
   color: #555555;
-<<<<<<< HEAD
-
-=======
   background-color: white !important;
->>>>>>> a6a1d00d1eeab69f1d4e806f2ab8cfaca2416e88
->>>>>>> efd33757e919b576f080cd88c808362295770ec8
 }
 
 h1,
@@ -2034,14 +2026,6 @@ footer .credits {
   }
 }
 
-   /* Pagina de perfil */
-
-  /*  Fundo */
-
-  body{
-    background: #555555;
-}
-  /* Container principal */
 .emp-profile{
     padding: 3%;
     margin-top: 3%;

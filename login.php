@@ -33,9 +33,12 @@ $Executar_login->logar();
 	
 	<link rel="stylesheet" type="text/css" href="media/css/util.css">
 	<link rel="stylesheet" type="text/css" href="media/css/main.css">
+	<link rel="stylesheet" type="text/css" href="media/css/style.css">
 	<!--===============================================================================================-->
 </head>
 <body style="background-color: #666666;">
+
+
 	
 	<div class="limiter">
 		<div class="container-login100">
@@ -110,4 +113,5 @@ $Executar_login->logar();
 	<script src="login/js/main.js"></script>
 
 </body>
+
 </html>

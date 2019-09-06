@@ -30,9 +30,9 @@
                 <a class="nav-link" href="contato.php">Contato</a>
             </li>
         </ul>
+        <a type="button" href="login.php" class="btn btn-b-n d-none d-md-block">Login</a>     
+        <a type="button" href="cadastro.php" class="btn btn-b-n d-none d-md-block">Cadastro</a>
     </div>
-    <button type="button" class="btn btn-b-n d-none d-md-block">Login</button>
-     &nbsp;
-    <button type="button" class="btn btn-b-n d-none d-md-block">Cadastro</button>
+   
 </div>
 </nav>
