@@ -33,6 +33,7 @@ class Cadastro_login extends Site {
 
 	}
 
+
 	// Recebe os posts do cadastro
 	protected function receber_posts_cadastro() {
 
@@ -115,7 +116,7 @@ class Cadastro_login extends Site {
 				// Se o login funcionar
 					$_SESSION['logado'] = true;
 					$_SESSION['dados'] = $resultado;
-					// header("location: ");
+					header("location: ");
 				}
 				
 			} else {
@@ -136,6 +137,7 @@ class Cadastro_login extends Site {
 
 
 
+var_dump($_POST);
 
 
 
