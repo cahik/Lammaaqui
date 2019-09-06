@@ -32,5 +32,7 @@
         </ul>
     </div>
     <button type="button" class="btn btn-b-n d-none d-md-block">Login</button>
+     &nbsp;
+    <button type="button" class="btn btn-b-n d-none d-md-block">Cadastro</button>
 </div>
 </nav>
