@@ -1,6 +1,12 @@
 var i = document.querySelectorAll(".cardlike");
 
+// Aparecer o valor do range
+var $range = document.querySelector('#Aceita_pagar'),
+$value = document.querySelector('span');
 
+$range.addEventListener('#Aceita_pagar', function () {
+    $value.textContent = this.value;
+});
 
 
 //fazer um foreach
@@ -48,19 +54,19 @@ $(document).ready(function() {
         var numero = Number($(this).parent().parent().parent().attr("data-numero"));
         var proximo = ".card_"+(numero+1);
         $(proximo).show();
-    $.ajax({
-        url: "match.php",
-        type: "POST",
-        data:onclick = "" ,
+        $.ajax({
+            url: "match.php",
+            type: "POST",
+            data:onclick = "" ,
 
 
 
 
 
-    }).done(function(resposta) {
-        console.log(resposta);
+        }).done(function(resposta) {
+            console.log(resposta);
 
-    });
+        });
 
 
     });

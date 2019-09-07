@@ -98,12 +98,6 @@ $Mostrar_dados->consulta();
 
                      <option selected value="<?=utf8_decode($Mostrar_dados->estado['Nome'])?>"><?=utf8_encode($Mostrar_dados->estado['Nome'])?></option>
 
-                     <!-- <?php //foreach ($Mostrar_dados->ests as $chave => $valor) {?>
-
-                     <option><?=//$Mostrar_dados->ests[$chave]['Nome']?></option>
-
-                     <?php } ?> -->
-
                    </select>
                  </div>
                  <div class="form-group col-md-3">
