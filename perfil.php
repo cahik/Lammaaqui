@@ -5,6 +5,9 @@ require_once "classes/perfil.class.php";
 $Mostrar_dados = new Perfil();
 $Mostrar_dados->consulta();
 
+// var_dump($_SESSION['dados']['Nome_cidade']);
+// var_dump($Mostrar_dados->resultado_cidade[2]['Nome_cidade']);
+
 
 ?>
 <!DOCTYPE html>
@@ -87,48 +90,63 @@ $Mostrar_dados->consulta();
                     <input type="password" class="form-control" id="inputPassword4" placeholder="Senha" value="<?=$_SESSION['dados']['Senha']?>">
                   </div>
                 </div>
+
                 <div class="form-row">
                   <div class="form-group col-md-5">
                     <label for="inputCity">Cidade</label>
-                    <input type="text" class="form-control" id="inputCity" value="<?=utf8_encode($Mostrar_dados->cidade['Nome'])?>">
+                    <select id="inputCity" class="form-control" name="cidade">
+
+                      <?php foreach ($Mostrar_dados->resultado_cidade as $chave => $valor) { ?>
+
+                        <option <?php if ($Mostrar_dados->resultado_cidade[$chave]['Nome_cidade'] == $_SESSION['dados']['Nome_cidade']) {echo "selected";}?> value="<?=$Mostrar_dados->resultado_cidade[$chave]['Id_cidade']?>"><?=utf8_encode($Mostrar_dados->resultado_cidade[$chave]['Nome_cidade'])?></option>
+
+                      <?php } ?>
+
+                    </select>
                   </div>
+
                   <div class="form-group col-md-4">
                     <label for="inputState">Estado</label>
-                    <select id="inputState" class="form-control">
+                    <select id="inputState" class="form-control" name="estado">
 
-                     <option selected value="<?=utf8_decode($Mostrar_dados->estado['Nome'])?>"><?=utf8_encode($Mostrar_dados->estado['Nome'])?></option>
+                      <?php while ($resultado = mysqli_fetch_array($Mostrar_dados->resultado_estado)) { ?>
 
-                   </select>
-                 </div>
-                 <div class="form-group col-md-3">
-                  <label for="inputZip">Cep</label>
-                  <input type="text" class="form-control" id="inputZip" value="<?=$_SESSION['dados']['Cep']?>">
+                        <option <?php if ($resultado['Nome_estado'] == $_SESSION['dados']['Nome_estado']) {echo "selected";}?> value="<?=$resultado['Id_estado']?>"><?=utf8_encode($resultado['Nome_estado'])?></option>
+
+                      <?php }?>
+
+                    </select>
+                  </div>
+
+                  <div class="form-group col-md-3">
+                    <label for="inputZip">Cep</label>
+                    <input type="text" class="form-control" id="inputZip" value="<?=$_SESSION['dados']['Cep']?>">
+                  </div>
                 </div>
-              </div>
-              <div class="form-group">
-                <label for="exampleFormControlTextarea1">Descrição</label>
-                <textarea style="resize: none;" class="form-control" id="exampleFormControlTextarea1" rows="3"><?=$_SESSION['dados']['Descricao']?></textarea>
-              </div>
+
+                <div class="form-group">
+                  <label for="exampleFormControlTextarea1">Descrição</label>
+                  <textarea style="resize: none;" class="form-control" id="exampleFormControlTextarea1" rows="3"><?=$_SESSION['dados']['Descricao']?></textarea>
+                </div>
 
 
-              <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="masculino" name="sexo" class="custom-control-input radio" value="Masculino" <?php if ($_SESSION['dados']['Sexo'] == "Masculino") {echo "checked";} ?>>
-                <label class="custom-control-label" for="masculino">Masculino</label>
-              </div>
-              <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="feminino" name="sexo" class="custom-control-input radio" value="Feminino" <?php if ($_SESSION['dados']['Sexo'] == "Feminino") {echo "checked";} ?>>
-                <label class="custom-control-label" for="feminino">Feminino</label>
-              </div>
-            </form>         
-          </form>
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input type="radio" id="masculino" name="sexo" class="custom-control-input radio" value="Masculino" <?php if ($_SESSION['dados']['Sexo'] == "Masculino") {echo "checked";} ?>>
+                  <label class="custom-control-label" for="masculino">Masculino</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input type="radio" id="feminino" name="sexo" class="custom-control-input radio" value="Feminino" <?php if ($_SESSION['dados']['Sexo'] == "Feminino") {echo "checked";} ?>>
+                  <label class="custom-control-label" for="feminino">Feminino</label>
+                </div>
+
+              </form>         
+            </form>
+          </div>
         </div>
-      </div>
-    </div>  
-  </div>
+      </div>  
+    </div>
 
-  <!--/  Filtros  -->
-
-  <div class="profile-head">  
+    <div class="profile-head">  
    <ul class="nav nav-tabs" role="tablist">
     <li class="nav-item">
       <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Filtros</a>    
@@ -338,14 +356,11 @@ min="0" max="5000" value="<?php if (isset($_POST['Aceita_pagar'])) {echo $_POST[
 <div id="preloader"></div>
 
 <!--   <script type="text/javascript">
-
     var $range = document.querySelector('#Aceita_pagar'),
     $value = document.querySelector('span');
-
     $range.addEventListener('#Aceita_pagar', function() {
       $value.textContent = this.value;
     });
-
   </script> -->
 
   <!-- JavaScript Libraries -->

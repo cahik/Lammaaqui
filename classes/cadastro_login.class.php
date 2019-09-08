@@ -78,7 +78,7 @@ class Cadastro_login extends Site {
 
 					// Se conseguir cadastrar
 
-					$this->sql = "SELECT * FROM dados_usuario where Email = '$this->email' and Senha = '$this->senha'";
+					$this->sql = "SELECT * FROM dados_usuario join cidade ON cidade.Id_cidade = dados_usuario.Fk_cidade join estado on estado.Id_estado = dados_usuario.Fk_estado where Email = '$this->email' and Senha = '$this->senha';";
 
 					$resultado = mysqli_fetch_array(mysqli_query($this->con, $this->sql));
 
@@ -106,7 +106,7 @@ class Cadastro_login extends Site {
 		// Verificando se os inputs não são nulos e executando o login
 		if (!$this->email == "" and !$this->senha == "") {
 
-			$this->sql = "SELECT * FROM dados_usuario where Email = '$this->email' and Senha = '$this->senha'";
+			$this->sql = "SELECT * FROM dados_usuario join cidade ON cidade.Id_cidade = dados_usuario.Fk_cidade join estado on estado.Id_estado = dados_usuario.Fk_estado where Email = '$this->email' and Senha = '$this->senha';";
 
 			// Se a CONSULTA funcionar
 			if (mysqli_query($this->con, $this->sql)) {

@@ -2,64 +2,69 @@
 
 require_once "site.class.php";
 
+
 class Perfil extends Site {
 
 	private $sql;
 	private $id;
-	public $cidade;
-	public $est;
-	public $ests;
-	public $estado;
+	private $estado;
+	private $cidade;
+	public $resultado_cidade;
+	public $resultado_estado;
 
 
+	public function __construct() {
 
-	function consulta() {
-
-		$this->id = $_SESSION['dados']['Id'];
-		$this->est = $_SESSION['dados']['Id_estado'];
-
-		$this->sql = "SELECT cidade.Nome FROM dados_usuario join cidade ON cidade.Id = dados_usuario.Id_cidade where dados_usuario.Id = $this->id";
-
-
-		if (mysqli_query($this->con, $this->sql)) {
-
-			$this->cidade = mysqli_fetch_array(mysqli_query($this->con, $this->sql));
-
-		}
-
-
-		$this->sql = "SELECT estado.Nome FROM dados_usuario join estado on estado.Id = dados_usuario.Id_estado where dados_usuario.Id = $this->id";
-
-
-		if (mysqli_query($this->con, $this->sql)) {
-
-			$this->estado = mysqli_fetch_array(mysqli_query($this->con, $this->sql));
-
-		}
-
-
-		$this->sql = "SELECT * From estado";
-
-		if (mysqli_query($this->con, $this->sql)) {
-
-			$this->ests = mysqli_fetch_all(mysqli_query($this->con, $this->sql));
-
-		}
-
-		var_dump($this->ests);
+		parent::__construct();
+		$this->transformar_variaveis();
 
 	}
 
 
+	private function transformar_variaveis() {
+
+		$this->id = $_SESSION['dados']['Id'];
+
+		if (!isset($_POST['estado']) || $_POST['estado'] == $_SESSION['dados']['Id_estado']) {
+			$this->estado = $_SESSION['dados']['Id_estado'];
+		} else {
+			$this->estado = $_POST['estado'];
+		}
+
+		if (!isset($_POST['cidade']) || $_POST['cidade'] == $_SESSION['dados']['Id_cidade']) {
+			$this->cidade = $_SESSION['dados']['Id_cidade'];
+		} else {
+			$this->cidade = $_POST['cidade'];
+		}
+
+		
+
+	}
+
+
+	public function consulta() {
+
+
+		$this->sql = "SELECT * FROM cidade where Estado = $this->estado";
+
+		$query = mysqli_query($this->con, $this->sql);
+
+		$this->resultado_cidade = mysqli_fetch_all($query, MYSQLI_ASSOC);
+
+		// echo "<pre>";
+		// var_dump($this->resultado_cidade);
+		// echo "</pre>";
+
+		$this->sql = "SELECT * FROM estado";
+
+		$this->resultado_estado = mysqli_query($this->con, $this->sql);
+
+
+	}
+
+
+
 }
-
-
-
-
-
-
-
-
 
 
 ?>
