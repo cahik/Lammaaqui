@@ -68,10 +68,14 @@ $Executar_login->logar();
 							</div>
 
 							<div>
-								<a href="#" class="txt1">
+								<a href="rebotsenha.php" class="txt1">
 									Esqueceu sua senha?
 								</a><br>
+<<<<<<< HEAD
+								<a href="cadastro.php" class="txt1">
+=======
 								<a href="/Lammaaqui/cadastro.php" class="txt1">
+>>>>>>> 5786168acceecaa3e0a5b7c633ab9fa31b349a37
 									Cadastre-se
 								</a>
 							</div>
