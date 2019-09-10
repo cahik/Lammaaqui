@@ -10,39 +10,38 @@
     <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="/Lammaaqui/index.php">Home</a>
+                <a class="nav-link" href="/Lammaaqui/index.php">Página inicial</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/Lammaaqui/sobre.php">Sobre</a>
             </li>
-
-<?php if (isset($_SESSION['logado']) && $_SESSION['logado'] === true) { ?>
-
-            <li class="nav-item">
-                <a class="nav-link" href="/Lammaaqui/perfil.php">Perfil</a>
-            </li>
-
-        <?php } ?>
-
-
-
             <li class="nav-item">
                 <a class="nav-link" href="/Lammaaqui/contato.php">Contato</a>
             </li>
 
-            <li class="nav-item">
-                <a href="login.php" class="d-block d-md-none btn nav-link btn-b-n">Login</a>     
-            </li>
+            <?php if (isset($_SESSION['logado']) and $_SESSION['logado'] == true) { ?>
 
-            <li class="nav-item">
-                <a href="cadastro.php" class="d-block d-md-none btn nav-link btn-b-n">Cadastro</a>     
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Lammaaqui/perfil.php">Perfil</a>
+                </li>
+
+            <?php } 
+
+            if (!isset($_SESSION['logado']) || $_SESSION['logado'] <> true) { ?>
+
+                <a href="/Lammaaqui/login.php" class="btn btn-b-n d-none d-md-block">Login</a>
+                <a href="/Lammaaqui/cadastro.php" class="btn btn-b-n d-none d-md-block">Cadastro</a>
+
+            <?php } else { ?>
+
+                <a href="/Lammaaqui/logout.php" class="btn btn-b-n d-none d-md-block">Sair</a>
+
+            <?php } ?>
 
         </ul>
     </div>
 
-    <a href="/Lammaaqui/login.php" class="btn btn-b-n d-none d-md-block">Login</a>
-    <a href="/Lammaaqui/cadastro.php" class="btn btn-b-n d-none d-md-block">Cadastro</a>
+
 
 </div>
 </nav>

@@ -12,33 +12,36 @@ $Executar_cadastro->cadastrar();
 <head>
 	<title>Cadastro</title>
 	<meta charset="utf-8">
-	<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
-	<!--===============================================================================================-->	
-	<!-- <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="icon" type="image/png" href="media/images/icons/favicon.ico"/>
 	
-	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="lib/vendor/bootstrap/css/bootstrap.min.css">
 	
-	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<!-- <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css"> -->
 	
-	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+	<!-- <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css"> -->
 	
-	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-		
-	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+	<!-- <link rel="stylesheet" type="text/css" href="lib/vendor/animate/animate.css"> -->
+
+	<!-- <link rel="stylesheet" type="text/css" href="lib/vendor/css-hamburgers/hamburgers.min.css"> -->
 	
-	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+	<!-- <link rel="stylesheet" type="text/css" href="lib/vendor/animsition/css/animsition.min.css"> -->
 	
-	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-		
-	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css"> -->
+	<!-- <link rel="stylesheet" type="text/css" href="lib/vendor/select2/select2.min.css"> -->
+
+	<!-- <link rel="stylesheet" type="text/css" href="lib/vendor/daterangepicker/daterangepicker.css"> -->
 	
 	<link rel="stylesheet" type="text/css" href="media/css/util.css">
 	<link rel="stylesheet" type="text/css" href="media/css/main.css">
+	<link rel="stylesheet" type="text/css" href="media/css/style.css">
 	<!--===============================================================================================-->
 </head>
-<body style="text-align: center;">
+<body>
+
+	<?php require_once "include/navbar.php"; ?>
 	
-	<div class="limiter">
+	<div class="limiter text-center">
 		<div class="container-login100">
 			<div class="wrap-login100">
 				<form class="login100-form" method="POST">
@@ -84,16 +87,16 @@ $Executar_cadastro->cadastrar();
 					<p class="p_cadastro"><center><BIG>Sexo</BIG></center></p>	
 
 					
-						<div class=" input-group-text" style="float: left; margin-left: 20px;">
-							<input class="" type="radio" id="masculino" name="sexo"  value="Masculino" required="" <?php if (isset($_POST['sexo']) and ($_POST['sexo'] == "Masculino")) {echo "checked=''";}?>>Masculino
-							<label for="masculino"></label>
-						</div>
+					<div class=" input-group-text" style="float: left; margin-left: 20px;">
+						<input class="" type="radio" id="masculino" name="sexo"  value="Masculino" required="" <?php if (isset($_POST['sexo']) and ($_POST['sexo'] == "Masculino")) {echo "checked=''";}?>>Masculino
+						<label for="masculino"></label>
+					</div>
 
-						<div class="input-group-text" style="float: left; margin-left: 20px;">
-							<input  type="radio" id="feminino" name="sexo"  value="Feminino" <?php if (isset($_POST['sexo']) and $_POST['sexo'] == "Feminino") {echo "checked=''";}?>>Feminino
-							<label for="feminino"></label>
-						</div>
-	
+					<div class="input-group-text" style="float: left; margin-left: 20px;">
+						<input  type="radio" id="feminino" name="sexo"  value="Feminino" <?php if (isset($_POST['sexo']) and $_POST['sexo'] == "Feminino") {echo "checked=''";}?>>Feminino
+						<label for="feminino"></label>
+					</div>
+					
 
 					<br>
 
