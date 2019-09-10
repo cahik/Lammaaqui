@@ -10,16 +10,16 @@
     <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="index.php">Home</a>
+                <a class="nav-link" href="/Lammaaqui/index.php">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="sobre.php">Sobre</a>
+                <a class="nav-link" href="/Lammaaqui/sobre.php">Sobre</a>
             </li>
 
 <?php if (isset($_SESSION['logado']) && $_SESSION['logado'] === true) { ?>
 
             <li class="nav-item">
-                <a class="nav-link" href="perfil.php">Perfil</a>
+                <a class="nav-link" href="/Lammaaqui/perfil.php">Perfil</a>
             </li>
 
         <?php } ?>
@@ -27,7 +27,7 @@
 
 
             <li class="nav-item">
-                <a class="nav-link" href="contato.php">Contato</a>
+                <a class="nav-link" href="/Lammaaqui/contato.php">Contato</a>
             </li>
 
             <li class="nav-item">
@@ -41,8 +41,8 @@
         </ul>
     </div>
 
-    <a href="login.php" class="btn btn-b-n d-none d-md-block">Login</a>
-    <a href="cadastro.php" class="btn btn-b-n d-none d-md-block">Cadastro</a>
+    <a href="/Lammaaqui/login.php" class="btn btn-b-n d-none d-md-block">Login</a>
+    <a href="/Lammaaqui/cadastro.php" class="btn btn-b-n d-none d-md-block">Cadastro</a>
 
 </div>
 </nav>
