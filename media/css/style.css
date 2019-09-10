@@ -4,7 +4,7 @@
 
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif !important;
   background-color: #ffffff !important;
   color: #555555;
   background-color: white !important;
@@ -1619,9 +1619,9 @@ footer .credits {
 
 .btn.btn-a,
 .btn.btn-b {
-  border-radius: 0;
-  padding: 1rem 3rem;
-  letter-spacing: .05rem;
+  border-radius: 0 !important;
+  padding: 1rem 3rem !important;
+  letter-spacing: .05rem !important;
 }
 
 .btn.btn-a {
@@ -1635,13 +1635,13 @@ footer .credits {
 }
 
 .btn.btn-b {
-  background-color: #ebbf31;
+  background-color: #ebbf31 !important;
   color: #000000;
 }
 
 .btn.btn-b:hover {
-  background-color: #000000;
-  color: #ffffff;
+  background-color: #000000 !important;
+  color: #ffffff !important;
 }
 
 .btn.btn-b-n {

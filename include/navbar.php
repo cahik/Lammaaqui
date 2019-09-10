@@ -29,10 +29,20 @@
             <li class="nav-item">
                 <a class="nav-link" href="contato.php">Contato</a>
             </li>
+
+            <li class="nav-item">
+                <a href="login.php" class="d-block d-md-none btn nav-link btn-b-n">Login</a>     
+            </li>
+
+            <li class="nav-item">
+                <a href="cadastro.php" class="d-block d-md-none btn nav-link btn-b-n">Cadastro</a>     
+            </li>
+
         </ul>
-        <a type="button" href="login.php" class="btn btn-b-n d-none d-md-block">Login</a>     
-        <a type="button" href="cadastro.php" class="btn btn-b-n d-none d-md-block">Cadastro</a>
     </div>
-   
+
+    <a href="login.php" class="btn btn-b-n d-none d-md-block">Login</a>
+    <a href="cadastro.php" class="btn btn-b-n d-none d-md-block">Cadastro</a>
+
 </div>
 </nav>
