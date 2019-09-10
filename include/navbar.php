@@ -19,6 +19,9 @@
                 <a class="nav-link" href="/Lammaaqui/contato.php">Contato</a>
             </li>
 
+            <a type="button" href="login.php" class="btn btn-b-n d-block d-md-none">Login</a>       
+            <a type="button" href="cadastro.php" class="btn btn-b-n d-blocl d-md-none">Cadastro</a>
+
             <?php if (isset($_SESSION['logado']) and $_SESSION['logado'] == true) { ?>
 
                 <li class="nav-item">
