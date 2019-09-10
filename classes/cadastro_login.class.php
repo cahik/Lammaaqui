@@ -38,10 +38,10 @@ class Cadastro_login extends Site {
 	// Recebe os posts do cadastro
 	protected function receber_posts_cadastro() {
 
-		$this->nome = $_POST['nome'];
-		$this->email = $_POST['email'];
-		$this->senha = $_POST['senha'];
-		$this->senha2 = $_POST['senha2'];
+		$this->nome = utf8_decode($_POST['nome']);
+		$this->email = utf8_decode($_POST['email']);
+		$this->senha = utf8_decode($_POST['senha']);
+		$this->senha2 = utf8_decode($_POST['senha2']);
 		$this->sexo = $_POST['sexo'];
 		$this->data_nascimento = $_POST['ano'] . "-" . $_POST['mes'] . "-" . $_POST['dia'];
 		$this->telefone = $_POST['telefone'];
@@ -74,7 +74,7 @@ class Cadastro_login extends Site {
 				$this->sql = "INSERT INTO dados_usuario (Nome, Email, Senha, Sexo, Data_nascimento, Telefone, Celular) values ('$this->nome', '$this->email', '$this->senha', '$this->sexo', '$this->data_nascimento', $this->telefone, $this->celular);";
 
 
-				if (mysqli_query($this->con, $this->sql_cadastro)) {
+				if (mysqli_query($this->con, $this->sql)) {
 
 					// Se conseguir cadastrar
 
