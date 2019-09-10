@@ -47,7 +47,7 @@ require_once "classes/site.class.php";
               <div class="row">
                 <div class="col-lg-8">
                   <div class="intro-body">
-                    <p class="intro-title-top">Encontre pessoas com interesses em comum</p>
+                    <p class="intro-title-top mt-5">Encontre pessoas com interesses em comum</p>
                     <h1 class="intro-title mb-4">
                       <h1 class="intro-title mb-4">
                       NÃO SABE QUEM CHAMAR? <br>
@@ -70,7 +70,7 @@ require_once "classes/site.class.php";
               <div class="row">
                 <div class="col-lg-8">
                   <div class="intro-body">
-                    <p class="intro-title-top">Economize tempo e dinheiro </p>
+                    <p class="intro-title-top mt-5">Economize tempo e dinheiro </p>
                     <h1 class="intro-title mb-4">
                       <h1 class="intro-title mb-4">
                       NÃO SABE QUEM CHAMAR? <br>
@@ -93,7 +93,7 @@ require_once "classes/site.class.php";
               <div class="row">
                 <div class="col-lg-8">
                   <div class="intro-body">
-                    <p class="intro-title-top">Facilite sua vida </p>
+                    <p class="intro-title-top mt-5">Facilite sua vida </p>
                      <h1 class="intro-title mb-4">
                       <h1 class="intro-title mb-4">
                       NÃO SABE QUEM CHAMAR? <br>
