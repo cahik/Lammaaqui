@@ -56,6 +56,14 @@ class Site {
 
 			}
 
+		} elseif (isset($_SESSION['logado']) and $_SESSION['logado'] == true) {
+
+			if ($this->url == "/Lammaaqui/login.php" || $this->url == "/Lammaaqui/cadastro.php") {
+
+				header("Location: /Lammaaqui/perfil.php");
+
+			}
+
 		}
 
 	}
