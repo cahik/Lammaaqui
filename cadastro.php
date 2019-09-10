@@ -49,17 +49,17 @@ $Executar_cadastro->cadastrar();
 					
 					
 					<div class="wrap-input100 validate-input">
-						<input class="input100" type="text" name="nome" id="nome" required="" placeholder="Nome" value="<?=$Executar_cadastro->nome?>">	
+						<input class="input100" type="text" name="nome" id="nome" required="" placeholder="Nome" value="<?=utf8_encode($Executar_cadastro->nome)?>">	
 					</div>
 					
 
 					<div class="wrap-input100 validate-input">
-						<input class="input100" type="email" name="email" id="email" required="" placeholder="E-mail" value="<?=$Executar_cadastro->email?>">
+						<input class="input100" type="email" name="email" id="email" required="" placeholder="E-mail" value="<?=utf8_encode($Executar_cadastro->email)?>">
 					</div>
 					
 					
 					<div class="wrap-input100 validate-input" >
-						<input class="input100" type="password" name="senha" id="senha" required="" placeholder="Senha" value="<?=$Executar_cadastro->senha?>">
+						<input class="input100" type="password" name="senha" id="senha" required="" placeholder="Senha" value="<?=utf8_encode($Executar_cadastro->senha)?>">
 					</div>
 
 					<div class="wrap-input100 validate-input" >
