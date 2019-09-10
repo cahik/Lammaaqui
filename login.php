@@ -11,25 +11,25 @@ $Executar_login->logar();
 <head>
 	<title>Login</title>
 	<meta charset="utf-8">
-	<!-- <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 		
 	<link rel="icon" type="image/png" href="media/images/icons/favicon.ico"/>
 	
 	<link rel="stylesheet" type="text/css" href="lib/vendor/bootstrap/css/bootstrap.min.css">
 	
-	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<!-- <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css"> -->
 	
-	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+	<!-- <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css"> -->
 	
-	<link rel="stylesheet" type="text/css" href="lib/vendor/animate/animate.css">
+	<!-- <link rel="stylesheet" type="text/css" href="lib/vendor/animate/animate.css"> -->
 		
-	<link rel="stylesheet" type="text/css" href="lib/vendor/css-hamburgers/hamburgers.min.css">
+	<!-- <link rel="stylesheet" type="text/css" href="lib/vendor/css-hamburgers/hamburgers.min.css"> -->
 	
-	<link rel="stylesheet" type="text/css" href="lib/vendor/animsition/css/animsition.min.css">
+	<!-- <link rel="stylesheet" type="text/css" href="lib/vendor/animsition/css/animsition.min.css"> -->
 	
-	<link rel="stylesheet" type="text/css" href="lib/vendor/select2/select2.min.css">
+	<!-- <link rel="stylesheet" type="text/css" href="lib/vendor/select2/select2.min.css"> -->
 		
-	<link rel="stylesheet" type="text/css" href="lib/vendor/daterangepicker/daterangepicker.css"> -->
+	<!-- <link rel="stylesheet" type="text/css" href="lib/vendor/daterangepicker/daterangepicker.css"> -->
 	
 	<link rel="stylesheet" type="text/css" href="media/css/util.css">
 	<link rel="stylesheet" type="text/css" href="media/css/main.css">
@@ -38,7 +38,7 @@ $Executar_login->logar();
 </head>
 <body style="background-color: #666666;">
 
-
+	<?php require_once "include/navbar.php"; ?>
 	
 	<div class="limiter">
 		<div class="container-login100">
@@ -68,10 +68,14 @@ $Executar_login->logar();
 							</div>
 
 							<div>
-								<a href="#" class="txt1">
+								<a href="rebotsenha.php" class="txt1">
 									Esqueceu sua senha?
 								</a><br>
-								<a href="#" class="txt1">
+<<<<<<< HEAD
+								<a href="cadastro.php" class="txt1">
+=======
+								<a href="/Lammaaqui/cadastro.php" class="txt1">
+>>>>>>> 5786168acceecaa3e0a5b7c633ab9fa31b349a37
 									Cadastre-se
 								</a>
 							</div>

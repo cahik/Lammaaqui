@@ -11,26 +11,28 @@ class match extends Site
     protected $like;
 
 
-    function like()
+    function like($id_recebe, $Id_da)
     {
+        $acao = "like";
 
-        $sql = "SELECT * FROM like_deslike";
-        if (mysqli_query($this->con, $sql)) ; {
+        $sql = "INSERT INTO like_deslike (deu, recebeu, acao ) VALUES ('$id_da', '$id_recebe', '$acao')";
+        if (mysqli_query($this->con, $sql)) ;
+        {
+            return mysqli_fetch_all(mysqli_query($this->con, $sql), MYSQLI_ASSOC);
+            echo "sucesso";
 
-            return  mysqli_fetch_all(mysqli_query($this->con, $sql), MYSQLI_ASSOC);
-        echo "sucesso";
 
 //        } else {
 
-    }
-
-
+        }
+        var_dump(like(5, 7));
+        die(error_reporting());
 
 
     }
 //
 //
-//    function deslike() {
+//    function dislike() {
 //
 //
 //
@@ -44,7 +46,6 @@ class match extends Site
 //}
 //
 //
-
 
 
 }

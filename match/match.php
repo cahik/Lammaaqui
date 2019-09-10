@@ -169,8 +169,8 @@ $a->select_pessoas();
                                     <h6 class="card-subtitle mb-2 text-muted"><img id="foto" src="img/elenice.jpg"></h6>
                                     <p class="card-text"><?= $a->resultado[$chave] ['Descricao'] ?></p>
                                     <div id="botao">
-                                        <button type="buttton" name="usuario_deu" class="btn btnlike" onclick="like()"><img src="img/like.png"></button>
-                                        <button type="button" name="bntdeslike" class="btn btndeslike" onclick="deslike()"><img src="img/dislike.png"></button>
+                                        <button type="buttton" name="usuario_deu" class="btn btnlike" onclick="like( <?= $a->resultado[$chave]['Id'] ?>, <?= $_SESSION['dados']['Id']?>)"><img src="img/like.png"></button>
+                                        <button type="button" name="bntdeslike" class="btn btndeslike" onclick="dislike()"><img src="img/dislike.png"></button>
                                     </div>
                                 </div>
 
