@@ -84,7 +84,7 @@ class Cadastro_login extends Site {
 
 					$_SESSION['logado'] = true;
 					$_SESSION['dados'] = $resultado;
-					header("location: /Lammaaqui/match/match.php");
+					header("location: /Lammaaqui/perfil.php");
 
 				} else {
 
@@ -110,10 +110,11 @@ class Cadastro_login extends Site {
 			$this->sql = "SELECT * FROM dados_usuario join cidade ON cidade.Id_cidade = dados_usuario.Fk_cidade join estado on estado.Id_estado = dados_usuario.Fk_estado where Email = '$this->email' and Senha = '$this->senha';";
 
 			// Se a CONSULTA funcionar
-			if (mysqli_query($this->con, $this->sql)) {
+			if ($query = mysqli_query($this->con, $this->sql)) {
 
-				$resultado = mysqli_fetch_array(mysqli_query($this->con, $this->sql));
+				$resultado = mysqli_fetch_array($query);
 
+					var_dump($this->sql);
 
 				if ($resultado['Email'] == $this->email and $resultado['Senha'] == $this->senha) {
 

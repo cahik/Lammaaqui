@@ -5,6 +5,7 @@ require_once "classes/cadastro_login.class.php";
 $Executar_login = new Cadastro_login();
 $Executar_login->logar();
 
+
 ?>
 <!DOCTYPE html>
 <html>
