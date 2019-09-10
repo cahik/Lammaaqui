@@ -73,7 +73,7 @@ $Executar_cadastro->cadastrar();
 						<button class="login100-form-btn btn-warning" name="cadastrar" type="submit"  >Enviar</button>
 					</div>
 				</form>
-				<div class="login100-more" style="background-image: url('media/images/caixas.jpg');">
+				<div class="login100-more" style="background-image: url('media/images/cadeado.jpg');">
 				</div>
 			</div>
 
