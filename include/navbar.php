@@ -10,7 +10,7 @@
     <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="/Lammaaqui/index.php">Página inicial</a>
+                <a class="nav-link" href="/Lammaaqui/index.php">Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/Lammaaqui/sobre.php">Sobre</a>
@@ -19,8 +19,13 @@
                 <a class="nav-link" href="/Lammaaqui/contato.php">Contato</a>
             </li>
 
-            <a type="button" href="login.php" class="btn btn-b-n d-block d-md-none">Login</a>       
-            <a type="button" href="cadastro.php" class="btn btn-b-n d-blocl d-md-none">Cadastro</a>
+            <li class="nav-item">
+                <a href="login.php" class="d-block d-md-none btn nav-link btn-b-n">Login</a>     
+            </li>
+
+            <li class="nav-item">
+                <a href="cadastro.php" class="d-block d-md-none btn nav-link btn-b-n">Cadastro</a>     
+            </li>
 
             <?php if (isset($_SESSION['logado']) and $_SESSION['logado'] == true) { ?>
 
@@ -32,12 +37,12 @@
 
             if (!isset($_SESSION['logado']) || $_SESSION['logado'] <> true) { ?>
 
-                <a href="/Lammaaqui/login.php" class="btn btn-b-n d-none d-md-block">Login</a>
-                <a href="/Lammaaqui/cadastro.php" class="btn btn-b-n d-none d-md-block">Cadastro</a>
+                <li class="nav-item"><a href="/Lammaaqui/login.php" class="btn btn-b-n d-none d-md-block">Login</a></li>
+                <li class="nav-item"><a href="/Lammaaqui/cadastro.php" class="btn btn-b-n d-none d-md-block">Cadastro</a></li>
 
             <?php } else { ?>
 
-                <a href="/Lammaaqui/logout.php" class="btn btn-b-n d-none d-md-block">Sair</a>
+                <li class="nav-item"><a href="/Lammaaqui/logout.php" class="btn btn-b-n d-none d-md-block">Sair</a></li>
 
             <?php } ?>
 
