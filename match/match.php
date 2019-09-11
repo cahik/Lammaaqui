@@ -1,9 +1,11 @@
 <?php
 
 require_once "../classes/selects.class.php";
-
+require_once "match.class.php";
 $a = new Selects();
 $a->select_pessoas();
+
+
 
 
 
@@ -32,7 +34,7 @@ $a->select_pessoas();
 
 <body>
 
-    <?php require_once "../include/navbar.php"; ?>
+<!--    --><?php //require_once "../include/navbar.php"; ?>
 
 
     <content>
@@ -157,7 +159,7 @@ $a->select_pessoas();
 
                         </div>
 
-                    </div>
+
 
 
                     <div class="col-6 offset-2 text-center">
@@ -165,15 +167,15 @@ $a->select_pessoas();
                         <!-- Foreach para puxar os resultados do array "resultado" e mostrar os dados no card -->
                         <?php foreach ($a->resultado as $chave => $valor) { ?>
 
-                            <div class="card cardlike  card_<?=$chave?>" data-numero="<?=$chave?>" style="display: block;">
+                            <div class="card cardlike  card_<?=$chave?>" data-numero="<?=$chave?>" style="display: none;">
 
                                 <div class="card-body ">
                                     <h1 class="card-title mb-3"> <?= $a->resultado[$chave]['Nome'] ?> </h1>
                                     <h6 class="card-subtitle mb-2 text-muted"><img id="foto" src="img/elenice.jpg"></h6>
                                     <p class="card-text"><?= $a->resultado[$chave] ['Descricao'] ?></p>
                                     <div id="botao">
-                                        <button type="button" name="usuario_deu" class="btn btnlike" onclick="like( <?= $a->resultado[$chave]['Id'] ?>, <?= $_SESSION['dados']['Id']?>)"><img src="img/like.png"></button>
-                                        <button type="button" name="usuario_recebeu" class="btn btndislike" onclick="dislike( <?= $a->resultado[$chave]['Id'] ?>, <?= $_SESSION['dados']['Id']?>)"><img src="img/dislike.png"></button>
+                                        <button type="button" name="like" class="btn btnlike" onclick="like( <?= $a->resultado[$chave]['Id'] ?>, <?= $_SESSION['dados']['Id']?>, "like")"><img src="img/like.png"></button>
+                                        <button type="button" name="dislike" class="btn btndislike" onclick="like( <?= $a->resultado[$chave]['Id'] ?>, <?= $_SESSION['dados']['Id']?>, "deslike")"><img src="img/dislike.png"></button>
                                     </div>
                                 </div>
 
