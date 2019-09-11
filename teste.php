@@ -11,27 +11,82 @@ $sql1 = "SELECT * FROM estado";
 
 $query1 = mysqli_query($con, $sql1);
 
-
-
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Teste</title>
+</head>
+<body>
+
+	Estado<br>
+	<select id="id_estado" onchange="executar_ajax()">
+		<option value="">Selecione o estado</option>
+
+		<?php while ($resultado1 = mysqli_fetch_array($query1)) { ?>
+
+			<option value="<?=$resultado1['Id_estado']?>"><?=utf8_encode($resultado1['Nome_estado'])?></option>
+
+		<?php } ?>
+
+	</select>
+
+	<br><br>
+
+	Cidade<br>
+	<select id="id_cidade" disabled="">
+		<option value="">Selecione a cidade</option>
+
+	</select>
 
 
-Estado<br>
-<select>
-	<option value="">Selecione o estado</option>
+	<script
+	src="https://code.jquery.com/jquery-3.4.1.min.js"
+	integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+	crossorigin="anonymous"></script>
 
-	<?php while ($resultado1 = mysqli_fetch_array($query1)) { ?>
+	<script type="text/javascript">
+		
 
-		<option value="<?=$resultado1['Id_estado']?>"><?=utf8_encode($resultado1['Nome_estado'])?></option>
+		function executar_ajax() {
 
-	<?php } ?>
+			var estado = window.document.querySelector('#id_estado').value;
+			var cidade = window.document.querySelector('#id_cidade');
 
-</select>
+			cidade.disabled = false;
 
-<br><br>
 
-Cidade<br>
-<select>
-	<option value="">Selecione a cidade</option>
-	
-</select>
+			$.ajax ({
+
+				url: 'cidades.php',
+				type: 'POST',
+				data: {estado:estado},
+				dataType: 'HTML',
+
+			}).done(function(mostrar){
+
+				var mostrar = JSON.parse(mostrar);
+				$('#id_cidade').empty();
+
+				function alterar_selects(cid) {
+
+					$('#id_cidade').append('<option value="' + cid + '">' + cid + '</option>');
+
+				}
+
+				mostrar.forEach(alterar_selects);
+
+
+			});
+
+			
+
+
+
+		}
+
+	</script>
+
+
+</body>
+</html>
