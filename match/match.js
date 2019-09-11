@@ -31,8 +31,6 @@ $(document).ready(function() {
 
     function like(id_recebe, Id_da, acao) {
 
-        console.log(acao);
-
         $.ajax({
             url: "matchk.php",
             type: "POST",
