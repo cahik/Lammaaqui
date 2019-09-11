@@ -36,6 +36,22 @@ function like(id_recebe, Id_da) {
 }
 
 
+function dislike(id_recebe, Id_da) {
+
+    $.ajax({
+        url: "match.php",
+        type: "POST",
+        data:{
+            "id_recebe":id_recebe,
+            "id_da": Id_da
+        }
+    }).done(function(resposta) {
+        console.log(resposta);
+
+    });
+
+}
+
 $(document).ready(function() {
     $(".btnlike").click(function () {
         $(this).parent().parent().parent().animate({marginLeft: "-1000px", opacity: 0}, 300).fadeOut(0);

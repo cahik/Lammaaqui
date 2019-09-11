@@ -106,7 +106,7 @@ class Selects extends Site
                 // Pegando os resultados da query em forma de array.
                 while ($this->consulta = mysqli_fetch_array($query)) {
 
-                    $sqlverifica =" SELECT * FROM like_deslike WHERE deu =". $_SESSION['dados']['Id']. "and recebeu = $this->consulta['Id']";
+                    $sqlverifica =" SELECT * FROM like_deslike WHERE deu = ". $_SESSION['dados']['Id']."  and recebeu = $this->consulta['Id']";
 
 					$nascimento = $this->consulta['Data_nascimento'];
 					$atual = date('Y-m-d');
@@ -124,9 +124,10 @@ class Selects extends Site
 
                                     if ($idade >= $this->menor_idade and $idade <= $this->maior_idade) {
 
-                                        if (!mysqli_num_row(mysqli_query($this->con, $sqlverifica))>0 ) {
+                                        if (mysqli_num_row(mysqli_query($this->con, $sqlverifica)) > 0 ) {
 
                                             $this->resultado[] = $this->consulta;
+
                                         }
 
                                     }
@@ -151,11 +152,23 @@ class Selects extends Site
             if (mysqli_query($this->con, $this->sql)) {
 
                 // Pegando os resultados da query em forma de array.
-                $this->resultado = mysqli_fetch_all(mysqli_query($this->con, $this->sql), MYSQLI_ASSOC);
+                $this->resultado = array();
+                while ($this->consulta = mysqli_fetch_array(mysqli_query($this->con, $this->sql))) {
+                    $sqlverifica = " SELECT * FROM like_deslike WHERE deu = " . $_SESSION['dados']['Id'] . "  and recebeu = " . $this->consulta['Id'];
+                    $query = mysqli_query($this->con, $sqlverifica);
 
 
+
+
+                    if (!mysqli_num_rows($query) > 0) {
+                        $this->resultado[] = $this->consulta;
+                       // mysqli_fetch_all(mysqli_query($this->con, $this->sql), MYSQLI_ASSOC);
+                }
+                }
+//                var_dump($this->resultado);
             } else {
                 var_dump(mysqli_error($this->con));
+
 
             }
 
@@ -165,6 +178,5 @@ class Selects extends Site
 
 
 }
-
 
 ?>

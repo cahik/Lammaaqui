@@ -5,8 +5,12 @@ require_once "../classes/selects.class.php";
 $a = new Selects();
 $a->select_pessoas();
 
-//var_dump($b->resultado);
-//die();
+foreach ($a->resultado as $chave => $valor) {
+    var_dump($a->resultado[$chave]['Nome']);
+
+}
+
+die();
 
 
 ?>
@@ -162,7 +166,7 @@ $a->select_pessoas();
                         <!-- Foreach para puxar os resultados do array "resultado" e mostrar os dados no card -->
                         <?php foreach ($a->resultado as $chave => $valor) { ?>
 
-                            <div class="card cardlike  card_<?=$chave?>" data-numero="<?=$chave?>" style="display: none;">
+                            <div class="card cardlike  card_<?=$chave?>" data-numero="<?=$chave?>" style="display: block;">
 
                                 <div class="card-body ">
                                     <h1 class="card-title mb-3"> <?= $a->resultado[$chave]['Nome'] ?> </h1>
