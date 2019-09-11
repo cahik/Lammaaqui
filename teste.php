@@ -1,11 +1,31 @@
 <?php
 
-$nascimento = '2003-05-18';
-$atual = date('Y-m-d');
+require_once "classes/site.class.php";
 
-$idade = intval($atual) - intval($nascimento);
+$teste = new Site();
 
-var_dump($idade);
+$sql1 = "SELECT * FROM estado";
 
 
 ?>
+
+
+Estado<br>
+<select>
+	<option value="">Selecione o estado</option>
+
+	<?php while ($resultado1 = mysqli_query($query1)) { ?>
+
+		<option value="<?=$resultado1['Id_estado']?>"><?=$resultado1['Nome']?></option>
+
+	<?php } ?>
+
+</select>
+
+<br><br>
+
+Cidade<br>
+<select>
+	<option value="">Selecione a cidade</option>
+	
+</select>

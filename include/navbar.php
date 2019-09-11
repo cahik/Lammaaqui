@@ -19,6 +19,14 @@
                 <a class="nav-link" href="/Lammaaqui/contato.php">Contato</a>
             </li>
 
+            <?php if (isset($_SESSION['logado']) and $_SESSION['logado'] == true) { ?>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/Lammaaqui/perfil.php">Perfil</a>
+                </li>
+
+            <?php } ?>
+
             <li class="nav-item">
                 <a href="login.php" class="d-block d-md-none btn nav-link btn-b-n">Login</a>     
             </li>
@@ -27,15 +35,8 @@
                 <a href="cadastro.php" class="d-block d-md-none btn nav-link btn-b-n">Cadastro</a>     
             </li>
 
-            <?php if (isset($_SESSION['logado']) and $_SESSION['logado'] == true) { ?>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="/Lammaaqui/perfil.php">Perfil</a>
-                </li>
-
-            <?php } 
-
-            if (!isset($_SESSION['logado']) || $_SESSION['logado'] <> true) { ?>
+            <?php if (!isset($_SESSION['logado']) || $_SESSION['logado'] <> true) { ?>
 
                 <li class="nav-item"><a href="/Lammaaqui/login.php" class="btn btn-b-n d-none d-md-block">Login</a></li>
                 <li class="nav-item"><a href="/Lammaaqui/cadastro.php" class="btn btn-b-n d-none d-md-block">Cadastro</a></li>
