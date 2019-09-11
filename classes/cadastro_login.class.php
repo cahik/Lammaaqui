@@ -1,7 +1,6 @@
 <?php
 
 require_once "site.class.php";
-require_once "include/navbar.php";
 
 class Cadastro_login extends Site {
 

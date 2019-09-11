@@ -18,20 +18,6 @@ $Executar_cadastro->cadastrar();
 	
 	<link rel="stylesheet" type="text/css" href="lib/vendor/bootstrap/css/bootstrap.min.css">
 	
-	<!-- <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css"> -->
-	
-	<!-- <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css"> -->
-	
-	<!-- <link rel="stylesheet" type="text/css" href="lib/vendor/animate/animate.css"> -->
-
-	<!-- <link rel="stylesheet" type="text/css" href="lib/vendor/css-hamburgers/hamburgers.min.css"> -->
-	
-	<!-- <link rel="stylesheet" type="text/css" href="lib/vendor/animsition/css/animsition.min.css"> -->
-	
-	<!-- <link rel="stylesheet" type="text/css" href="lib/vendor/select2/select2.min.css"> -->
-
-	<!-- <link rel="stylesheet" type="text/css" href="lib/vendor/daterangepicker/daterangepicker.css"> -->
-	
 	<link rel="stylesheet" type="text/css" href="media/css/util.css">
 	<link rel="stylesheet" type="text/css" href="media/css/main.css">
 	<link rel="stylesheet" type="text/css" href="media/css/style.css">
@@ -39,7 +25,7 @@ $Executar_cadastro->cadastrar();
 </head>
 <body>
 
-	<?php require_once "include/navbar.php"; ?>
+	<?php //require_once "include/navbar.php"; ?>
 	
 	<div class="limiter text-center">
 		<div class="container-login100">
@@ -72,8 +58,7 @@ $Executar_cadastro->cadastrar();
 
 					<div class="wrap-input100 validate-input">
 						<input class="input100" type="number" name="telefone" id="telefone" placeholder="Número de Telefone" value="<?=$Executar_cadastro->telefone?>">
-					</div>
-					
+					</div>					
 
 
 
@@ -115,18 +100,18 @@ $Executar_cadastro->cadastrar();
 
 					<select name="mes" class="select" required="">
 						<option value="<?php if (isset($_POST['mes'])) { echo $_POST['mes'];} else { echo '';}?>"><?php if (isset($_POST['mes'])) { echo $_POST['mes'];} else { echo 'Mês';}?></option>
-						<option>01</option>
-						<option>02</option>
-						<option>03</option>
-						<option>04</option>
-						<option>05</option>
-						<option>06</option>
-						<option>07</option>
-						<option>08</option>
-						<option>09</option>
-						<option>10</option>
-						<option>11</option>
-						<option>12</option>
+						<option value="01">Janeiro</option>
+						<option value="02">Fevereiro</option>
+						<option value="03">Março</option>
+						<option value="04">Abril</option>
+						<option value="05">Maio</option>
+						<option value="06">Junho</option>
+						<option value="07">Julho</option>
+						<option value="08">Agosto</option>
+						<option value="09">Setembro</option>
+						<option value="10">Outubro</option>
+						<option value="11">Novembro</option>
+						<option value="12">Dezembro</option>
 					</select>
 
 
@@ -138,6 +123,8 @@ $Executar_cadastro->cadastrar();
 						<?php } ?>
 
 					</select>
+
+					
 
 					<br><br>
 					<div class="container-login100-form-btn ">
