@@ -7,5 +7,8 @@ $recebe1 = $_POST['Id_da'];
 $a = new match();
 $a->like($recebe, $recebe1  );
 
+$a = new match();
+$a->dislike($recebe, $recebe1  );
+
 
 ?>

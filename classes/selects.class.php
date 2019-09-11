@@ -153,7 +153,7 @@ class Selects extends Site
 
                 // Pegando os resultados da query em forma de array.
                 $this->resultado = array();
-                while ($this->consulta = mysqli_fetch_array(mysqli_query($this->con, $this->sql))) {
+                $this->consulta = mysqli_fetch_array(mysqli_query($this->con, $this->sql));
                     $sqlverifica = " SELECT * FROM like_deslike WHERE deu = " . $_SESSION['dados']['Id'] . "  and recebeu = " . $this->consulta['Id'];
                     $query = mysqli_query($this->con, $sqlverifica);
 
@@ -161,10 +161,9 @@ class Selects extends Site
 
 
                     if (!mysqli_num_rows($query) > 0) {
-                        $this->resultado[] = $this->consulta;
-                       // mysqli_fetch_all(mysqli_query($this->con, $this->sql), MYSQLI_ASSOC);
+                        $this->resultado = mysqli_fetch_all(mysqli_query($this->con, $this->sql), MYSQLI_ASSOC);
                 }
-                }
+
 //                var_dump($this->resultado);
             } else {
                 var_dump(mysqli_error($this->con));
