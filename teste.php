@@ -1,10 +1,16 @@
 <?php
 
-require_once "classes/site.class.php";
+CONST HOST = "llamaaqui.ml:3306";
+CONST USER = "llamaaqui";
+CONST PASS = "entra21@Blusoft";
+CONST DB   = "llamaaqu_master";
 
-$teste = new Site();
+$con = mysqli_connect(HOST, USER, PASS, DB);
 
 $sql1 = "SELECT * FROM estado";
+
+$query1 = mysqli_query($con, $sql1);
+
 
 
 ?>
@@ -14,9 +20,9 @@ Estado<br>
 <select>
 	<option value="">Selecione o estado</option>
 
-	<?php while ($resultado1 = mysqli_query($query1)) { ?>
+	<?php while ($resultado1 = mysqli_fetch_array($query1)) { ?>
 
-		<option value="<?=$resultado1['Id_estado']?>"><?=$resultado1['Nome']?></option>
+		<option value="<?=$resultado1['Id_estado']?>"><?=utf8_encode($resultado1['Nome_estado'])?></option>
 
 	<?php } ?>
 
