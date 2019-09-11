@@ -5,13 +5,10 @@ require_once "../classes/selects.class.php";
 $a = new Selects();
 $a->select_pessoas();
 
-foreach ($a->resultado as $chave => $valor) {
-    var_dump($a->resultado[$chave]['Nome']);
-
-}
-
-die();
-
+// echo "<pre>";
+// var_dump($a->resultado[1]['Nome']);
+// echo "</pre>";
+// die();
 
 ?>
 <!DOCTYPE html>
