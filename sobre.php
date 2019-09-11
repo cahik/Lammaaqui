@@ -226,7 +226,7 @@
               </div>
               <div class="card-body-d">
                 <p style="text-align: left !important;" class="content-d color-text-a">
-                  Sed porttitor lectus nibh, Cras ultricies ligula sed magna dictum porta two.
+                  Estudo design, descobri o mundo da programação a pouco tempo, porém já amo! Tenho interesse em misturar design, programação e trabalhar nessa área, mais especificamente como designer ux ou web designer :) 
                 </p>
               </div>
               <div class="card-footer-d">
