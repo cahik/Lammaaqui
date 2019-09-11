@@ -159,7 +159,7 @@ $a->select_pessoas();
 
                         </div>
 
-
+                    </div>
 
 
                     <div class="col-6 offset-2 text-center">
@@ -174,8 +174,8 @@ $a->select_pessoas();
                                     <h6 class="card-subtitle mb-2 text-muted"><img id="foto" src="img/elenice.jpg"></h6>
                                     <p class="card-text"><?= $a->resultado[$chave] ['Descricao'] ?></p>
                                     <div id="botao">
-                                        <button type="button" name="like" class="btn btnlike" onclick="like( <?= $a->resultado[$chave]['Id'] ?>, <?= $_SESSION['dados']['Id']?>, "like")"><img src="img/like.png"></button>
-                                        <button type="button" name="dislike" class="btn btndislike" onclick="like( <?= $a->resultado[$chave]['Id'] ?>, <?= $_SESSION['dados']['Id']?>, "deslike")"><img src="img/dislike.png"></button>
+                                        <button type="button" name="like" class="btn btnlike" onclick="like( <?= $a->resultado[$chave]['Id'] ?>, <?= $_SESSION['dados']['Id']?>, 'like')"><img src="img/like.png"></button>
+                                        <button type="button" name="dislike" class="btn btndislike" onclick="like( <?= $a->resultado[$chave]['Id'] ?>, <?= $_SESSION['dados']['Id']?>, 'deslike')"><img src="img/dislike.png"></button>
                                     </div>
                                 </div>
 

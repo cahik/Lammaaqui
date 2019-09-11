@@ -1,11 +1,10 @@
 <?php
 require_once "match.class.php";
 $recebe = $_POST['id_recebe'];
-$recebe1 = $_POST['Id_da'];
+$recebe1 = $_POST['id_da'];
 $acao = $_POST['acao'];
 
 $a = new match();
-die("morreu");
 
 if ($acao == "like"){
 
