@@ -1,6 +1,7 @@
 <?php
 
 require_once "classes/cadastro_login.class.php";
+require_once "classes/cidades.class.php";
 
 $Executar_cadastro = new Cadastro_login();
 $Executar_cadastro->cadastrar();
@@ -124,9 +125,27 @@ $Executar_cadastro->cadastrar();
 
 					</select>
 
-					
+					<br><br>
+
+					<select id="id_estado" onchange="executar_ajax()">
+						<option value="">Estado</option>
+						
+						<?php foreach ($Mostrar_cid_est->resultado_estados as $chave => $valor) { ?>
+
+							<option value="<?=$Mostrar_cid_est->resultado_estados[$chave]['Id_estado']?>"><?=utf8_encode($Mostrar_cid_est->resultado_estados[$chave]['Nome_estado'])?></option>
+
+						<?php } ?>
+
+					</select>
 
 					<br><br>
+
+					<select id="id_cidade" disabled="">
+						<option value="">Selecione a cidade</option>
+					</select>
+
+					<br><br>
+
 					<div class="container-login100-form-btn ">
 						<button class="login100-form-btn btn-warning" name="cadastrar" type="submit">Enviar</button>
 					</div>
@@ -139,11 +158,51 @@ $Executar_cadastro->cadastrar();
 		</div>
 	</div>
 
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script
+	src="https://code.jquery.com/jquery-3.4.1.min.js"
+	integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+	crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 	<script src="media/js/main.js"></script>
+
+	<script type="text/javascript">
+		
+
+		function executar_ajax() {
+
+			var estado = window.document.querySelector('#id_estado').value;
+			var cidade = window.document.querySelector('#id_cidade');
+
+			cidade.disabled = false;
+
+
+			$.ajax ({
+
+				url: 'classes/cidades.class.php',
+				type: 'POST',
+				data: {estado:estado},
+				dataType: 'HTML',
+
+			}).done(function(mostrar){
+
+				var mostrar = JSON.parse(mostrar);
+				$('#id_cidade').empty();
+
+				function alterar_selects(cid) {
+
+					$('#id_cidade').append('<option value="' + cid + '">' + cid + '</option>');
+
+				}
+
+				mostrar.forEach(alterar_selects);
+
+			});
+
+		}
+
+	</script>
 
 
 </body>
