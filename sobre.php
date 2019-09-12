@@ -124,7 +124,7 @@
               </div>
               <div class="card-body-d">
                 <p class="content-d color-text-a">
-                  Sed porttitor lectus nibh, Cras ultricies ligula sed magna dictum porta two.
+                  Mineirin uai, 26 anos, músico, apaixonado por tecnologia e desde cedo resolvi tentar a carreira na área. Atenção, empresas... me chamem que eu vou!
                 </p>
               </div>
               <div class="card-footer-d">

@@ -30,24 +30,30 @@
             if (!isset($_SESSION['logado']) || $_SESSION['logado'] <> true) { ?>
 
                 <li class="nav-item">
-                    <a href="login.php" class="d-block d-md-none btn nav-link btn-b-n">Login</a>     
+                    <a href="login.php" class="d-block d-md-none btn btn-b-n">Login</a>     
                 </li>
 
                 <li class="nav-item">
-                    <a href="cadastro.php" class="d-block d-md-none btn nav-link btn-b-n">Cadastro</a>     
-                </li>
-
-                <li class="nav-item"><a href="/Lammaaqui/login.php" class="btn btn-b-n d-none d-md-block">Login</a></li>
-                <li class="nav-item"><a href="/Lammaaqui/cadastro.php" class="btn btn-b-n d-none d-md-block">Cadastro</a></li>
-
-            <?php } else { ?>
-
-                <li class="nav-item"><a href="/Lammaaqui/logout.php" class="btn btn-b-n d-block">Sair</a></li>
-
-            <?php } ?>
-
+                    <a href="cadastro.php" class="d-block d-md-none btn btn-b-n">Cadastro</a>     
+                </li>          
         </ul>
     </div>
+
+    <div>          
+        <a href="/Lammaaqui/login.php" class="d-none d-md-block btn btn-b-n">Login</a>
+    </div>
+
+    <div> 
+        <a href="/Lammaaqui/cadastro.php" class="d-none d-md-block btn btn-b-n">Cadastro</a>
+    </div>
+
+    <?php } else { ?>
+
+                <li class="nav-item">
+                    <a href="/Lammaaqui/logout.php" class="d-none d-md-block btn btn-b-n">Sair</a>
+                </li>
+
+            <?php } ?>
 
 
 
