@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" href="media/llama.css">
 <nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
     <div class="container">
         <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault"
@@ -6,7 +7,12 @@
         <span></span>
         <span></span>
     </button>
-    <a class="navbar-brand text-brand" href="index.php">Llama<span class="color-b">Aqui</span></a>
+     <!-- aqui é o logo animado -->
+<div style="background-size: 70px;">
+<a class="llama" href="#"></a>
+<a class="navbar-brand text-brand " href="index.php">Llama<span class="color-b">Aqui</span></a>
+</div>
+    
     <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
         <ul class="navbar-nav">
             <li class="nav-item">
