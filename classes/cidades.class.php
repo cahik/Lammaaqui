@@ -10,6 +10,7 @@ class Cidades_estados extends Site {
 	private $consulta;
 	public $resultado_cidades;
 	public $resultado_estados;
+	public $json;
 
 
 	public function __construct() {
@@ -33,27 +34,27 @@ class Cidades_estados extends Site {
 	}
 
 
-	public function Mostrar_cidades($estado) {
+	// public function Mostrar_cidades() {
 
-		$this->estado = $_POST['estado'];
+	// 	$this->estado = $_POST['estado'];
 
-		$this->sql = "SELECT * FROM cidade where Estado = $this->estado";
+	// 	$this->sql = "SELECT * FROM cidade where Estado = $this->estado";
 
-		$this->query = mysqli_query($this->con, $this->sql);
+	// 	$this->query = mysqli_query($this->con, $this->sql);
 
-		$this->resultado_cidades = array();
+	// 	$this->resultado_cidades = array();
 
-		while ($this->consulta = mysqli_fetch_array($this->query)) {
+	// 	while ($this->consulta = mysqli_fetch_array($this->query)) {
 
-			$this->resultado_cidades[] = utf8_encode($this->consulta['Nome_cidade']);
+	// 		$this->resultado_cidades[] = utf8_encode($this->consulta['Nome_cidade']);
 
-		}
+	// 	}
 
-		$json = json_encode($this->resultado_cidades);
+	// 	$this->json = json_encode($this->resultado_cidades);
 
-		echo $json;
+	// 	echo $this->json;
 
-	}
+	// }
 
 
 }
@@ -62,11 +63,9 @@ class Cidades_estados extends Site {
 
 $Mostrar_cid_est = new Cidades_estados();
 
-if (isset($_POST['estado'])) {
-
-	$Mostrar_cid_est->Mostrar_cidades();
-
-}
+// if (isset($_POST['estado'])){
+// 	$Mostrar_cid_est->Mostrar_cidades();
+// }
 
 
 ?>

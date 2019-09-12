@@ -180,7 +180,7 @@ $Executar_cadastro->cadastrar();
 
 			$.ajax ({
 
-				url: 'classes/cidades.class.php',
+				url: 'cidades.php',
 				type: 'POST',
 				data: {estado:estado},
 				dataType: 'HTML',

@@ -9,22 +9,18 @@ $con = mysqli_connect(HOST, USER, PASS, DB);
 
 $estado = $_POST['estado'];
 
-$sql2 = "SELECT * FROM cidade where Estado = $estado";
+$sql = "SELECT * FROM cidade where Estado = $estado";
 
-$query2 = mysqli_query($con, $sql2);
+$query = mysqli_query($con, $sql);
 
-$resultado2 = array();
+$resultado = array();
 
-while ($consulta = mysqli_fetch_array($query2)) {
+while ($consulta = mysqli_fetch_array($query)) {
 
-	$resultado2[] = utf8_encode($consulta['Nome_cidade']);
+	$resultado[] = utf8_encode($consulta['Nome_cidade']);
 
 }
 
-$json = json_encode($resultado2);
-
+$json = json_encode($resultado);
 echo $json;
-
-
-
 ?>
