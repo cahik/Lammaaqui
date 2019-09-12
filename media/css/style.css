@@ -2103,7 +2103,6 @@ footer .credits {
 /* Filtros */
 
 /* Ranger do "Pagar até quanto" */
-
 input[type=range] {
     -webkit-appearance: none;
     appearance: none;
