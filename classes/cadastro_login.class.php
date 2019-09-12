@@ -13,6 +13,8 @@ class Cadastro_login extends Site {
 	public $data_nascimento;
 	public $telefone;
 	public $celular;
+	public $cidade;
+	public $estado;
 	private $sql;
 
 
@@ -46,6 +48,8 @@ class Cadastro_login extends Site {
 		$this->data_nascimento = $_POST['ano'] . "-" . $_POST['mes'] . "-" . $_POST['dia'];
 		$this->telefone = $_POST['telefone'];
 		$this->celular = $_POST['celular'];
+		$this->cidade = utf8_decode($_POST['cidade']);
+		$this->estado = utf8_decode($_POST['estado']);
 
 	}
 
@@ -57,22 +61,55 @@ class Cadastro_login extends Site {
 
 	}
 
+
+	private function explode_numero_telefone($telefone) {
+
+		$ex1 = explode("-", $telefone);
+		$ex2 = explode("(", $ex1[0]);
+		$ex3 = explode(") ", $ex2[1]);
+		$this->telefone = $ex3[0] . $ex3[1] . $ex1[1];
+
+	}
+
+
+	private function explode_numero_celular($celular) {
+
+		$ex1 = explode("-", $celular);
+		$ex2 = explode("(", $ex1[0]);
+		$ex3 = explode(") ", $ex2[1]);
+		$this->celular = $ex3[0] . $ex3[1] . $ex1[1];
+
+	}
+
+	private function transformar_nome_em_id($cidade) {
+
+		$this->sql = "SELECT Id_cidade FROM cidade where Nome_cidade = '$cidade';";
+		$query = mysqli_query($this->con, $this->sql);
+		$resultado_temp = mysqli_fetch_array($query);
+		$this->cidade = $resultado_temp['Id_cidade'];
+
+	}
+
+
 	// Função para fazer as verificações de cadastro e cadastrar
 	public function cadastrar() {
 
 		if (isset($_POST['cadastrar'])) {
 
 			// Permitindo que o telefone e o celular possam ser nulos
-			if ($this->telefone == "") {$this->telefone = "DEFAULT";};
-			if ($this->celular == "") {$this->celular = "DEFAULT";};
+			if ($this->telefone == "") {$this->telefone = "DEFAULT";} else {$this->explode_numero_telefone($this->telefone);}
+			if ($this->celular == "") {$this->celular = "DEFAULT";} else {$this->explode_numero_celular($this->celular);}
+
+			$this->transformar_nome_em_id($this->cidade);
 
 
 			// Verificando se as senhas são iguais e executando o cadastro no banco de dados
 
 			if ($this->senha == $this->senha2) {
 
-				$this->sql = "INSERT INTO dados_usuario (Nome, Email, Senha, Sexo, Data_nascimento, Telefone, Celular) values ('$this->nome', '$this->email', '$this->senha', '$this->sexo', '$this->data_nascimento', $this->telefone, $this->celular);";
+				$this->sql = "INSERT INTO dados_usuario (Nome, Email, Senha, Sexo, Data_nascimento, Telefone, Celular, Fk_cidade, Fk_estado) values ('$this->nome', '$this->email', '$this->senha', '$this->sexo', '$this->data_nascimento', $this->telefone, $this->celular, $this->cidade, $this->estado);";
 
+				var_dump($this->sql);
 
 				if (mysqli_query($this->con, $this->sql)) {
 
@@ -114,7 +151,7 @@ class Cadastro_login extends Site {
 
 				$resultado = mysqli_fetch_array($query);
 
-					var_dump($this->sql);
+				var_dump($this->sql);
 
 				if ($resultado['Email'] == $this->email and $resultado['Senha'] == $this->senha) {
 

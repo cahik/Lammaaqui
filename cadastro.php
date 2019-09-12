@@ -58,13 +58,13 @@ $Executar_cadastro->cadastrar();
 
 
 					<div class="wrap-input100 validate-input">
-						<input class="input100" type="text" pattern="\(\d{2}\)\d{4}-\d{4}" name="telefone" id="telefone" placeholder="Número de Telefone" value="<?=$Executar_cadastro->telefone?>">
+						<input class="input100" type="text" name="telefone" id="telefone" placeholder="Número de Telefone" value="<?=$Executar_cadastro->telefone?>" maxlength="10">
 					</div>					
 
 
 
 					<div class="wrap-input100 validate-input" >
-						<input class="input100" type="text" pattern="\(\d{2}\)\d{1}-\d{4}-\d{4}" name="celular" id="celular" placeholder="Número de celular" value="<?=$Executar_cadastro->celular?>">
+						<input class="input100" type="text" name="celular" id="celular" placeholder="Número de celular" value="<?=$Executar_cadastro->celular?>" maxlength="11">
 					</div>
 
 
@@ -127,7 +127,7 @@ $Executar_cadastro->cadastrar();
 
 					<br><br>
 
-					<select id="id_estado" onchange="executar_ajax()">
+					<select id="id_estado" name="estado" required onchange="executar_ajax()">
 						<option value="">Estado</option>
 						
 						<?php foreach ($Mostrar_cid_est->resultado_estados as $chave => $valor) { ?>
@@ -140,7 +140,7 @@ $Executar_cadastro->cadastrar();
 
 					<br><br>
 
-					<select id="id_cidade" disabled="">
+					<select id="id_cidade" name="cidade" required disabled="">
 						<option value="">Selecione a cidade</option>
 					</select>
 
@@ -162,6 +162,7 @@ $Executar_cadastro->cadastrar();
 	src="https://code.jquery.com/jquery-3.4.1.min.js"
 	integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
 	crossorigin="anonymous"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
@@ -173,7 +174,33 @@ $Executar_cadastro->cadastrar();
 		// 	$('#telefone').mask('(00) 0000-0000');
 		// 	$('#celular').mask('(00) 0-0000-0000');
 		// });
-		
+
+
+		jQuery("#telefone")
+		.mask("(99) 9999-9999")
+		.focusout(function (event) {  
+			var target, phone, element;  
+			target = (event.currentTarget) ? event.currentTarget : event.srcElement;  
+			phone = target.value.replace(/\D/g, '');
+			element = $(target);  
+			element.unmask();
+		});
+
+		jQuery("#celular")
+		.mask("(99) 9999?9-9999")
+		.focusout(function (event) {  
+			var target, phone, element;  
+			target = (event.currentTarget) ? event.currentTarget : event.srcElement;  
+			phone = target.value.replace(/\D/g, '');
+			element = $(target);  
+			element.unmask();  
+			if(phone.length > 10) {  
+				element.mask("(99) 9999?9-9999");  
+			} else {  
+				element.mask("(99) 9999?9-9999");  
+			}  
+		});
+
 
 		function executar_ajax() {
 

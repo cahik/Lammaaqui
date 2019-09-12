@@ -1,9 +1,7 @@
 <?php 
 
-$_POST['nome'] = "Gustavo";
 
 
-var_dump($_POST);
-
+var_dump($testef);
 
 ?>
