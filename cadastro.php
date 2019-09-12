@@ -1,7 +1,7 @@
 <?php
 
 require_once "classes/cadastro_login.class.php";
-require_once "classes/cidades.class.php";
+require_once "classes/estados.class.php";
 
 $Executar_cadastro = new Cadastro_login();
 $Executar_cadastro->cadastrar();
@@ -58,13 +58,13 @@ $Executar_cadastro->cadastrar();
 
 
 					<div class="wrap-input100 validate-input">
-						<input class="input100" type="number" name="telefone" id="telefone" placeholder="Número de Telefone" value="<?=$Executar_cadastro->telefone?>">
+						<input class="input100" type="text" pattern="\(\d{2}\)\d{4}-\d{4}" name="telefone" id="telefone" placeholder="Número de Telefone" value="<?=$Executar_cadastro->telefone?>">
 					</div>					
 
 
 
 					<div class="wrap-input100 validate-input" >
-						<input class="input100" type="number" name="celular" id="celular" placeholder="Número de celular" value="<?=$Executar_cadastro->celular?>">
+						<input class="input100" type="text" pattern="\(\d{2}\)\d{1}-\d{4}-\d{4}" name="celular" id="celular" placeholder="Número de celular" value="<?=$Executar_cadastro->celular?>">
 					</div>
 
 
@@ -168,6 +168,11 @@ $Executar_cadastro->cadastrar();
 	<script src="media/js/main.js"></script>
 
 	<script type="text/javascript">
+
+		// $(document).ready(function(){
+		// 	$('#telefone').mask('(00) 0000-0000');
+		// 	$('#celular').mask('(00) 0-0000-0000');
+		// });
 		
 
 		function executar_ajax() {
@@ -183,7 +188,7 @@ $Executar_cadastro->cadastrar();
 				url: 'cidades.php',
 				type: 'POST',
 				data: {estado:estado},
-				dataType: 'HTML',
+				dataType: 'HTML'
 
 			}).done(function(mostrar){
 
