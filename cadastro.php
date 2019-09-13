@@ -6,7 +6,7 @@ require_once "classes/estados.class.php";
 $Executar_cadastro = new Cadastro_login();
 $Executar_cadastro->cadastrar();
 
-
+var_dump($_POST);
 ?>
 <!DOCTYPE html>
 <html>
@@ -49,11 +49,11 @@ $Executar_cadastro->cadastrar();
 					
 					
 					<div class="wrap-input100 validate-input" >
-						<input class="input100" type="password" name="senha" id="senha" required="" placeholder="Senha" value="<?=utf8_encode($Executar_cadastro->senha)?>">
+						<input class="input100" type="password" name="senha" id="senha" minlength="8" required="" placeholder="Senha (Min: 8 caracteres)" value="<?=utf8_encode($Executar_cadastro->senha)?>">
 					</div>
 
 					<div class="wrap-input100 validate-input" >
-						<input class="input100" type="password" name="senha2" id="senha2" required="" placeholder="Repetir a senha">
+						<input class="input100" type="password" name="senha2" id="senha2" minlength="8" required="" placeholder="Repetir a senha">
 					</div>
 
 
@@ -132,7 +132,7 @@ $Executar_cadastro->cadastrar();
 						
 						<?php foreach ($Mostrar_cid_est->resultado_estados as $chave => $valor) { ?>
 
-							<option value="<?=$Mostrar_cid_est->resultado_estados[$chave]['Id_estado']?>"><?=utf8_encode($Mostrar_cid_est->resultado_estados[$chave]['Nome_estado'])?></option>
+							<option <?php if (isset($_POST['estado']) and $_POST['estado'] == $Mostrar_cid_est->resultado_estados[$chave]['Id_estado']) {echo "selected";} ?>  value="<?=$Mostrar_cid_est->resultado_estados[$chave]['Id_estado']?>"><?=utf8_encode($Mostrar_cid_est->resultado_estados[$chave]['Nome_estado'])?></option>
 
 						<?php } ?>
 
