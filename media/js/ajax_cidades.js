@@ -8,7 +8,7 @@
 
 			$.ajax ({
 
-				url: 'cidades.php',
+				url: 'classes/cidades.php',
 				type: 'POST',
 				data: {estado:estado},
 				dataType: 'HTML'

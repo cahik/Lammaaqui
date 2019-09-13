@@ -173,12 +173,6 @@ $Executar_cadastro->cadastrar();
 
 	<script type="text/javascript">
 
-		// $(document).ready(function(){
-		// 	$('#telefone').mask('(00) 0000-0000');
-		// 	$('#celular').mask('(00) 0-0000-0000');
-		// });
-
-
 		jQuery("#telefone")
 		.mask("(99) 9999-9999")
 		.focusout(function (event) {  
@@ -204,38 +198,6 @@ $Executar_cadastro->cadastrar();
 			}  
 		});
 
-
-		function executar_ajax() {
-
-			var estado = window.document.querySelector('#id_estado').value;
-			var cidade = window.document.querySelector('#id_cidade');
-
-			cidade.disabled = false;
-
-
-			$.ajax ({
-
-				url: 'cidades.php',
-				type: 'POST',
-				data: {estado:estado},
-				dataType: 'HTML'
-
-			}).done(function(mostrar){
-
-				var mostrar = JSON.parse(mostrar);
-				$('#id_cidade').empty();
-
-				function alterar_selects(cid) {
-
-					$('#id_cidade').append('<option value="' + cid + '">' + cid + '</option>');
-
-				}
-
-				mostrar.forEach(alterar_selects);
-
-			});
-
-		}
 
 	</script>
 
