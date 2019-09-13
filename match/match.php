@@ -170,9 +170,9 @@ $a->select_pessoas();
                             <div class="card cardlike  card_<?=$chave?>" data-numero="<?=$chave?>" style="display: none;">
 
                                 <div class="card-body ">
-                                    <h1 class="card-title mb-3"> <?= $a->resultado[$chave]['Nome'] ?> </h1>
+                                    <h1 class="card-title mb-3"> <?= utf8_encode($a->resultado[$chave]['Nome']) ?> </h1>
                                     <h6 class="card-subtitle mb-2 text-muted"><img id="foto" src="img/elenice.jpg"></h6>
-                                    <p class="card-text"><?= $a->resultado[$chave] ['Descricao'] ?></p>
+                                    <p class="card-text"><?= utf8_encode($a->resultado[$chave] ['Descricao']) ?></p>
                                     <div id="botao">
                                         <button type="button" name="like" class="btn btnlike" onclick="like( <?= $a->resultado[$chave]['Id'] ?>, <?= $_SESSION['dados']['Id']?>, 'like')"><img src="img/like.png"></button>
                                         <button type="button" name="dislike" class="btn btndislike" onclick="like( <?= $a->resultado[$chave]['Id'] ?>, <?= $_SESSION['dados']['Id']?>, 'deslike')"><img src="img/dislike.png"></button>
