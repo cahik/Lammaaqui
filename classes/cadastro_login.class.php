@@ -64,29 +64,36 @@ class Cadastro_login extends Site {
 
 	private function explode_numero_telefone($telefone) {
 
-		$ex1 = explode("-", $telefone);
-		$ex2 = explode("(", $ex1[0]);
-		$ex3 = explode(") ", $ex2[1]);
-		$this->telefone = $ex3[0] . $ex3[1] . $ex1[1];
+		if (strlen($telefone) == 14) {
+
+			$ex1 = explode("-", $telefone);
+			$ex2 = explode("(", $ex1[0]);
+			$ex3 = explode(") ", $ex2[1]);
+			$this->telefone = $ex3[0] . $ex3[1] . $ex1[1];
+
+		} else {
+
+			$this->telefone = $telefone;
+
+		}
 
 	}
 
 
 	private function explode_numero_celular($celular) {
 
-		$ex1 = explode("-", $celular);
-		$ex2 = explode("(", $ex1[0]);
-		$ex3 = explode(") ", $ex2[1]);
-		$this->celular = $ex3[0] . $ex3[1] . $ex1[1];
+		if (strlen($celular) == 15) {
 
-	}
+			$ex1 = explode("-", $celular);
+			$ex2 = explode("(", $ex1[0]);
+			$ex3 = explode(") ", $ex2[1]);
+			$this->celular = $ex3[0] . $ex3[1] . $ex1[1];
 
-	private function transformar_nome_em_id($cidade) {
+		} else {
 
-		$this->sql = "SELECT Id_cidade FROM cidade where Nome_cidade = '$cidade';";
-		$query = mysqli_query($this->con, $this->sql);
-		$resultado_temp = mysqli_fetch_array($query);
-		$this->cidade = $resultado_temp['Id_cidade'];
+			$this->celular = $celular;
+
+		}
 
 	}
 
@@ -99,9 +106,6 @@ class Cadastro_login extends Site {
 			// Permitindo que o telefone e o celular possam ser nulos
 			if ($this->telefone == "") {$this->telefone = "DEFAULT";} else {$this->explode_numero_telefone($this->telefone);}
 			if ($this->celular == "") {$this->celular = "DEFAULT";} else {$this->explode_numero_celular($this->celular);}
-
-			$this->transformar_nome_em_id($this->cidade);
-
 
 			// Verificando se as senhas são iguais e executando o cadastro no banco de dados
 
