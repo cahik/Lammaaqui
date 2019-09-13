@@ -6,7 +6,7 @@
 	class Uploader {
 
 		// Diretório que será salvo o arquivo
-		CONST DIRETORIO = "C:/xampp/htdocs/Lammaaqui/media/images/fotos_usuarios/";
+		CONST DIRETORIO = "media/images/fotos_usuarios/";
 
 		// Nome do input
 		public $name_input;

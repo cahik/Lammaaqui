@@ -46,32 +46,32 @@ $Mostrar_dados->update();
   <!--/ Intro Single /-->
   <section class="intro-single margemEsquerda">
     <div class="container">
-      <div class="row">
-        <div class="col-sm-4">
-          <div class="title-single-box">
-            <h5 class="title-single">Este é seu perfil, <?php if (isset($Mostrar_dados->dados_usuario['Nome'])) {echo $Mostrar_dados->dados_usuario['Nome'];}?>!</h5>        
+      <form method="post" enctype="multipart/form-data">
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="title-single-box">
+              <h5 class="title-single">Este é seu perfil, <?php if (isset($Mostrar_dados->dados_usuario['Nome'])) {echo $Mostrar_dados->dados_usuario['Nome'];}?>!</h5>        
+            </div>
           </div>
-        </div>
-        <div class="col-sm-4"></div>          
-        <div class="col-sm-4 tam">
-          <img <?php if (isset($Mostrar_dados->dados_usuario['Foto'])) { ?> src="<?php echo $Mostrar_dados->dados_usuario['Foto'];}?>" src="media/images/fotos_usuarios/112298568.jpg" class="rounded float-right img-fluid" alt="<?php if (isset($Mostrar_dados->dados_usuario['Nome'])) {echo $Mostrar_dados->dados_usuario['Nome'];}?>">
+          <div class="col-sm-4"></div>          
+          <div class="col-sm-4 tam">
+            <img src="<?php if (isset($Mostrar_dados->dados_usuario['Foto'])) { echo $Mostrar_dados->dados_usuario['Foto']; }else { echo'media/images/elenice.jpg';} ?>" class="rounded float-right img-fluid" alt="<?php if (isset($Mostrar_dados->dados_usuario['Nome'])) {echo $Mostrar_dados->dados_usuario['Nome'];}?>">
 
-          <div class="profile-img">            
-            <div class="EnviarFoto file btn btn-sm btn-primary">           
-              Escolha sua foto
-              <input type="file" name="arquivos[]" id="arquivos" multiple="" required="">
+            <div class="profile-img">            
+              <div class="EnviarFoto file btn btn-sm btn-primary">           
+                Escolha sua foto
+                <input type="file" name="arquivos[]" id="arquivos" multiple="" required="">
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
 
-  <!-- Formulário --> 
-  <section class="margemEsquerda">
-    <div class="container emp-profile">
-      <form method="post" enctype="multipart/form-data">
+    <!-- Formulário --> 
+    <section class="margemEsquerda">
+      <div class="container emp-profile">
         <div class="row">        
 
           <!-- Navegação - Dados pessoais e Filtros -->
@@ -182,6 +182,7 @@ $Mostrar_dados->update();
                   </div>
                   <div style="resize: none;" class="col-md-6">
 
+                    <!-- Separar dia/mês/ano em um select para cada -->
                     <?php 
 
                     $data_nascimento = explode ("-", $Mostrar_dados->dados_usuario['Data_nascimento']);
@@ -191,7 +192,7 @@ $Mostrar_dados->update();
                     <!-- Dia -->
                     <select for="colFormLabel" class="form-group col-sm-2" name="dia" class="select" required="">
 
-                      <option value="<?php if (isset($_POST['dia'])) { echo $_POST['dia'];} else { echo '';}?>"><?php if (isset($_POST['dia'])) { echo $_POST['dia'];} else { echo 'Dia';}?></option>
+                      <option value="<?php if (isset($Mostrar_dados->dados_usuario['dia'])) { echo $Mostrar_dados->dados_usuario['dia'];} else { echo '';}?>"><?php if (isset($Mostrar_dados->dados_usuario['dia'])) { echo $Mostrar_dados->dados_usuario['dia'];} else { echo 'Dia';}?></option>
 
                       <?php for ($i = 1; $i <= 31; $i++) {?>
                         <option><?=$i?></option>
@@ -200,17 +201,26 @@ $Mostrar_dados->update();
 
                     <!-- Mês -->
                     <select for="colFormLabel" class="form-group col-sm-2" name="mes" class="select" required="">
-                      <option value="<?php if (isset($_POST['mes'])) { echo $_POST['mes'];} else { echo '';}?>"><?php if (isset($_POST['mes'])) { echo $_POST['mes'];} else { echo 'Mês';}?></option>
+                      <option value="<?php if (isset($Mostrar_dados->dados_usuario['mes'])) { echo $Mostrar_dados->dados_usuario['mes'];} else { echo '';}?>"><?php if (isset($Mostrar_dados->dados_usuario['mes'])) { echo $Mostrar_dados->dados_usuario['mes'];} else { echo 'Mês';}?></option>
 
-                      <?php for ($i = 1; $i <= 12; $i++) {?>
-                        <option><?=$i?></option>
-                      <?php } ?>
+                      <option value="01">Janeiro</option>
+                      <option value="02">Fevereiro</option>
+                      <option value="03">Março</option>
+                      <option value="04">Abril</option>
+                      <option value="05">Maio</option>
+                      <option value="06">Junho</option>
+                      <option value="07">Julho</option>
+                      <option value="08">Agosto</option>
+                      <option value="09">Setembro</option>
+                      <option value="10">Outubro</option>
+                      <option value="11">Novembro</option>
+                      <option value="12">Dezembro</option>
                     </select>
 
                     <!-- Ano -->
                     <select for="colFormLabel" class="form-group col-sm-2" name="ano" class="select" required="">
 
-                      <option value="<?php if (isset($_POST['ano'])) { echo $_POST['ano'];} else { echo '';}?>"><?php if (isset($_POST['ano'])) { echo $_POST['ano'];} else { echo 'Ano';}?></option>
+                      <option value="<?php if (isset($Mostrar_dados->dados_usuario['ano'])) { echo $Mostrar_dados->dados_usuario['ano'];} else { echo '';}?>"><?php if (isset($Mostrar_dados->dados_usuario['ano'])) { echo $Mostrar_dados->dados_usuario['ano'];} else { echo 'Ano';}?></option>
 
                       <?php for ($i = date('Y'); $i >= (date('Y') - 100); $i--) {?>
                         <option><?=$i?></option>
@@ -245,7 +255,7 @@ $Mostrar_dados->update();
 
                   <!-- Estado -->
                   <div class="col-md-6">
-                   <select id="inputState" class="form-control mb-3" name="estado" required="">
+                   <select id="inputState" class="form-control mb-3" name="estado">
 
                     <?php while ($resultado = mysqli_fetch_array($Mostrar_dados->resultado_estado)) { ?>
 
@@ -262,7 +272,7 @@ $Mostrar_dados->update();
                   <label for="colFormLabel" class="col-sm-2 col-form-label">Cidade</label>
                 </div>
                 <div class="col-md-6">
-                  <select id="inputCity" class="form-control mb-3" name="cidade" required="">
+                  <select id="inputCity" class="form-control mb-3" name="cidade">
 
                     <?php foreach ($Mostrar_dados->resultado_cidade as $chave => $valor) { ?>
 
@@ -499,19 +509,22 @@ $Mostrar_dados->update();
 <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 <div id="preloader"></div>
 
-  <!-- JavaScript Libraries -->
-  <script src="lib/jquery/jquery.min.js"></script>
-  <script src="lib/jquery/jquery-migrate.min.js"></script>
-  <script src="lib/popper/popper.min.js"></script>
-  <script src="lib/bootstrap/js/bootstrap.min.js"></script>
-  <script src="lib/easing/easing.min.js"></script>
-  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-  <script src="lib/scrollreveal/scrollreveal.min.js"></script>
-  <!-- Contact Form JavaScript File -->
-  <script src="contactform/contactform.js"></script>
+<!-- JavaScript Libraries -->
+<script src="lib/jquery/jquery.min.js"></script>
+<script src="lib/jquery/jquery-migrate.min.js"></script>
+<script src="lib/popper/popper.min.js"></script>
+<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="lib/easing/easing.min.js"></script>
+<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="lib/scrollreveal/scrollreveal.min.js"></script>
+<!-- Contact Form JavaScript File -->
+<script src="contactform/contactform.js"></script>
 
-  <!-- Template Main Javascript File -->
-  <script src="media/js/main.js"></script>
+<!-- Template Main Javascript File -->
+<script src="media/js/main.js"></script>
+
+<!-- Function Ajax cidade/estado -->
+<script src="media/js/ajax_cidades.js"></script>
 
 </body>
 </html>

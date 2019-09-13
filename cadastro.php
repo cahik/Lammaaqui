@@ -167,48 +167,8 @@ $Executar_cadastro->cadastrar();
 
 	<script src="media/js/main.js"></script>
 
-	<script type="text/javascript">
-
-		// $(document).ready(function(){
-		// 	$('#telefone').mask('(00) 0000-0000');
-		// 	$('#celular').mask('(00) 0-0000-0000');
-		// });
-		
-
-		function executar_ajax() {
-
-			var estado = window.document.querySelector('#id_estado').value;
-			var cidade = window.document.querySelector('#id_cidade');
-
-			cidade.disabled = false;
-
-
-			$.ajax ({
-
-				url: 'cidades.php',
-				type: 'POST',
-				data: {estado:estado},
-				dataType: 'HTML'
-
-			}).done(function(mostrar){
-
-				var mostrar = JSON.parse(mostrar);
-				$('#id_cidade').empty();
-
-				function alterar_selects(cid) {
-
-					$('#id_cidade').append('<option value="' + cid + '">' + cid + '</option>');
-
-				}
-
-				mostrar.forEach(alterar_selects);
-
-			});
-
-		}
-
-	</script>
-
+	<!-- Function Ajax cidade/estado -->
+	<script src="media/js/ajax_cidades.js"></script>
 
 </body>
 </html>

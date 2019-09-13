@@ -8,6 +8,7 @@ class Perfil extends Site {
 	private $sql;
 	private $id;
 	private $nome;
+	private $foto;
 	private $email;
 	private $senha;
 	private $telefone;
@@ -109,19 +110,22 @@ class Perfil extends Site {
 			$uploads = $upload->upload();
 			$uploads = $uploads[0]['dados']['nome_novo'];
 
+			// Foto perfil
+			$this->foto = $uploads;
+
 			// Senha
 			if ($this->senha == '') {
-
 				$this->senha = $_SESSION['dados']['Senha'];
-
 			}
 
 			// Dados pessoais
-			$this->sql = "UPDATE dados_usuario SET Nome = '$this->nome', Email = '$this->email', Senha = '$this->senha', Telefone = $this->telefone, Celular = $this->celular, Sexo = '$this->sexo', Estado = '$this->estado', Cidade = '$this->cidade', Data_nascimento = '$this->data_nascimento', Descricao = '$this->descricao' WHERE Id = '$this->id'";
+			$this->sql = "UPDATE dados_usuario SET Nome = '$this->nome', Foto = '$this->foto', Email = '$this->email', Senha = '$this->senha', Telefone = $this->telefone, Celular = $this->celular, Sexo = '$this->sexo', Estado = '$this->estado', Cidade = '$this->cidade', Data_nascimento = '$this->data_nascimento', Descricao = '$this->descricao' WHERE Id = '$this->id'";
+
+			// var_dump($this->sql);
+			// die();
 
 			mysqli_query($this->con, $this->sql);
 
-			var_dump($this->sql);	
 		} 
 	}
 }
