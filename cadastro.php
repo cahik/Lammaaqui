@@ -168,10 +168,9 @@ $Executar_cadastro->cadastrar();
 
 	<script src="media/js/main.js"></script>
 
-<<<<<<< HEAD
 	<!-- Function Ajax cidade/estado -->
 	<script src="media/js/ajax_cidades.js"></script>
-=======
+
 	<script type="text/javascript">
 
 		// $(document).ready(function(){
@@ -240,7 +239,6 @@ $Executar_cadastro->cadastrar();
 
 	</script>
 
->>>>>>> c1c45bd975f6695b60b1a036ed1df5ee2617b3af
 
 </body>
 </html>
