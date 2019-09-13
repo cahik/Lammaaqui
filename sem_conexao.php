@@ -12,9 +12,21 @@
 	<?php 
 
 	require_once "include/lhama.php"; 
-	require_once "include/navbar.php"; 
 
 	?>
+
+	<style type="text/css">
+		
+		#e404 {
+			margin: 300px auto 0 auto;
+			border-radius: 10px;
+			width: 760px;
+			height: 400px;
+			background-color: white;
+
+		}
+
+	</style>
 
 	<div id="e404">
 		<div class="col-md-6 col-12 mt-5" style="float: left;">
