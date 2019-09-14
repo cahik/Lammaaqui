@@ -22,6 +22,7 @@ $Executar_cadastro->cadastrar();
 	<link rel="stylesheet" type="text/css" href="media/css/util.css">
 	<link rel="stylesheet" type="text/css" href="media/css/main.css">
 	<link rel="stylesheet" type="text/css" href="media/css/style.css">
+	<link href="media/css/barra.css" rel="stylesheet">
 	<!--===============================================================================================-->
 </head>
 <body>

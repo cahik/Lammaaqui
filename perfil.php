@@ -17,11 +17,6 @@ $Mostrar_dados = new Perfil();
 $Mostrar_dados->consulta();
 $Mostrar_dados->update();
 
-echo "<br>";
-echo "<br>";
-echo "<br>";
-var_dump($_POST);
-
 ?>
 
 <!DOCTYPE html>
@@ -46,6 +41,7 @@ var_dump($_POST);
 
   <!-- Main Stylesheet File -->
   <link href="media/css/style.css" rel="stylesheet">
+  <link href="media/css/barra.css" rel="stylesheet">
 </head>
 
 <body>
@@ -198,38 +194,34 @@ var_dump($_POST);
                     <!-- Dia -->
                     <select for="colFormLabel" class="form-group col-sm-2" name="dia" class="select" required="">
 
-                      <option value="<?php if (isset($Mostrar_dados->dados_usuario['dia'])) { echo $Mostrar_dados->dados_usuario['dia'];} else { echo '';}?>"><?php if (isset($Mostrar_dados->dados_usuario['dia'])) { echo $Mostrar_dados->dados_usuario['dia'];} else { echo 'Dia';}?></option>
-
                       <?php for ($i = 1; $i <= 31; $i++) {?>
-                        <option><?=$i?></option>
+                        <option <?php if ($data_nascimento[2] == $i) {echo "selected";} ?> ><?=$i?></option>
                       <?php } ?>
                     </select>
 
                     <!-- Mês -->
-                    <select for="colFormLabel" class="form-group col-sm-2" name="mes" class="select" required="">
-                      <option value="<?php if (isset($Mostrar_dados->dados_usuario['mes'])) { echo $Mostrar_dados->dados_usuario['mes'];} else { echo '';}?>"><?php if (isset($Mostrar_dados->dados_usuario['mes'])) { echo $Mostrar_dados->dados_usuario['mes'];} else { echo 'Mês';}?></option>
+                    <select for="colFormLabel" class="form-group col-sm-3" name="mes" class="select" required="">
 
-                      <option value="01">Janeiro</option>
-                      <option value="02">Fevereiro</option>
-                      <option value="03">Março</option>
-                      <option value="04">Abril</option>
-                      <option value="05">Maio</option>
-                      <option value="06">Junho</option>
-                      <option value="07">Julho</option>
-                      <option value="08">Agosto</option>
-                      <option value="09">Setembro</option>
-                      <option value="10">Outubro</option>
-                      <option value="11">Novembro</option>
-                      <option value="12">Dezembro</option>
+                      <option <?php if ($data_nascimento[1] == '01') {echo "selected";} ?> value="01">Janeiro</option>
+                      <option <?php if ($data_nascimento[1] == '02') {echo "selected";} ?> value="02">Fevereiro</option>
+                      <option <?php if ($data_nascimento[1] == '03') {echo "selected";} ?> value="03">Março</option>
+                      <option <?php if ($data_nascimento[1] == '04') {echo "selected";} ?> value="04">Abril</option>
+                      <option <?php if ($data_nascimento[1] == '05') {echo "selected";} ?> value="05">Maio</option>
+                      <option <?php if ($data_nascimento[1] == '06') {echo "selected";} ?> value="06">Junho</option>
+                      <option <?php if ($data_nascimento[1] == '07') {echo "selected";} ?> value="07">Julho</option>
+                      <option <?php if ($data_nascimento[1] == '08') {echo "selected";} ?> value="08">Agosto</option>
+                      <option <?php if ($data_nascimento[1] == '09') {echo "selected";} ?> value="09">Setembro</option>
+                      <option <?php if ($data_nascimento[1] == '10') {echo "selected";} ?> value="10">Outubro</option>
+                      <option <?php if ($data_nascimento[1] == '11') {echo "selected";} ?> value="11">Novembro</option>
+                      <option <?php if ($data_nascimento[1] == '12') {echo "selected";} ?> value="12">Dezembro</option>
+
                     </select>
 
                     <!-- Ano -->
-                    <select for="colFormLabel" class="form-group col-sm-2" name="ano" class="select" required="">
-
-                      <option value="<?php if (isset($Mostrar_dados->dados_usuario['ano'])) { echo $Mostrar_dados->dados_usuario['ano'];} else { echo '';}?>"><?php if (isset($Mostrar_dados->dados_usuario['ano'])) { echo $Mostrar_dados->dados_usuario['ano'];} else { echo 'Ano';}?></option>
+                    <select for="colFormLabel" class="form-group col-sm-3" name="ano" class="select" required="">
 
                       <?php for ($i = date('Y'); $i >= (date('Y') - 100); $i--) {?>
-                        <option><?=$i?></option>
+                        <option <?php if ($data_nascimento[0] == $i) {echo "selected";} ?> ><?=$i?></option>
                       <?php } ?>
                     </select>
 
@@ -242,7 +234,7 @@ var_dump($_POST);
                     <label for="colFormLabel" class="col-sm-2 col-form-label">Descrição</label>
                   </div>
                   <div class="col-md-4">
-                    <textarea style="resize: none;" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Essa é a descrição que seu perfil mostrará nas buscas de perfil" required=""><?php if (isset($Mostrar_dados->dados_usuario['Descricao'])) {echo $Mostrar_dados->dados_usuario['Descricao'];}?></textarea>
+                    <textarea name="Descricao" style="resize: none;" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Essa é a descrição que seu perfil mostrará nas buscas de perfil" required=""><?php if (isset($Mostrar_dados->dados_usuario['Descricao'])) {echo $Mostrar_dados->dados_usuario['Descricao'];}?></textarea>
                   </div>
                 </div>   
 
@@ -262,11 +254,9 @@ var_dump($_POST);
                   <div class="col-md-6">
                    <select id="id_estado" class="form-control mb-3" name="estado" required onchange="executar_ajax()">
 
-                    <option value="">Estado</option>
-
                     <?php foreach ($Mostrar_cid_est->resultado_estados as $chave => $valor) { ?>
 
-                      <option value="<?=$Mostrar_cid_est->resultado_estados[$chave]['Id_estado']?>"><?=utf8_encode($Mostrar_cid_est->resultado_estados[$chave]['Nome_estado'])?></option>
+                      <option <?php if ($Mostrar_dados->dados_usuario['Fk_estado'] == $Mostrar_cid_est->resultado_estados[$chave]['Id_estado']) {echo "selected";} ?> value="<?=$Mostrar_cid_est->resultado_estados[$chave]['Id_estado']?>"><?=utf8_encode($Mostrar_cid_est->resultado_estados[$chave]['Nome_estado'])?></option>
 
                     <?php } ?>
 
@@ -282,8 +272,18 @@ var_dump($_POST);
                 </div>
                 <div class="col-md-6">
 
-                  <select id="id_cidade" class="form-control mb-3" name="cidade" required disabled="">
-                    <option value="">Selecione a cidade</option>
+                  <select id="id_cidade" class="form-control mb-3" name="cidade" required>
+
+                    <?php
+
+                    $Mostrar_cid_est->Mostrar_cidades();
+
+                    foreach ($Mostrar_cid_est->resultado_cidades as $chave => $valor) { ?>
+
+                      <option <?php if ($Mostrar_cid_est->resultado_cidades[$chave]['Id_cidade'] == $Mostrar_dados->dados_usuario['Fk_cidade']) {echo "selected";} ?> value="<?=$Mostrar_cid_est->resultado_cidades[$chave]['Id_cidade']?>"><?=utf8_encode($Mostrar_cid_est->resultado_cidades[$chave]['Nome_cidade'])?></option>
+
+                    <?php } ?>
+
                   </select>
 
                 </div> 
@@ -443,10 +443,10 @@ var_dump($_POST);
   </div>
   <div class="col-md-4 mb-3">
    <div class="select_sexo">
-    <select class="select custom-select custom-select" name="Sexo">
-      <option value="NI"> <?php if (utf8_encode(isset($Mostrar_dados->dados_usuario['Sexo']) and ($Mostrar_dados->dados_usuario['Sexo'] == "NI"))) {echo "selected=''";}?>>Não me importo</option>
-      <option value="Masculino" <?php if (isset($Mostrar_dados->dados_usuario['Sexo']) and ($Mostrar_dados->dados_usuario['Sexo'] == "Masculino")) {echo "selected=''";}?>>Masculino</option>
-      <option value="Feminino" <?php if (isset($Mostrar_dados->dados_usuario['Sexo']) and ($Mostrar_dados->dados_usuario['Sexo'] == "Feminino")) {echo "selected=''";}?>>Feminino</option>
+    <select name="Aceita_genero" class="select custom-select custom-select">
+      <option value="Não me importo" <?php if (utf8_encode(isset($Mostrar_dados->dados_usuario['Aceita_genero']) and ($Mostrar_dados->dados_usuario['Aceita_genero'] == "Não me importo"))) {echo "selected=''";}?>>Não me importo</option>
+      <option value="Masculino" <?php if (isset($Mostrar_dados->dados_usuario['Aceita_genero']) and ($Mostrar_dados->dados_usuario['Aceita_genero'] == "Masculino")) {echo "selected=''";}?>>Masculino</option>
+      <option value="Feminino" <?php if (isset($Mostrar_dados->dados_usuario['Aceita_genero']) and ($Mostrar_dados->dados_usuario['Aceita_genero'] == "Feminino")) {echo "selected=''";}?>>Feminino</option>
       
     </select>
   </div>

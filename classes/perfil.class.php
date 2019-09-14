@@ -40,6 +40,12 @@ class Perfil extends Site {
 
 		$this->id = $_SESSION['dados']['Id'];
 
+		if (isset($_POST['ano']) and isset($_POST['mes']) and isset($_POST['dia'])) {
+
+			$this->data_nascimento = $_POST['ano']."-".$_POST['mes']."-".$_POST['dia'];
+
+		}
+
 		// Dados pessoais
 
 		if (!isset($_POST['Nome']) || $_POST['Nome'] == $_SESSION['dados']['Nome']) {
@@ -97,12 +103,6 @@ class Perfil extends Site {
 			$this->cidade = $_SESSION['dados']['Id_cidade'];
 		} else {
 			$this->cidade = $_POST['cidade'];
-		}
-
-		if (!isset($_POST['Data_nascimento']) || $_POST['Data_nascimento'] == $_SESSION['dados']['Data_nascimento']) {
-			$this->data_nascimento = $_SESSION['dados']['Data_nascimento'];
-		} else {
-			$this->data_nascimento = $_POST['Data_nascimento'];
 		}
 
 		if (!isset($_POST['Descricao']) || $_POST['Descricao'] == $_SESSION['dados']['Descricao']) {
@@ -225,12 +225,22 @@ class Perfil extends Site {
 				$uploads = $upload->upload();
 				$uploads = $uploads[0]['dados']['nome_novo'];
 
-			// Foto perfil
-				$this->foto = $uploads;
 
-			} else { $this->foto =$_SESSION['dados']['Foto'];}
+				if ($_FILES['arquivos']['name'][0] == null || $_FILES['arquivos']['name'][0] == $_SESSION['dados']['Foto']) {
+					if ($_SESSION['dados']['Foto'] == null) {
+						$this->foto = "Foto = null";
+					} else {
+						$this->foto = "Foto = '".$_SESSION['dados']['Foto']."'";
+					}
+				} else {
+			        // Foto perfil
+					$this->foto = "Foto = '".$uploads."'";
+				}
 
-			// Senha
+			}
+
+
+			    // Senha
 			if ($this->senha == '') {
 				$this->senha = $_SESSION['dados']['Senha'];
 			}
@@ -238,15 +248,14 @@ class Perfil extends Site {
 			if ($this->telefone == "") {$this->telefone = "DEFAULT";}
 			if ($this->celular == "") {$this->celular = "DEFAULT";}
 
-			// Dados pessoais
-			$this->sql = "UPDATE dados_usuario SET Nome = '$this->nome', Foto = '$this->foto', Email = '$this->email', Senha = '$this->senha', Telefone = $this->telefone, Celular = $this->celular, Sexo = '$this->sexo', Estado = '$this->estado', Cidade = '$this->cidade', Data_nascimento = '$this->data_nascimento', Descricao = '$this->descricao', Fuma = '$this->Fuma', Aceita_fumar = '$this->Aceita_fumar', Bebe = '$this->Bebe', Aceita_beber = '$this->Aceita_beber', Tem_animal = '$this->Tem_animal', Aceita_animais = '$this->Aceita_animais', Trabalha = '$this->Trabalha', Estuda = '$this->Estuda', Aceita_genero = '$this->Aceita_genero', Aceita_pagar = '$this->Aceita_pagar' WHERE Id = '$this->id'";
+			    // Dados pessoais
+			$this->sql = "UPDATE dados_usuario SET Nome = '$this->nome', $this->foto, Email = '$this->email', Senha = '$this->senha', Telefone = $this->telefone, Celular = $this->celular, Sexo = '$this->sexo', Fk_estado = '$this->estado', Fk_cidade = '$this->cidade', Data_nascimento = '$this->data_nascimento', Descricao = '$this->descricao', Fuma = $this->Fuma, Aceita_fumar = $this->Aceita_fumar, Bebe = $this->Bebe, Aceita_beber = $this->Aceita_beber, Tem_animal = $this->Tem_animal, Aceita_animais = $this->Aceita_animais, Trabalha = $this->Trabalha, Estuda = $this->Estuda, Aceita_genero = '$this->Aceita_genero', Aceita_pagar = $this->Aceita_pagar WHERE Id = $this->id";
 
+			var_dump($this->sql);
 
 			if (mysqli_query($this->con, $this->sql)) {
 				$this->atualizar_session();
 			}
-
-			var_dump($this->sql);
 
 		} 
 	}
@@ -269,9 +278,10 @@ class Perfil extends Site {
 
 	private function atualizar_session() {
 
-		$this->sql = "SELECT * FROM dados_usuario WHERE Id = $this->id"; 
+		$this->sql = "SELECT * FROM dados_usuario join cidade ON cidade.Id_cidade = dados_usuario.Fk_cidade join estado on estado.Id_estado = dados_usuario.Fk_estado where Id = $this->id;";
 		$query = mysqli_query($this->con, $this->sql);
-		$_SESSION['dados'] = mysql_fetch_array($query);
+		$_SESSION['dados'] = mysqli_fetch_array($query);
+		header("Location: /Lammaaqui/perfil.php");
 	}
 
 }

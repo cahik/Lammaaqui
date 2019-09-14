@@ -35,7 +35,15 @@ class Cidades_estados extends Site {
 
 	public function Mostrar_cidades() {
 
-		$estado = $_POST['estado'];
+		if (isset($_POST['estado'])) {
+
+			$estado = $_POST['estado'];
+
+		} else {
+
+			$estado = $_SESSION['dados']['Fk_estado'];
+
+		}
 
 		$this->sql = "SELECT * FROM cidade where Estado = $estado";
 
