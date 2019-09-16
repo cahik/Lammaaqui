@@ -20,6 +20,8 @@
 
 	<style type="text/css">
 
+		body {background-color: rgb(31, 0, 37) !important;}
+
 		#e404 {
 			margin: 200px auto 220px auto;
 			width: 700px;
@@ -30,6 +32,8 @@
 			border-radius: 15px;
 			text-align: center;
 		}
+
+		
 
 	</style>
 
