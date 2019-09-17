@@ -2,15 +2,15 @@
 
 class Site {
 
-	 // CONST HOST = "127.0.0.1";
-	 // CONST USER = "root";
-	 // CONST PASS = "";
-	 // CONST DB   = "llamaaqu_master";
+	 CONST HOST = "127.0.0.1";
+	 CONST USER = "root";
+	 CONST PASS = "";
+	 CONST DB   = "llamaaqu_master";
 
-	CONST HOST = "llamaaqui.ml:3306";
-	CONST USER = "llamaaqui";
-	CONST PASS = "entra21@Blusoft";
-	CONST DB   = "llamaaqu_master";
+	// CONST HOST = "llamaaqui.ml:3306";
+	// CONST USER = "llamaaqui";
+	// CONST PASS = "entra21@Blusoft";
+	// CONST DB   = "llamaaqu_master";
 
 	protected $con;
 	private $url;
@@ -47,7 +47,7 @@ class Site {
 
 		if (!isset($_SESSION['logado']) || $_SESSION['logado'] <> true) {
 
-			if ($this->url == "/Lammaaqui/login.php" || $this->url == "/Lammaaqui/cadastro.php" || $this->url == "/Lammaaqui/index.php" || $this->url == "/Lammaaqui/sobre.php" || $this->url == "/Lammaaqui/contato.php") {
+			if ($this->url == "/Lammaaqui/login.php" || $this->url == "/Lammaaqui/cadastro.php" || $this->url == "/Lammaaqui/index.php" || $this->url == "/Lammaaqui/sobre.php" || $this->url == "/Lammaaqui/contato.php" || $this->url == "/Lammaaqui/rebotsenha.php") {
 
 			} else {
 

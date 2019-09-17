@@ -1,7 +1,7 @@
 <?php
 
 require_once "classes/cadastro_login.class.php";
-require_once "classes/estados.class.php";
+require_once "classes/cidades_estados.class.php";
 
 $Executar_cadastro = new Cadastro_login();
 $Executar_cadastro->cadastrar();
@@ -22,6 +22,7 @@ $Executar_cadastro->cadastrar();
 	<link rel="stylesheet" type="text/css" href="media/css/util.css">
 	<link rel="stylesheet" type="text/css" href="media/css/main.css">
 	<link rel="stylesheet" type="text/css" href="media/css/style.css">
+	<link href="media/css/barra.css" rel="stylesheet">
 	<!--===============================================================================================-->
 </head>
 <body>
@@ -49,11 +50,11 @@ $Executar_cadastro->cadastrar();
 					
 					
 					<div class="wrap-input100 validate-input" >
-						<input class="input100" type="password" name="senha" id="senha" required="" placeholder="Senha" value="<?=utf8_encode($Executar_cadastro->senha)?>">
+						<input class="input100" type="password" name="senha" id="senha" minlength="8" required="" placeholder="Senha (Min: 8 caracteres)" value="<?=utf8_encode($Executar_cadastro->senha)?>">
 					</div>
 
 					<div class="wrap-input100 validate-input" >
-						<input class="input100" type="password" name="senha2" id="senha2" required="" placeholder="Repetir a senha">
+						<input class="input100" type="password" name="senha2" id="senha2" minlength="8" required="" placeholder="Repetir a senha">
 					</div>
 
 
@@ -90,49 +91,46 @@ $Executar_cadastro->cadastrar();
 
 					<select name="dia" class="select" required="">
 
-						<option value="<?php if (isset($_POST['dia'])) { echo $_POST['dia'];} else { echo '';}?>"><?php if (isset($_POST['dia'])) { echo $_POST['dia'];} else { echo 'Dia';}?></option>
-
 						<?php for ($i = 1; $i <= 31; $i++) {?>
-							<option><?=$i?></option>
+							<option <?php if (isset($_POST['dia']) and $_POST['dia'] == $i) {echo "selected";}?> value="<?=$i?>" ><?=$i?></option>
 						<?php } ?>
 
 					</select>
 
-
 					<select name="mes" class="select" required="">
-						<option value="<?php if (isset($_POST['mes'])) { echo $_POST['mes'];} else { echo '';}?>"><?php if (isset($_POST['mes'])) { echo $_POST['mes'];} else { echo 'Mês';}?></option>
-						<option value="01">Janeiro</option>
-						<option value="02">Fevereiro</option>
-						<option value="03">Março</option>
-						<option value="04">Abril</option>
-						<option value="05">Maio</option>
-						<option value="06">Junho</option>
-						<option value="07">Julho</option>
-						<option value="08">Agosto</option>
-						<option value="09">Setembro</option>
-						<option value="10">Outubro</option>
-						<option value="11">Novembro</option>
-						<option value="12">Dezembro</option>
+						<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "01") {echo "selected";} ?> value="01">Janeiro</option>
+						<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "02") {echo "selected";} ?> value="02">Fevereiro</option>
+						<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "03") {echo "selected";} ?> value="03">Março</option>
+						<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "04") {echo "selected";} ?> value="04">Abril</option>
+						<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "05") {echo "selected";} ?> value="05">Maio</option>
+						<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "06") {echo "selected";} ?> value="06">Junho</option>
+						<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "07") {echo "selected";} ?> value="07">Julho</option>
+						<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "08") {echo "selected";} ?> value="08">Agosto</option>
+						<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "09") {echo "selected";} ?> value="09">Setembro</option>
+						<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "10") {echo "selected";} ?> value="10">Outubro</option>
+						<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "11") {echo "selected";} ?> value="11">Novembro</option>
+						<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "12") {echo "selected";} ?> value="12">Dezembro</option>
 					</select>
 
 
 					<select name="ano" class="select" required="">
 
-						<option value="<?php if (isset($_POST['ano'])) { echo $_POST['ano'];} else { echo '';}?>"><?php if (isset($_POST['ano'])) { echo $_POST['ano'];} else { echo 'Ano';}?></option>
 						<?php for ($i = date('Y'); $i >= (date('Y') - 100); $i--) {?>
-							<option><?=$i?></option>
+							<option <?php if (isset($_POST['ano']) and $_POST['ano'] == $i) {echo "selected";}?> value="<?=$i?>"><?=$i?></option>
 						<?php } ?>
 
 					</select>
 
 					<br><br>
+
+					<p><BIG>Estado</BIG></p>
 
 					<select id="id_estado" name="estado" required onchange="executar_ajax()">
 						<option value="">Estado</option>
 						
 						<?php foreach ($Mostrar_cid_est->resultado_estados as $chave => $valor) { ?>
 
-							<option value="<?=$Mostrar_cid_est->resultado_estados[$chave]['Id_estado']?>"><?=utf8_encode($Mostrar_cid_est->resultado_estados[$chave]['Nome_estado'])?></option>
+							<option <?php if (isset($_POST['estado']) and $_POST['estado'] == $Mostrar_cid_est->resultado_estados[$chave]['Id_estado']) {echo "selected";} ?>  value="<?=$Mostrar_cid_est->resultado_estados[$chave]['Id_estado']?>"><?=utf8_encode($Mostrar_cid_est->resultado_estados[$chave]['Nome_estado'])?></option>
 
 						<?php } ?>
 
@@ -140,8 +138,20 @@ $Executar_cadastro->cadastrar();
 
 					<br><br>
 
-					<select id="id_cidade" name="cidade" required disabled="">
-						<option value="">Selecione a cidade</option>
+					<p><BIG>Cidade</BIG></p>
+
+					<select <?php if (!isset($_POST['estado'])) {echo "disabled";} ?> id="id_cidade" name="cidade" required>
+
+						<?php if (isset($_POST['estado'])) {				
+
+							foreach ($Mostrar_cid_est->resultado_cidades as $chave => $valor) { ?>
+
+								<option <?php if (utf8_encode($Mostrar_cid_est->resultado_cidades[$chave]['Nome_cidade']) == $_POST['cidade']) {echo "selected";} ?> value="<?=$Mostrar_cid_est->resultado_cidades[$chave]['Id_cidade']?>"><?=utf8_encode($Mostrar_cid_est->resultado_cidades[$chave]['Nome_cidade'])?></option>
+
+								<?php
+							} 
+						} ?>
+
 					</select>
 
 					<br><br>

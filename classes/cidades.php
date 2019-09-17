@@ -17,7 +17,11 @@ $resultado = array();
 
 while ($consulta = mysqli_fetch_array($query)) {
 
-	$resultado[] = utf8_encode($consulta['Nome_cidade']);
+	$resultado[] = [
+		"cidade" => utf8_encode($consulta['Nome_cidade']),
+		"id" => utf8_encode($consulta['Id_cidade']),
+
+	];
 
 }
 

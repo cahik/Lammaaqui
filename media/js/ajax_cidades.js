@@ -1,3 +1,6 @@
+		
+
+
 		function executar_ajax() {
 
 			var estado = window.document.querySelector('#id_estado').value;
@@ -20,7 +23,9 @@
 
 				function alterar_selects(cid) {
 
-					$('#id_cidade').append('<option value="' + cid + '">' + cid + '</option>');
+					console.log(cid);
+
+					$('#id_cidade').append('<option value="' + cid.id + '">' + cid.cidade + '</option>');
 
 				}
 

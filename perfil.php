@@ -1,10 +1,16 @@
-<?php
+﻿<?php
 
 // Backend do perfil
 require_once "classes/perfil.class.php";
 
 // Upload de imagens
 require_once "classes/uploader.class.php";
+
+// Backend cidades e estados
+require_once "classes/cidades_estados.class.php";
+
+// require_once "classes/cidades.php";
+
 
 // Mostrar dados cadastrados e/ou alterados
 $Mostrar_dados = new Perfil();
@@ -15,8 +21,8 @@ $Mostrar_dados->update();
 
 <!DOCTYPE html>
 <head>
-  <meta charset="utf-8">
   <title>Perfil</title>
+  <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
@@ -35,32 +41,32 @@ $Mostrar_dados->update();
 
   <!-- Main Stylesheet File -->
   <link href="media/css/style.css" rel="stylesheet">
+  <link href="media/css/barra.css" rel="stylesheet">
 </head>
 
 <body>
 
   <!-- Nav Bar -->
-  <?php require_once "include/navbar.php"; ?>
+  <?php // require_once "include/navbar.php"; ?>
 
-
-  <!--/ Intro Single /-->
+  <!-- Foto, título e formulário -->
   <section class="intro-single margemEsquerda">
     <div class="container">
       <form method="post" enctype="multipart/form-data">
         <div class="row">
           <div class="col-sm-4">
             <div class="title-single-box">
-              <h5 class="title-single">Este é seu perfil, <?php if (isset($Mostrar_dados->dados_usuario['Nome'])) {echo $Mostrar_dados->dados_usuario['Nome'];}?>!</h5>        
+              <h5 class="title-single">Oi, <?php if (isset($Mostrar_dados->dados_usuario['Nome'])) {echo (utf8_encode($Mostrar_dados->dados_usuario['Nome']));}?>!</h5>        
             </div>
           </div>
           <div class="col-sm-4"></div>          
           <div class="col-sm-4 tam">
-            <img src="<?php if (isset($Mostrar_dados->dados_usuario['Foto'])) { echo $Mostrar_dados->dados_usuario['Foto']; }else { echo'media/images/elenice.jpg';} ?>" class="rounded float-right img-fluid" alt="<?php if (isset($Mostrar_dados->dados_usuario['Nome'])) {echo $Mostrar_dados->dados_usuario['Nome'];}?>">
+            <img src= "<?php if ($Mostrar_dados->dados_usuario['Foto'] <> null and $Mostrar_dados->dados_usuario['Foto'] <> '') {echo 'media/images/fotos_usuarios/'.$Mostrar_dados->dados_usuario['Foto'];} else {echo 'media/images/fotos_usuarios/113883563.jpg';}?>" class="rounded float-right img-fluid" alt="<?php if (isset($Mostrar_dados->dados_usuario['Nome'])) {echo $Mostrar_dados->dados_usuario['Nome'];} ?>">
 
             <div class="profile-img">            
               <div class="EnviarFoto file btn btn-sm btn-primary">           
                 Escolha sua foto
-                <input type="file" name="arquivos[]" id="arquivos" multiple="" required="">
+                <input type="file" name="arquivos[]" id="arquivos" multiple="" >
               </div>
             </div>
           </div>
@@ -68,11 +74,10 @@ $Mostrar_dados->update();
       </div>
     </section>
 
-
-    <!-- Formulário --> 
+    <!-- Container principal perfil -->
     <section class="margemEsquerda">
       <div class="container emp-profile">
-        <div class="row">        
+        <div class="row">         
 
           <!-- Navegação - Dados pessoais e Filtros -->
           <div class="col-md-12">
@@ -99,7 +104,7 @@ $Mostrar_dados->update();
 
                 <div class="row mb-4">                
                   <div class="col-md-12">
-                    <label>Atualize seus dados para que as pessoas te encontrar</label>
+                    <label>Atualize seus dados para que as pessoas possam te encontrar</label>
                   </div>
                 </div>
 
@@ -126,37 +131,38 @@ $Mostrar_dados->update();
                 <!-- Nova senha -->
                 <div class="row">
                   <div class="col-md-6">
-                    <label for="colFormLabel" class="col-sm col-form-label">Nova senha <small>(se quiser mudar)</small></label>
+                    <label for="colFormLabel" class="col-sm col-form-label">Nova senha</label>
                   </div>
                   <div class="col-md-6">
-                    <input class="form-control mb-3" id="colFormLabel" value="" name="Senha" placeholder="*******">
+                    <a href="#" class="form-control mb-3" id="colFormLabel" name="Senha"><small>Se quiser mudar sua senha, clique aqui.</small></a>
                   </div>
                 </div>
 
                 <!-- Telefone -->
                 <div class="row">
                   <div class="col-md-6">
-                    <label for="colFormLabel" class="col-sm-2 col-form-label">Telefone</label>
+                    <label for="telefone" class="col-sm-2 col-form-label">Telefone</label>
                   </div>
                   <div class="col-md-6">
-                    <input class="form-control mb-3" id="colFormLabel" value="<?php if (isset($Mostrar_dados->dados_usuario['Telefone'])) {echo $Mostrar_dados->dados_usuario['Telefone'];}?>" placeholder="Ex: 3361 8244" name="Telefone">
+                    <input type="text" class="form-control mb-3" id="telefone" value="<?php if (isset($Mostrar_dados->dados_usuario['Telefone'])) {echo $Mostrar_dados->dados_usuario['Telefone'];}?>" placeholder="Operadora + número de telefone" name="Telefone" maxlength="10">
+
                   </div>
                 </div>
 
                 <!-- Celular -->
                 <div class="row">
                   <div class="col-md-6">
-                    <label for="colFormLabel" class="col-sm-2 col-form-label">Celular</label>
+                    <label for="celular" class="col-sm-2 col-form-label">Celular</label>
                   </div>
                   <div class="col-md-6">
-                    <input class="form-control mb-3" id="colFormLabel" value="<?php if (isset($Mostrar_dados->dados_usuario['Celular'])) {echo $Mostrar_dados->dados_usuario['Celular'];}?>" placeholder="Ex: 99961 8233" name="Celular">
+                    <input type="text" class="form-control mb-3" id="celular" value="<?php if (isset($Mostrar_dados->dados_usuario['Celular'])) {echo $Mostrar_dados->dados_usuario['Celular'];}?>" placeholder="Operadora + número de celular" name="Celular" maxlength="11">
                   </div>
                 </div>
 
                 <!-- Sexo -->
                 <div class="row">
                   <div class="col-md-6">
-                    <label for="colFormLabel" class="col-sm-2 col-form-label">Sexo</label>
+                    <label for="sexo" class="col-sm-2 col-form-label">Sexo</label>
                   </div>
                   <div class="col-md-6">
 
@@ -183,47 +189,39 @@ $Mostrar_dados->update();
                   <div style="resize: none;" class="col-md-6">
 
                     <!-- Separar dia/mês/ano em um select para cada -->
-                    <?php 
-
-                    $data_nascimento = explode ("-", $Mostrar_dados->dados_usuario['Data_nascimento']);
-
-                    ?>
+                    <?php $data_nascimento = explode ("-", $Mostrar_dados->dados_usuario['Data_nascimento']); ?>
 
                     <!-- Dia -->
                     <select for="colFormLabel" class="form-group col-sm-2" name="dia" class="select" required="">
 
-                      <option value="<?php if (isset($Mostrar_dados->dados_usuario['dia'])) { echo $Mostrar_dados->dados_usuario['dia'];} else { echo '';}?>"><?php if (isset($Mostrar_dados->dados_usuario['dia'])) { echo $Mostrar_dados->dados_usuario['dia'];} else { echo 'Dia';}?></option>
-
                       <?php for ($i = 1; $i <= 31; $i++) {?>
-                        <option><?=$i?></option>
+                        <option <?php if ($data_nascimento[2] == $i) {echo "selected";} ?> ><?=$i?></option>
                       <?php } ?>
                     </select>
 
                     <!-- Mês -->
-                    <select for="colFormLabel" class="form-group col-sm-2" name="mes" class="select" required="">
-                      <option value="<?php if (isset($Mostrar_dados->dados_usuario['mes'])) { echo $Mostrar_dados->dados_usuario['mes'];} else { echo '';}?>"><?php if (isset($Mostrar_dados->dados_usuario['mes'])) { echo $Mostrar_dados->dados_usuario['mes'];} else { echo 'Mês';}?></option>
+                    <select for="colFormLabel" class="form-group col-sm-3" name="mes" class="select" required="">
 
-                      <option value="01">Janeiro</option>
-                      <option value="02">Fevereiro</option>
-                      <option value="03">Março</option>
-                      <option value="04">Abril</option>
-                      <option value="05">Maio</option>
-                      <option value="06">Junho</option>
-                      <option value="07">Julho</option>
-                      <option value="08">Agosto</option>
-                      <option value="09">Setembro</option>
-                      <option value="10">Outubro</option>
-                      <option value="11">Novembro</option>
-                      <option value="12">Dezembro</option>
+                      <option <?php if ($data_nascimento[1] == '01') {echo "selected";} ?> value="01">Janeiro</option>
+                      <option <?php if ($data_nascimento[1] == '02') {echo "selected";} ?> value="02">Fevereiro</option>
+                      <option <?php if ($data_nascimento[1] == '03') {echo "selected";} ?> value="03">Março</option>
+                      <option <?php if ($data_nascimento[1] == '04') {echo "selected";} ?> value="04">Abril</option>
+                      <option <?php if ($data_nascimento[1] == '05') {echo "selected";} ?> value="05">Maio</option>
+                      <option <?php if ($data_nascimento[1] == '06') {echo "selected";} ?> value="06">Junho</option>
+                      <option <?php if ($data_nascimento[1] == '07') {echo "selected";} ?> value="07">Julho</option>
+                      <option <?php if ($data_nascimento[1] == '08') {echo "selected";} ?> value="08">Agosto</option>
+                      <option <?php if ($data_nascimento[1] == '09') {echo "selected";} ?> value="09">Setembro</option>
+                      <option <?php if ($data_nascimento[1] == '10') {echo "selected";} ?> value="10">Outubro</option>
+                      <option <?php if ($data_nascimento[1] == '11') {echo "selected";} ?> value="11">Novembro</option>
+                      <option <?php if ($data_nascimento[1] == '12') {echo "selected";} ?> value="12">Dezembro</option>
+
                     </select>
 
                     <!-- Ano -->
-                    <select for="colFormLabel" class="form-group col-sm-2" name="ano" class="select" required="">
-
-                      <option value="<?php if (isset($Mostrar_dados->dados_usuario['ano'])) { echo $Mostrar_dados->dados_usuario['ano'];} else { echo '';}?>"><?php if (isset($Mostrar_dados->dados_usuario['ano'])) { echo $Mostrar_dados->dados_usuario['ano'];} else { echo 'Ano';}?></option>
+                    <select for="colFormLabel" class="form-group col-sm-3" name="ano" class="select" required="">
 
                       <?php for ($i = date('Y'); $i >= (date('Y') - 100); $i--) {?>
-                        <option><?=$i?></option>
+                        <option <?php if ($data_nascimento[0] == $i) {echo "selected";} ?> ><?=$i?></option>
                       <?php } ?>
                     </select>
 
@@ -236,7 +234,7 @@ $Mostrar_dados->update();
                     <label for="colFormLabel" class="col-sm-2 col-form-label">Descrição</label>
                   </div>
                   <div class="col-md-4">
-                    <textarea style="resize: none;" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Essa é a descrição que seu perfil mostrará nas buscas de perfil" required=""><?php if (isset($Mostrar_dados->dados_usuario['Descricao'])) {echo $Mostrar_dados->dados_usuario['Descricao'];}?></textarea>
+                    <textarea name="Descricao" style="resize: none;" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Essa é a descrição que seu perfil mostrará nas buscas de perfil" required=""><?php if (isset($Mostrar_dados->dados_usuario['Descricao'])) {echo $Mostrar_dados->dados_usuario['Descricao'];}?></textarea>
                   </div>
                 </div>   
 
@@ -253,17 +251,18 @@ $Mostrar_dados->update();
                     <label for="colFormLabel" class="col-sm-2 col-form-label">Estado</label>
                   </div>
 
-                  <!-- Estado -->
                   <div class="col-md-6">
-                   <select id="inputState" class="form-control mb-3" name="estado">
+                   <select id="id_estado" class="form-control mb-3" name="estado" required onchange="executar_ajax()">
 
-                    <?php while ($resultado = mysqli_fetch_array($Mostrar_dados->resultado_estado)) { ?>
+                    <?php foreach ($Mostrar_cid_est->resultado_estados as $chave => $valor) { ?>
 
-                      <option <?php if ($resultado['Nome_estado'] == $_SESSION['dados']['Nome_estado']) {echo "selected";}?> value="<?=$resultado['Id_estado']?>"><?=utf8_encode($resultado['Nome_estado'])?></option>
+                      <option <?php if ($Mostrar_dados->dados_usuario['Fk_estado'] == $Mostrar_cid_est->resultado_estados[$chave]['Id_estado']) {echo "selected";} ?> value="<?=$Mostrar_cid_est->resultado_estados[$chave]['Id_estado']?>"><?=utf8_encode($Mostrar_cid_est->resultado_estados[$chave]['Nome_estado'])?></option>
 
-                    <?php }?>
+                    <?php } ?>
+
                   </select>
                 </div>
+
               </div>
 
               <!-- Cidade -->
@@ -272,14 +271,21 @@ $Mostrar_dados->update();
                   <label for="colFormLabel" class="col-sm-2 col-form-label">Cidade</label>
                 </div>
                 <div class="col-md-6">
-                  <select id="inputCity" class="form-control mb-3" name="cidade">
 
-                    <?php foreach ($Mostrar_dados->resultado_cidade as $chave => $valor) { ?>
+                  <select id="id_cidade" class="form-control mb-3" name="cidade" required>
 
-                      <option <?php if ($Mostrar_dados->resultado_cidade[$chave]['Nome_cidade'] == $_SESSION['dados']['Nome_cidade']) {echo "selected";}?> value="<?=$Mostrar_dados->resultado_cidade[$chave]['Id_cidade']?>"><?=utf8_encode($Mostrar_dados->resultado_cidade[$chave]['Nome_cidade'])?></option>
+                    <?php
 
-                    <?php } ?> 
-                  </select>                
+                    $Mostrar_cid_est->Mostrar_cidades();
+
+                    foreach ($Mostrar_cid_est->resultado_cidades as $chave => $valor) { ?>
+
+                      <option <?php if ($Mostrar_cid_est->resultado_cidades[$chave]['Id_cidade'] == $Mostrar_dados->dados_usuario['Fk_cidade']) {echo "selected";} ?> value="<?=$Mostrar_cid_est->resultado_cidades[$chave]['Id_cidade']?>"><?=utf8_encode($Mostrar_cid_est->resultado_cidades[$chave]['Nome_cidade'])?></option>
+
+                    <?php } ?>
+
+                  </select>
+
                 </div> 
               </div> 
 
@@ -301,11 +307,11 @@ $Mostrar_dados->update();
                 </div>
                 <div class="col-md-6 mb-3">
                  <div class="custom-control custom-radio custom-control-inline">
-                  <input type="radio" class="custom-control-input radio" name="Fuma" id="fsim" value="1" <?php if (isset($_POST['Fuma']) and ($_POST['Fuma'] == "1")) {echo "checked=''";}?>>
+                  <input type="radio" class="custom-control-input radio" name="Fuma" id="fsim" value="1" <?php if (isset($Mostrar_dados->dados_usuario['Fuma']) and ($Mostrar_dados->dados_usuario['Fuma'] == "1")) {echo "checked=''";}?>>
                   <label class="custom-control-label" for="fsim">Sim</label>
                 </div>
                 <div class="custom-control custom-radio custom-control-inline">
-                  <input type="radio" class="custom-control-input radio" name="Fuma" id="fnao" value="0" <?php if (isset($_POST['Fuma']) and ($_POST['Fuma'] == "0")) {echo "checked=''";}?>>
+                  <input type="radio" class="custom-control-input radio" name="Fuma" id="fnao" value="0" <?php if (isset($Mostrar_dados->dados_usuario['Fuma']) and ($Mostrar_dados->dados_usuario['Fuma'] == "0")) {echo "checked=''";}?>>
                   <label class="custom-control-label" for="fnao">Não</label>
                 </div>
               </div>
@@ -318,11 +324,11 @@ $Mostrar_dados->update();
               </div>
               <div class="col-md-6 mb-3">
                <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" class="custom-control-input radio" name="aceita_fumar" id="dsim" value="1" <?php if (isset($_POST['aceita_fumar']) and ($_POST['aceita_fumar'] == "1")) {echo "checked=''";}?>>
+                <input type="radio" class="custom-control-input radio" name="Aceita_fumar" id="dsim" value="1" <?php if (isset($Mostrar_dados->dados_usuario['Aceita_fumar']) and ($Mostrar_dados->dados_usuario['Aceita_fumar'] == "1")) {echo "checked=''";}?>>
                 <label class="custom-control-label" for="dsim">Sim</label>
               </div>
               <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" class="custom-control-input radio" name="aceita_fumar" id="dnao" value="0" <?php if (isset($_POST['aceita_fumar']) and ($_POST['aceita_fumar'] == "0")) {echo "checked=''";}?>>
+                <input type="radio" class="custom-control-input radio" name="Aceita_fumar" id="dnao" value="0" <?php if (isset($Mostrar_dados->dados_usuario['Aceita_fumar']) and ($Mostrar_dados->dados_usuario['Aceita_fumar'] == "0")) {echo "checked=''";}?>>
                 <label class="custom-control-label" for="dnao">Não</label>
               </div>
             </div>
@@ -335,11 +341,11 @@ $Mostrar_dados->update();
             </div>
             <div class="col-md-6 mb-3">
              <div class="custom-control custom-radio custom-control-inline">
-              <input type="radio" class="custom-control-input radio" name="bebe" id="tsim" value="1" <?php if (isset($_POST['bebe']) and ($_POST['bebe'] == "1")) {echo "checked=''";}?>>
+              <input type="radio" class="custom-control-input radio" name="Bebe" id="tsim" value="1" <?php if (isset($Mostrar_dados->dados_usuario['Bebe']) and ($Mostrar_dados->dados_usuario['Bebe'] == "1")) {echo "checked=''";}?>>
               <label class="custom-control-label" for="tsim">Sim</label>
             </div>
             <div class="custom-control custom-radio custom-control-inline">
-              <input type="radio" class="custom-control-input radio" name="bebe" id="tnao" value="0" <?php if (isset($_POST['bebe']) and ($_POST['bebe'] == "0")) {echo "checked=''";}?>>
+              <input type="radio" class="custom-control-input radio" name="Bebe" id="tnao" value="0" <?php if (isset($Mostrar_dados->dados_usuario['Bebe']) and ($Mostrar_dados->dados_usuario['Bebe'] == "0")) {echo "checked=''";}?>>
               <label class="custom-control-label" for="tnao">Não</label>
             </div>
           </div>
@@ -352,11 +358,11 @@ $Mostrar_dados->update();
           </div>
           <div class="col-md-6 mb-3">
             <div class="custom-control custom-radio custom-control-inline">
-              <input type="radio" class="custom-control-input radio" name="aceita_beber" id="asim" value="1" <?php if (isset($_POST['aceita_beber']) and ($_POST['aceita_beber'] == "1")) {echo "checked=''";}?>>
+              <input type="radio" class="custom-control-input radio" name="Aceita_beber" id="asim" value="1" <?php if (isset($Mostrar_dados->dados_usuario['Aceita_beber']) and ($Mostrar_dados->dados_usuario['Aceita_beber'] == "1")) {echo "checked=''";}?>>
               <label class="custom-control-label" for="asim">Sim</label>
             </div>
             <div class="custom-control custom-radio custom-control-inline">
-              <input type="radio" class="custom-control-input radio" name="aceita_beber" id="anao" value="0" <?php if (isset($_POST['aceita_beber']) and ($_POST['aceita_beber'] == "0")) {echo "checked=''";}?>>
+              <input type="radio" class="custom-control-input radio" name="Aceita_beber" id="anao" value="0" <?php if (isset($Mostrar_dados->dados_usuario['Aceita_beber']) and ($Mostrar_dados->dados_usuario['Aceita_beber'] == "0")) {echo "checked=''";}?>>
               <label class="custom-control-label" for="anao">Não</label>
             </div>
           </div>
@@ -369,11 +375,11 @@ $Mostrar_dados->update();
           </div>
           <div class="col-md-6 mb-3">
            <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" class="custom-control-input radio" name="tem_animal" id="hsim" value="1" <?php if (isset($_POST['tem_animal']) and ($_POST['tem_animal'] == "1")) {echo "checked=''";}?>>
+            <input type="radio" class="custom-control-input radio" name="Tem_animal" id="hsim" value="1" <?php if (isset($Mostrar_dados->dados_usuario['Tem_animal']) and ($Mostrar_dados->dados_usuario['Tem_animal'] == "1")) {echo "checked=''";}?>>
             <label class="custom-control-label" for="hsim">Sim</label>
           </div>
           <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" class="custom-control-input radio" name="tem_animal" id="hnao" value="0" <?php if (isset($_POST['tem_animal']) and ($_POST['tem_animal'] == "0")) {echo "checked=''";}?>>
+            <input type="radio" class="custom-control-input radio" name="Tem_animal" id="hnao" value="0" <?php if (isset($Mostrar_dados->dados_usuario['Tem_animal']) and ($Mostrar_dados->dados_usuario['Tem_animal'] == "0")) {echo "checked=''";}?>>
             <label class="custom-control-label" for="hnao">Não</label>
           </div>
         </div>
@@ -386,11 +392,11 @@ $Mostrar_dados->update();
         </div>
         <div class="col-md-6 mb-3">
          <div class="custom-control custom-radio custom-control-inline">
-          <input type="radio" class="custom-control-input radio" name="aceita_animais" id="gsim" value="1" <?php if (isset($_POST['aceita_animais']) and ($_POST['aceita_animais'] == "1")) {echo "checked=''";}?>>
+          <input type="radio" class="custom-control-input radio" name="Aceita_animais" id="gsim" value="1" <?php if (isset($Mostrar_dados->dados_usuario['Aceita_animais']) and ($Mostrar_dados->dados_usuario['Aceita_animais'] == "1")) {echo "checked=''";}?>>
           <label class="custom-control-label" for="gsim">Sim</label>
         </div>
         <div class="custom-control custom-radio custom-control-inline">
-          <input type="radio" class="custom-control-input radio" name="aceita_animais" id="gnao" value="0" <?php if (isset($_POST['aceita_animais']) and ($_POST['aceita_animais'] == "0")) {echo "checked=''";}?>>
+          <input type="radio" class="custom-control-input radio" name="Aceita_animais" id="gnao" value="0" <?php if (isset($Mostrar_dados->dados_usuario['Aceita_animais']) and ($Mostrar_dados->dados_usuario['Aceita_animais'] == "0")) {echo "checked=''";}?>>
           <label class="custom-control-label" for="gnao">Não</label>
         </div>
       </div>
@@ -403,11 +409,11 @@ $Mostrar_dados->update();
       </div>
       <div class="col-md-6 mb-3">
        <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" class="custom-control-input radio" name="trabalha" id="qsim" value="1" <?php if (isset($_POST['trabalha']) and ($_POST['trabalha'] == "1")) {echo "checked=''";}?>>
+        <input type="radio" class="custom-control-input radio" name="Trabalha" id="qsim" value="1" <?php if (isset($Mostrar_dados->dados_usuario['Trabalha']) and ($Mostrar_dados->dados_usuario['Trabalha'] == "1")) {echo "checked=''";}?>>
         <label class="custom-control-label" for="qsim">Sim</label>
       </div>
       <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" class="custom-control-input radio" name="trabalha" id="qnao" value="0" <?php if (isset($_POST['trabalha']) and ($_POST['trabalha'] == "0")) {echo "checked=''";}?>>
+        <input type="radio" class="custom-control-input radio" name="Trabalha" id="qnao" value="0" <?php if (isset($Mostrar_dados->dados_usuario['Trabalha']) and ($Mostrar_dados->dados_usuario['Trabalha'] == "0")) {echo "checked=''";}?>>
         <label class="custom-control-label" for="qnao">Não</label>
       </div>
     </div>
@@ -420,11 +426,11 @@ $Mostrar_dados->update();
     </div>
     <div class="col-md-6 mb-3">
      <div class="custom-control custom-radio custom-control-inline">
-      <input type="radio" class="custom-control-input radio" name="estuda" id="zsim" value="1" <?php if (isset($_POST['estuda']) and ($_POST['estuda'] == "1")) {echo "checked=''";}?>>
+      <input type="radio" class="custom-control-input radio" name="Estuda" id="zsim" value="1" <?php if (isset($Mostrar_dados->dados_usuario['Estuda']) and ($Mostrar_dados->dados_usuario['Estuda'] == "1")) {echo "checked=''";}?>>
       <label class="custom-control-label" for="zsim">Sim</label>
     </div>
     <div class="custom-control custom-radio custom-control-inline">
-      <input type="radio" class="custom-control-input radio" name="estuda" id="znao" value="0" <?php if (isset($_POST['estuda']) and ($_POST['estuda'] == "0")) {echo "checked=''";}?>>
+      <input type="radio" class="custom-control-input radio" name="Estuda" id="znao" value="0" <?php if (isset($Mostrar_dados->dados_usuario['Estuda']) and ($Mostrar_dados->dados_usuario['Estuda'] == "0")) {echo "checked=''";}?>>
       <label class="custom-control-label" for="znao">Não</label>
     </div>
   </div>
@@ -437,11 +443,11 @@ $Mostrar_dados->update();
   </div>
   <div class="col-md-4 mb-3">
    <div class="select_sexo">
-    <select class="select custom-select custom-select" name="Sexo">
-      <option selected>Escolha uma opção</option>
-      <option value="Masculino" <?php if (isset($_POST['Sexo']) and ($_POST['Sexo'] == "Masculino")) {echo "selected=''";}?>>Masculino</option>
-      <option value="Feminino" <?php if (isset($_POST['Sexo']) and ($_POST['Sexo'] == "Feminino")) {echo "selected=''";}?>>Feminino</option>
-      <option value="NI" <?php if (isset($_POST['Sexo']) and ($_POST['Sexo'] == "NI")) {echo "selected=''";}?>>Não me importo</option>
+    <select name="Aceita_genero" class="select custom-select custom-select">
+      <option value="Não me importo" <?php if (utf8_encode(isset($Mostrar_dados->dados_usuario['Aceita_genero']) and ($Mostrar_dados->dados_usuario['Aceita_genero'] == "Não me importo"))) {echo "selected=''";}?>>Não me importo</option>
+      <option value="Masculino" <?php if (isset($Mostrar_dados->dados_usuario['Aceita_genero']) and ($Mostrar_dados->dados_usuario['Aceita_genero'] == "Masculino")) {echo "selected=''";}?>>Masculino</option>
+      <option value="Feminino" <?php if (isset($Mostrar_dados->dados_usuario['Aceita_genero']) and ($Mostrar_dados->dados_usuario['Aceita_genero'] == "Feminino")) {echo "selected=''";}?>>Feminino</option>
+      
     </select>
   </div>
 </div>
@@ -455,8 +461,8 @@ $Mostrar_dados->update();
   <div class="col-md-6">
     <input id="Aceita_pagar" type="range" name="Aceita_pagar" 
     oninput="getElementById('Porcentagem').innerHTML = this.value;" 
-    min="0" max="5000" value="<?php if (isset($_POST['Aceita_pagar'])) {echo $_POST['Aceita_pagar'];} else {echo 0;}?>" step="50" />
-    <span id="Porcentagem"><?php if (isset($_POST['Aceita_pagar'])) {echo $_POST['Aceita_pagar'];} else {echo 0;}?></span><br><br>
+    min="0" max="5000" value="<?php if (isset($Mostrar_dados->dados_usuario['Aceita_pagar'])) {echo $Mostrar_dados->dados_usuario['Aceita_pagar'];} else {echo 0;}?>" step="50" />
+    <span id="Porcentagem"><?php if (isset($Mostrar_dados->dados_usuario['Aceita_pagar'])) {echo $Mostrar_dados->dados_usuario['Aceita_pagar'];} else {echo 0;}?></span><br><br>
   </div>
 </div>                                        
 </div>
@@ -509,22 +515,63 @@ $Mostrar_dados->update();
 <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 <div id="preloader"></div>
 
-<!-- JavaScript Libraries -->
-<script src="lib/jquery/jquery.min.js"></script>
+<!-- Biblioteca Boostrap -->
+<script
+src="https://code.jquery.com/jquery-3.4.1.min.js"
+integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<!-- Biblioteca JavaScript -->
 <script src="lib/jquery/jquery-migrate.min.js"></script>
 <script src="lib/popper/popper.min.js"></script>
 <script src="lib/bootstrap/js/bootstrap.min.js"></script>
 <script src="lib/easing/easing.min.js"></script>
 <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 <script src="lib/scrollreveal/scrollreveal.min.js"></script>
-<!-- Contact Form JavaScript File -->
+
+<!-- Formulário de Contato -->
 <script src="contactform/contactform.js"></script>
 
-<!-- Template Main Javascript File -->
+<!-- Javascript Geral -->
 <script src="media/js/main.js"></script>
 
-<!-- Function Ajax cidade/estado -->
+<!-- Ajax cidades -->
 <script src="media/js/ajax_cidades.js"></script>
+
+<!-- Mascara para telefone e celular -->
+
+<script type="text/javascript">
+
+  jQuery("#telefone")
+  .mask("(99) 9999-9999")
+  .focusout(function (event) {  
+    var target, phone, element;  
+    target = (event.currentTarget) ? event.currentTarget : event.srcElement;  
+    phone = target.value.replace(/\D/g, '');
+    element = $(target);  
+    element.unmask();
+  });
+
+  jQuery("#celular")
+  .mask("(99) 9999?9-9999")
+  .focusout(function (event) {  
+    var target, phone, element;  
+    target = (event.currentTarget) ? event.currentTarget : event.srcElement;  
+    phone = target.value.replace(/\D/g, '');
+    element = $(target);  
+    element.unmask();  
+    if(phone.length > 10) {  
+      element.mask("(99) 9999?9-9999");  
+    } else {  
+      element.mask("(99) 9999?9-9999");  
+    }  
+  });
+
+
+</script>
 
 </body>
 </html>
