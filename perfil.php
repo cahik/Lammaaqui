@@ -47,7 +47,7 @@ $Mostrar_dados->update();
 <body>
 
   <!-- Nav Bar -->
-  <?php // require_once "include/navbar.php"; ?>
+  <?php require_once "include/navbar.php"; ?>
 
   <!-- Foto, título e formulário -->
   <section class="intro-single margemEsquerda">
@@ -59,8 +59,8 @@ $Mostrar_dados->update();
               <h5 class="title-single">Oi, <?php if (isset($Mostrar_dados->dados_usuario['Nome'])) {echo (utf8_encode($Mostrar_dados->dados_usuario['Nome']));}?>!</h5>        
             </div>
           </div>
-          <div class="col-sm-4"></div>          
-          <div class="col-sm-4 tam">
+          <div class="col-sm-4"></div>      
+          <div id="foto" class="col-sm-4 tam" onmouseenter="foto()" onmouseleave="tirar_foto()">
             <img src= "<?php if ($Mostrar_dados->dados_usuario['Foto'] <> null and $Mostrar_dados->dados_usuario['Foto'] <> '') {echo 'media/images/fotos_usuarios/'.$Mostrar_dados->dados_usuario['Foto'];} else {echo 'media/images/fotos_usuarios/113883563.jpg';}?>" class="rounded float-right img-fluid" alt="<?php if (isset($Mostrar_dados->dados_usuario['Nome'])) {echo $Mostrar_dados->dados_usuario['Nome'];} ?>">
 
             <div class="profile-img">            
@@ -535,6 +535,9 @@ crossorigin="anonymous"></script>
 <!-- Formulário de Contato -->
 <script src="contactform/contactform.js"></script>
 
+<!-- Javascript perfil -->
+<script src="media/js/perfil.js"></script>
+
 <!-- Javascript Geral -->
 <script src="media/js/main.js"></script>
 
@@ -542,36 +545,7 @@ crossorigin="anonymous"></script>
 <script src="media/js/ajax_cidades.js"></script>
 
 <!-- Mascara para telefone e celular -->
-
-<script type="text/javascript">
-
-  jQuery("#telefone")
-  .mask("(99) 9999-9999")
-  .focusout(function (event) {  
-    var target, phone, element;  
-    target = (event.currentTarget) ? event.currentTarget : event.srcElement;  
-    phone = target.value.replace(/\D/g, '');
-    element = $(target);  
-    element.unmask();
-  });
-
-  jQuery("#celular")
-  .mask("(99) 9999?9-9999")
-  .focusout(function (event) {  
-    var target, phone, element;  
-    target = (event.currentTarget) ? event.currentTarget : event.srcElement;  
-    phone = target.value.replace(/\D/g, '');
-    element = $(target);  
-    element.unmask();  
-    if(phone.length > 10) {  
-      element.mask("(99) 9999?9-9999");  
-    } else {  
-      element.mask("(99) 9999?9-9999");  
-    }  
-  });
-
-
-</script>
+<script src="media/js/mascara_numeros.js"></script>
 
 </body>
 </html>

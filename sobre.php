@@ -1,3 +1,10 @@
+<?php
+
+require_once "classes/site.class.php";
+
+$Iniciar = new Site;
+
+?>
 <!DOCTYPE html>
 <head>
   <meta charset="utf-8">
