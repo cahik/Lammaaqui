@@ -178,38 +178,11 @@ $Executar_cadastro->cadastrar();
 
 	<script src="media/js/main.js"></script>
 
-	<!-- Function Ajax cidade/estado -->
+	<!-- Ajax cidades -->
 	<script src="media/js/ajax_cidades.js"></script>
 
-	<script type="text/javascript">
-
-		jQuery("#telefone")
-		.mask("(99) 9999-9999")
-		.focusout(function (event) {  
-			var target, phone, element;  
-			target = (event.currentTarget) ? event.currentTarget : event.srcElement;  
-			phone = target.value.replace(/\D/g, '');
-			element = $(target);  
-			element.unmask();
-		});
-
-		jQuery("#celular")
-		.mask("(99) 9999?9-9999")
-		.focusout(function (event) {  
-			var target, phone, element;  
-			target = (event.currentTarget) ? event.currentTarget : event.srcElement;  
-			phone = target.value.replace(/\D/g, '');
-			element = $(target);  
-			element.unmask();  
-			if(phone.length > 10) {  
-				element.mask("(99) 9999?9-9999");  
-			} else {  
-				element.mask("(99) 9999?9-9999");  
-			}  
-		});
-
-
-	</script>
+	<!-- Mascara para telefone e celular -->
+	<script src="media/js/mascara_numeros.js"></script>
 
 
 </body>
