@@ -1,3 +1,5 @@
+
+
 <?php
 
 require_once "classes/cadastro_login.class.php";
@@ -15,10 +17,12 @@ if (isset($_POST['logar'])) {
 	<title>Login</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
 
 	<link rel="icon" type="image/png" href="media/images/icons/favicon.ico"/>
 	
 	<link rel="stylesheet" type="text/css" href="lib/vendor/bootstrap/css/bootstrap.min.css">
+
 	
 	<!-- <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css"> -->
 	
@@ -39,11 +43,15 @@ if (isset($_POST['logar'])) {
 	<link rel="stylesheet" type="text/css" href="media/css/style.css">
 	<!--===============================================================================================-->
 </head>
+
+
+
 <body>
 
-	<?php require_once "include/navbar.php"; ?>
+
 	
-	<div class="limiter">
+		
+	<div class="limiter  ">
 		<div class="container-login100">
 			<div class="wrap-login100">
 				<form class="login100-form" method="POST">
@@ -62,35 +70,51 @@ if (isset($_POST['logar'])) {
 					</div>
 
 					<big>
-						<div class="flex-sb-m w-full p-t-3 p-b-32">
+<div class="container ">						
+<div class="row" >
+   <button type="submit" name="logar" class="btn salvarDados mt-2 col-6 ">Entrar</button>
+   <a href="index.php" class="btn salvarDados mt-2 col-6 ">Voltar</a>
+ </div>
+
+						<div class="flex-sb-m w-full p-t-3 p-b-32 mt-3 ">
 							<div>
-								<a href="rebotsenha.php" class="txt1">
+								<a href="/Lammaaqui/rebotsenha.php" class="txt1">
 									Esqueceu sua senha?
 								</a><br>
 								<a href="/Lammaaqui/cadastro.php" class="txt1">
 									Cadastre-se
 								</a>
 							</div>
-						</div>
+						
 					</big>
+</div>
+</div>
 
-					<div class="container-login100-form-btn ">
+
+<!-- <div class="container-login100-form-btn ">
+<small> <small> <small> <button class="login100-form-btn btn-warning" name="logar">voltar
+</button></small></small></small></div> -->
+
+
+
+
+                              <!-- <div class="container-login100-form-btn ">
 						<button class="login100-form-btn btn-warning" name="logar">
 							Login
 						</button>
-					</div>
+					</div> -->
 				</form>
 
-				<div class="login100-more" style="background-image: url('media/images/net.png');">
+				<div class="login100-more" style="background-image: url('media/images/dedo.jpg');">
 				</div>
 			</div>
 		</div>
 	</div>
 
+							
+						
 
-
-
-
+ 
 	<!--===============================================================================================-->
 	<script src="lib/vendor/jquery/jquery-3.2.1.min.js"></script>
 	<!--===============================================================================================-->

@@ -6,9 +6,10 @@
      
      width: 32px;
     height: 32px;
-    background: url( 'media/images/loading2.png' ) 0 0;
+    background: url( 'images/loading2.png' ) 0 0;
   background-size:1700%;
     animation: walk 3.5s steps( 17, end ) infinite;
     display:inline-block;
+   
 
 }

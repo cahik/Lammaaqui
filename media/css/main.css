@@ -57,7 +57,7 @@ body, html {
 
 /*---------------------------------------------*/
 a {
-	font-family: Poppins-Regular;
+	font-family: Poppins-SemiBold !important;
 	font-size: 14px;
 	line-height: 1.7;
 	color: #666666;
@@ -266,7 +266,7 @@ iframe {
 .login100-form-title {
   width: 100%;
   display: block;
-  font-family: Poppins-Regular;
+  font-family: Poppins-regular-bold !important;
   font-size: 30px;
   color: #333333;
   line-height: 1.2;
