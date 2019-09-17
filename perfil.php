@@ -9,8 +9,6 @@ require_once "classes/uploader.class.php";
 // Backend cidades e estados
 require_once "classes/cidades_estados.class.php";
 
-// require_once "classes/cidades.php";
-
 
 // Mostrar dados cadastrados e/ou alterados
 $Mostrar_dados = new Perfil();
@@ -60,15 +58,20 @@ $Mostrar_dados->update();
             </div>
           </div>
           <div class="col-sm-4"></div>      
-          <div id="foto" class="col-sm-4 tam" onmouseenter="foto()" onmouseleave="tirar_foto()">
+          <div id="foto" class="col-sm-4 tam" onmouseover="foto()" onmouseout="tirar_foto()" style="background-image: url();">
             <img src= "<?php if ($Mostrar_dados->dados_usuario['Foto'] <> null and $Mostrar_dados->dados_usuario['Foto'] <> '') {echo 'media/images/fotos_usuarios/'.$Mostrar_dados->dados_usuario['Foto'];} else {echo 'media/images/fotos_usuarios/113883563.jpg';}?>" class="rounded float-right img-fluid" alt="<?php if (isset($Mostrar_dados->dados_usuario['Nome'])) {echo $Mostrar_dados->dados_usuario['Nome'];} ?>">
 
-            <div class="profile-img">            
-              <div class="EnviarFoto file btn btn-sm btn-primary">           
-                Escolha sua foto
-                <input type="file" name="arquivos[]" id="arquivos" multiple="" >
+            <div class="camera">
+              <center><img src="media/images/camera.jpg" height="210" width="100%">
+              <div class="profile-img">            
+                <div class="EnviarFoto file btn btn-sm btn-primary">           
+                  Escolha sua foto
+                  <input type="file" name="arquivos[]" id="arquivos" multiple="" >
+                </div>
               </div>
+              </center>
             </div>
+
           </div>
         </div>
       </div>
