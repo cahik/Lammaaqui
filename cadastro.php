@@ -1,11 +1,13 @@
 <?php
 
+// Backend cadastro e login
 require_once "classes/cadastro_login.class.php";
+
+// Backend cidades e estados
 require_once "classes/cidades_estados.class.php";
 
 $Executar_cadastro = new Cadastro_login();
 $Executar_cadastro->cadastrar();
-
 
 ?>
 <!DOCTYPE html>
@@ -15,15 +17,18 @@ $Executar_cadastro->cadastrar();
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<link rel="icon" type="image/png" href="media/images/icons/favicon.ico"/>
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+
+	<!-- <link rel="icon" type="image/png" href="media/images/icons/favicon.ico"/> -->
 	
-	<link rel="stylesheet" type="text/css" href="lib/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	
 	<link rel="stylesheet" type="text/css" href="media/css/util.css">
 	<link rel="stylesheet" type="text/css" href="media/css/main.css">
 	<link rel="stylesheet" type="text/css" href="media/css/style.css">
 	<link href="media/css/barra.css" rel="stylesheet">
-	<!--===============================================================================================-->
+	
 </head>
 <body>
 
@@ -37,137 +42,161 @@ $Executar_cadastro->cadastrar();
 						Criando minha conta
 					</span>
 					
-					
-					
+					<!-- Nome -->					
 					<div class="wrap-input100 validate-input">
 						<input class="input100" type="text" name="nome" id="nome" required="" placeholder="Nome" value="<?=utf8_encode($Executar_cadastro->nome)?>">	
 					</div>
 					
-
+					<!-- Email -->
 					<div class="wrap-input100 validate-input">
 						<input class="input100" type="email" name="email" id="email" required="" placeholder="E-mail" value="<?=utf8_encode($Executar_cadastro->email)?>">
 					</div>
 					
-					
+					<!-- Senha -->
 					<div class="wrap-input100 validate-input" >
 						<input class="input100" type="password" name="senha" id="senha" minlength="8" required="" placeholder="Senha (Min: 8 caracteres)" value="<?=utf8_encode($Executar_cadastro->senha)?>">
 					</div>
 
+					<!-- Repetir senha -->
 					<div class="wrap-input100 validate-input" >
 						<input class="input100" type="password" name="senha2" id="senha2" minlength="8" required="" placeholder="Repetir a senha">
 					</div>
 
-
+					<!-- Telefone -->
 					<div class="wrap-input100 validate-input">
 						<input class="input100" type="text" name="telefone" id="telefone" placeholder="Número de Telefone" value="<?=$Executar_cadastro->telefone?>" maxlength="10">
 					</div>					
 
-
-
+					<!-- Celular -->
 					<div class="wrap-input100 validate-input" >
 						<input class="input100" type="text" name="celular" id="celular" placeholder="Número de celular" value="<?=$Executar_cadastro->celular?>" maxlength="11">
 					</div>
 
+					<!-- Sexo -->
+					<div class="wrap-input100">
+						<div class="row">
 
-					<br><br>
+							<div class="col-md-3">
+								<label class="input100 mb-4">Sexo</label>
+							</div>
 
-					<p class="p_cadastro"><center><BIG>Sexo</BIG></center></p>	
+							<!-- Masculino -->
+							<div class="col-md-9">
+								<div class="custom-control custom-radio custom-control-inline">
+									<input class="custom-control-input radio" type="radio" id="masculino" name="sexo"  value="Masculino" required="" <?php if (isset($_POST['sexo']) and ($_POST['sexo'] == "Masculino")) {echo "checked=''";}?>>
+									<label class="custom-control-label" for="masculino">Masculino</label>
+								</div>
 
-					
-					<div class=" input-group-text" style="float: left; margin-left: 20px;">
-						<input class="" type="radio" id="masculino" name="sexo"  value="Masculino" required="" <?php if (isset($_POST['sexo']) and ($_POST['sexo'] == "Masculino")) {echo "checked=''";}?>>Masculino
-						<label for="masculino"></label>
+								<!-- Feminino -->
+								<div class="custom-control custom-radio custom-control-inline" style="float: left; margin-left: 20px;">
+									<input class="custom-control-input radio" type="radio" id="feminino" name="sexo"  value="Feminino" <?php if (isset($_POST['sexo']) and $_POST['sexo'] == "Feminino") {echo "checked=''";}?>>
+									<label class="custom-control-label" for="feminino">Feminino</label>
+								</div>
+							</div>
+
+						</div>
 					</div>
 
-					<div class="input-group-text" style="float: left; margin-left: 20px;">
-						<input  type="radio" id="feminino" name="sexo"  value="Feminino" <?php if (isset($_POST['sexo']) and $_POST['sexo'] == "Feminino") {echo "checked=''";}?>>Feminino
-						<label for="feminino"></label>
+					 <!-- Data de nascimento -->
+					<div class="wrap-input100">
+						<div class="row">
+
+							<div class="col-sm-3">
+								<label class="input100 mb-4">Nascimento</label>
+							</div>
+
+							 <!-- Dia -->
+							<div class="col-sm-9">								
+								<select name="dia" class="select" required="">
+									<?php for ($i = 1; $i <= 31; $i++) {?>
+										<option <?php if (isset($_POST['dia']) and $_POST['dia'] == $i) {echo "selected";}?> value="<?=$i?>" ><?=$i?></option>
+									<?php } ?>
+								</select>
+
+								<!-- Mês -->
+								<select name="mes" class="select" required="">
+									<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "01") {echo "selected";} ?> value="01">Janeiro</option>
+									<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "02") {echo "selected";} ?> value="02">Fevereiro</option>
+									<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "03") {echo "selected";} ?> value="03">Março</option>
+									<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "04") {echo "selected";} ?> value="04">Abril</option>
+									<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "05") {echo "selected";} ?> value="05">Maio</option>
+									<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "06") {echo "selected";} ?> value="06">Junho</option>
+									<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "07") {echo "selected";} ?> value="07">Julho</option>
+									<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "08") {echo "selected";} ?> value="08">Agosto</option>
+									<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "09") {echo "selected";} ?> value="09">Setembro</option>
+									<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "10") {echo "selected";} ?> value="10">Outubro</option>
+									<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "11") {echo "selected";} ?> value="11">Novembro</option>
+									<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "12") {echo "selected";} ?> value="12">Dezembro</option>
+								</select>
+
+								<select name="ano" class="select" required="">
+									<?php for ($i = date('Y'); $i >= (date('Y') - 100); $i--) {?>
+										<option <?php if (isset($_POST['ano']) and $_POST['ano'] == $i) {echo "selected";}?> value="<?=$i?>"><?=$i?></option>
+									<?php } ?>
+								</select>	
+							</div>						
+						</div>
 					</div>
-					
 
-					<br>
+					<div class="wrap-input100">
+						<div class="row">
 
-					<p><BIG>Data de nascimento:</BIG></p>
+							<div class="col-sm-3">
+								<label class="input100 mb-4">Estado</label>
+							</div>		
 
-					<select name="dia" class="select" required="">
+							<div class="col-sm-9">								
+								<select id="id_estado" name="estado" required onchange="executar_ajax()">
+									<option value="">Estado</option>
 
-						<?php for ($i = 1; $i <= 31; $i++) {?>
-							<option <?php if (isset($_POST['dia']) and $_POST['dia'] == $i) {echo "selected";}?> value="<?=$i?>" ><?=$i?></option>
-						<?php } ?>
+									<?php foreach ($Mostrar_cid_est->resultado_estados as $chave => $valor) { ?>
 
-					</select>
+										<option <?php if (isset($_POST['estado']) and $_POST['estado'] == $Mostrar_cid_est->resultado_estados[$chave]['Id_estado']) {echo "selected";} ?>  value="<?=$Mostrar_cid_est->resultado_estados[$chave]['Id_estado']?>"><?=utf8_encode($Mostrar_cid_est->resultado_estados[$chave]['Nome_estado'])?></option>
+									<?php } ?>
+								</select>
+							</div>
+						</div>
+					</div>
 
-					<select name="mes" class="select" required="">
-						<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "01") {echo "selected";} ?> value="01">Janeiro</option>
-						<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "02") {echo "selected";} ?> value="02">Fevereiro</option>
-						<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "03") {echo "selected";} ?> value="03">Março</option>
-						<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "04") {echo "selected";} ?> value="04">Abril</option>
-						<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "05") {echo "selected";} ?> value="05">Maio</option>
-						<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "06") {echo "selected";} ?> value="06">Junho</option>
-						<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "07") {echo "selected";} ?> value="07">Julho</option>
-						<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "08") {echo "selected";} ?> value="08">Agosto</option>
-						<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "09") {echo "selected";} ?> value="09">Setembro</option>
-						<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "10") {echo "selected";} ?> value="10">Outubro</option>
-						<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "11") {echo "selected";} ?> value="11">Novembro</option>
-						<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "12") {echo "selected";} ?> value="12">Dezembro</option>
-					</select>
+					<div class="wrap-input100">
+						<div class="row">
 
+							<div class="col-sm-3">
+								<label class="input100 mb-4">Cidade</label>
+							</div>
 
-					<select name="ano" class="select" required="">
+							<div class="col-sm-9">
 
-						<?php for ($i = date('Y'); $i >= (date('Y') - 100); $i--) {?>
-							<option <?php if (isset($_POST['ano']) and $_POST['ano'] == $i) {echo "selected";}?> value="<?=$i?>"><?=$i?></option>
-						<?php } ?>
+								<select <?php if (!isset($_POST['estado'])) {echo "disabled";} ?> id="id_cidade" name="cidade" required>
 
-					</select>
+									<?php if (isset($_POST['estado'])) {				
 
-					<br><br>
+										foreach ($Mostrar_cid_est->resultado_cidades as $chave => $valor) { ?>
 
-					<p><BIG>Estado</BIG></p>
+											<option <?php if (utf8_encode($Mostrar_cid_est->resultado_cidades[$chave]['Nome_cidade']) == $_POST['cidade']) {echo "selected";} ?> value="<?=$Mostrar_cid_est->resultado_cidades[$chave]['Id_cidade']?>"><?=utf8_encode($Mostrar_cid_est->resultado_cidades[$chave]['Nome_cidade'])?></option>
 
-					<select id="id_estado" name="estado" required onchange="executar_ajax()">
-						<option value="">Estado</option>
-						
-						<?php foreach ($Mostrar_cid_est->resultado_estados as $chave => $valor) { ?>
+											<?php
+										} 
+									} ?>
 
-							<option <?php if (isset($_POST['estado']) and $_POST['estado'] == $Mostrar_cid_est->resultado_estados[$chave]['Id_estado']) {echo "selected";} ?>  value="<?=$Mostrar_cid_est->resultado_estados[$chave]['Id_estado']?>"><?=utf8_encode($Mostrar_cid_est->resultado_estados[$chave]['Nome_estado'])?></option>
+								</select>
+							</div>
 
-						<?php } ?>
-
-					</select>
-
-					<br><br>
-
-					<p><BIG>Cidade</BIG></p>
-
-					<select <?php if (!isset($_POST['estado'])) {echo "disabled";} ?> id="id_cidade" name="cidade" required>
-
-						<?php if (isset($_POST['estado'])) {				
-
-							foreach ($Mostrar_cid_est->resultado_cidades as $chave => $valor) { ?>
-
-								<option <?php if (utf8_encode($Mostrar_cid_est->resultado_cidades[$chave]['Nome_cidade']) == $_POST['cidade']) {echo "selected";} ?> value="<?=$Mostrar_cid_est->resultado_cidades[$chave]['Id_cidade']?>"><?=utf8_encode($Mostrar_cid_est->resultado_cidades[$chave]['Nome_cidade'])?></option>
-
-								<?php
-							} 
-						} ?>
-
-					</select>
-
-					<br><br>
+						</div>
+					</div>
 
 					<div class="container-login100-form-btn ">
-						<button class="login100-form-btn btn-warning" name="cadastrar" type="submit">Enviar</button>
+						<button class="btn-warning" name="cadastrar" type="submit">Enviar</button>
 					</div>
 				</form>
 				<div class="login100-more" style="background-image: url('media/images/caixas.jpg');">
 				</div>
 			</div>
 
-
 		</div>
 	</div>
 
+	<!-- Biblioteca Boostrap -->
 	<script
 	src="https://code.jquery.com/jquery-3.4.1.min.js"
 	integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="

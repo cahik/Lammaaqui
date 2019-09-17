@@ -48,7 +48,7 @@ class Cadastro_login extends Site {
 		$this->data_nascimento = $_POST['ano'] . "-" . $_POST['mes'] . "-" . $_POST['dia'];
 		$this->telefone = $_POST['telefone'];
 		$this->celular = $_POST['celular'];
-		$this->cidade = utf8_decode($_POST['cidade']);
+		$this->cidade = $_POST['cidade'];
 		$this->estado = utf8_decode($_POST['estado']);
 
 	}
