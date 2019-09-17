@@ -245,13 +245,11 @@ class Perfil extends Site {
 				$this->senha = $_SESSION['dados']['Senha'];
 			}
 
-			if ($this->telefone == "") {$this->telefone = "DEFAULT";}
-			if ($this->celular == "") {$this->celular = "DEFAULT";}
+			if ($this->telefone == "") {$this->telefone = "DEFAULT";} else {$this->explode_numero_telefone($this->telefone);}
+			if ($this->celular == "") {$this->celular = "DEFAULT";} else {$this->explode_numero_celular($this->celular);}
 
 			    // Dados pessoais
 			$this->sql = "UPDATE dados_usuario SET Nome = '$this->nome', $this->foto, Email = '$this->email', Senha = '$this->senha', Telefone = $this->telefone, Celular = $this->celular, Sexo = '$this->sexo', Fk_estado = '$this->estado', Fk_cidade = '$this->cidade', Data_nascimento = '$this->data_nascimento', Descricao = '$this->descricao', Fuma = $this->Fuma, Aceita_fumar = $this->Aceita_fumar, Bebe = $this->Bebe, Aceita_beber = $this->Aceita_beber, Tem_animal = $this->Tem_animal, Aceita_animais = $this->Aceita_animais, Trabalha = $this->Trabalha, Estuda = $this->Estuda, Aceita_genero = '$this->Aceita_genero', Aceita_pagar = $this->Aceita_pagar WHERE Id = $this->id";
-
-			var_dump($this->sql);
 
 			if (mysqli_query($this->con, $this->sql)) {
 				$this->atualizar_session();
@@ -262,18 +260,38 @@ class Perfil extends Site {
 
 
 	private function explode_numero_telefone($telefone) {
-		$ex1 = explode("-", $telefone);
-		$ex2 = explode("(", $ex1[0]);
-		$ex3 = explode(") ", $ex2[1]);
-		$this->telefone = $ex3[0] . $ex3[1] . $ex1[1];
+
+		if (strlen($telefone) == 14) {
+
+			$ex1 = explode("-", $telefone);
+			$ex2 = explode("(", $ex1[0]);
+			$ex3 = explode(") ", $ex2[1]);
+			$this->telefone = $ex3[0] . $ex3[1] . $ex1[1];
+
+		} else {
+
+			$this->telefone = $telefone;
+
+		}
+
 	}
 
 
 	private function explode_numero_celular($celular) {
-		$ex1 = explode("-", $celular);
-		$ex2 = explode("(", $ex1[0]);
-		$ex3 = explode(") ", $ex2[1]);
-		$this->celular = $ex3[0] . $ex3[1] . $ex1[1];
+
+		if (strlen($celular) == 15) {
+
+			$ex1 = explode("-", $celular);
+			$ex2 = explode("(", $ex1[0]);
+			$ex3 = explode(") ", $ex2[1]);
+			$this->celular = $ex3[0] . $ex3[1] . $ex1[1];
+
+		} else {
+
+			$this->celular = $celular;
+
+		}
+
 	}
 
 	private function atualizar_session() {

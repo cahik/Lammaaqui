@@ -61,7 +61,7 @@ $Mostrar_dados->update();
           </div>
           <div class="col-sm-4"></div>          
           <div class="col-sm-4 tam">
-            <img src="<?php if (isset($Mostrar_dados->dados_usuario['Foto'])) { echo $Mostrar_dados->dados_usuario['Foto']; } else { echo 'media/images/fotos_usuarios/113883563.jpg';} ?>" class="rounded float-right img-fluid" alt="<?php if (isset($Mostrar_dados->dados_usuario['Nome'])) {echo $Mostrar_dados->dados_usuario['Nome'];} ?>">
+            <img src= "<?php if ($Mostrar_dados->dados_usuario['Foto'] <> null and $Mostrar_dados->dados_usuario['Foto'] <> '') {echo 'media/images/fotos_usuarios/'.$Mostrar_dados->dados_usuario['Foto'];} else {echo 'media/images/fotos_usuarios/113883563.jpg';}?>" class="rounded float-right img-fluid" alt="<?php if (isset($Mostrar_dados->dados_usuario['Nome'])) {echo $Mostrar_dados->dados_usuario['Nome'];} ?>">
 
             <div class="profile-img">            
               <div class="EnviarFoto file btn btn-sm btn-primary">           
