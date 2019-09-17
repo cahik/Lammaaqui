@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0.1
+-- version 4.7.7
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: 05-Set-2019 às 14:12
--- Versão do servidor: 10.1.32-MariaDB
--- PHP Version: 7.2.5
+-- Host: localhost:3306
+-- Generation Time: 17-Set-2019 às 09:06
+-- Versão do servidor: 5.6.39-log
+-- PHP Version: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -29,8 +29,8 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `cidade` (
-  `Id` int(11) NOT NULL,
-  `Nome` varchar(120) DEFAULT NULL,
+  `Id_cidade` int(11) NOT NULL,
+  `Nome_cidade` varchar(120) DEFAULT NULL,
   `Estado` int(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -38,7 +38,7 @@ CREATE TABLE `cidade` (
 -- Extraindo dados da tabela `cidade`
 --
 
-INSERT INTO `cidade` (`Id`, `Nome`, `Estado`) VALUES
+INSERT INTO `cidade` (`Id_cidade`, `Nome_cidade`, `Estado`) VALUES
 (1, 'Afonso Cláudio', 8),
 (2, 'Água Doce do Norte', 8),
 (3, 'Águia Branca', 8),
@@ -2106,7 +2106,7 @@ INSERT INTO `cidade` (`Id`, `Nome`, `Estado`) VALUES
 (2065, 'Montes Claros', 11),
 (2066, 'Montezuma', 11),
 (2067, 'Morada Nova de Minas', 11);
-INSERT INTO `cidade` (`Id`, `Nome`, `Estado`) VALUES
+INSERT INTO `cidade` (`Id_cidade`, `Nome_cidade`, `Estado`) VALUES
 (2068, 'Morro da Garça', 11),
 (2069, 'Morro do Pilar', 11),
 (2070, 'Munhoz', 11),
@@ -4016,7 +4016,7 @@ INSERT INTO `cidade` (`Id`, `Nome`, `Estado`) VALUES
 (3974, 'Cruz Alta', 23),
 (3975, 'Cruzaltense', 23),
 (3976, 'Cruzeiro do Sul', 23);
-INSERT INTO `cidade` (`Id`, `Nome`, `Estado`) VALUES
+INSERT INTO `cidade` (`Id_cidade`, `Nome_cidade`, `Estado`) VALUES
 (3977, 'David Canabarro', 23),
 (3978, 'Derrubadas', 23),
 (3979, 'Dezesseis de Novembro', 23),
@@ -5628,7 +5628,9 @@ INSERT INTO `contato` (`Id`, `Nome`, `Email`, `Assunto`, `Mensagem`) VALUES
 (1, 'João', 'joaozinho@gmail.com', 'Reclamação', 'Isso tá ótimo'),
 (2, 'João', 'joaozinho@gmail.com', 'Reclamação', 'Isso tá ótimo'),
 (3, 'João', 'joaozinho@gmail.com', 'Reclamação', 'Isso tá ótimo'),
-(4, 'João', 'joaozinho@gmail.com', 'Reclamação', 'Isso tá ótimo');
+(4, 'João', 'joaozinho@gmail.com', 'Reclamação', 'Isso tá ótimo'),
+(5, 'João', 'elenicepaterno@gmail.com', 'oii', 'oiiiiiiiiiii'),
+(6, 'Gustavo', 'vergiliogu@gmail.com', 'To com fome', 'Tem que tirar as roupas do varal');
 
 -- --------------------------------------------------------
 
@@ -5640,6 +5642,7 @@ CREATE TABLE `dados_usuario` (
   `Id` int(11) NOT NULL,
   `Conta_verificada` tinyint(1) DEFAULT '0',
   `Nome` varchar(255) NOT NULL,
+  `Foto` varchar(50) DEFAULT NULL,
   `Descricao` varchar(255) DEFAULT NULL,
   `Email` varchar(255) NOT NULL,
   `Senha` varchar(255) NOT NULL,
@@ -5647,10 +5650,8 @@ CREATE TABLE `dados_usuario` (
   `Data_nascimento` date NOT NULL,
   `Telefone` bigint(20) DEFAULT NULL,
   `Celular` bigint(20) DEFAULT NULL,
-  `Cep` int(8) DEFAULT NULL,
-  `Rua` varchar(255) DEFAULT NULL,
-  `Id_cidade` int(11) DEFAULT NULL,
-  `Id_estado` int(5) DEFAULT NULL,
+  `Fk_cidade` int(11) DEFAULT NULL,
+  `Fk_estado` int(5) DEFAULT NULL,
   `Fuma` tinyint(1) DEFAULT NULL,
   `Aceita_fumar` tinyint(1) DEFAULT NULL,
   `Bebe` tinyint(1) DEFAULT NULL,
@@ -5667,13 +5668,27 @@ CREATE TABLE `dados_usuario` (
 -- Extraindo dados da tabela `dados_usuario`
 --
 
+INSERT INTO `dados_usuario` (`Id`, `Conta_verificada`, `Nome`, `Foto`, `Descricao`, `Email`, `Senha`, `Sexo`, `Data_nascimento`, `Telefone`, `Celular`, `Fk_cidade`, `Fk_estado`, `Fuma`, `Aceita_fumar`, `Bebe`, `Aceita_beber`, `Tem_animal`, `Aceita_animais`, `Trabalha`, `Estuda`, `Aceita_genero`, `Aceita_pagar`) VALUES
+(6, 0, 'Gustavo Vergilio', '', 'Eu me sinto foda!', 'vergiliopoleza@gmail.com', 'gogu1805', 'Masculino', '2003-05-18', NULL, NULL, 3767, 20, 0, 0, 0, 1, 1, 1, 0, 1, 'Feminino', 2000),
+(7, 0, 'Luquinhas', NULL, 'Eu sou a cara da riqueza', 'srvinter@gmail.com', '123', 'Masculino', '1956-06-22', NULL, NULL, 4449, 24, 1, NULL, 0, NULL, 1, NULL, 0, 1, NULL, 200),
+(23, 0, 'Elenice Paterno', NULL, 'Teste', 'teste@gmail.com', '123', 'Feminino', '1995-05-31', NULL, 444444444, 4449, 24, NULL, 0, 0, 0, 1, 0, 0, 0, 'Não me importo', 500),
+(26, 0, 'João', NULL, NULL, 'joao_entra21@gmail.com', '123', 'Masculino', '1998-10-29', 4733256487, 47999323738, 3608, 19, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(27, 0, 'Andressa', NULL, NULL, 'dessa@gmail.com', '123', 'Feminino', '2000-11-19', 8468465465, 78578786786, 4460, 24, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(28, 0, 'Julia Taca Fogo', NULL, NULL, 'julinha.taca.fogo@gmail.com', '12345678', 'Feminino', '2000-11-17', 4444444444, NULL, 2822, 18, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(29, 0, 'Alana', NULL, NULL, 'lina@outlook.com', '12345678', 'Feminino', '2003-10-28', NULL, NULL, 2857, 18, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(30, 0, 'Tonico', NULL, NULL, 'tonin@gmail.com', '12345678', 'Masculino', '1985-11-17', NULL, NULL, 4450, 24, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(31, 0, 'CAHIK DE MATOS SOARES', NULL, NULL, 'cahikmatos@gmail.com', '1234', 'Masculino', '2002-11-18', 7997908218, NULL, 1696, 19, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(32, 0, 'null', NULL, NULL, 'aninha@gmail.com', '12345678', 'Feminino', '2001-05-21', NULL, NULL, 3183, 16, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
 --
 -- Estrutura da tabela `estado`
 --
 
 CREATE TABLE `estado` (
-  `Id` int(11) NOT NULL,
-  `Nome` varchar(75) DEFAULT NULL,
+  `Id_estado` int(11) NOT NULL,
+  `Nome_estado` varchar(75) DEFAULT NULL,
   `UF` varchar(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -5681,7 +5696,7 @@ CREATE TABLE `estado` (
 -- Extraindo dados da tabela `estado`
 --
 
-INSERT INTO `estado` (`Id`, `Nome`, `UF`) VALUES
+INSERT INTO `estado` (`Id_estado`, `Nome_estado`, `UF`) VALUES
 (1, 'Acre', 'AC'),
 (2, 'Alagoas', 'AL'),
 (3, 'Amazonas', 'AM'),
@@ -5710,6 +5725,45 @@ INSERT INTO `estado` (`Id`, `Nome`, `UF`) VALUES
 (26, 'São Paulo', 'SP'),
 (27, 'Tocantins', 'TO');
 
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `like_deslike`
+--
+
+CREATE TABLE `like_deslike` (
+  `id` int(11) NOT NULL,
+  `deu` int(11) NOT NULL,
+  `recebeu` int(11) NOT NULL,
+  `acao` enum('like','dislike') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `like_deslike`
+--
+
+INSERT INTO `like_deslike` (`id`, `deu`, `recebeu`, `acao`) VALUES
+(26, 31, 6, 'dislike'),
+(27, 31, 7, 'dislike'),
+(28, 31, 23, 'dislike'),
+(29, 31, 26, 'dislike'),
+(30, 31, 27, 'dislike'),
+(31, 31, 28, 'dislike'),
+(32, 31, 29, 'dislike'),
+(33, 31, 30, 'dislike'),
+(34, 31, 31, 'like'),
+(35, 31, 32, 'dislike'),
+(36, 7, 6, 'like'),
+(37, 7, 7, 'like'),
+(38, 7, 23, 'dislike'),
+(39, 7, 26, 'like'),
+(40, 7, 27, 'dislike'),
+(41, 7, 28, 'like'),
+(42, 7, 29, 'dislike'),
+(43, 7, 30, 'dislike'),
+(44, 7, 31, 'dislike'),
+(45, 7, 32, 'dislike');
+
 --
 -- Indexes for dumped tables
 --
@@ -5718,7 +5772,7 @@ INSERT INTO `estado` (`Id`, `Nome`, `UF`) VALUES
 -- Indexes for table `cidade`
 --
 ALTER TABLE `cidade`
-  ADD PRIMARY KEY (`Id`),
+  ADD PRIMARY KEY (`Id_cidade`),
   ADD KEY `fk_Cidade_estado` (`Estado`);
 
 --
@@ -5732,14 +5786,22 @@ ALTER TABLE `contato`
 --
 ALTER TABLE `dados_usuario`
   ADD PRIMARY KEY (`Id`),
-  ADD KEY `Id_estado` (`Id_estado`),
-  ADD KEY `Id_cidade` (`Id_cidade`);
+  ADD KEY `Id_estado` (`Fk_estado`),
+  ADD KEY `Id_cidade` (`Fk_cidade`);
 
 --
 -- Indexes for table `estado`
 --
 ALTER TABLE `estado`
-  ADD PRIMARY KEY (`Id`);
+  ADD PRIMARY KEY (`Id_estado`);
+
+--
+-- Indexes for table `like_deslike`
+--
+ALTER TABLE `like_deslike`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `deu` (`deu`),
+  ADD KEY `like_deslike_ibfk_1` (`recebeu`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -5749,25 +5811,31 @@ ALTER TABLE `estado`
 -- AUTO_INCREMENT for table `cidade`
 --
 ALTER TABLE `cidade`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5565;
+  MODIFY `Id_cidade` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5565;
 
 --
 -- AUTO_INCREMENT for table `contato`
 --
 ALTER TABLE `contato`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `dados_usuario`
 --
 ALTER TABLE `dados_usuario`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `estado`
 --
 ALTER TABLE `estado`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `Id_estado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+
+--
+-- AUTO_INCREMENT for table `like_deslike`
+--
+ALTER TABLE `like_deslike`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- Constraints for dumped tables
@@ -5777,8 +5845,14 @@ ALTER TABLE `estado`
 -- Limitadores para a tabela `dados_usuario`
 --
 ALTER TABLE `dados_usuario`
-  ADD CONSTRAINT `dados_usuario_ibfk_2` FOREIGN KEY (`Id_estado`) REFERENCES `estado` (`Id`),
-  ADD CONSTRAINT `dados_usuario_ibfk_3` FOREIGN KEY (`Id_cidade`) REFERENCES `cidade` (`Id`);
+  ADD CONSTRAINT `dados_usuario_ibfk_2` FOREIGN KEY (`Fk_estado`) REFERENCES `estado` (`Id_estado`),
+  ADD CONSTRAINT `dados_usuario_ibfk_3` FOREIGN KEY (`Fk_cidade`) REFERENCES `cidade` (`Id_cidade`);
+
+--
+-- Limitadores para a tabela `like_deslike`
+--
+ALTER TABLE `like_deslike`
+  ADD CONSTRAINT `like_deslike_ibfk_1` FOREIGN KEY (`recebeu`) REFERENCES `dados_usuario` (`Id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
