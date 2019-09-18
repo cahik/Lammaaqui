@@ -116,17 +116,19 @@ class Perfil extends Site {
 		if (!isset($_POST['Fuma']) || $_POST['Fuma'] == $_SESSION['dados']['Fuma']) {
 			if ($_SESSION['dados']['Fuma'] == NULL) {
 				$this->Fuma = "DEFAULT";
-			}			
-			$this->Fuma = $_SESSION['dados']['Fuma'];
+			}else {			
+				$this->Fuma = $_SESSION['dados']['Fuma'];
+			}
 		} else {
-			$this->Fuma = $_POST['Fuma'];			
+			$this->Fuma = $_POST['Fuma'];	
 		}
 
 		if (!isset($_POST['Aceita_fumar']) || $_POST['Aceita_fumar'] == $_SESSION['dados']['Aceita_fumar']) {
 			if ($_SESSION['dados']['Aceita_fumar'] == NULL) {
 				$this->Aceita_fumar = "DEFAULT";
+			}else {
+				$this->Aceita_fumar = $_SESSION['dados']['Aceita_fumar'];
 			}
-			$this->Aceita_fumar = $_SESSION['dados']['Aceita_fumar'];
 		} else {
 			$this->Aceita_fumar = $_POST['Aceita_fumar'];
 		}
@@ -134,8 +136,9 @@ class Perfil extends Site {
 		if (!isset($_POST['Bebe']) || $_POST['Bebe'] == $_SESSION['dados']['Bebe']) {
 			if ($_SESSION['dados']['Bebe'] == NULL) {
 				$this->Bebe = "DEFAULT";
+			}else {
+				$this->Bebe = $_SESSION['dados']['Bebe'];
 			}
-			$this->Bebe = $_SESSION['dados']['Bebe'];
 		} else {
 			$this->Bebe = $_POST['Bebe'];
 		}
@@ -143,8 +146,9 @@ class Perfil extends Site {
 		if (!isset($_POST['Aceita_beber']) || $_POST['Aceita_beber'] == $_SESSION['dados']['Aceita_beber']) {
 			if ($_SESSION['dados']['Aceita_beber'] == NULL) {
 				$this->Aceita_beber = "DEFAULT";
+			}else {
+				$this->Aceita_beber = $_SESSION['dados']['Aceita_beber'];
 			}
-			$this->Aceita_beber = $_SESSION['dados']['Aceita_beber'];
 		} else {
 			$this->Aceita_beber = $_POST['Aceita_beber'];
 		}
@@ -152,8 +156,9 @@ class Perfil extends Site {
 		if (!isset($_POST['Tem_animal']) || $_POST['Tem_animal'] == $_SESSION['dados']['Tem_animal']) {
 			if ($_SESSION['dados']['Tem_animal'] == NULL) {
 				$this->Tem_animal = "DEFAULT";
+			}else {
+				$this->Tem_animal = $_SESSION['dados']['Tem_animal'];
 			}
-			$this->Tem_animal = $_SESSION['dados']['Tem_animal'];
 		} else {
 			$this->Tem_animal = $_POST['Tem_animal'];
 		}
@@ -161,8 +166,9 @@ class Perfil extends Site {
 		if (!isset($_POST['Aceita_animais']) || $_POST['Aceita_animais'] == $_SESSION['dados']['Aceita_animais']) {
 			if ($_SESSION['dados']['Aceita_animais'] == NULL) {
 				$this->Aceita_animais = "DEFAULT";
+			}else {
+				$this->Aceita_animais = $_SESSION['dados']['Aceita_animais'];
 			}
-			$this->Aceita_animais = $_SESSION['dados']['Aceita_animais'];
 		} else {
 			$this->Aceita_animais = $_POST['Aceita_animais'];
 		}
@@ -170,8 +176,9 @@ class Perfil extends Site {
 		if (!isset($_POST['Trabalha']) || $_POST['Trabalha'] == $_SESSION['dados']['Trabalha']) {
 			if ($_SESSION['dados']['Trabalha'] == NULL) {
 				$this->Trabalha = "DEFAULT";
+			}else {
+				$this->Trabalha = $_SESSION['dados']['Trabalha'];
 			}
-			$this->Trabalha = $_SESSION['dados']['Trabalha'];
 		} else {
 			$this->Trabalha = $_POST['Trabalha'];
 		}
@@ -179,8 +186,9 @@ class Perfil extends Site {
 		if (!isset($_POST['Estuda']) || $_POST['Estuda'] == $_SESSION['dados']['Estuda']) {
 			if ($_SESSION['dados']['Estuda'] == NULL) {
 				$this->Estuda = "DEFAULT";
+			}else {
+				$this->Estuda = $_SESSION['dados']['Estuda'];
 			}
-			$this->Estuda = $_SESSION['dados']['Estuda'];
 		} else {
 			$this->Estuda = $_POST['Estuda'];
 		}
@@ -220,23 +228,14 @@ class Perfil extends Site {
 			// Recendo as informações para salvar
 
 			 // Instância uma classe para o upload
-			if (isset($_FILES['arquivos'])) {
+			if ($_FILES['arquivos']['name'][0] <> "") {
 				$upload = new Uploader('arquivos');
 				$uploads = $upload->upload();
 				$uploads = $uploads[0]['dados']['nome_novo'];
 
-
-				if ($_FILES['arquivos']['name'][0] == null || $_FILES['arquivos']['name'][0] == $_SESSION['dados']['Foto']) {
-					if ($_SESSION['dados']['Foto'] == null) {
-						$this->foto = "Foto = null";
-					} else {
-						$this->foto = "Foto = '".$_SESSION['dados']['Foto']."'";
-					}
-				} else {
-			        // Foto perfil
-					$this->foto = "Foto = '".$uploads."'";
-				}
-
+				$this->foto = "Foto = '".$uploads."'";
+			} else {
+				$this->foto = "Foto = '".$_SESSION['dados']['Foto']."'";
 			}
 
 
@@ -251,11 +250,26 @@ class Perfil extends Site {
 			    // Dados pessoais
 			$this->sql = "UPDATE dados_usuario SET Nome = '$this->nome', $this->foto, Email = '$this->email', Senha = '$this->senha', Telefone = $this->telefone, Celular = $this->celular, Sexo = '$this->sexo', Fk_estado = '$this->estado', Fk_cidade = '$this->cidade', Data_nascimento = '$this->data_nascimento', Descricao = '$this->descricao', Fuma = $this->Fuma, Aceita_fumar = $this->Aceita_fumar, Bebe = $this->Bebe, Aceita_beber = $this->Aceita_beber, Tem_animal = $this->Tem_animal, Aceita_animais = $this->Aceita_animais, Trabalha = $this->Trabalha, Estuda = $this->Estuda, Aceita_genero = '$this->Aceita_genero', Aceita_pagar = $this->Aceita_pagar WHERE Id = $this->id";
 
+			var_dump($this->sql);
+
 			if (mysqli_query($this->con, $this->sql)) {
+
+				if (!$_SESSION['dados']['Foto'] == null and !$_FILES['arquivos']['name'][0] == $_SESSION['dados']['Foto'] and !$_FILES['arquivos']['name'][0] == "") {
+					$this->excluir_foto();
+				}
 				$this->atualizar_session();
 			}
 
 		} 
+	}
+
+
+	private function excluir_foto() {
+
+		$Foto = $this->dados_usuario['Foto'];
+
+		unlink("media/images/fotos_usuarios/$Foto");
+
 	}
 
 

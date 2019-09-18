@@ -45,37 +45,40 @@ $Mostrar_dados->update();
 <body>
 
   <!-- Nav Bar -->
-  <?php require_once "include/navbar.php"; ?>
+  <?php //require_once "include/navbar.php"; ?>
 
   <!-- Foto, título e formulário -->
-  <section class="intro-single margemEsquerda">
+  <form method="post" enctype="multipart/form-data">
     <div class="container">
-      <form method="post" enctype="multipart/form-data">
+      <section class="intro-single margemEsquerda">
         <div class="row">
           <div class="col-sm-4">
             <div class="title-single-box">
-              <h5 class="title-single">Oi, <?php if (isset($Mostrar_dados->dados_usuario['Nome'])) {echo (utf8_encode($Mostrar_dados->dados_usuario['Nome']));}?>!</h5>        
+              <h5 class="title-single tt">Oi, <?php if (isset($Mostrar_dados->dados_usuario['Nome'])) {echo (utf8_encode($Mostrar_dados->dados_usuario['Nome']));}?>!</h5>      
             </div>
           </div>
-          <div class="col-sm-4"></div>      
-          <div id="foto" class="col-sm-4 tam" onmouseover="foto()" onmouseout="tirar_foto()" style="background-image: url();">
+
+
+          <div class="col-sm-4"></div> 
+
+          <div id="foto" class="col-sm-4 tam" onmouseover="foto()" onmouseout="tirar_foto()">
             <img src= "<?php if ($Mostrar_dados->dados_usuario['Foto'] <> null and $Mostrar_dados->dados_usuario['Foto'] <> '') {echo 'media/images/fotos_usuarios/'.$Mostrar_dados->dados_usuario['Foto'];} else {echo 'media/images/fotos_usuarios/113883563.jpg';}?>" class="rounded float-right img-fluid" alt="<?php if (isset($Mostrar_dados->dados_usuario['Nome'])) {echo $Mostrar_dados->dados_usuario['Nome'];} ?>">
 
-            <div class="camera">
-              <center><img src="media/images/camera.jpg" height="210" width="100%">
-              <div class="profile-img">            
-                <div class="EnviarFoto file btn btn-sm btn-primary">           
-                  Escolha sua foto
-                  <input type="file" name="arquivos[]" id="arquivos" multiple="" >
+            <div class="camera">             
+              <center>
+                <div class="profile-img">
+                  <label style="cursor: pointer;" for="arquivos"><img src="media/images/camera.jpg" width="100%"></label>
+                  <input type="file" class="input_foto" name="arquivos[]" id="arquivos" multiple="" >
                 </div>
-              </div>
               </center>
             </div>
 
           </div>
+
+
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
 
     <!-- Container principal perfil -->
     <section class="margemEsquerda">
@@ -299,7 +302,7 @@ $Mostrar_dados->update();
 
               <div class="row mb-4">                
                 <div class="col-md-12">
-                  <label>Se não marcar nenhuma das opções será considerado que não se importa</label>
+                  <label>Por favor marque todas as opções para que a sua busca de perfil possa ocorrer sem futuros erros.</label>
                 </div>
               </div>
 
@@ -483,6 +486,12 @@ $Mostrar_dados->update();
 </div>
 </div>
 
+
+
+</div>         
+</section>
+</form>  
+
 <!-- Lista dos Match's -->
 <div class="row listaMatch">
   <div class="col-sm-1">
@@ -505,10 +514,6 @@ $Mostrar_dados->update();
     </div>         
   </div>
 </div>
-
-</form>  
-</div>         
-</section>
 
 
 <!-- footer -->

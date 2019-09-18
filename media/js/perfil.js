@@ -6,6 +6,7 @@ function foto() {
 
 }
 
+
 function tirar_foto() {
 
 	var foto = document.querySelector('.camera');

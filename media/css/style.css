@@ -2066,14 +2066,11 @@ footer .credits {
   position: absolute;
   opacity: 0;
   transition: all 0.4s;
-  /*margin-top: -370px !important;*/
+  padding-right: 15px;
 }
 
-.profile-img .file input {
-  position: absolute;
-  opacity: 0;
-  right: 0;
-  top: 0;
+.input_foto {
+  display: none !important;
 }
 
 

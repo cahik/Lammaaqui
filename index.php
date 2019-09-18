@@ -2,8 +2,9 @@
 
 require_once "classes/site.class.php";
 
-?>
-<!DOCTYPE html>
+$Iniciar = new Site;
+
+?><!DOCTYPE html>
 <head>
   <meta charset="utf-8">
   <title>Llama Aqui</title>
@@ -39,7 +40,7 @@ require_once "classes/site.class.php";
   <!--/ Carousel /-->
   <div class="intro intro-carousel">
     <div id="carousel" class="owl-carousel owl-theme">
-      <div class="carousel-item-a intro-item bg-image" style="background-image: url(media/images/cozinha.jpg)">
+      <div class="carousel-item-a intro-item bg-image" style="background-image: url(media/images/obra.png)"><!-- cozinha -->
         <div class="overlay overlay-a"></div>
         <div class="intro-content display-table">
           <div class="table-cell">
@@ -62,7 +63,7 @@ require_once "classes/site.class.php";
           </div>
         </div>
       </div>
-      <div class="carousel-item-a intro-item bg-image" style="background-image: url(media/images/cama.jpg)">
+      <div class="carousel-item-a intro-item bg-image" style="background-image: url(media/images/obra.png)"><!-- cama -->
         <div class="overlay overlay-a"></div>
         <div class="intro-content display-table">
           <div class="table-cell">
@@ -85,7 +86,7 @@ require_once "classes/site.class.php";
           </div>
         </div>
       </div>
-      <div class="carousel-item-a intro-item bg-image" style="background-image: url(media/images/salona.jpg)">
+      <div class="carousel-item-a intro-item bg-image" style="background-image: url(media/images/obra.png)"><!-- salona -->
         <div class="overlay overlay-a"></div>
         <div class="intro-content display-table">
           <div class="table-cell">

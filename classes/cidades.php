@@ -1,9 +1,14 @@
 <?php
 
-CONST HOST = "llamaaqui.ml:3306";
-CONST USER = "llamaaqui";
-CONST PASS = "entra21@Blusoft";
+CONST HOST = "127.0.0.1";
+CONST USER = "root";
+CONST PASS = "";
 CONST DB   = "llamaaqu_master";
+
+// CONST HOST = "llamaaqui.ml:3306";
+// CONST USER = "llamaaqui";
+// CONST PASS = "entra21@Blusoft";
+// CONST DB   = "llamaaqu_master";
 
 $con = mysqli_connect(HOST, USER, PASS, DB);
 
