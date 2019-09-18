@@ -32,7 +32,7 @@ $Executar_cadastro->cadastrar();
 </head>
 <body>
 
-	<?php //require_once "include/navbar.php"; ?>
+	<?php require_once "include/navbar.php"; ?>
 	
 	<div class="limiter text-center">
 		<div class="container-login100">
@@ -74,14 +74,14 @@ $Executar_cadastro->cadastrar();
 
 					<!-- Sexo -->
 					<div class="wrap-input100">
-						<div class="row">
+						<div class="row pb-2">
 
 							<div class="col-md-3">
-								<label class="input100 mb-4">Sexo</label>
+								<label class="input100 mb-sm-3 mb-2">Sexo</label>
 							</div>
 
 							<!-- Masculino -->
-							<div class="col-md-9">
+							<div class="col-md-9 mb-sm-0 mb-1 ml-sm-0 ml-4">
 								<div class="custom-control custom-radio custom-control-inline">
 									<input class="custom-control-input radio" type="radio" id="masculino" name="sexo"  value="Masculino" required="" <?php if (isset($_POST['sexo']) and ($_POST['sexo'] == "Masculino")) {echo "checked=''";}?>>
 									<label class="custom-control-label" for="masculino">Masculino</label>
@@ -97,24 +97,24 @@ $Executar_cadastro->cadastrar();
 						</div>
 					</div>
 
-					 <!-- Data de nascimento -->
+					<!-- Data de nascimento -->
 					<div class="wrap-input100">
 						<div class="row">
 
-							<div class="col-sm-3">
+							<div class="col-sm-3 mt-2 mt-sm-0">
 								<label class="input100 mb-4">Nascimento</label>
 							</div>
 
-							 <!-- Dia -->
+							<!-- Dia -->
 							<div class="col-sm-9">								
-								<select name="dia" class="select" required="">
+								<select name="dia" class="select col-3 mb-2 mb-sm-0" required="">
 									<?php for ($i = 1; $i <= 31; $i++) {?>
 										<option <?php if (isset($_POST['dia']) and $_POST['dia'] == $i) {echo "selected";}?> value="<?=$i?>" ><?=$i?></option>
 									<?php } ?>
 								</select>
 
 								<!-- Mês -->
-								<select name="mes" class="select" required="">
+								<select name="mes" class="select mb-2 mb-sm-0" required="">
 									<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "01") {echo "selected";} ?> value="01">Janeiro</option>
 									<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "02") {echo "selected";} ?> value="02">Fevereiro</option>
 									<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "03") {echo "selected";} ?> value="03">Março</option>
@@ -129,7 +129,7 @@ $Executar_cadastro->cadastrar();
 									<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "12") {echo "selected";} ?> value="12">Dezembro</option>
 								</select>
 
-								<select name="ano" class="select" required="">
+								<select name="ano" class="select col-4 mb-2 mb-sm-0" required="">
 									<?php for ($i = date('Y'); $i >= (date('Y') - 100); $i--) {?>
 										<option <?php if (isset($_POST['ano']) and $_POST['ano'] == $i) {echo "selected";}?> value="<?=$i?>"><?=$i?></option>
 									<?php } ?>
@@ -139,15 +139,14 @@ $Executar_cadastro->cadastrar();
 					</div>
 
 					<div class="wrap-input100">
-						<div class="row">
+						<div class="row pb-3">
 
 							<div class="col-sm-3">
-								<label class="input100 mb-4">Estado</label>
+								<label class="input100 mt-sm-0 mt-2 mb-3">Estado</label>
 							</div>		
 
 							<div class="col-sm-9">								
 								<select id="id_estado" name="estado" required onchange="executar_ajax()">
-									<option value="">Estado</option>
 
 									<?php foreach ($Mostrar_cid_est->resultado_estados as $chave => $valor) { ?>
 
@@ -159,10 +158,10 @@ $Executar_cadastro->cadastrar();
 					</div>
 
 					<div class="wrap-input100">
-						<div class="row">
+						<div class="row pb-3">
 
 							<div class="col-sm-3">
-								<label class="input100 mb-4">Cidade</label>
+								<label class="input100 mt-sm-0 mt-2 mb-3">Cidade</label>
 							</div>
 
 							<div class="col-sm-9">
@@ -186,7 +185,7 @@ $Executar_cadastro->cadastrar();
 					</div>
 
 					<div class="container-login100-form-btn ">
-						<button class="btn-warning" name="cadastrar" type="submit">Enviar</button>
+						<button class="btn btn-warning" name="cadastrar" type="submit">Enviar</button>
 					</div>
 				</form>
 				<div class="login100-more" style="background-image: url('media/images/caixas.jpg');">

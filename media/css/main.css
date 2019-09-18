@@ -251,11 +251,11 @@ iframe {
 .login100-form-title {
   width: 100%;
   display: block;
-<<<<<<< HEAD
+  <<<<<<< HEAD
   font-family:'Poppins', sans-serif !important;
-=======
+  =======
   font-family: Poppins !important;
->>>>>>> 59878e621695ba183e6dec7cbc4c15b853a33c4b
+  >>>>>>> 59878e621695ba183e6dec7cbc4c15b853a33c4b
   font-size: 30px;
   color: #333333;
   line-height: 1.2;
@@ -277,11 +277,13 @@ iframe {
   align-items: flex-end;
   width: 100%;
   height: 80px;
+  max-height: 200px;
   position: relative;
   border: 1px solid #e6e6e6;
   border-radius: 10px;
   margin-bottom: 10px;
 }
+
 
 .label-input100 {
   font-family: 'Poppins', sans-serif !important;
@@ -307,12 +309,8 @@ iframe {
   display: block;
   width: 100%;
   background: transparent;
-<<<<<<< HEAD
   font-family: 'Poppins', sans-serif !important;
-=======
- 
->>>>>>> 59878e621695ba183e6dec7cbc4c15b853a33c4b
-  font-size: 18px;
+  font-size: 14px;
   /*color: #555555;*/
   line-height: 1.2;
   padding: 0 26px;
@@ -352,7 +350,7 @@ input.input100 {
   -ms-transform: scaleX(1.1) scaleY(1.3);
   -o-transform: scaleX(1.1) scaleY(1.3);
   transform: scaleX(1.1) scaleY(1.3);
-}*/
+  }*/
 
 /*.input100:focus + .focus-input100 {
   visibility: visible;
@@ -388,16 +386,16 @@ input.input100 {
 .input100:hover {
   background: lightyellow ;
   
-}*/
+  }*/
 
-.has-val {
-  height: 48px !important;
-}
+  .has-val {
+    height: 48px !important;
+  }
 
 /*.has-val + .focus-input100 + .label-input100 {
   top: 14px;
   font-size: 13px;
-}*/
+  }*/
 
 /*==================================================================
 [ Restyle Checkbox ]*/
