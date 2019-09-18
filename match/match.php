@@ -5,15 +5,6 @@ require_once "match.class.php";
 $a = new Selects();
 $a->select_pessoas();
 
-
-
-
-
-
-
-
-
-
 ?>
 <!DOCTYPE html>
 <head>
@@ -34,7 +25,7 @@ $a->select_pessoas();
 
 <body>
 
-<!--    --><?php require_once "../include/navbar.php"; ?>
+    <?php require_once "../include/navbar.php"; ?>
 
 
     <content>
@@ -171,7 +162,14 @@ $a->select_pessoas();
 
                                 <div class="card-body ">
                                     <h1 class="card-title mb-3"> <?= utf8_encode($a->resultado[$chave]['Nome']) ?> </h1>
-                                    <h6 class="card-subtitle mb-2 text-muted"><img id="foto" src="img/elenice.jpg"></h6>
+
+                                    <h6 class="card-subtitle mb-2 text-muted">
+                                        <img id="foto" 
+                                        src="../media/images/fotos_usuarios/<?php
+                                        $foto_card = $_SESSION['dados']['Foto'];
+                                        if ($foto_card == null || $foto_card == '') {echo 'avatar.png';} else {echo '$foto_card';}?>">
+                                    </h6>
+
                                     <p class="card-text"><?= utf8_encode($a->resultado[$chave] ['Descricao']) ?></p>
                                     <div id="botao">
                                         <button type="button" name="like" class="btn btnlike" onclick="like( <?= $a->resultado[$chave]['Id'] ?>, <?= $_SESSION['dados']['Id']?>, 'like')"><img src="img/like.png"></button>

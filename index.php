@@ -48,13 +48,13 @@ $Iniciar = new Site;
               <div class="row">
                 <div class="col-lg-8">
                   <div class="intro-body">
-                    <p class="intro-title-top mt-5">Encontre pessoas com interesses em comum</p>
+                    <p class="intro-title-top mt-5">Encontre pessoas com interesses em comum!</p>
                     <h1 class="intro-title mb-4">
                       <h1 class="intro-title mb-4">
                       NÃO SABE QUEM CHAMAR? <br>
                       <span class="color-b"> LLAMA AQUI </span>
                     <p class="intro-subtitle intro-price">
-                      <a href="login.php"><span class="price-a">VER PERFIS</span></a>
+                      <a href="cadastro.php"><span class="price-a">Comece agora!</span></a>
                     </p>
                   </div>
                 </div>
@@ -71,13 +71,13 @@ $Iniciar = new Site;
               <div class="row">
                 <div class="col-lg-8">
                   <div class="intro-body">
-                    <p class="intro-title-top mt-5">Economize tempo e dinheiro </p>
+                    <p class="intro-title-top mt-5">Seu bolso agradece!</p>
                     <h1 class="intro-title mb-4">
                       <h1 class="intro-title mb-4">
-                      NÃO SABE QUEM CHAMAR? <br>
-                      <span class="color-b"> LLAMA AQUI </span>
+                      Economize tempo<br>
+                      <span class="color-b"> E DINHEIRO </span>
                     <p class="intro-subtitle intro-price">
-                      <a href="login.php"><span class="price-a">VER PERFIS</span></a>
+                      <a href="cadastro.php"><span class="price-a">Comece agora!</span></a>
                     </p>
                   </div>
                 </div>
@@ -94,13 +94,13 @@ $Iniciar = new Site;
               <div class="row">
                 <div class="col-lg-8">
                   <div class="intro-body">
-                    <p class="intro-title-top mt-5">Facilite sua vida </p>
+                    <p class="intro-title-top mt-5">A vida é muito curta pra passar sozinho!</p>
                      <h1 class="intro-title mb-4">
                       <h1 class="intro-title mb-4">
-                      NÃO SABE QUEM CHAMAR? <br>
-                      <span class="color-b"> LLAMA AQUI </span>
+                      Faça novas <br>
+                      <span class="color-b"> AMIZADES </span>
                     <p class="intro-subtitle intro-price">
-                      <a href="login.php"><span class="price-a">VER PERFIS</span></a>
+                      <a href="cadastro.php"><span class="price-a">Comece agora!</span></a>
                     </p>
                   </div>
                 </div>

@@ -1,15 +1,15 @@
 
 @keyframes walk{
-    to{ background-position: -2177px 0}
+	to{ background-position: -2177px 0}
 }
 .llama{
-     
-     width: 32px;
-    height: 32px;
-    background: url( 'images/loading2.png' ) 0 0;
-  background-size:1700%;
-    animation: walk 3.5s steps( 17, end ) infinite;
-    display:inline-block;
-   
+	
+	width: 32px;
+	height: 32px;
+	background: url( 'images/loading2.png' ) 0 0;
+	background-size:1700%;
+	animation: walk 3.5s steps( 17, end ) infinite;
+	display:inline-block;
+	
 
 }
