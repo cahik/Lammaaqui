@@ -107,7 +107,7 @@ $Executar_cadastro->cadastrar();
 
 							 <!-- Dia -->
 							<div class="col-sm-9">								
-								<select name="dia" class="select" required="">
+								<select name="dia" class="select col-sm-3" required="">
 									<?php for ($i = 1; $i <= 31; $i++) {?>
 										<option <?php if (isset($_POST['dia']) and $_POST['dia'] == $i) {echo "selected";}?> value="<?=$i?>" ><?=$i?></option>
 									<?php } ?>
@@ -129,7 +129,7 @@ $Executar_cadastro->cadastrar();
 									<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "12") {echo "selected";} ?> value="12">Dezembro</option>
 								</select>
 
-								<select name="ano" class="select" required="">
+								<select name="ano" class="select col-sm-4" required="">
 									<?php for ($i = date('Y'); $i >= (date('Y') - 100); $i--) {?>
 										<option <?php if (isset($_POST['ano']) and $_POST['ano'] == $i) {echo "selected";}?> value="<?=$i?>"><?=$i?></option>
 									<?php } ?>
@@ -186,7 +186,7 @@ $Executar_cadastro->cadastrar();
 					</div>
 
 					<div class="container-login100-form-btn ">
-						<button class="btn-warning" name="cadastrar" type="submit">Enviar</button>
+						<button class="btn btn-warning" name="cadastrar" type="submit">Enviar</button>
 					</div>
 				</form>
 				<div class="login100-more" style="background-image: url('media/images/caixas.jpg');">
