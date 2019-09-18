@@ -31,8 +31,21 @@ if (isset($_POST['logar'])) {
 		
 	<div class="limiter  ">
 		<div class="container-login100">
-			<div class="wrap-login100">
-				<form class="login100-form" method="POST">
+
+			<div class="wrap-login100" style="
+
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: auto !important;
+    position: relative;
+    float: left;
+    background-image: url('media/images/dedo.jpg');
+}">
+				
+
+			<form class="login100-form" method="POST">
+				
+
 					<span class="login100-form-title p-b-43 text-warning">
 						Login
 					</span>
@@ -72,13 +85,17 @@ if (isset($_POST['logar'])) {
 					</div> 
 				</form>
 
-				<div class="login100-more" style="background-image: url('media/images/dedo.jpg');">
-				</div>
-			</div>
-		</div>
-	</div>
 
-							
+
+
+				
+
+			</div>
+
+		</div>
+
+		
+	</div>					
 						
 
  
