@@ -252,9 +252,10 @@ class Perfil extends Site {
 
 			if (mysqli_query($this->con, $this->sql)) {
 
-				if (!$_SESSION['dados']['Foto'] == null and !$_FILES['arquivos']['name'][0] == $_SESSION['dados']['Foto'] and !$_FILES['arquivos']['name'][0] == "") {
+				if (!$_SESSION['dados']['Foto'] == null  and !$_FILES['arquivos']['name'][0] == "" and $_FILES['arquivos']['name'][0] <> $_SESSION['dados']['Foto']) {
 					$this->excluir_foto();
 				}
+				
 				$this->atualizar_session();
 			}
 

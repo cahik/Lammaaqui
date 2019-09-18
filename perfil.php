@@ -45,7 +45,7 @@ $Mostrar_dados->update();
 <body>
 
   <!-- Nav Bar -->
-  <?php //require_once "include/navbar.php"; ?>
+  <?php require_once "include/navbar.php"; ?>
 
   <!-- Foto, título e formulário -->
   <form method="post" enctype="multipart/form-data">
@@ -62,7 +62,7 @@ $Mostrar_dados->update();
           <div class="col-sm-4"></div> 
 
           <div id="foto" class="col-sm-4 tam" onmouseover="foto()" onmouseout="tirar_foto()">
-            <img src= "<?php if ($Mostrar_dados->dados_usuario['Foto'] <> null and $Mostrar_dados->dados_usuario['Foto'] <> '') {echo 'media/images/fotos_usuarios/'.$Mostrar_dados->dados_usuario['Foto'];} else {echo 'media/images/fotos_usuarios/113883563.jpg';}?>" class="rounded float-right img-fluid" alt="<?php if (isset($Mostrar_dados->dados_usuario['Nome'])) {echo $Mostrar_dados->dados_usuario['Nome'];} ?>">
+            <img src= "<?php if ($Mostrar_dados->dados_usuario['Foto'] <> null and $Mostrar_dados->dados_usuario['Foto'] <> '') {echo 'media/images/fotos_usuarios/'.$Mostrar_dados->dados_usuario['Foto'];} else {echo 'media/images/fotos_usuarios/avatar.png';}?>" width="100%" class="rounded float-right img-fluid" alt="<?php if (isset($Mostrar_dados->dados_usuario['Nome'])) {echo $Mostrar_dados->dados_usuario['Nome'];} ?>">
 
             <div class="camera">             
               <center>
@@ -239,8 +239,8 @@ $Mostrar_dados->update();
                   <div class="col-md-6">
                     <label for="colFormLabel" class="col-sm-2 col-form-label">Descrição</label>
                   </div>
-                  <div class="col-md-4">
-                    <textarea name="Descricao" style="resize: none;" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Essa é a descrição que seu perfil mostrará nas buscas de perfil" required=""><?php if (isset($Mostrar_dados->dados_usuario['Descricao'])) {echo $Mostrar_dados->dados_usuario['Descricao'];}?></textarea>
+                  <div class="col-md-6">
+                    <textarea name="Descricao" style="resize: none; width: 100%;" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Escreva uma descrição para mostrar aos outros usuários quão legal você é."><?php if (isset($Mostrar_dados->dados_usuario['Descricao'])) {echo $Mostrar_dados->dados_usuario['Descricao'];}?></textarea>
                   </div>
                 </div>   
 
