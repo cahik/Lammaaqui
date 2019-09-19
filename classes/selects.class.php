@@ -1,6 +1,7 @@
 <?php
+
 require_once "site.class.php";
-error_reporting();
+
 class Selects extends Site
 {
     private $sql;
@@ -19,13 +20,23 @@ class Selects extends Site
     private $maior_idade;
     private $menor_idade;
     public $resultado;
+
+
     public function __construct()
     {
         parent::__construct();
+
+        $this->Usuario = $_SESSION['dados'];
+        // echo "<pre>";
+        // var_dump($_SESSION['dados']);
+        // echo "</pre>";
+
+
         if (isset($_POST['Enviar'])) {
             $this->receber_filtro();
         }
     }
+
     // Pegando os POSTS dos filtros do site de busca.
     private function receber_filtro()
     {
@@ -83,7 +94,7 @@ class Selects extends Site
                     $atual = date('Y-m-d');
                     $idade = intval($atual) - intval($nascimento);
 
-                    if ($this->consulta['Aceita_genero'] == $this->Usuario['Sexo'] || $this->consulta['Aceita_genero'] == "Não me importo") {
+                    if (utf8_encode($this->consulta['Aceita_genero']) == $this->Usuario['Sexo'] || utf8_encode($this->consulta['Aceita_genero']) == "Não me importo") {
 
                         if ($this->consulta['Aceita_fumar'] == 1 or $this->consulta['Aceita_fumar'] == 0 and $this->Usuario['Fuma'] == 0) {
 
@@ -115,6 +126,7 @@ class Selects extends Site
 
         // Quando o usuário iniciar a tela de matches sem os filtros.
         } else {
+
             $this->sql = "SELECT * FROM dados_usuario where Id <> ".$_SESSION['dados']['Id'];
 
             if ($query1 = mysqli_query($this->con, $this->sql)) {
@@ -128,9 +140,32 @@ class Selects extends Site
 
                     $query2 = mysqli_query($this->con, $sqlverifica);
 
-                    if (mysqli_num_rows($query2) == 0) {
+                    $nascimento = $this->consulta['Data_nascimento'];                    
+                    $atual = date('Y-m-d');
+                    $idade = intval($atual) - intval($nascimento);
 
-                        $this->resultado[] = $this->consulta;
+                    if (utf8_encode($this->consulta['Aceita_genero']) == $this->Usuario['Sexo'] || utf8_encode($this->consulta['Aceita_genero']) == "Não me importo") {
+
+                        if ($this->consulta['Aceita_fumar'] == 1 or $this->consulta['Aceita_fumar'] == 0 and $this->Usuario['Fuma'] == 0) {
+
+                            if ($this->consulta['Aceita_beber'] == 1 or $this->consulta['Aceita_beber'] == 0 and $this->Usuario['Bebe'] == 0) {
+
+                                if ($this->consulta['Aceita_animais'] == 1 or $this->consulta['Aceita_animais'] == 0 and $this->Usuario['Tem_animal'] == 0) {
+
+                                    if ($idade >= $this->menor_idade and $idade <= $this->maior_idade) {
+
+                                        if (mysqli_num_rows($query2) == 0) {
+
+                                            $this->resultado[] = $this->consulta;
+
+                                        }
+                                    }
+
+                                }
+
+                            }
+
+                        }
 
                     }
 
@@ -145,7 +180,7 @@ class Selects extends Site
         }
 
     }
-    
+
 }
 
 

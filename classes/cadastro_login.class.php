@@ -113,7 +113,6 @@ class Cadastro_login extends Site {
 
 				$this->sql = "INSERT INTO dados_usuario (Nome, Email, Senha, Sexo, Data_nascimento, Telefone, Celular, Fk_cidade, Fk_estado) values ('$this->nome', '$this->email', '$this->senha', '$this->sexo', '$this->data_nascimento', $this->telefone, $this->celular, $this->cidade, $this->estado);";
 
-				var_dump($this->sql);
 
 				if (mysqli_query($this->con, $this->sql)) {
 
@@ -155,8 +154,6 @@ class Cadastro_login extends Site {
 
 				$resultado = mysqli_fetch_array($query);
 
-				var_dump($this->sql);
-
 				if ($resultado['Email'] == $this->email and $resultado['Senha'] == $this->senha) {
 
 				// Se o login funcionar
@@ -168,7 +165,7 @@ class Cadastro_login extends Site {
 			} else {
 
 				// Se o login falhar
-				die("Não funfo");
+				
 
 			}
 

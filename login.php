@@ -10,6 +10,7 @@ if (isset($_POST['logar'])) {
 	$Executar_login->logar();
 }
 
+
 ?>
 <!DOCTYPE html>
 <html>

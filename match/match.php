@@ -25,7 +25,7 @@ $a->select_pessoas();
 
 <body>
 
-    <?php require_once "../include/navbar.php"; ?>
+    <?php //require_once "../include/navbar.php"; ?>
 
 
     <content>
