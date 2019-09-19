@@ -189,6 +189,7 @@ $Mostrar_dados->update();
 
                 <!-- Data de nascimento -->
                 <div class="row">
+                  
                   <div class="col-md-6">
                     <label class="col-sm mb-3 col-form-label">Data de nascimento</label>
                   </div>

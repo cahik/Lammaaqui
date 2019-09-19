@@ -32,8 +32,10 @@ $Executar_cadastro->cadastrar();
 </head>
 <body>
 
+	<!-- Navbar -->
 	<?php require_once "include/navbar.php"; ?>
-	
+
+
 	<div class="limiter text-center">
 		<div class="container-login100">
 			<div class="wrap-login100">
@@ -99,22 +101,22 @@ $Executar_cadastro->cadastrar();
 
 					<!-- Data de nascimento -->
 					<div class="wrap-input100">
-						<div class="row">
+						<div class="row mb-3">
 
-							<div class="col-sm-3 mt-2 mt-sm-0">
-								<label class="input100 mb-4">Nascimento</label>
+							<div class="col-sm-3 p-2 mt-sm-0">
+								<label class="input100">Nascimento</label>
 							</div>
 
 							<!-- Dia -->
 							<div class="col-sm-9">								
-								<select name="dia" class="select col-3 mb-2 mb-sm-0" required="">
+								<select name="dia" class="select col-3 mb-sm-0" required="">
 									<?php for ($i = 1; $i <= 31; $i++) {?>
 										<option <?php if (isset($_POST['dia']) and $_POST['dia'] == $i) {echo "selected";}?> value="<?=$i?>" ><?=$i?></option>
 									<?php } ?>
 								</select>
 
 								<!-- Mês -->
-								<select name="mes" class="select mb-2 mb-sm-0" required="">
+								<select name="mes" class="select col-3 mb-sm-0" required="">
 									<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "01") {echo "selected";} ?> value="01">Janeiro</option>
 									<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "02") {echo "selected";} ?> value="02">Fevereiro</option>
 									<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "03") {echo "selected";} ?> value="03">Março</option>
@@ -129,7 +131,7 @@ $Executar_cadastro->cadastrar();
 									<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "12") {echo "selected";} ?> value="12">Dezembro</option>
 								</select>
 
-								<select name="ano" class="select col-4 mb-2 mb-sm-0" required="">
+								<select name="ano" class="select col-4 mb-sm-0" required="">
 									<?php for ($i = date('Y'); $i >= (date('Y') - 100); $i--) {?>
 										<option <?php if (isset($_POST['ano']) and $_POST['ano'] == $i) {echo "selected";}?> value="<?=$i?>"><?=$i?></option>
 									<?php } ?>
@@ -138,15 +140,16 @@ $Executar_cadastro->cadastrar();
 						</div>
 					</div>
 
+					<!-- Estado -->
 					<div class="wrap-input100">
-						<div class="row pb-3">
+						<div class="row mb-3">
 
 							<div class="col-sm-3">
-								<label class="input100">Estado</label>
+								<label class="input100 p-2">Estado</label>
 							</div>		
 
 							<div class="col-sm-9">								
-								<select id="id_estado" name="estado" class="form-control" required onchange="executar_ajax()">
+								<select id="id_estado" name="estado" class="form-control mb-sm-0 mb-1 ml-sm-0 ml-4" required onchange="executar_ajax()">
 
 									<?php foreach ($Mostrar_cid_est->resultado_estados as $chave => $valor) { ?>
 
@@ -157,16 +160,17 @@ $Executar_cadastro->cadastrar();
 						</div>
 					</div>
 
+					<!-- Cidade -->
 					<div class="wrap-input100">
-						<div class="row pb-3">
+						<div class="row mb-3">
 
 							<div class="col-sm-3">
-								<label class="input100 mt-sm-0 mt-2 mb-3">Cidade</label>
+								<label class="input100 p-2">Cidade</label>
 							</div>
 
 							<div class="col-sm-9">
 
-								<select class="form-control" <?php if (!isset($_POST['estado'])) {echo "disabled";} ?> id="id_cidade" name="cidade" required>
+								<select class="form-control mb-sm-0 mb-1 ml-sm-0 ml-4" <?php if (!isset($_POST['estado'])) {echo "disabled";} ?> id="id_cidade" name="cidade" required>
 
 									<?php if (isset($_POST['estado'])) {				
 
@@ -180,10 +184,10 @@ $Executar_cadastro->cadastrar();
 
 								</select>
 							</div>
-
 						</div>
 					</div>
 
+					<!-- Botão enviar -->
 					<div class="container-login100-form-btn ">
 						<button class="btn btn-warning" name="cadastrar" type="submit">Enviar</button>
 					</div>
