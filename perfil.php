@@ -189,7 +189,7 @@ $Mostrar_dados->update();
 
                 <!-- Data de nascimento -->
                 <div class="row">
-                  
+
                   <div class="col-md-6">
                     <label class="col-sm mb-3 col-form-label">Data de nascimento</label>
                   </div>
@@ -485,36 +485,13 @@ $Mostrar_dados->update();
 
 </div>
 </div>
-</div>
-
+</div>F
 
 
 </div>         
 </section>
 </form>  
 
-<!-- Lista dos Match's -->
-<div class="row listaMatch">
-  <div class="col-sm-1">
-  </div>
-  <div class="col-md-10">
-    <div class="profile-head">
-      <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item">
-          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Match's</a>
-        </li>
-      </ul>
-      <div class="row mt-5">
-        <div class="col-md-6">
-          <label>"Usuário banco de dados com tabela de like recebido"</label>
-        </div>
-        <div class="col-md-6">
-          <a href="#">Analisar</a>
-        </div>
-      </div>
-    </div>         
-  </div>
-</div>
 
 
 <!-- footer -->
