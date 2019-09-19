@@ -9,25 +9,87 @@ $a->select_pessoas();
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8">
+
+
+  <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Estilos CSS Match-->
     <link href="match.css" rel="stylesheet">
 
     <link href="../media/css/busca.css" rel="stylesheet" type="text/css">
-
     <link href="../media/css/style.css" rel="stylesheet" type="text/css">
     <link href="../media/css/barra.css" rel="stylesheet" type="text/css">
+
+    <!-- Estilos Gerais -->
+    <link href="media/css/barra.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
 
     <title>Tinder</title>
 </head>
-
 <body>
 
+    <!-- Navbar -->
+    
     <?php //require_once "../include/navbar.php"; ?>
 
+    <!-- Menu -->
 
+    <div class="container emp-profile">
+        <div class="row">         
+          <div class="col-md-12">
+            <div class="profile-head">
+              <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Busca de perfis</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Lista de Match</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Menu -->
+
+         <!-- Menu -->
+        <div class="row">
+          <div class="col-md-12">
+            <div class="tab-content profile-tab" id="myTabContent">
+
+              <!-- Dados pessoais -->
+              <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+                <div class="row mb-4">                
+                  <div class="col-md-12">
+                    <label>Atualize seus dados para que as pessoas possam te encontrar</label>
+                  </div>
+                </div>
+
+                blablabla
+            </div>  
+
+                        <!-- Filtros -->
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+
+              <div class="row mb-4">                
+                <div class="col-md-12">
+                  <label>Por favor marque todas as opções para que a sua busca de perfil possa ocorrer sem futuros erros.</label>
+                </div>
+              </div>          
+        </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!--  Match original -->
     <content>
         <br><br><br><br><br><br><br>
         <div class="container-fluid mt-2">
