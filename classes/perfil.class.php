@@ -48,10 +48,10 @@ class Perfil extends Site {
 
 		// Dados pessoais
 
-		if (!isset($_POST['Nome']) || $_POST['Nome'] == $_SESSION['dados']['Nome']) {
+		if (!isset($_POST['Nome']) || utf8_encode($_POST['Nome']) == $_SESSION['dados']['Nome']) {
 			$this->nome = $_SESSION['dados']['Nome'];
 		} else {
-			$this->nome = $_POST['Nome'];
+			$this->nome = utf8_decode($_POST['Nome']);
 		}
 
 		if (!isset($_POST['Foto']) || $_POST['Foto'] == $_SESSION['dados']['Foto']) {
@@ -66,13 +66,13 @@ class Perfil extends Site {
 			$this->email = $_POST['Email'];
 		}
 
-		if (!isset($_POST['Senha']) || $_POST['Senha'] == $_SESSION['dados']['Senha']) {
+		if (!isset($_POST['Senha']) || utf8_encode($_POST['Senha']) == $_SESSION['dados']['Senha']) {
 			if ($_SESSION['dados']['Senha'] == NULL) {
 				$this->senha = "DEFAULT";
 			}
 			$this->senha = $_SESSION['dados']['Senha'];
 		} else {
-			$this->senha = $_POST['Senha'];
+			$this->senha = utf8_decode($_POST['Senha']);
 		}
 
 		if (!isset($_POST['Telefone']) || $_POST['Telefone'] == $_SESSION['dados']['Telefone']) {
@@ -105,10 +105,10 @@ class Perfil extends Site {
 			$this->cidade = $_POST['cidade'];
 		}
 
-		if (!isset($_POST['Descricao']) || $_POST['Descricao'] == $_SESSION['dados']['Descricao']) {
+		if (!isset($_POST['Descricao']) || utf8_encode($_POST['Descricao']) == $_SESSION['dados']['Descricao']) {
 			$this->descricao = $_SESSION['dados']['Descricao'];
 		} else {
-			$this->descricao = $_POST['Descricao'];
+			$this->descricao = utf8_decode($_POST['Descricao']);
 		}
 
 		// Filtros
@@ -193,10 +193,10 @@ class Perfil extends Site {
 			$this->Estuda = $_POST['Estuda'];
 		}
 
-		if (!isset($_POST['Aceita_genero']) || $_POST['Aceita_genero'] == $_SESSION['dados']['Aceita_genero']) {
+		if (!isset($_POST['Aceita_genero']) || utf8_encode($_POST['Aceita_genero']) == $_SESSION['dados']['Aceita_genero']) {
 			$this->Aceita_genero = $_SESSION['dados']['Aceita_genero'];
 		} else {
-			$this->Aceita_genero = $_POST['Aceita_genero'];
+			$this->Aceita_genero = utf8_decode($_POST['Aceita_genero']);
 		}
 
 		if (!isset($_POST['Aceita_pagar']) || $_POST['Aceita_pagar'] == $_SESSION['dados']['Aceita_pagar']) {

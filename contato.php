@@ -65,13 +65,13 @@ if (isset($_POST['Enviar'])) {
             <div class="row">
               <div class="col-md-6 mb-3">
                 <div class="form-group">
-                  <input type="text" name="nome" class="form-control form-control-lg form-control-a" placeholder="Nome" required="">
+                  <input type="text" name="nome" class="form-control form-control-lg form-control-a" placeholder="Nome" required="" value="<?php if (isset($_SESSION['dados'])) {echo utf8_encode($_SESSION['dados']['Nome']);}?>">
                   <div class="validation"></div>
                 </div>
               </div>
               <div class="col-md-6 mb-3">
                 <div class="form-group">
-                  <input name="email" type="email" class="form-control form-control-lg form-control-a" placeholder="Email" required="">
+                  <input name="email" type="email" class="form-control form-control-lg form-control-a" placeholder="Email" required="" value="<?php if (isset($_SESSION['dados'])) {echo $_SESSION['dados']['Email'];}?>">
                   <div class="validation"></div>
                 </div>
               </div>

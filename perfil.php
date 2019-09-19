@@ -54,7 +54,7 @@ $Mostrar_dados->update();
         <div class="row">
           <div class="col-sm-4">
             <div class="title-single-box">
-              <h5 class="title-single tt">Oi, <?php if (isset($Mostrar_dados->dados_usuario['Nome'])) {echo (utf8_encode($Mostrar_dados->dados_usuario['Nome']));}?>!</h5>      
+              <h5 class="title-single tt">Oi, <?=utf8_encode($Mostrar_dados->dados_usuario['Nome'])?>!</h5>      
             </div>
           </div>
 
@@ -117,30 +117,30 @@ $Mostrar_dados->update();
                 <!-- Nome -->
                 <div class="row">
                   <div class="col-md-6">
-                    <label for="colFormLabel" class="col-sm-2 col-form-label">Nome</label>
+                    <label for="id_nome" class="col-sm-2 col-form-label">Nome</label>
                   </div>
                   <div class="col-md-6">
-                    <input class="form-control mb-3" id="colFormLabel" value="<?php if (isset($Mostrar_dados->dados_usuario['Nome'])) {echo $Mostrar_dados->dados_usuario['Nome'];}?>" placeholder="Seu nome" name="Nome" required="">
+                    <input class="form-control mb-3" id="id_nome" value="<?=utf8_encode($Mostrar_dados->dados_usuario['Nome'])?>" placeholder="Seu nome" name="Nome" required="">
                   </div>
                 </div>
 
                 <!-- Email -->
                 <div class="row">
                   <div class="col-md-6">
-                    <label for="colFormLabel" class="col-sm-2 col-form-label">Email</label>
+                    <label for="id_email" class="col-sm-2 col-form-label">Email</label>
                   </div>
                   <div class="col-md-6">
-                    <input class="form-control mb-3" id="colFormLabel" value="<?php if (isset($Mostrar_dados->dados_usuario['Email'])) {echo $Mostrar_dados->dados_usuario['Email'];}?>" placeholder="Seu email" name="Email">
+                    <input class="form-control mb-3" id="id_email" value="<?=utf8_encode($Mostrar_dados->dados_usuario['Email'])?>" placeholder="Seu email" name="Email">
                   </div>
                 </div>
 
                 <!-- Nova senha -->
                 <div class="row">
                   <div class="col-md-6">
-                    <label for="colFormLabel" class="col-sm col-form-label">Nova senha</label>
+                    <label class="col-sm col-form-label">Nova senha</label>
                   </div>
                   <div class="col-md-6">
-                    <a href="#" class="form-control mb-3" id="colFormLabel" name="Senha"><small>Se quiser mudar sua senha, clique aqui.</small></a>
+                    <a href="rebotsenha.php" class="form-control mb-3" name="Senha"><small>Se quiser mudar sua senha, clique aqui.</small></a>
                   </div>
                 </div>
 
@@ -150,7 +150,7 @@ $Mostrar_dados->update();
                     <label for="telefone" class="col-sm-2 col-form-label">Telefone</label>
                   </div>
                   <div class="col-md-6">
-                    <input type="text" class="form-control mb-3" id="telefone" value="<?php if (isset($Mostrar_dados->dados_usuario['Telefone'])) {echo $Mostrar_dados->dados_usuario['Telefone'];}?>" placeholder="Operadora + número de telefone" name="Telefone" maxlength="10">
+                    <input type="text" class="form-control mb-3" id="telefone" value="<?=$Mostrar_dados->dados_usuario['Telefone']?>" placeholder="Operadora + número de telefone" name="Telefone" maxlength="10">
 
                   </div>
                 </div>
@@ -161,7 +161,7 @@ $Mostrar_dados->update();
                     <label for="celular" class="col-sm-2 col-form-label">Celular</label>
                   </div>
                   <div class="col-md-6">
-                    <input type="text" class="form-control mb-3" id="celular" value="<?php if (isset($Mostrar_dados->dados_usuario['Celular'])) {echo $Mostrar_dados->dados_usuario['Celular'];}?>" placeholder="Operadora + número de celular" name="Celular" maxlength="11">
+                    <input type="text" class="form-control mb-3" id="celular" value="<?=$Mostrar_dados->dados_usuario['Celular']?>" placeholder="Operadora + número de celular" name="Celular" maxlength="11">
                   </div>
                 </div>
 
@@ -174,13 +174,13 @@ $Mostrar_dados->update();
 
                     <!-- Masculino -->
                     <div class="custom-control custom-radio custom-control-inline dados_usuarios mb-3">
-                      <input type="radio" id="masculino" name="sexo" class="custom-control-input radio" value="Masculino" <?php if (isset($Mostrar_dados->dados_usuario['Sexo']) and ($Mostrar_dados->dados_usuario['Sexo'] == "Masculino")) {echo "checked=''";}?>>
+                      <input type="radio" id="masculino" name="sexo" class="custom-control-input radio" value="Masculino" <?php if ($Mostrar_dados->dados_usuario['Sexo'] == "Masculino") {echo "checked=''";}?>>
                       <label class="custom-control-label" for="masculino">Masculino</label>
                     </div>
 
                     <!-- Feminino -->
                     <div class="custom-control custom-radio custom-control-inline dados_usuarios">
-                      <input type="radio" id="feminino" name="sexo" class="custom-control-input radio" value="Feminino" <?php if (isset($Mostrar_dados->dados_usuario['Sexo']) and ($Mostrar_dados->dados_usuario['Sexo'] == "Feminino")) {echo "checked=''";}?>>
+                      <input type="radio" id="feminino" name="sexo" class="custom-control-input radio" value="Feminino" <?php if ($Mostrar_dados->dados_usuario['Sexo'] == "Feminino") {echo "checked=''";}?>>
                       <label class="custom-control-label" for="feminino">Feminino</label>
                     </div>
 
@@ -190,7 +190,7 @@ $Mostrar_dados->update();
                 <!-- Data de nascimento -->
                 <div class="row">
                   <div class="col-md-6">
-                    <label for="colFormLabel" class="col-sm mb-3 col-form-label">Data de nascimento</label>
+                    <label class="col-sm mb-3 col-form-label">Data de nascimento</label>
                   </div>
                   <div style="resize: none;" class="col-md-6">
 
@@ -198,7 +198,7 @@ $Mostrar_dados->update();
                     <?php $data_nascimento = explode ("-", $Mostrar_dados->dados_usuario['Data_nascimento']); ?>
 
                     <!-- Dia -->
-                    <select for="colFormLabel" class="form-group col-sm-2" name="dia" class="select" required="">
+                    <select class="form-group col-sm-3" name="dia" class="select" required="">
 
                       <?php for ($i = 1; $i <= 31; $i++) {?>
                         <option <?php if ($data_nascimento[2] == $i) {echo "selected";} ?> ><?=$i?></option>
@@ -206,7 +206,7 @@ $Mostrar_dados->update();
                     </select>
 
                     <!-- Mês -->
-                    <select for="colFormLabel" class="form-group col-sm-3" name="mes" class="select" required="">
+                    <select class="form-group col-sm-4" name="mes" class="select" required="">
 
                       <option <?php if ($data_nascimento[1] == '01') {echo "selected";} ?> value="01">Janeiro</option>
                       <option <?php if ($data_nascimento[1] == '02') {echo "selected";} ?> value="02">Fevereiro</option>
@@ -224,7 +224,7 @@ $Mostrar_dados->update();
                     </select>
 
                     <!-- Ano -->
-                    <select for="colFormLabel" class="form-group col-sm-3" name="ano" class="select" required="">
+                    <select class="form-group col-sm-4" name="ano" class="select" required="">
 
                       <?php for ($i = date('Y'); $i >= (date('Y') - 100); $i--) {?>
                         <option <?php if ($data_nascimento[0] == $i) {echo "selected";} ?> ><?=$i?></option>
@@ -237,24 +237,24 @@ $Mostrar_dados->update();
                 <!-- Descrição -->
                 <div class="row">
                   <div class="col-md-6">
-                    <label for="colFormLabel" class="col-sm-2 col-form-label">Descrição</label>
+                    <label for="id_descricao" class="col-sm-2 col-form-label">Descrição</label>
                   </div>
                   <div class="col-md-6">
-                    <textarea name="Descricao" style="resize: none; width: 100%;" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Escreva uma descrição para mostrar aos outros usuários quão legal você é."><?php if (isset($Mostrar_dados->dados_usuario['Descricao'])) {echo $Mostrar_dados->dados_usuario['Descricao'];}?></textarea>
+                    <textarea name="Descricao" id="id_descricao" style="resize: none; width: 100%;" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Escreva uma descrição para mostrar aos outros usuários quão legal você é." maxlength="255"><?=utf8_encode($Mostrar_dados->dados_usuario['Descricao'])?></textarea>
                   </div>
                 </div>   
 
                 <!-- Onde quero morar -->
                 <div class="row">
                   <div class="col-md-12">
-                    <label for="colFormLabel" class="col-sm mb-3 mt-3 col-form-label">Onde quero morar:</label>
+                    <label class="col-sm mb-3 mt-3 col-form-label">Onde quero morar:</label>
                   </div>
                 </div>
 
                 <!-- Estado -->
                 <div class="row">
                   <div class="col-md-6">
-                    <label for="colFormLabel" class="col-sm-2 col-form-label">Estado</label>
+                    <label for="id_estado" class="col-sm-2 col-form-label">Estado</label>
                   </div>
 
                   <div class="col-md-6">
@@ -274,7 +274,7 @@ $Mostrar_dados->update();
               <!-- Cidade -->
               <div class="row">
                 <div class="col-md-6">
-                  <label for="colFormLabel" class="col-sm-2 col-form-label">Cidade</label>
+                  <label for="id_cidade" class="col-sm-2 col-form-label">Cidade</label>
                 </div>
                 <div class="col-md-6">
 
@@ -467,7 +467,7 @@ $Mostrar_dados->update();
   <div class="col-md-6">
     <input id="Aceita_pagar" type="range" name="Aceita_pagar" 
     oninput="getElementById('Porcentagem').innerHTML = this.value;" 
-    min="0" max="5000" value="<?php if (isset($Mostrar_dados->dados_usuario['Aceita_pagar'])) {echo $Mostrar_dados->dados_usuario['Aceita_pagar'];} else {echo 0;}?>" step="50" />
+    min="0" max="3000" value="<?php if (isset($Mostrar_dados->dados_usuario['Aceita_pagar'])) {echo $Mostrar_dados->dados_usuario['Aceita_pagar'];} else {echo 0;}?>" step="50" />
     <span id="Porcentagem"><?php if (isset($Mostrar_dados->dados_usuario['Aceita_pagar'])) {echo $Mostrar_dados->dados_usuario['Aceita_pagar'];} else {echo 0;}?></span><br><br>
   </div>
 </div>                                        

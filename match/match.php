@@ -34,8 +34,8 @@ $a->select_pessoas();
 
             <div class="row">
                 <div class=" col-2 ">
-                    <div class="card mb-5 text-center" style="max-height: 32rem;  " id="filtros">
-                        <div class="card-body" style="overflow: auto;  ">
+                    <div class="card text-center" id="filtros">
+                        <div class="card-body" style="overflow: auto;">
 
                             <form method="POST" action="">
 
@@ -133,7 +133,7 @@ $a->select_pessoas();
                                 } ?></span><br>
                                 <input id="Aceita_pagar" type="range" name="Aceita_pagar"
                                 oninput="getElementById('Porcentagem').innerHTML = this.value;"
-                                min="0" max="5000" value="<?php if (isset($_POST['Aceita_pagar'])) {
+                                min="0" max="3000" value="<?php if (isset($_POST['Aceita_pagar'])) {
                                     echo $_POST['Aceita_pagar'];
                                     } else {
                                         echo 0;
@@ -141,7 +141,7 @@ $a->select_pessoas();
 
                                     <br><br>
 
-                                    <button type="submit" name="Enviar" class="btn-block" id="jp">Enviar</button>
+                                    <button type="submit" name="Enviar" class="btn btn-block" id="jp">Enviar</button>
 
                                 </form>
 
@@ -158,19 +158,17 @@ $a->select_pessoas();
                         <!-- Foreach para puxar os resultados do array "resultado" e mostrar os dados no card -->
                         <?php foreach ($a->resultado as $chave => $valor) { ?>
 
-                            <div class="card cardlike  card_<?=$chave?>" data-numero="<?=$chave?>" style="display: none;">
+                            <div class="card cardlike card_<?=$chave?>" data-numero="<?=$chave?>" style="display: none;">
 
-                                <div class="card-body ">
-                                    <h1 class="card-title mb-3"> <?= utf8_encode($a->resultado[$chave]['Nome']) ?> </h1>
-
-                                    <h6 class="card-subtitle mb-2 text-muted">
+                                <div class="card-body">
+                                    <h1 class="card-title mb-4"> <?= utf8_encode($a->resultado[$chave]['Nome']) ?> </h1>
+                                   
                                         <img id="foto" 
                                         src="../media/images/fotos_usuarios/<?php
-                                        $foto_card = $_SESSION['dados']['Foto'];
-                                        if ($foto_card == null || $foto_card == '') {echo 'avatar.png';} else {echo '$foto_card';}?>">
-                                    </h6>
+                                        $foto_card = $a->resultado[$chave]['Foto'];
+                                        if ($foto_card == null || $foto_card == '') {echo 'avatar.png';} else {echo $foto_card;}?>">                                    
 
-                                    <p class="card-text"><?= utf8_encode($a->resultado[$chave] ['Descricao']) ?></p>
+                                    <p class="card-text my-4"><?= utf8_encode($a->resultado[$chave] ['Descricao']) ?></p>
                                     <div id="botao">
                                         <button type="button" name="like" class="btn btnlike" onclick="like( <?= $a->resultado[$chave]['Id'] ?>, <?= $_SESSION['dados']['Id']?>, 'like')"><img src="img/like.png"></button>
                                         <button type="button" name="dislike" class="btn btndislike" onclick="like( <?= $a->resultado[$chave]['Id'] ?>, <?= $_SESSION['dados']['Id']?>, 'deslike')"><img src="img/dislike.png"></button>
