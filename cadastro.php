@@ -142,7 +142,7 @@ $Executar_cadastro->cadastrar();
 						<div class="row pb-3">
 
 							<div class="col-sm-3">
-								<label class="input100 form-group">Estado</label>
+								<label class="input100">Estado</label>
 							</div>		
 
 							<div class="col-sm-9">								
