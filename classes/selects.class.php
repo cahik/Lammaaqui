@@ -146,21 +146,21 @@ class Selects extends Site
 
                     if (utf8_encode($this->consulta['Aceita_genero']) == $this->Usuario['Sexo'] || utf8_encode($this->consulta['Aceita_genero']) == "Não me importo") {
 
+
                         if ($this->consulta['Aceita_fumar'] == 1 or $this->consulta['Aceita_fumar'] == 0 and $this->Usuario['Fuma'] == 0) {
 
                             if ($this->consulta['Aceita_beber'] == 1 or $this->consulta['Aceita_beber'] == 0 and $this->Usuario['Bebe'] == 0) {
 
                                 if ($this->consulta['Aceita_animais'] == 1 or $this->consulta['Aceita_animais'] == 0 and $this->Usuario['Tem_animal'] == 0) {
 
-                                    if ($idade >= $this->menor_idade and $idade <= $this->maior_idade) {
+                                    
+                                    if (mysqli_num_rows($query2) == 0) {
 
-                                        if (mysqli_num_rows($query2) == 0) {
+                                        $this->resultado[] = $this->consulta;
+                                        var_dump($this->consulta);
 
-                                            $this->resultado[] = $this->consulta;
-
-                                        }
                                     }
-
+                                    
                                 }
 
                             }
