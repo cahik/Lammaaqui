@@ -136,16 +136,12 @@ class Selects extends Site
                 // Pegando os resultados da query em forma de array.
                 while ($this->consulta = mysqli_fetch_array($query1)) {
 
-                    $sqlverifica = " SELECT * FROM like_deslike WHERE deu = " . $_SESSION['dados']['Id'] . "  and recebeu = " . $this->consulta['Id'];
+                    $sqlverifica = "SELECT * FROM like_deslike WHERE deu = " . $_SESSION['dados']['Id'] . "  and recebeu = " . $this->consulta['Id'];
 
                     $query2 = mysqli_query($this->con, $sqlverifica);
 
-                    $nascimento = $this->consulta['Data_nascimento'];                    
-                    $atual = date('Y-m-d');
-                    $idade = intval($atual) - intval($nascimento);
 
                     if (utf8_encode($this->consulta['Aceita_genero']) == $this->Usuario['Sexo'] || utf8_encode($this->consulta['Aceita_genero']) == "Não me importo") {
-
 
                         if ($this->consulta['Aceita_fumar'] == 1 or $this->consulta['Aceita_fumar'] == 0 and $this->Usuario['Fuma'] == 0) {
 
@@ -153,12 +149,9 @@ class Selects extends Site
 
                                 if ($this->consulta['Aceita_animais'] == 1 or $this->consulta['Aceita_animais'] == 0 and $this->Usuario['Tem_animal'] == 0) {
 
-                                    
                                     if (mysqli_num_rows($query2) == 0) {
 
                                         $this->resultado[] = $this->consulta;
-                                        var_dump($this->consulta);
-
                                     }
                                     
                                 }
