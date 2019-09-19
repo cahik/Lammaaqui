@@ -87,7 +87,7 @@ if (isset($_POST['Enviar'])) {
                   <div class="validation"></div>
                 </div>
               </div>
-              <div class="col-md-12">
+              <div class="col-md-12 mb-3">
                 <button type="submit" name="Enviar" class="btn btn-a">Enviar Mensagem</button>
               </div>
             </div>

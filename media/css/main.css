@@ -210,6 +210,12 @@ iframe {
   align-items: stretch;
   flex-direction: row-reverse;
 
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-position: auto !important;
+  position: relative;
+  float: left;
+  background-image: url('media/images/dedo.jpg');
 }
 
 /*==================================================================
@@ -251,11 +257,8 @@ iframe {
 .login100-form-title {
   width: 100%;
   display: block;
-  <<<<<<< HEAD
   font-family:'Poppins', sans-serif !important;
-  =======
   font-family: Poppins !important;
-  >>>>>>> 59878e621695ba183e6dec7cbc4c15b853a33c4b
   font-size: 30px;
   color: #333333;
   line-height: 1.2;

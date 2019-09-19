@@ -28,45 +28,46 @@ if (isset($_POST['logar'])) {
 </head>
 
 <body>	
-		
+
+	<?php require_once "include/navbar.php"; ?>
+
 	<div class="limiter  ">
 		<div class="container-login100">
 
 			<div class="wrap-login100" style="
 
-    background-repeat: no-repeat;
-    background-size:cover;
-    background-position: auto !important;
-    position: relative;
-    float: left;
-    background-image: url('media/images/dedo.jpg');
-}">
-				
+			background-repeat: no-repeat;
+			background-size:cover;
+			background-position: auto !important;
+			position: relative;
+			float: left;
+			background-image: url('media/images/dedo.jpg');">
+
 
 			<form class="login100-form" method="POST">
-				
 
-					<span class="login100-form-title p-b-43 text-warning">
-						Login
-					</span>
-					
-					
-					<div class="wrap-input100 validate-input">
-						<input class="input100" type="email" name="email" id="email" placeholder="Email">
-					</div>
-					
-					
-					<div class="wrap-input100 validate-input" data-validate="Password is required">
-						<input class="input100" type="password" name="senha" id="senha" placeholder="Senha">
-					</div>
 
-					<big>
+				<span class="login100-form-title p-b-43 text-warning">
+					Login
+				</span>
 
-						<div class="container ">						
-							<div class="row" >
-   								<button type="submit" name="logar" class="btn salvarDados mt-2 col-6 ">Entrar</button>
-   								<a href="index.php" class="btn salvarDados mt-2 col-6 ">Voltar</a>
- 							</div>
+
+				<div class="wrap-input100 validate-input">
+					<input class="input100" type="email" name="email" id="email" placeholder="Email">
+				</div>
+
+
+				<div class="wrap-input100 validate-input" data-validate="Password is required">
+					<input class="input100" type="password" name="senha" id="senha" placeholder="Senha">
+				</div>
+
+				<big>
+
+					<div class="container ">						
+						<div class="row" >
+							<button type="submit" name="logar" class="btn salvarDados mt-2 col-6 ">Entrar</button>
+							<a href="index.php" class="btn salvarDados mt-2 col-6 ">Voltar</a>
+						</div>
 
 						<div class="flex-sb-m w-full p-t-3 p-b-32 mt-3 ">
 							<div>
@@ -79,42 +80,21 @@ if (isset($_POST['logar'])) {
 								</a>
 							</div>
 
-					</big>
 						</div>
-						</div>
-					</div> 
-				</form>
 
+					</div>
 
+				</big>
 
-
-				
-
-			</div>
+			</form>
 
 		</div>
 
-		
-	</div>					
-						
+	</div>	
 
- 
-	<!--===============================================================================================-->
-	<script src="lib/vendor/jquery/jquery-3.2.1.min.js"></script>
-	<!--===============================================================================================-->
-	<script src="lib/vendor/animsition/js/animsition.min.js"></script>
-	<!--===============================================================================================-->
-	<script src="lib/vendor/bootstrap/js/popper.js"></script>
-	<script src="lib/vendor/bootstrap/js/bootstrap.min.js"></script>
-	<!--===============================================================================================-->
-	<script src="lib/vendor/select2/select2.min.js"></script>
-	<!--===============================================================================================-->
-	<script src="lib/vendor/daterangepicker/moment.min.js"></script>
-	<script src="lib/vendor/daterangepicker/daterangepicker.js"></script>
-	<!--===============================================================================================-->
-	<script src="lib/vendor/countdowntime/countdowntime.js"></script>
-	<!--===============================================================================================-->
-	<script src="login/js/main.js"></script>
+</div>	
+
+<?php require_once "include/footer.php"; ?>			
 
 </body>
 

@@ -1,4 +1,4 @@
-<footer class="mt-5">
+<footer class="<?php if ($_SERVER["REQUEST_URI"] == '/Lammaaqui/login.php') {echo 'mt-2';} else {echo 'mt-5';}?>">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
