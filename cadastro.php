@@ -142,11 +142,11 @@ $Executar_cadastro->cadastrar();
 						<div class="row pb-3">
 
 							<div class="col-sm-3">
-								<label class="input100 mt-sm-0 mt-2 mb-3">Estado</label>
+								<label class="input100 form-group">Estado</label>
 							</div>		
 
 							<div class="col-sm-9">								
-								<select id="id_estado" name="estado" required onchange="executar_ajax()">
+								<select id="id_estado" name="estado" class="form-control" required onchange="executar_ajax()">
 
 									<?php foreach ($Mostrar_cid_est->resultado_estados as $chave => $valor) { ?>
 
@@ -166,7 +166,7 @@ $Executar_cadastro->cadastrar();
 
 							<div class="col-sm-9">
 
-								<select <?php if (!isset($_POST['estado'])) {echo "disabled";} ?> id="id_cidade" name="cidade" required>
+								<select class="form-control" <?php if (!isset($_POST['estado'])) {echo "disabled";} ?> id="id_cidade" name="cidade" required>
 
 									<?php if (isset($_POST['estado'])) {				
 

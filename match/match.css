@@ -45,40 +45,41 @@
     height: 20px;
     }*/
 
-#jp {
-    background-color:#ebbf31;
-    border-radius: 2px;
-}
+    #jp {
+        background-color:#ebbf31;
+        border-radius: 2px;
+    }
 
-input[type=range] {
-    -webkit-appearance: none;
-    appearance: none;
-    display: inline-block;
+    input[type=range] {
+      -webkit-appearance: none;
+      appearance: none;
+      display: inline-block;
 
-    height: 5px;
-    position: relative;
+      height: 5px;
+      position: relative;
 
-    border-radius: 5px;
-    background-color: #ebbf31;
-    outline: none;
-}
+      border-radius: 5px;
+      background-color: #ebbf31;
+      outline: none;
+  }
 
-input[type=range]::-webkit-slider-thumb{
-    border-radius: 50%;
-}
+  input[type=range]::-webkit-slider-thumb{
+      border-radius: 50%;
+  }
 
-#Aceita_pagar::-webkit-slider-thumb{
+  #Aceita_pagar::-webkit-slider-thumb{
 
-    all:unset; /* limpa os estilos iniciais */
-    -webkit-appearance: none; /* remove a aparencia padão */
-    border: none;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: #ebbf31;
-}
+      all:unset; /* limpa os estilos iniciais */
+      -webkit-appearance: none; /* remove a aparencia padão */
+      border: none;
 
-#filtros {
+      width: 20px;
+      height: 20px;
+      border-radius: 0%;
+      background: #ebbf31;
+  }
+
+  #filtros {
     height: 600px;
     width: 280px;
 }
