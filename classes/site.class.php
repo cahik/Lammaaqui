@@ -1,5 +1,7 @@
 <?php 
 
+date_default_timezone_set('America/Sao_Paulo');
+
 class Site {
 
 	 // CONST HOST = "127.0.0.1";
