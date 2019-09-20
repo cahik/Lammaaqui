@@ -38,7 +38,7 @@ $Executar_cadastro->cadastrar();
 
 	<div class="limiter text-center">
 		<div class="container-login100">
-			<div class="wrap-login100">
+			
 				<form class="login100-form" method="POST">
 					<span class="login100-form-title p-b-43 text-warning">
 						Criando minha conta
@@ -185,16 +185,19 @@ $Executar_cadastro->cadastrar();
 								</select>
 							</div>
 						</div>
-					</div>
+					</div>			
 
 					<!-- Botão enviar -->
-					<div class="container-login100-form-btn ">
-						<button class="btn btn-warning" name="cadastrar" type="submit">Enviar</button>
+					<div class="container-login100-form-btn">
+						<div class="row">
+							<div class="col-12 text-center">
+							<button class="btn salvarDados mt-2" name="cadastrar" type="submit">Enviar</button>
+							</div>
+						</div>
 					</div>
 				</form>
-				<div class="login100-more" style="background-image: url('media/images/caixas.jpg');">
-				</div>
-			</div>
+				
+		
 
 		</div>
 	</div>
