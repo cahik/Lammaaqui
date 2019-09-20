@@ -63,13 +63,25 @@ class Selects extends Site
             }
             // Verificando se os POSTS estão setados, se não, eles ficam como "Não me importo '' ".
             if (!$this->Fuma == "") {
-                $this->Fuma = "Fuma = '$this->Fuma' and";
+                if ($this->Fuma == '1') {
+                    $this->Fuma = "";
+                } else {
+                    $this->Fuma = "Fuma = '$this->Fuma' and";
+                }
             }
             if (!$this->Bebe == "") {
-                $this->Bebe = "Bebe = '$this->Bebe' and";
+                if ($this->Bebe == '1') {
+                    $this->Bebe = "";
+                } else {
+                    $this->Bebe = "Bebe = '$this->Bebe' and";
+                }
             }
             if (!$this->Tem_animal == "") {
-                $this->Tem_animal = "Tem_animal = '$this->Tem_animal' and";
+                if ($this->Tem_animal == '1') {
+                    $this->Tem_animal = "";
+                } else {
+                    $this->Tem_animal = "Tem_animal = '$this->Tem_animal' and";
+                }
             }
             if (!$this->Trabalha == "") {
                 $this->Trabalha = "Trabalha = '$this->Trabalha' and";
@@ -77,6 +89,7 @@ class Selects extends Site
             if (!$this->Estuda == "") {
                 $this->Estuda = "Estuda = '$this->Estuda' and";
             }
+            
             // Montando o SQL, não deve ser adicionado "AND", a não ser que seja um caso especial, e pelo amor de Odin, não aperte "Enter" pra quebrar a linha.
             $this->sql = "SELECT * FROM dados_usuario WHERE $this->Aceita_genero $this->Fuma $this->Bebe $this->Tem_animal $this->Trabalha  $this->Estuda Aceita_pagar <= $this->Aceita_pagar;";
 
