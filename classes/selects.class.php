@@ -110,7 +110,14 @@ class Selects extends Site {
                 // Pegando os resultados da query em forma de array.
                 while ($this->consulta = mysqli_fetch_array($query)) {
 
-              
+                    $sqlverifica1 = " SELECT * FROM like_deslike WHERE deu = ".$_SESSION['dados']['Id']."  and recebeu = ".$this->consulta['Id'];
+                    $query_verifica1 = mysqli_query($this->con, $sqlverifica1);
+
+                    $sqlverifica2 = "SELECT * FROM like_deslike WHERE deu = ".$this->consulta['Id']."  and recebeu = ".$_SESSION['dados']['Id']." and acao = 'dislike'";
+                    $query_verifica2 = mysqli_query($this->con, $sqlverifica2);
+
+                    $sqlverifica3 = "SELECT * FROM matches WHERE Usuario_1 = ".$_SESSION['dados']['Id']." or Usuario_2 = ".$_SESSION['dados']['Id'];
+                    $query_verifica3 = mysqli_query($this->con, $sqlverifica3);
 
 
                     $nascimento = $this->consulta['Data_nascimento'];                    
@@ -220,8 +227,6 @@ class Selects extends Site {
                             }
 
                         }
-
-                    }
 
                     }// Fim dos ifs
 
