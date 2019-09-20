@@ -220,7 +220,7 @@ $a->select_pessoas();
                         <!-- Foreach para puxar os resultados do array "resultado" e mostrar os dados no card -->
                         <?php foreach ($a->resultado as $chave => $valor) { ?>
 
-                            <div class="card cardlike card_<?=$chave?>" data-numero="<?=$chave?>" style="display: block;">
+                            <div class="card cardlike card_<?=$chave?>" data-numero="<?=$chave?>" style="display: none;">
 
                                 <div class="card-body">
                                     <h1 class="card-title mb-4"> <?= utf8_encode($a->resultado[$chave]['Nome']) ?> </h1>
