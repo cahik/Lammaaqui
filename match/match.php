@@ -104,7 +104,7 @@ $a->select_pessoas();
                                 <h5 class="text-center">Filtros</h5>
                                 Caso não marque nenhuma da opções será considerado que não se importa.<br><br><br>
 
-                                Deve fumar?<br>
+                                Pode fumar?<br>
                                 <input type="radio" name="Fuma" id="fsim"
                                 value="1" <?php if (isset($_POST['Fuma']) and ($_POST['Fuma'] == "1")) {
                                     echo "checked=''";
@@ -116,7 +116,7 @@ $a->select_pessoas();
                                 } ?>>
                                 <label for="fnao">Não</label><br><br><br>
 
-                                Deve beber?<br>
+                                Pode beber?<br>
 
                                 <input  type="radio" name="Bebe" id="bsim"
                                 value="1" <?php if (isset($_POST['Bebe']) and ($_POST['Bebe'] == "1")) {
@@ -142,7 +142,7 @@ $a->select_pessoas();
 
                                 <br><br><br>
 
-                                Deve ter animais?<br>
+                                Pode ter animais?<br>
                                 <input type="radio" name="Tem_animal" id="tasim"
                                 value="1" <?php if (isset($_POST['Tem_animal']) and ($_POST['Tem_animal'] == "1")) {
                                     echo "checked=''";
