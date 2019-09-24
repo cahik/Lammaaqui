@@ -19,7 +19,13 @@ class match extends Site {
         } elseif ($resultado[0][1] == $id_recebe and $resultado[0][2] == $Id_da) {
 
             $sql = "INSERT INTO matches VALUES (DEFAULT, '$Id_da', '$id_recebe', '".date('Y-m-d H:i:s')."')";
-            mysqli_query($this->con, $sql);
+
+            if (mysqli_query($this->con, $sql)) {
+
+                $sql = "DELETE FROM like_deslike where deu = $id_recebe and recebeu = $Id_da;";
+                return mysqli_query($this->con, $sql);
+
+            }
 
 
         }
