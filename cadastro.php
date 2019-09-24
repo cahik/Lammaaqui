@@ -116,19 +116,19 @@ $Executar_cadastro->cadastrar();
 								</select>
 
 								<!-- Mês -->
-								<select name="mes" class="select col-3 mb-sm-0" required="">
-									<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "01") {echo "selected";} ?> value="01">Janeiro</option>
-									<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "02") {echo "selected";} ?> value="02">Fevereiro</option>
-									<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "03") {echo "selected";} ?> value="03">Março</option>
-									<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "04") {echo "selected";} ?> value="04">Abril</option>
-									<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "05") {echo "selected";} ?> value="05">Maio</option>
-									<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "06") {echo "selected";} ?> value="06">Junho</option>
-									<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "07") {echo "selected";} ?> value="07">Julho</option>
-									<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "08") {echo "selected";} ?> value="08">Agosto</option>
-									<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "09") {echo "selected";} ?> value="09">Setembro</option>
-									<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "10") {echo "selected";} ?> value="10">Outubro</option>
-									<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "11") {echo "selected";} ?> value="11">Novembro</option>
-									<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "12") {echo "selected";} ?> value="12">Dezembro</option>
+								<select name="mes" class="select col-4 mb-sm-0" required="">
+									<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "01") {echo "selected";} ?> value="01">Jan</option>
+									<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "02") {echo "selected";} ?> value="02">Fev</option>
+									<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "03") {echo "selected";} ?> value="03">Mar</option>
+									<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "04") {echo "selected";} ?> value="04">Abr</option>
+									<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "05") {echo "selected";} ?> value="05">Mai</option>
+									<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "06") {echo "selected";} ?> value="06">Jun</option>
+									<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "07") {echo "selected";} ?> value="07">Jul</option>
+									<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "08") {echo "selected";} ?> value="08">Ago</option>
+									<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "09") {echo "selected";} ?> value="09">Set</option>
+									<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "10") {echo "selected";} ?> value="10">Out</option>
+									<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "11") {echo "selected";} ?> value="11">Nov</option>
+									<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "12") {echo "selected";} ?> value="12">Dez</option>
 								</select>
 
 								<select name="ano" class="select col-4 mb-sm-0" required="">

@@ -111,30 +111,53 @@ class Cadastro_login extends Site {
 
 			if ($this->senha == $this->senha2) {
 
-				$this->sql = "INSERT INTO dados_usuario (Nome, Email, Senha, Sexo, Data_nascimento, Telefone, Celular, Fk_cidade, Fk_estado) values ('$this->nome', '$this->email', '$this->senha', '$this->sexo', '$this->data_nascimento', $this->telefone, $this->celular, $this->cidade, $this->estado);";
+				$nascimento = $this->data_nascimento;
+				$atual = date('Y-m-d');
+				$idade = intval($atual) - intval($nascimento);
+
+				if ($idade >= 18) {
+
+					$sql_verifica = "SELECT * FROM dados_usuario where Email = '$this->email';";
+					$query_verifica = mysqli_query($this->con, $sql_verifica);
+
+					if (mysqli_num_rows($query_verifica) == 0) {
+
+						$this->sql = "INSERT INTO dados_usuario (Nome, Email, Senha, Sexo, Data_nascimento, Telefone, Celular, Fk_cidade, Fk_estado) values ('$this->nome', '$this->email', '$this->senha', '$this->sexo', '$this->data_nascimento', $this->telefone, $this->celular, $this->cidade, $this->estado);";
 
 
-				if (mysqli_query($this->con, $this->sql)) {
+						if (mysqli_query($this->con, $this->sql)) {
 
-					// Se conseguir cadastrar
+							// Se conseguir cadastrar
 
-					$this->sql = "SELECT * FROM dados_usuario join cidade ON cidade.Id_cidade = dados_usuario.Fk_cidade join estado on estado.Id_estado = dados_usuario.Fk_estado where Email = '$this->email' and Senha = '$this->senha';";
+							$this->sql = "SELECT * FROM dados_usuario join cidade ON cidade.Id_cidade = dados_usuario.Fk_cidade join estado on estado.Id_estado = dados_usuario.Fk_estado where Email = '$this->email' and Senha = '$this->senha';";
 
-					$resultado = mysqli_fetch_array(mysqli_query($this->con, $this->sql));
+							$resultado = mysqli_fetch_array(mysqli_query($this->con, $this->sql));
 
-					$_SESSION['logado'] = true;
-					$_SESSION['dados'] = $resultado;
-					header("location: /Lammaaqui/perfil.php");
+							$_SESSION['logado'] = true;
+							$_SESSION['dados'] = $resultado;
+							header("location: /Lammaaqui/perfil.php");
+
+						} else {
+
+						// Se não for o cadastro
+
+						}
+
+					} else {
+
+					// Se já existir o email
+
+					}
 
 				} else {
 
-					// Se não for o cadastro
+				// Se for menor de 18 anos
 
 				}
 
 			} else {
 
-				// Se as senahs forem diferentes
+			// Se as senahs forem diferentes
 
 			}
 
