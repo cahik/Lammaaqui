@@ -19,8 +19,8 @@ class match extends Site {
         } elseif ($resultado[0][1] == $id_recebe and $resultado[0][2] == $Id_da) {
 
             $sql = "INSERT INTO matches VALUES (DEFAULT, '$Id_da', '$id_recebe', '".date('Y-m-d H:i:s')."')";
+            mysqli_query($this->con, $sql);
 
-            return mysqli_query($this->con, $sql);
 
         }
 
