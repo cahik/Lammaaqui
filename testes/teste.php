@@ -39,7 +39,7 @@ $teste->mostrar();
 
 		<?php foreach ($teste->resultado as $key => $value) { ?>
 
-			<div class="row match">
+			<div id="" class="row match">
 
 				<div class="col col-1">
 					<img class="foto" 
@@ -64,27 +64,29 @@ $teste->mostrar();
 
 					<div class="col col-4"><?=utf8_encode($teste->resultado[$key]['Email'])?></div>
 
-					<div id="des_match" onclick="" class="col col-2 btn btn-danger">Desfazer match</div>
+					<button id="des_match" onclick="desfazer()" value="" class="col col-2 btn btn-danger">Desfazer match</button>
 
 				</div>
 
-			<?php } ?>
+			<?php  } ?>
 
 		</div>
 
 
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		<script
+		src="https://code.jquery.com/jquery-3.4.1.min.js"
+		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
 		crossorigin="anonymous"></script>
 
+
+
 		<script type="text/javascript">
-			
+
 			function desfazer() {
 
 				var id = document.querySelector('#des_match').value;
 
 				$.ajax({
-
 					url: 'desfazer_match.php',
 					type: 'POST',
 					data: {'Id':id},
@@ -92,9 +94,7 @@ $teste->mostrar();
 
 					success: function() {
 
-						if (id.parentNode) {
-							id.parentNode.removeChild(id);
-						}
+						$('#14').remove();
 
 					}
 
