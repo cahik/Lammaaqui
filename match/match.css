@@ -1,42 +1,23 @@
+/* Card match */
 
 .card{
     margin-left: auto;
     margin-right: auto;
     border-radius: 10px;
-    border-color: #ebbf31;
-    padding: 10px;
-    width: 500px;
-
 }
 
-.card-title {
-    border-bottom: 1px solid #ebbf31;
-}
-
-.card-text {
-    text-align: left !important;
-}
-
-
-#like {
-    max-width: 60%;
-}
-
-#deslike {
-   max-width: 60%;
-
-}
+/* Imagem */
 
 #foto {
-    border-radius: 100%;
-    border-color: firebrick;
-    width: 300px;
-    height: 300px;
+  border-radius: 100%;
+  width: 300px;
+  height: 300px;
 }
 
-#botao {
-    border-radius: 100%;
+/* Botoes */ 
 
+#botao {
+ width: 80%;
 }
 
 /*::-webkit-scrollbar {
@@ -46,8 +27,8 @@
     }*/
 
     #jp {
-        background-color:#ebbf31;
-        border-radius: 2px;
+      background-color:#ebbf31;
+      border-radius: 2px;
     }
 
     input[type=range] {
@@ -61,13 +42,13 @@
       border-radius: 5px;
       background-color: #ebbf31;
       outline: none;
-  }
+    }
 
-  input[type=range]::-webkit-slider-thumb{
+    input[type=range]::-webkit-slider-thumb{
       border-radius: 50%;
-  }
+    }
 
-  #Aceita_pagar::-webkit-slider-thumb{
+    #Aceita_pagar::-webkit-slider-thumb{
 
       all:unset; /* limpa os estilos iniciais */
       -webkit-appearance: none; /* remove a aparencia padão */
@@ -77,9 +58,4 @@
       height: 20px;
       border-radius: 0%;
       background: #ebbf31;
-  }
-
-  #filtros {
-    height: 600px;
-    width: 280px;
-}
+    }
