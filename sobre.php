@@ -116,10 +116,11 @@ $Iniciar = new Site;
       </div>
 
       <div class="row">
+        
         <div class="col-md-4">
           <div class="card-box-d">
             <div class="card-img-d">
-              <img src="media/images/quarto.jpg" alt="" class="img-d img-fluid">
+              <img src="media/images/hik.jpg" alt="" class="img-d img-fluid">
             </div>
             <div class="card-overlay card-overlay-hover">
               <div class="card-header-d">
@@ -131,7 +132,9 @@ $Iniciar = new Site;
               </div>
               <div class="card-body-d">
                 <p class="content-d color-text-a">
-                  Mineirin uai, 26 anos, músico, apaixonado por tecnologia desde sempre.De uns tempos pra cá, resolvi tentar a carreira na área. Atenção, empresas... não sou uma function( ) mas me chamem que eu vou!
+                  Mineirin uai, 26 anos, músico, apaixonado por tecnologia desde sempre.
+                  <br>De uns tempos pra cá, resolvi tentar a carreira na área de T.I mais precisamente voltado para a parte de front end.
+                  <br> Atenção empresas... não sou uma function( ) mas me chama que eu vou! :D
                 </p>
               </div>
               <div class="card-footer-d">
@@ -148,6 +151,7 @@ $Iniciar = new Site;
             </div>
           </div>
         </div>
+
         <div class="col-md-4">
           <div class="card-box-d">
             <div class="card-img-d">
@@ -256,7 +260,7 @@ $Iniciar = new Site;
         <div class="col-md-4 text-center">
           <div class="card-box-d">
             <div class="card-img-d">
-              <img src="media/images/quarto.jpg" alt="" class="img-d img-fluid">
+              <img src="media/images/lucas.jpg" alt="" class="img-d img-fluid">
             </div>
             <div class="card-overlay card-overlay-hover">
               <div class="card-header-d">
