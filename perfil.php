@@ -1,475 +1,537 @@
 <?php
 
-require_once "../classes/selects.class.php";
-require_once "match.class.php";
+// Backend do perfil
+require_once "classes/perfil.class.php";
 
-$a = new Selects();
-$a->select_pessoas();
+// Upload de imagens
+require_once "classes/uploader.class.php";
 
-// Lista de match
-$teste = new Mostrar_matches();
-$teste->mostrar();
+// Backend cidades e estados
+require_once "classes/cidades_estados.class.php";
+
+
+// Mostrar dados cadastrados e/ou alterados
+$Mostrar_dados = new Perfil();
+$Mostrar_dados->consulta();
+$Mostrar_dados->update();
+
 ?>
+
 <!DOCTYPE html>
 <head>
+  <title>Perfil</title>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
 
-    <title>Tinder</title>
-    <meta charset="utf-8">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS File -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Estilos CSS Match-->
-    <link href="match.css" rel="stylesheet">
+  <!-- Libraries CSS Files -->
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
-    <link href="../media/css/busca.css" rel="stylesheet" type="text/css">
-    <link href="../media/css/style.css" rel="stylesheet" type="text/css">
-    <link href="../media/css/barra.css" rel="stylesheet" type="text/css">
-
-    <!-- Estilos Gerais -->
-    <link href="media/css/barra.css" rel="stylesheet">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
-
+  <!-- Main Stylesheet File -->
+  <link href="media/css/style.css" rel="stylesheet">
+  <link href="media/css/barra.css" rel="stylesheet">
 </head>
+
 <body>
 
-    <style type="text/css">
+  <!-- Nav Bar -->
+  <?php require_once "include/navbar.php"; ?>
 
-    .match {
-        margin-top: 10px;
-        padding: 10px;
-    }
+  <!-- Foto, título e formulário -->
+  <form method="post" enctype="multipart/form-data">
+    <div class="container">
+      <section class="intro-single margemEsquerda">
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="title-single-box">
+              <h5 class="title-single tt">Oi, <?=utf8_encode($Mostrar_dados->dados_usuario['Nome'])?>!</h5>      
+            </div>
+          </div>
 
-    .foto {
-        width: 50px;
-        height: 50px;
-        border-radius: 100%;
-    }
 
-</style>
+          <div class="col-sm-4"></div> 
 
-<!-- Navbar -->    
-<?php require_once "../include/navbar.php"; ?>
+          <div id="foto" class="col-sm-4 tam" onmouseover="foto()" onmouseout="tirar_foto()">
+            <img src= "<?php if ($Mostrar_dados->dados_usuario['Foto'] <> null and $Mostrar_dados->dados_usuario['Foto'] <> '') {echo 'media/images/fotos_usuarios/'.$Mostrar_dados->dados_usuario['Foto'];} else {echo 'media/images/fotos_usuarios/avatar.png';}?>" width="100%" class="rounded float-right img-fluid" alt="<?php if (isset($Mostrar_dados->dados_usuario['Nome'])) {echo $Mostrar_dados->dados_usuario['Nome'];} ?>">
 
-<!-- Titulo -->
-<div class="container">
-    <section class="intro-single margemEsquerda">
-      <div class="row">
-        <div class="col-12">
-          <div class="title-single-box">
-            <h5>Aqui você pode encontrar pessoas para dividir moradia!</h5>      
+            <div class="camera">             
+              <center>
+                <div class="profile-img">
+                  <label style="cursor: pointer;" for="arquivos"><img src="media/images/camera.jpg" width="100%"></label>
+                  <input type="file" class="input_foto" name="arquivos[]" id="arquivos" multiple="" >
+                </div>
+              </center>
+            </div>
+
+          </div>
+
+
         </div>
+      </section>
     </div>
-</div>
-</section>
-</div>
 
-<!-- Menu -->
-<section class="margemEsquerda">
-    <div class="container emp-profile">
+    <!-- Container principal perfil -->
+    <section class="margemEsquerda">
+      <div class="container emp-profile">
+        <div class="row">         
 
-      <!-- Navegação - Match/filtros e Lista de Match -->
-      <div class="row"> 
-        <div class="col-md-12">
-          <div class="profile-head">
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
-              <li class="nav-item">
-                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Busca</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Lista de match</a>
-            </li>
-        </ul>
-    </div>
-</div>
-</div>
+          <!-- Navegação - Dados pessoais e Filtros -->
+          <div class="col-md-12">
+            <div class="profile-head">
+              <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Seus dados</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Preferências</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
 
-<!-- Menu -->
-<div class="row">
-    <div class="col-md-12">
-      <div class="tab-content profile-tab" id="myTabContent">
+        <!-- Menu -->
+        <div class="row">
+          <div class="col-md-12">
+            <div class="tab-content profile-tab" id="myTabContent">
 
-        <!-- Match/filtros -->
-        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+              <!-- Dados pessoais -->
+              <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
-          <!-- Formulário -->
-          <form method="POST" action="">
-            <!-- Obs filtros -->
-            <div class="row ml-2 mr-2">
-              <div class="col-md-12">
-                <p class="mb-3"><small class="text-muted">Selecione os filtros e faça sua busca</small></p>
-                <p>
-                  <a class="btn btn-warning" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                    Filtros
-                </a>                    
-            </p>
+                <div class="row mb-4">                
+                  <div class="col-md-12">
+                    <label>Atualize seus dados para que as pessoas possam te encontrar</label>
+                  </div>
+                </div>
+
+                <!-- Nome -->
+                <div class="row">
+                  <div class="col-md-6">
+                    <label for="id_nome" class="col-sm-2 col-form-label">Nome</label>
+                  </div>
+                  <div class="col-md-6">
+                    <input class="form-control mb-3" id="id_nome" value="<?=utf8_encode($Mostrar_dados->dados_usuario['Nome'])?>" placeholder="Seu nome" name="Nome" required="">
+                  </div>
+                </div>
+
+                <!-- Email -->
+                <div class="row">
+                  <div class="col-md-6">
+                    <label for="id_email" class="col-sm-2 col-form-label">Email</label>
+                  </div>
+                  <div class="col-md-6">
+                    <input class="form-control mb-3" id="id_email" value="<?=utf8_encode($Mostrar_dados->dados_usuario['Email'])?>" placeholder="Seu email" name="Email">
+                  </div>
+                </div>
+
+                <!-- Nova senha -->
+                <div class="row">
+                  <div class="col-md-6">
+                    <label class="col-sm col-form-label">Nova senha</label>
+                  </div>
+                  <div class="col-md-6">
+                    <a href="rebotsenha.php" class="form-control mb-3" name="Senha"><small>Se quiser mudar sua senha, clique aqui.</small></a>
+                  </div>
+                </div>
+
+                <!-- Telefone -->
+                <div class="row">
+                  <div class="col-md-6">
+                    <label for="telefone" class="col-sm-2 col-form-label">Telefone</label>
+                  </div>
+                  <div class="col-md-6">
+                    <input type="text" class="form-control mb-3" id="telefone" value="<?=$Mostrar_dados->dados_usuario['Telefone']?>" placeholder="Operadora + número de telefone" name="Telefone" maxlength="10">
+
+                  </div>
+                </div>
+
+                <!-- Celular -->
+                <div class="row">
+                  <div class="col-md-6">
+                    <label for="celular" class="col-sm-2 col-form-label">Celular</label>
+                  </div>
+                  <div class="col-md-6">
+                    <input type="text" class="form-control mb-3" id="celular" value="<?=$Mostrar_dados->dados_usuario['Celular']?>" placeholder="Operadora + número de celular" name="Celular" maxlength="11">
+                  </div>
+                </div>
+
+                <!-- Sexo -->
+                <div class="row">
+                  <div class="col-md-6">
+                    <label for="sexo" class="col-sm-2 col-form-label">Sexo</label>
+                  </div>
+                  <div class="col-md-6">
+
+                    <!-- Masculino -->
+                    <div class="custom-control custom-radio custom-control-inline dados_usuarios mb-3">
+                      <input type="radio" id="masculino" name="sexo" class="custom-control-input radio" value="Masculino" <?php if ($Mostrar_dados->dados_usuario['Sexo'] == "Masculino") {echo "checked=''";}?>>
+                      <label class="custom-control-label" for="masculino">Masculino</label>
+                    </div>
+
+                    <!-- Feminino -->
+                    <div class="custom-control custom-radio custom-control-inline dados_usuarios">
+                      <input type="radio" id="feminino" name="sexo" class="custom-control-input radio" value="Feminino" <?php if ($Mostrar_dados->dados_usuario['Sexo'] == "Feminino") {echo "checked=''";}?>>
+                      <label class="custom-control-label" for="feminino">Feminino</label>
+                    </div>
+
+                  </div>
+                </div> 
+
+                <!-- Data de nascimento -->
+                <div class="row">
+
+                  <div class="col-md-6">
+                    <label class="col-sm mb-3 col-form-label">Data de nascimento</label>
+                  </div>
+                  <div style="resize: none;" class="col-md-6">
+
+                    <!-- Separar dia/mês/ano em um select para cada -->
+                    <?php $data_nascimento = explode ("-", $Mostrar_dados->dados_usuario['Data_nascimento']); ?>
+
+                    <!-- Dia -->
+                    <select class="form-group col-sm-3" name="dia" class="select" required="">
+
+                      <?php for ($i = 1; $i <= 31; $i++) {?>
+                        <option <?php if ($data_nascimento[2] == $i) {echo "selected";} ?> ><?=$i?></option>
+                      <?php } ?>
+                    </select>
+
+                    <!-- Mês -->
+                    <select class="form-group col-sm-4" name="mes" class="select" required="">
+
+                      <option <?php if ($data_nascimento[1] == '01') {echo "selected";} ?> value="01">Janeiro</option>
+                      <option <?php if ($data_nascimento[1] == '02') {echo "selected";} ?> value="02">Fevereiro</option>
+                      <option <?php if ($data_nascimento[1] == '03') {echo "selected";} ?> value="03">Março</option>
+                      <option <?php if ($data_nascimento[1] == '04') {echo "selected";} ?> value="04">Abril</option>
+                      <option <?php if ($data_nascimento[1] == '05') {echo "selected";} ?> value="05">Maio</option>
+                      <option <?php if ($data_nascimento[1] == '06') {echo "selected";} ?> value="06">Junho</option>
+                      <option <?php if ($data_nascimento[1] == '07') {echo "selected";} ?> value="07">Julho</option>
+                      <option <?php if ($data_nascimento[1] == '08') {echo "selected";} ?> value="08">Agosto</option>
+                      <option <?php if ($data_nascimento[1] == '09') {echo "selected";} ?> value="09">Setembro</option>
+                      <option <?php if ($data_nascimento[1] == '10') {echo "selected";} ?> value="10">Outubro</option>
+                      <option <?php if ($data_nascimento[1] == '11') {echo "selected";} ?> value="11">Novembro</option>
+                      <option <?php if ($data_nascimento[1] == '12') {echo "selected";} ?> value="12">Dezembro</option>
+
+                    </select>
+
+                    <!-- Ano -->
+                    <select class="form-group col-sm-4" name="ano" class="select" required="">
+
+                      <?php for ($i = date('Y'); $i >= (date('Y') - 100); $i--) {?>
+                        <option <?php if ($data_nascimento[0] == $i) {echo "selected";} ?> ><?=$i?></option>
+                      <?php } ?>
+                    </select>
+
+                  </div>
+                </div>
+
+                <!-- Descrição -->
+                <div class="row">
+                  <div class="col-md-6">
+                    <label for="id_descricao" class="col-sm-2 col-form-label">Descrição</label>
+                  </div>
+                  <div class="col-md-6">
+                    <textarea name="Descricao" id="id_descricao" style="resize: none; width: 100%;" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Escreva uma descrição para mostrar aos outros usuários quão legal você é." maxlength="255"><?=utf8_encode($Mostrar_dados->dados_usuario['Descricao'])?></textarea>
+                  </div>
+                </div>   
+
+                <!-- Onde quero morar -->
+                <div class="row">
+                  <div class="col-md-12">
+                    <label class="col-sm mb-3 mt-3 col-form-label">Onde quero morar:</label>
+                  </div>
+                </div>
+
+                <!-- Estado -->
+                <div class="row">
+                  <div class="col-md-6">
+                    <label for="id_estado" class="col-sm-2 col-form-label">Estado</label>
+                  </div>
+
+                  <div class="col-md-6">
+                   <select id="id_estado" class="form-control mb-3" name="estado" required onchange="executar_ajax()">
+
+                    <?php foreach ($Mostrar_cid_est->resultado_estados as $chave => $valor) { ?>
+
+                      <option <?php if ($Mostrar_dados->dados_usuario['Fk_estado'] == $Mostrar_cid_est->resultado_estados[$chave]['Id_estado']) {echo "selected";} ?> value="<?=$Mostrar_cid_est->resultado_estados[$chave]['Id_estado']?>"><?=utf8_encode($Mostrar_cid_est->resultado_estados[$chave]['Nome_estado'])?></option>
+
+                    <?php } ?>
+
+                  </select>
+                </div>
+
+              </div>
+
+              <!-- Cidade -->
+              <div class="row">
+                <div class="col-md-6">
+                  <label for="id_cidade" class="col-sm-2 col-form-label">Cidade</label>
+                </div>
+                <div class="col-md-6">
+
+                  <select id="id_cidade" class="form-control mb-3" name="cidade" required>
+
+                    <?php
+
+                    $Mostrar_cid_est->Mostrar_cidades();
+
+                    foreach ($Mostrar_cid_est->resultado_cidades as $chave => $valor) { ?>
+
+                      <option <?php if ($Mostrar_cid_est->resultado_cidades[$chave]['Id_cidade'] == $Mostrar_dados->dados_usuario['Fk_cidade']) {echo "selected";} ?> value="<?=$Mostrar_cid_est->resultado_cidades[$chave]['Id_cidade']?>"><?=utf8_encode($Mostrar_cid_est->resultado_cidades[$chave]['Nome_cidade'])?></option>
+
+                    <?php } ?>
+
+                  </select>
+
+                </div> 
+              </div> 
+
+            </div>
 
             <!-- Filtros -->
-            <div class="collapse p-3" id="collapseExample">
-              <!-- Diminuir tamanho da fonte dos filtros-->
-              <small> 
-               <!-- Pode fumar -->
-               <div class="row mb-4">                
-                <div class="col-sm">
-                  <label>
-                    Pode fumar?
-                </label><br>
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+
+              <div class="row mb-4">                
+                <div class="col-md-12">
+                  <label>Por favor marque todas as opções para que a sua busca de perfil possa ocorrer sem futuros erros.</label>
+                </div>
+              </div>
+
+              <!-- Filtro Fuma -->
+              <div class="row">                
+                <div class="col-md-6">
+                  <label>Você fuma?</label>
+                </div>
+                <div class="col-md-6 mb-3">
+                 <div class="custom-control custom-radio custom-control-inline">
+                  <input type="radio" class="custom-control-input radio" name="Fuma" id="fsim" value="1" <?php if (isset($Mostrar_dados->dados_usuario['Fuma']) and ($Mostrar_dados->dados_usuario['Fuma'] == "1")) {echo "checked=''";}?>>
+                  <label class="custom-control-label" for="fsim">Sim</label>
+                </div>
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" class="custom-control-input radio" name="Fuma" id="fsim" value="1" <?php if (isset($_POST['Fuma']) and ($_POST['Fuma'] == "1")) {echo "checked=''";} ?>>
-                    <label class="custom-control-label" for="fsim">
-                      Sim
-                  </label>
+                  <input type="radio" class="custom-control-input radio" name="Fuma" id="fnao" value="0" <?php if (isset($Mostrar_dados->dados_usuario['Fuma']) and ($Mostrar_dados->dados_usuario['Fuma'] == "0")) {echo "checked=''";}?>>
+                  <label class="custom-control-label" for="fnao">Não</label>
+                </div>
+              </div>
+            </div>
+
+            <!--  Filtro Aceita_fumar --> 
+            <div class="row">
+              <div class="col-md-6">
+                <label>Aceita fumantes?</label>
+              </div>
+              <div class="col-md-6 mb-3">
+               <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input radio" name="Aceita_fumar" id="dsim" value="1" <?php if (isset($Mostrar_dados->dados_usuario['Aceita_fumar']) and ($Mostrar_dados->dados_usuario['Aceita_fumar'] == "1")) {echo "checked=''";}?>>
+                <label class="custom-control-label" for="dsim">Sim</label>
               </div>
               <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" class="custom-control-input radio" name="Fuma" id="fnao" value="0" <?php if (isset($_POST['Fuma']) and ($_POST['Fuma'] == "0")) {echo "checked=''";} ?>>
-                <label class="custom-control-label" for="fnao">
-                  Não
-              </label>
+                <input type="radio" class="custom-control-input radio" name="Aceita_fumar" id="dnao" value="0" <?php if (isset($Mostrar_dados->dados_usuario['Aceita_fumar']) and ($Mostrar_dados->dados_usuario['Aceita_fumar'] == "0")) {echo "checked=''";}?>>
+                <label class="custom-control-label" for="dnao">Não</label>
+              </div>
+            </div>
           </div>
+
+          <!-- Bebe? -->
+          <div class="row">
+            <div class="col-md-6">
+              <label>Você bebe?</label>
+            </div>
+            <div class="col-md-6 mb-3">
+             <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" class="custom-control-input radio" name="Bebe" id="tsim" value="1" <?php if (isset($Mostrar_dados->dados_usuario['Bebe']) and ($Mostrar_dados->dados_usuario['Bebe'] == "1")) {echo "checked=''";}?>>
+              <label class="custom-control-label" for="tsim">Sim</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" class="custom-control-input radio" name="Bebe" id="tnao" value="0" <?php if (isset($Mostrar_dados->dados_usuario['Bebe']) and ($Mostrar_dados->dados_usuario['Bebe'] == "0")) {echo "checked=''";}?>>
+              <label class="custom-control-label" for="tnao">Não</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Aceita quem bebe? --> 
+        <div class="row">
+          <div class="col-md-6">
+            <label>Aceita quem bebe?</label>
+          </div>
+          <div class="col-md-6 mb-3">
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" class="custom-control-input radio" name="Aceita_beber" id="asim" value="1" <?php if (isset($Mostrar_dados->dados_usuario['Aceita_beber']) and ($Mostrar_dados->dados_usuario['Aceita_beber'] == "1")) {echo "checked=''";}?>>
+              <label class="custom-control-label" for="asim">Sim</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" class="custom-control-input radio" name="Aceita_beber" id="anao" value="0" <?php if (isset($Mostrar_dados->dados_usuario['Aceita_beber']) and ($Mostrar_dados->dados_usuario['Aceita_beber'] == "0")) {echo "checked=''";}?>>
+              <label class="custom-control-label" for="anao">Não</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tem animal? -->
+        <div class="row">
+          <div class="col-md-6">
+            <label>Tem algum animal doméstico?</label>
+          </div>
+          <div class="col-md-6 mb-3">
+           <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" class="custom-control-input radio" name="Tem_animal" id="hsim" value="1" <?php if (isset($Mostrar_dados->dados_usuario['Tem_animal']) and ($Mostrar_dados->dados_usuario['Tem_animal'] == "1")) {echo "checked=''";}?>>
+            <label class="custom-control-label" for="hsim">Sim</label>
+          </div>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" class="custom-control-input radio" name="Tem_animal" id="hnao" value="0" <?php if (isset($Mostrar_dados->dados_usuario['Tem_animal']) and ($Mostrar_dados->dados_usuario['Tem_animal'] == "0")) {echo "checked=''";}?>>
+            <label class="custom-control-label" for="hnao">Não</label>
+          </div>
+        </div>
       </div>
 
-      <!-- Pode beber? -->
-      <div class="col-sm">
-          <label>
-            Pode beber?
-        </label><br>
+      <!-- Aceita animais -->
+      <div class="row">
+        <div class="col-md-6">
+          <label>Aceita animais?</label>
+        </div>
+        <div class="col-md-6 mb-3">
+         <div class="custom-control custom-radio custom-control-inline">
+          <input type="radio" class="custom-control-input radio" name="Aceita_animais" id="gsim" value="1" <?php if (isset($Mostrar_dados->dados_usuario['Aceita_animais']) and ($Mostrar_dados->dados_usuario['Aceita_animais'] == "1")) {echo "checked=''";}?>>
+          <label class="custom-control-label" for="gsim">Sim</label>
+        </div>
         <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" class="custom-control-input radio" name="Bebe" id="bsim" value="1" <?php if (isset($_POST['Bebe']) and ($_POST['Bebe'] == "1")) {echo "checked=''";} ?>>
-            <label class="custom-control-label" for="bsim">
-              Sim
-          </label>
+          <input type="radio" class="custom-control-input radio" name="Aceita_animais" id="gnao" value="0" <?php if (isset($Mostrar_dados->dados_usuario['Aceita_animais']) and ($Mostrar_dados->dados_usuario['Aceita_animais'] == "0")) {echo "checked=''";}?>>
+          <label class="custom-control-label" for="gnao">Não</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trabalha? -->
+    <div class="row">
+      <div class="col-md-6">
+        <label>Trabalha?</label>
+      </div>
+      <div class="col-md-6 mb-3">
+       <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" class="custom-control-input radio" name="Trabalha" id="qsim" value="1" <?php if (isset($Mostrar_dados->dados_usuario['Trabalha']) and ($Mostrar_dados->dados_usuario['Trabalha'] == "1")) {echo "checked=''";}?>>
+        <label class="custom-control-label" for="qsim">Sim</label>
       </div>
       <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" class="custom-control-input radio" name="Bebe" id="bnao" value="0" <?php if (isset($_POST['Bebe']) and ($_POST['Bebe'] == "0")) {echo "checked=''";} ?>>
-        <label class="custom-control-label" for="bnao">
-          Não
-      </label>
+        <input type="radio" class="custom-control-input radio" name="Trabalha" id="qnao" value="0" <?php if (isset($Mostrar_dados->dados_usuario['Trabalha']) and ($Mostrar_dados->dados_usuario['Trabalha'] == "0")) {echo "checked=''";}?>>
+        <label class="custom-control-label" for="qnao">Não</label>
+      </div>
+    </div>
   </div>
-</div>
 
-<!-- Pode ter animal? -->
-<div class="col-sm">
-  <label>
-    Pode ter animais?
-</label><br>
-<div class="custom-control custom-radio custom-control-inline">
-    <input type="radio" class="custom-control-input radio" name="Tem_animal" id="tasim" value="1" <?php if (isset($_POST['Tem_animal']) and ($_POST['Tem_animal'] == "1")) {echo "checked=''";} ?>>
-    <label class="custom-control-label" for="tasim">
-      Sim
-  </label>
-</div>
-<div class="custom-control custom-radio custom-control-inline">
-    <input type="radio" class="custom-control-input radio" name="Tem_animal" id="tanao" value="0" <?php if (isset($_POST['Tem_animal']) and ($_POST['Tem_animal'] == "0")) {echo "checked=''";} ?>>
-    <label class="custom-control-label" for="tanao">
-      Não
-  </label>
-</div>
-</div>
-
-<!-- Deve trabalhar? -->                        
-<div class="col-sm">
-  <label>
-    Deve trabalhar?
-</label><br>
-<div class="custom-control custom-radio custom-control-inline">
-    <input type="radio" class="custom-control-input radio" name="Trabalha" id="trsim" value="1" <?php if (isset($_POST['Trabalha']) and ($_POST['Trabalha'] == "1")) {echo "checked=''";} ?>>
-    <label class="custom-control-label" for="trsim">
-      Sim
-  </label>
-</div>
-<div class="custom-control custom-radio custom-control-inline">
-    <input type="radio" class="custom-control-input radio" name="Trabalha" id="trnao" value="0" <?php if (isset($_POST['Trabalha']) and ($_POST['Trabalha'] == "0")) {echo "checked=''";} ?>>
-    <label class="custom-control-label" for="trnao">
-      Não
-  </label>
-</div>
-</div>
-
-<!-- Deve estudar? -->
-<div class="col-sm">
-  <label>
-    Deve estudar?
-</label><br>
-<div class="custom-control custom-radio custom-control-inline">
-    <input type="radio" class="custom-control-input radio" name="Estuda" id="esim" value="1" <?php if (isset($_POST['Estuda']) and ($_POST['Estuda'] == "1")) {echo "checked=''";} ?>>
-    <label class="custom-control-label" for="esim">
-      Sim
-  </label>
-</div>
-<div class="custom-control custom-radio custom-control-inline">
-    <input type="radio" class="custom-control-input radio" name="Estuda" id="enao" value="0" <?php if (isset($_POST['Estuda']) and ($_POST['Estuda'] == "0")) {echo "checked=''";} ?>>
-    <label class="custom-control-label" for="enao">
-      Não
-  </label>
-</div>
-</div>
-<!-- Fim da linha de filtro "radio" -->
+  <!-- Estuda? -->
+  <div class="row">
+    <div class="col-md-6">
+      <label>Estuda?</label>
+    </div>
+    <div class="col-md-6 mb-3">
+     <div class="custom-control custom-radio custom-control-inline">
+      <input type="radio" class="custom-control-input radio" name="Estuda" id="zsim" value="1" <?php if (isset($Mostrar_dados->dados_usuario['Estuda']) and ($Mostrar_dados->dados_usuario['Estuda'] == "1")) {echo "checked=''";}?>>
+      <label class="custom-control-label" for="zsim">Sim</label>
+    </div>
+    <div class="custom-control custom-radio custom-control-inline">
+      <input type="radio" class="custom-control-input radio" name="Estuda" id="znao" value="0" <?php if (isset($Mostrar_dados->dados_usuario['Estuda']) and ($Mostrar_dados->dados_usuario['Estuda'] == "0")) {echo "checked=''";}?>>
+      <label class="custom-control-label" for="znao">Não</label>
+    </div>
+  </div>
 </div>
 
 <!-- Aceita gênero? -->
-<div class="row mb-4">
-    <div class="col-sm mt-2">
-      <label>
-        Aceita morar com pessoas do sexo:
-    </label>
-    <select class="select p-2" name="Sexo">
-        <option value="NI" <?php if (isset($_POST['Sexo']) and ($_POST['Sexo'] == "NI")) {echo "selected=''";}?>>
-          Não me importo
-      </option>
-      <option value="Masculino" <?php if (isset($_POST['Sexo']) and ($_POST['Sexo'] == "Masculino")) {echo "selected=''";}?>>
-          Masculino
-      </option>
-      <option value="Feminino" <?php if (isset($_POST['Sexo']) and ($_POST['Sexo'] == "Feminino")) {echo "selected=''";} ?>>
-          Feminino
-      </option>
-  </select>
+<div class="row">
+  <div class="col-md-6">
+    <label>Aceita morar com pessoas do sexo:</label>
+  </div>
+  <div class="col-md-4 mb-3">
+   <div class="select_sexo">
+    <select name="Aceita_genero" class="select custom-select custom-select">
+      <option value="Não me importo" <?php if (utf8_encode(isset($Mostrar_dados->dados_usuario['Aceita_genero']) and ($Mostrar_dados->dados_usuario['Aceita_genero'] == "Não me importo"))) {echo "selected=''";}?>>Não me importo</option>
+      <option value="Masculino" <?php if (isset($Mostrar_dados->dados_usuario['Aceita_genero']) and ($Mostrar_dados->dados_usuario['Aceita_genero'] == "Masculino")) {echo "selected=''";}?>>Masculino</option>
+      <option value="Feminino" <?php if (isset($Mostrar_dados->dados_usuario['Aceita_genero']) and ($Mostrar_dados->dados_usuario['Aceita_genero'] == "Feminino")) {echo "selected=''";}?>>Feminino</option>
+      
+    </select>
+  </div>
+</div>
 </div>
 
-<!-- Idade minima? --> 
-<div class="col-sm mt-2">
-  <label for="menor_idade">
-    Qual a idade minima?
-</label><br>
-<input class="p-2" style="width: 130px;" max="100" min="18" type="number" name="menor_idade" id="menor_idade"  value="<?php if (isset($_POST['menor_idade'])) {echo $_POST['menor_idade'];} else {echo 18;} ?>">
-</div>
-
-<!-- Idade maxima? --> 
-<div class="col-sm mt-2">
-  <label for="maior-idade">
-    Qual a idade máxima?
-</label><br>
-<input class="p-2" style="width: 130px;" max="100" min="18" type="number" name="maior_idade" id="maior_idade" value="<?php if (isset($_POST['maior_idade'])) {echo $_POST['maior_idade'];} else {echo 100;} ?>">
-</div>
 <!-- Pagar até quanto? -->
-<div class="col-sm mt-2">
-  <label>
-    Até quanto quer pagar?
-</label><br>
-<span id="Porcentagem">
-    <?php if (isset($_POST['Aceita_pagar'])) {echo $_POST['Aceita_pagar'];} else {echo 0;} ?>        
-</span>
-<input class="p-1" id="Aceita_pagar" type="range" name="Aceita_pagar" oninput="getElementById('Porcentagem').innerHTML = this.value;" min="0" max="3000" value="<?php if (isset($_POST['Aceita_pagar'])) {echo $_POST['Aceita_pagar'];} else {echo 0;} ?>" step="50" />
-</div>
-<!-- Fim da linha "select" -->
-</div>
-</small>
-
-<!-- Obs filtro -->
-<div class="row">
-  <div class="col-md-10 ">
-    <p class="float-left">
-      <small class="text-muted">
-        Caso não marque nenhuma da opções será considerado que não se importa.
-    </small>
-</p>
-</div>
-
-<!-- Botão enviar -->
-<div class="col-md-2">
-    <button type="submit" name="Enviar" class="d-block btn btn-b-n float-right" id="jp">
-      Enviar
-  </button>
-</div>
-</div>
-
-<!-- Fim dos filtros -->
-</div>
-<!-- Fim coluna filtros -->
-</div>
-<!-- fim linha dos filtros -->
-</div>
-<!-- Fim do formulário -->
-</form>
-<!-- Fim menu filtros/match -->
-</div>
-
-<!-- Menu lista match -->
-<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-    <div class="row ml-2 mr-2">                
-      <div class="col-md-12">
-        <p>
-            <small>
-              Estas são as pessoas que combinaram com você.
-          </small>
-      </p>
+<div class="row mb-3">
+  <div class="col-md-6">
+    <label>Até quanto quer pagar?</label>
   </div>
-</div>
-
-
-
-<!-- Lista match  -->
-
-<div class="row mb-2">
-    <div class="col-md-10 col-sm-12">
-        <!-- Busca de match -->
-        <?php foreach ($teste->resultado as $key => $value) { ?>
-
-        <div id="" class="row match ml-1 mr-1">
-            <!-- Borda -->
-            <span class="border p-2">
-            <nav class="nav">
-
-                <div class="col-md-auto col-sm-auto">
-
-                    <!-- Imagem -->
-                    <img class="foto" src="<?php if ($teste->resultado[$key]['Foto'] <> null) { if ($_SERVER["REQUEST_URI"] == '/Lammaaqui/testes/teste.php') {echo '../';} ?>media/images/fotos_usuarios/<?php echo $teste->resultado[$key]['Foto'];} else {if ($_SERVER["REQUEST_URI"] == '/Lammaaqui/testes/teste.php') {echo '../';} ?>media/images/fotos_usuarios/avatar.png<?php } ?>">
-                </div>
-                <!-- Nome -->
-
-                <div class="col-md-auto col-sm-auto">
-                    <a class="nav-link" href="#">
-                        <small><?=utf8_encode($teste->resultado[$key]['Nome'])?></small>  
-                    </a>          
-                </div>
-                <!-- Telefone -->
-                <div class="col-md-auto col-sm-auto">
-                    <a class="nav-link" href="#">
-                        <small><?php if ($teste->resultado[$key]['Telefone'] <> null) {echo utf8_encode($teste->resultado[$key]['Telefone']);} else {echo "Não tem telefone";}?></small>
-                    </a>
-                </div>
-                <!-- Email -->
-                <a class="nav-link" href="#">
-                    <div class="col-md-auto col-sm-auto">
-                        <small><?=utf8_encode($teste->resultado[$key]['Email'])?></small>
-                    </div>
-                </a>
-                <!-- Desfazer match -->
-                <div class="col-md-auto col-sm-auto">
-                    <button type="button" id="des_match" onclick="desfazer()" value="" class="btn btn-danger btn-sm mt-2">
-                        Desfazer match
-                    </button>
-                </div>
-            </nav>
-        </div>
-        <!-- Fim foreach -->
-        <?php  } ?>
-
-    </div>
-    <!-- Fim linha lista match -->
-</div>
-<!-- Borda -->
-</span>
-
-<!-- Fim menu lista match -->
-</div>
-<!-- Fim menu -->
-</div>
-<!-- Fim coluna do menu -->
-</div>
-<!-- Fim linha do menu -->
-</div>
-
-<!-- Card match -->
-<div class="row">
-  <div class="col-md-6 col-sm-12 mt-2">
-    <!-- Foreach para puxar os resultados do array "resultado" e mostrar os dados no card -->
-    <?php foreach ($a->resultado as $chave => $valor) { ?>
-
-    <!-- Card -->
-    <div class="card cardlike card_<?=$chave?>" data-numero="<?=$chave?>" style="display: none;">             
-      <div class="card-body text-center"> 
-        <!-- Foto -->
-        <img class="mx-auto" id="foto" src="../media/images/fotos_usuarios/<?php $foto_card = $a->resultado[$chave]['Foto']; if ($foto_card == null || $foto_card == '') {echo 'avatar.png';} else {echo $foto_card;}?>">
-        <!-- Nome -->
-        <div class="row">
-          <div class="col">
-            <h6 class="card-title mt-3">
-              <?=utf8_encode($a->resultado[$chave]['Nome'])?>    
-          </h6>
-      </div>
+  <div class="col-md-6">
+    <input id="Aceita_pagar" type="range" name="Aceita_pagar" 
+    oninput="getElementById('Porcentagem').innerHTML = this.value;" 
+    min="0" max="3000" value="<?php if (isset($Mostrar_dados->dados_usuario['Aceita_pagar'])) {echo $Mostrar_dados->dados_usuario['Aceita_pagar'];} else {echo 0;}?>" step="50" />
+    <span id="Porcentagem"><?php if (isset($Mostrar_dados->dados_usuario['Aceita_pagar'])) {echo $Mostrar_dados->dados_usuario['Aceita_pagar'];} else {echo 0;}?></span><br><br>
   </div>
-  <!-- Descrição -->
-  <div class="row">
-      <div class="col">
-        <p class="card-text my-3"><small>
-          <?=utf8_encode($a->resultado[$chave]['Descricao'])?>
-      </small></p>
-  </div>
+</div>                                        
 </div>
-<!-- Botões -->               
+
+</div>
+
+<!-- Botão salvar -->
 <div class="row">
-  <!-- Like -->
-  <div class="col-6">
-    <button type="button" name="like" class="btn btnlike" onclick="like( <?=$a->resultado[$chave]['Id']?>, <?=$_SESSION['dados']['Id']?>, 'like')">
-      <img id="botao" src="img/like.png">
-  </button>
+  <div class="col-md-12">
+   <button type="submit" name="salvarDados" class="btn salvarDados mt-5 float-right">Salvar alterações</button>
+ </div>
 </div>
-<!-- Dislike -->
-<div class="col-6">
-    <button type="button" name="dislike" class="btn btndislike" onclick="like( <?= $a->resultado[$chave]['Id'] ?>, <?= $_SESSION['dados']['Id']?>, 'deslike')">
-      <img id="botao" src="img/dislike.png">
-  </button>
-</div>
-<!-- Linha botoes -->
-</div>                
-<!-- Fim card match -->
+
 </div>
 </div>
-<!-- Fim do Foreach -->
-<?php } ?> 
-<!-- Fim colunas match -->
-</div>
-<!-- Fim da linha match -->
-</div>
-<!-- Fim container -->
-</div>
-<!-- Fim sessão -->
+</div>F
+
+
+</div>         
 </section>
+</form>  
 
-<!-- Footer -->
-<?php require_once "../include/footer.php"; ?>
 
-<!-- Spinner dourada -->
+
+<!-- footer -->
+<?php require_once "include/footer.php"; ?>
+
+<!-- Botão de rolagem bottom/top -->
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 <div id="preloader"></div>
 
-<!-- Biblioteca Javascript -->
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+<!-- Biblioteca Boostrap -->
+<script
+src="https://code.jquery.com/jquery-3.4.1.min.js"
 integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
 crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-<!-- Javascript match -->
-<script src="match.js"></script>
+<!-- Biblioteca JavaScript -->
+<script src="lib/jquery/jquery-migrate.min.js"></script>
+<script src="lib/popper/popper.min.js"></script>
+<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="lib/easing/easing.min.js"></script>
+<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="lib/scrollreveal/scrollreveal.min.js"></script>
 
-<!-- Biblioteca Boostrap -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-crossorigin="anonymous"></script>
+<!-- Formulário de Contato -->
+<script src="contactform/contactform.js"></script>
+
+<!-- Javascript perfil -->
+<script src="media/js/perfil.js"></script>
 
 <!-- Javascript Geral -->
-<script src="../media/js/main.js"></script>
+<script src="media/js/main.js"></script>
 
-<script type="text/javascript">
+<!-- Ajax cidades -->
+<script src="media/js/ajax_cidades.js"></script>
 
-    function desfazer() {
-
-        var id = document.querySelector('#des_match').value;
-
-        $.ajax({
-            url: 'desfazer_match.php',
-            type: 'POST',
-            data: {'Id':id},
-
-
-            success: function() {
-
-                $('#14').remove();
-
-            }
-
-        })
-
-    }
-
-</script>
+<!-- Mascara para telefone e celular -->
+<script src="media/js/mascara_numeros.js"></script>
 
 </body>
 </html>
-
-
