@@ -1,9 +1,32 @@
 /* Card match */
 
 .card{
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+}
+
+.show_match {
+  width: 50%;
+  height: 70px;
+  border: 1px solid red;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+@media (max-width: 780px) {
+
+  .show_match {
+  width: 100%;
+}
+
+}
+
+.show_foto {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
 }
 
 /* Imagem */
@@ -16,46 +39,54 @@
 
 /* Botoes */ 
 
-#botao {
- width: 80%;
+.btn_desfazer {
+ width: 40px;
+ height: 40px;
+ border-radius: 5px;
+ border: 3px solid darkred;
+ padding: 0px;
+ right: 0;
 }
 
-/*::-webkit-scrollbar {
-    scroll-margin-right: 10px!important;
-    background-color: #0b2e13;
-    height: 20px;
-    }*/
+.btn_ver {
+ width: 40px;
+ height: 40px;
+ border-radius: 5px;
+ border: 3px solid darkgreen;
+ padding: 0px;
+ right: 0;
+}
 
-    #jp {
-      background-color:#ebbf31;
-      border-radius: 2px;
-    }
+#jp {
+  background-color:#ebbf31;
+  border-radius: 2px;
+}
 
-    input[type=range] {
-      -webkit-appearance: none;
-      appearance: none;
-      display: inline-block;
+input[type=range] {
+  -webkit-appearance: none;
+  appearance: none;
+  display: inline-block;
 
-      height: 5px;
-      position: relative;
+  height: 5px;
+  position: relative;
 
-      border-radius: 5px;
-      background-color: #ebbf31;
-      outline: none;
-    }
+  border-radius: 5px;
+  background-color: #ebbf31;
+  outline: none;
+}
 
-    input[type=range]::-webkit-slider-thumb{
-      border-radius: 50%;
-    }
+input[type=range]::-webkit-slider-thumb{
+  border-radius: 50%;
+}
 
-    #Aceita_pagar::-webkit-slider-thumb{
+#Aceita_pagar::-webkit-slider-thumb{
 
-      all:unset; /* limpa os estilos iniciais */
-      -webkit-appearance: none; /* remove a aparencia padão */
-      border: none;
+  all:unset; /* limpa os estilos iniciais */
+  -webkit-appearance: none; /* remove a aparencia padão */
+  border: none;
 
-      width: 20px;
-      height: 20px;
-      border-radius: 0%;
-      background: #ebbf31;
-    }
+  width: 20px;
+  height: 20px;
+  border-radius: 0%;
+  background: #ebbf31;
+}

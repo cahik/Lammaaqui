@@ -1,5 +1,5 @@
 <link rel="stylesheet" type="text/css" href="media/llama.css">
-<nav class="navbar navbar-default navbar-trans navbar-expand-md fixed-top pb-3">
+<nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top pb-3">
     <div class="container">
         <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault"        aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span></span>
