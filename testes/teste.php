@@ -39,7 +39,7 @@ $teste->mostrar();
 
 		<?php foreach ($teste->resultado as $key => $value) { ?>
 
-			<div id="" class="row match">
+			<div id="<?=$teste->resultado[$key]['Id_match']?>" class="row match">
 
 				<div class="col col-1">
 					<img class="foto" 
@@ -64,7 +64,7 @@ $teste->mostrar();
 
 					<div class="col col-4"><?=utf8_encode($teste->resultado[$key]['Email'])?></div>
 
-					<button id="des_match" onclick="desfazer()" value="" class="col col-2 btn btn-danger">Desfazer match</button>
+					<button id="des_match" onclick="desfazer(<?=$teste->resultado[$key]['Id_match']?>)" class="col col-2 btn btn-danger">Desfazer match</button>
 
 				</div>
 
@@ -82,19 +82,19 @@ $teste->mostrar();
 
 		<script type="text/javascript">
 
-			function desfazer() {
 
-				var id = document.querySelector('#des_match').value;
+			function desfazer($id) {
+
 
 				$.ajax({
 					url: 'desfazer_match.php',
 					type: 'POST',
-					data: {'Id':id},
+					data: {'Id':$id},
 
 
 					success: function() {
 
-						$('#14').remove();
+						$().remove();
 
 					}
 
