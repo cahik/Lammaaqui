@@ -21,29 +21,49 @@ $(document).ready(function() {
 });
 
 // Aparecer o valor do range
-    var $range = document.querySelector('#Aceita_pagar'),
-        $value = document.querySelector('span');
+var $range = document.querySelector('#Aceita_pagar'),
+$value = document.querySelector('span');
 
-    $range.addEventListener('#Aceita_pagar', function () {
-        $value.textContent = this.value;
+$range.addEventListener('#Aceita_pagar', function () {
+    $value.textContent = this.value;
+});
+
+
+function like(id_recebe, Id_da, acao) {
+
+    $.ajax({
+        url: "classes/like_dislike.php",
+        type: "POST",
+        data: {
+            "id_recebe": id_recebe,
+            "id_da": Id_da,
+            "acao": acao
+        }
+    }).done(function (resposta) {
+        console.log(resposta);
+
     });
 
+}
 
-    function like(id_recebe, Id_da, acao) {
 
-        $.ajax({
-            url: "matchk.php",
-            type: "POST",
-            data: {
-                "id_recebe": id_recebe,
-                "id_da": Id_da,
-                "acao": acao
-            }
-        }).done(function (resposta) {
-            console.log(resposta);
+function desfazer($id) {
 
-        });
 
-    }
+    $.ajax({
+        url: 'classes/desfazer_match.php',
+        type: 'POST',
+        data: {'Id':$id},
+
+
+        success: function() {
+
+            $('#'+$id).fadeOut();
+
+        }
+
+    })
+
+}
 
 

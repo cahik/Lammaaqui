@@ -182,7 +182,7 @@ class Cadastro_login extends Site {
 				// Se o login funcionar
 					$_SESSION['logado'] = true;
 					$_SESSION['dados'] = $resultado;
-					header("location: /Lammaaqui/match/match.php");
+					header("location: /Lammaaqui/match.php");
 				}
 				
 			} else {

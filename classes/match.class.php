@@ -1,6 +1,6 @@
 <?php
 
-require_once "../classes/site.class.php";
+require_once "site.class.php";
 
 class match extends Site {
 
@@ -61,7 +61,6 @@ class Mostrar_matches extends Site {
     private $consulta;
     private $Usuario;
     public $resultado;
-    public $match;
 
 
     public function mostrar() {
@@ -69,7 +68,6 @@ class Mostrar_matches extends Site {
         $this->sql = "SELECT * FROM matches where Usuario_1 = ".$_SESSION['dados']['Id']." or Usuario_2 = ".$_SESSION['dados']['Id'];
 
         $this->resultado = array();
-        $this->match = array();
 
         if ($this->query = mysqli_query($this->con, $this->sql)) {
 
@@ -77,7 +75,6 @@ class Mostrar_matches extends Site {
             
             foreach ($this->consulta as $chave => $valor) {
 
-                $this->match[] = $this->consulta[$chave]['Id'];
 
                 if ($this->consulta[$chave]['Usuario_1'] == $_SESSION['dados']['Id']) {
 
@@ -93,10 +90,14 @@ class Mostrar_matches extends Site {
                 $this->query = mysqli_query($this->con, $this->sql);
 
                 $this->resultado[] = mysqli_fetch_array($this->query);
+                $this->resultado[$chave]['Id_match'] = $this->consulta[$chave]['Id'];
+
 
             }
 
+
         }
+
 
     }
 
@@ -106,6 +107,7 @@ class Mostrar_matches extends Site {
         return mysqli_query($this->con, $this->sql);
 
     }
+
 }
 
 

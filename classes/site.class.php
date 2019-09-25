@@ -14,7 +14,7 @@ class Site {
 	CONST PASS = "entra21@Blusoft";
 	CONST DB   = "llamaaqu_master";
 
-	protected $con;
+	public $con;
 	private $url;
 
 

@@ -85,7 +85,6 @@ $teste->mostrar();
 
 			function desfazer($id) {
 
-
 				$.ajax({
 					url: 'desfazer_match.php',
 					type: 'POST',
@@ -94,7 +93,7 @@ $teste->mostrar();
 
 					success: function() {
 
-						$().remove();
+						$('#'+$id).fadeOut();
 
 					}
 

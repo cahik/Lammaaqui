@@ -1,6 +1,5 @@
 <?php
 
-require_once "../classes/site.class.php";
 
 class Mostrar_matches extends Site {
 
@@ -9,7 +8,6 @@ class Mostrar_matches extends Site {
 	private $consulta;
 	private $Usuario;
 	public $resultado;
-	public $match;
 
 
 	public function mostrar() {

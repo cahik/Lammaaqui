@@ -19,12 +19,13 @@
                 <ul class="navbar-nav ml-auto mr-auto">
 
                     <li class="nav-item">
-                        <a class="nav-link" href="/Lammaaqui/match/match.php">Match</a>
+                        <a class="nav-link" href="/Lammaaqui/match.php">Match</a>
                     </li>
 
                     <li class="nav-item">
                         <a class="nav-link" href="/Lammaaqui/perfil.php">Perfil</a>
                     </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link" href="/Lammaaqui/contato.php">Contato</a>
                     </li>
@@ -42,68 +43,68 @@
                         
                         if ($_SESSION['dados']['Foto'] <> null) {
 
-                           if ($_SERVER["REQUEST_URI"] == '/Lammaaqui/match/match.php') {echo '../';} ?>media/images/fotos_usuarios/<?php echo $_SESSION['dados']['Foto'];
+                           echo 'media/images/fotos_usuarios/'.$_SESSION['dados']['Foto'];
 
                            } else {
 
-                            if ($_SERVER["REQUEST_URI"] == '/Lammaaqui/match/match.php') {echo '../';} ?>media/images/fotos_usuarios/avatar.png
+                            echo 'media/images/fotos_usuarios/avatar.png';
 
-                            <?php }
+                        }
 
-                            ?>" id="foto_nav">
-                            
-                        </li>
+                        ?>" id="foto_nav">
 
-                        <li class="nav-item">
-                            <a href="/Lammaaqui/logout.php" class="d-none d-md-block btn btn-b-n">Sair</a>
-                        </li>
+                    </li>
 
-                        <li class="nav-item">
-                            <a href="/Lammaaqui/logout.php" class="d-block d-md-none btn btn-b-n">Sair</a>
-                        </li>
+                    <li class="nav-item">
+                        <a href="/Lammaaqui/logout.php" class="d-none d-md-block btn btn-b-n">Sair</a>
+                    </li>
 
-                    </ul>
+                    <li class="nav-item">
+                        <a href="/Lammaaqui/logout.php" class="d-block d-md-none btn btn-b-n">Sair</a>
+                    </li>
 
-                <?php } 
+                </ul>
 
-                if (!isset($_SESSION['logado']) || $_SESSION['logado'] <> true) { ?>
+            <?php } 
 
-                    <ul class="navbar-nav ml-auto mr-auto">
+            if (!isset($_SESSION['logado']) || $_SESSION['logado'] <> true) { ?>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="/Lammaaqui/index.php">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/Lammaaqui/sobre.php">Sobre</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/Lammaaqui/contato.php">Contato</a>
-                        </li>
+                <ul class="navbar-nav ml-auto mr-auto">
 
-                    </ul>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Lammaaqui/index.php">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Lammaaqui/sobre.php">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Lammaaqui/contato.php">Contato</a>
+                    </li>
 
-                    <ul class="navbar-nav ml-auto">
+                </ul>
 
-                        <li class="nav-item">
-                            <a href="login.php" class="d-block d-md-none btn btn-b-n">Login</a>     
-                        </li>
+                <ul class="navbar-nav ml-auto">
 
-                        <li class="nav-item">
-                            <a href="cadastro.php" class="d-block d-md-none btn btn-b-n">Cadastro</a>     
-                        </li>
+                    <li class="nav-item">
+                        <a href="login.php" class="d-block d-md-none btn btn-b-n">Login</a>     
+                    </li>
 
-                        <li>          
-                            <a href="/Lammaaqui/login.php" class="d-none d-md-block btn btn-b-n">Login</a>
-                        </li>
+                    <li class="nav-item">
+                        <a href="cadastro.php" class="d-block d-md-none btn btn-b-n">Cadastro</a>     
+                    </li>
 
-                        <li> 
-                            <a href="/Lammaaqui/cadastro.php" class="d-none d-md-block btn btn-b-n">Cadastro</a>
-                        </li>
+                    <li>          
+                        <a href="/Lammaaqui/login.php" class="d-none d-md-block btn btn-b-n">Login</a>
+                    </li>
 
-                    </ul>
+                    <li> 
+                        <a href="/Lammaaqui/cadastro.php" class="d-none d-md-block btn btn-b-n">Cadastro</a>
+                    </li>
 
-                <?php } ?>
+                </ul>
 
-            </div>
+            <?php } ?>
+
         </div>
-    </nav>
+    </div>
+</nav>
