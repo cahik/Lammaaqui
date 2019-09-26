@@ -68,11 +68,6 @@ $matches->mostrar();
               <li class="nav-item">
                 <a class="nav-link" onclick="hide_menu(2)" id="profile-tab" data-toggle="collapse" href="#collapseExample2" role="tab" aria-controls="collapseExample2" aria-selected="false">Lista de Matches</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link">
-                  Ei, você tem um novo <strong>Match</strong>!
-                </a>
-              </li>
             </ul>
           </div>
         </div>
@@ -93,7 +88,7 @@ $matches->mostrar();
                   <div class="row ml-2 mr-2">
                     <div class="col-md-12">
                       <!-- Filtros -->
-                      <p class="mb-3"><small class="text-muted">Selecione os filtros e faça sua busca</small></p>
+                      <p class="mb-3"><small class="text-muted">Caso não marque nenhuma da opções será considerado que não se importa.</small></p>
                       <!-- Diminuir tamanho da fonte dos filtros-->
                       <small> 
                        <!-- Pode fumar -->
@@ -239,26 +234,19 @@ $matches->mostrar();
                           </span>
                         </div>
                         <!-- Fim da linha "select" -->
+                        <!-- Botão enviar -->
+                        <div class="col col-md col-12 mt-md-5 mt-3">
+                          <button type="submit" name="Enviar" class="d-block btn-block btn btn-b-n float-right" id="jp">
+                            Enviar
+                          </button>
+                        </div>
+                      </div>
                       </div>
                     </small>
 
                     <!-- Obs filtro -->
-                    <div class="row">
-                      <div class="col-md-10 mt-md-0 mt-4">
-                        <p class="float-left">
-                          <small class="text-muted">
-                            Caso não marque nenhuma da opções será considerado que não se importa.
-                          </small>
-                        </p>
-                      </div>
+                    <div class="row">                      
 
-                      <!-- Botão enviar -->
-                      <div class="col-md-2">
-                        <button type="submit" name="Enviar" class="d-block btn btn-b-n float-right" id="jp">
-                          Enviar
-                        </button>
-                      </div>
-                    </div>
 
                     <!-- Fim dos filtros -->
                   </div>

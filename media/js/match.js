@@ -87,5 +87,3 @@ function hide_menu($menu) {
     }
 
 }
-
-
