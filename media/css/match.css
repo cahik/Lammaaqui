@@ -21,10 +21,15 @@
   min-height: 60px;
   max-height: 100px;
   margin-right: 2%;
-  border: 1px solid red;
-  border-radius: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  border-left: 3px solid #ebbf31;
   padding: 0px 10px;
+  background: rgb(251, 242, 213);
+}
+
+.show_deu {
+  padding: none !important;
+  margin: none !important;
 }
 
 .show_foto {
@@ -62,24 +67,25 @@
   width: 100%;
   height: 100%;
   border-radius: 100%;
+  border: 2px solid #ebbf31;
 }
 
 .btn_desfazer {
  width: 40px;
  height: 40px;
- border-radius: 5px;
- border: 3px solid darkred;
+ border: none;
  padding: 0px;
  float: right;
+ background-color: rgb(251, 242, 213);
 }
 
 .btn_ver {
  width: 40px;
  height: 40px;
- border-radius: 5px;
- border: 3px solid darkgreen;
+ border: none;
  padding: 0px;
  float: left;
+ background-color: rgb(251, 242, 213);
 }
 
 @media (max-width: 900px) {

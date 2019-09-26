@@ -30,23 +30,7 @@
 <div class="container">
 
 <!-- Card match -->
-<div class="row">
-  <div class="col-md-6 col-sm-12 mt-2">
-    <div class="card">            
-      <div class="card-body text-center"> 
-        <img class="mx-auto" id="foto" src="../media/images/zzz.jpg">
-        <div class="row">
-          <div class="col">
-            <h6 class="card-title mt-3">
-              Infelizmente não há pessoas nesse perfil por enquanto...<br>
-              Volta aqui mais tarde, que logo aparece alguém!  
-            </h6>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+
 
 </div>
 

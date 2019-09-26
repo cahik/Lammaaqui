@@ -66,4 +66,26 @@ function desfazer($id) {
 
 }
 
+function hide_menu($menu) {
+
+    if ($menu == 1) {
+
+        var hide = document.querySelector('#collapseExample2');
+
+        hide.style.transition = '1s all';
+        hide.classList = 'collapse p-3';
+
+    } 
+
+    if ($menu == 2) {
+
+        var hide = document.querySelector('#collapseExample');
+        
+        hide.style.transition = '1s all';
+        hide.classList = 'collapse p-3';
+
+    }
+
+}
+
 

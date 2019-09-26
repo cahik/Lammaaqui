@@ -19,15 +19,15 @@
                 <ul class="navbar-nav ml-auto mr-auto">
 
                     <li class="nav-item">
-                        <a class="nav-link" href="/Lammaaqui/match.php">Match</a>
+                        <a class="nav-link <?php if ($_SERVER["REQUEST_URI"] == '/Lammaaqui/match.php') {echo 'active';}?>" href="/Lammaaqui/match.php">Match</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="/Lammaaqui/perfil.php">Perfil</a>
+                        <a class="nav-link <?php if ($_SERVER["REQUEST_URI"] == '/Lammaaqui/perfil.php') {echo 'active';}?>" href="/Lammaaqui/perfil.php">Meu Perfil</a>
                     </li>
                     
                     <li class="nav-item">
-                        <a class="nav-link" href="/Lammaaqui/contato.php">Contato</a>
+                        <a class="nav-link <?php if ($_SERVER["REQUEST_URI"] == '/Lammaaqui/contato.php') {echo 'active';}?>" href="/Lammaaqui/contato.php">Contato</a>
                     </li>
 
                 </ul>
@@ -72,13 +72,13 @@
                 <ul class="navbar-nav ml-auto mr-auto">
 
                     <li class="nav-item">
-                        <a class="nav-link" href="/Lammaaqui/index.php">Home</a>
+                        <a class="nav-link <?php if ($_SERVER["REQUEST_URI"] == '/Lammaaqui/index.php') {echo 'active';}?>" href="/Lammaaqui/index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/Lammaaqui/sobre.php">Sobre</a>
+                        <a class="nav-link <?php if ($_SERVER["REQUEST_URI"] == '/Lammaaqui/sobre.php') {echo 'active';}?>" href="/Lammaaqui/sobre.php">Sobre</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/Lammaaqui/contato.php">Contato</a>
+                        <a class="nav-link <?php if ($_SERVER["REQUEST_URI"] == '/Lammaaqui/contato.php') {echo 'active';}?>" href="/Lammaaqui/contato.php">Contato</a>
                     </li>
 
                 </ul>

@@ -23,6 +23,7 @@ class match extends Site {
             if (mysqli_query($this->con, $sql)) {
 
                 $sql = "DELETE FROM like_deslike where deu = $id_recebe and recebeu = $Id_da;";
+                
                 return mysqli_query($this->con, $sql);
 
             }
@@ -40,16 +41,16 @@ class match extends Site {
 
         if (mysqli_num_rows($query)>0 ) {
 
-           die('ja tem');
+         die('ja tem');
 
-       } else {
+     } else {
 
-         $sql = "INSERT INTO like_deslike (deu, recebeu, acao ) VALUES ('$Id_da', '$id_recebe', 'dislike')";
+       $sql = "INSERT INTO like_deslike (deu, recebeu, acao ) VALUES ('$Id_da', '$id_recebe', 'dislike')";
 
-         return mysqli_query($this->con, $sql);
+       return mysqli_query($this->con, $sql);
 
-     }
- }
+   }
+}
 
 }
 

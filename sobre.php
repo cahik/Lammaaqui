@@ -188,7 +188,7 @@ $Iniciar = new Site;
         <div class="col-md-4">
           <div class="card-box-d">
             <div class="card-img-d">
-              <img src="media/images/quarto.jpg" alt="" class="img-d img-fluid">
+              <img src="media/images/Gustavo.jpg" alt="" class="img-d img-fluid">
             </div>
             <div class="card-overlay card-overlay-hover">
               <div class="card-header-d">
