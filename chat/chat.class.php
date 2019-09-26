@@ -6,6 +6,7 @@ class chat extends Site {
 
   public function recebe_mensagem () {
 $sql = "SELECT * FROM chat ";
+$query = mysqli_query($this)
 
   }
 }
