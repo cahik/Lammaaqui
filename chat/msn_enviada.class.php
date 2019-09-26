@@ -2,7 +2,7 @@
 <?php
 
 
-require_once "chat.php";
+require_once "chat.class.php";
 
 class msn_enviada extends chat {
 
