@@ -2,6 +2,8 @@
 
 require_once "site.class.php";
 
+require_once "include/config.php";
+
 class Contato extends Site {
 
 	private $Nome;
@@ -42,6 +44,11 @@ class Contato extends Site {
 			if (mysqli_query($this->con, $sql)) {
 
 				// Se conseguir mandar a mensagem de contato
+				$alerta['tipo'] = 'success';
+				$alerta['mensagem'] = "Mensagem enviada com sucesso!";
+				setcookie('alerta', serialize($alerta), time() + 10);
+				
+				header("location: /Lammaaqui/contato.php"); 
 
 			}
 

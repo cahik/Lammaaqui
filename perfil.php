@@ -53,6 +53,11 @@ $Mostrar_dados->update();
       <section class="intro-single margemEsquerda">
         <div class="row">
           <div class="col-sm-4">
+
+            <?php
+            require_once "include/alertas.php";
+            ?>
+            
             <div class="title-single-box">
               <h5 class="title-single tt">Oi, <?=utf8_encode($Mostrar_dados->dados_usuario['Nome'])?>!</h5>      
             </div>
@@ -202,7 +207,7 @@ $Mostrar_dados->update();
                     <select class="form-group col-sm-3" name="dia" class="select" required="">
 
                       <?php for ($i = 1; $i <= 31; $i++) {?>
-                        <option <?php if ($data_nascimento[2] == $i) {echo "selected";} ?> ><?=$i?></option>
+                      <option <?php if ($data_nascimento[2] == $i) {echo "selected";} ?> ><?=$i?></option>
                       <?php } ?>
                     </select>
 
@@ -228,7 +233,7 @@ $Mostrar_dados->update();
                     <select class="form-group col-sm-4" name="ano" class="select" required="">
 
                       <?php for ($i = date('Y'); $i >= (date('Y') - 100); $i--) {?>
-                        <option <?php if ($data_nascimento[0] == $i) {echo "selected";} ?> ><?=$i?></option>
+                      <option <?php if ($data_nascimento[0] == $i) {echo "selected";} ?> ><?=$i?></option>
                       <?php } ?>
                     </select>
 
@@ -263,7 +268,7 @@ $Mostrar_dados->update();
 
                     <?php foreach ($Mostrar_cid_est->resultado_estados as $chave => $valor) { ?>
 
-                      <option <?php if ($Mostrar_dados->dados_usuario['Fk_estado'] == $Mostrar_cid_est->resultado_estados[$chave]['Id_estado']) {echo "selected";} ?> value="<?=$Mostrar_cid_est->resultado_estados[$chave]['Id_estado']?>"><?=utf8_encode($Mostrar_cid_est->resultado_estados[$chave]['Nome_estado'])?></option>
+                    <option <?php if ($Mostrar_dados->dados_usuario['Fk_estado'] == $Mostrar_cid_est->resultado_estados[$chave]['Id_estado']) {echo "selected";} ?> value="<?=$Mostrar_cid_est->resultado_estados[$chave]['Id_estado']?>"><?=utf8_encode($Mostrar_cid_est->resultado_estados[$chave]['Nome_estado'])?></option>
 
                     <?php } ?>
 
@@ -287,7 +292,7 @@ $Mostrar_dados->update();
 
                     foreach ($Mostrar_cid_est->resultado_cidades as $chave => $valor) { ?>
 
-                      <option <?php if ($Mostrar_cid_est->resultado_cidades[$chave]['Id_cidade'] == $Mostrar_dados->dados_usuario['Fk_cidade']) {echo "selected";} ?> value="<?=$Mostrar_cid_est->resultado_cidades[$chave]['Id_cidade']?>"><?=utf8_encode($Mostrar_cid_est->resultado_cidades[$chave]['Nome_cidade'])?></option>
+                    <option <?php if ($Mostrar_cid_est->resultado_cidades[$chave]['Id_cidade'] == $Mostrar_dados->dados_usuario['Fk_cidade']) {echo "selected";} ?> value="<?=$Mostrar_cid_est->resultado_cidades[$chave]['Id_cidade']?>"><?=utf8_encode($Mostrar_cid_est->resultado_cidades[$chave]['Nome_cidade'])?></option>
 
                     <?php } ?>
 

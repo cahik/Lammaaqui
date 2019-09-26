@@ -3,6 +3,8 @@
 // Conexão com banco de dados
 require_once "site.class.php";
 
+require_once "include/config.php";
+
 class Perfil extends Site {
 
 	private $sql;

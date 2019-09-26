@@ -46,12 +46,21 @@ if (isset($_POST['Enviar'])) {
   <section class="intro-single">
     <div class="container">
       <div class="row">
+        <div class="col-md-8 col-sm-8">
+
+          <?php
+          require_once "include/alertas.php";
+          ?> 
+
+        </div>
+      </div> 
+      <div class="row">
         <div class="col-md-12 col-lg-8">
           <div class="title-single-box">
-            <h1 class="title-single">Fale com a gente</h1>        
-          </div>          
-        </div>        
-      </div>
+            <h1 class="title-single">Fale com a gente</h1>
+          </div>
+        </div> 
+      </div> 
     </div>
   </section>
   <!--/ Intro Single End /-->

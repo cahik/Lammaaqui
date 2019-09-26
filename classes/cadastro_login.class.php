@@ -2,6 +2,8 @@
 
 require_once "site.class.php";
 
+require_once "include/config.php";
+
 class Cadastro_login extends Site {
 
 
@@ -137,6 +139,11 @@ class Cadastro_login extends Site {
 
 								$_SESSION['logado'] = true;
 								$_SESSION['dados'] = $resultado;
+
+								$alerta['tipo'] = 'success';
+								$alerta['mensagem'] = "Preencha seus dados e suas preferências para ser encontrado!";
+								setcookie('alerta', serialize($alerta), time() + 10);
+
 								header("location: /Lammaaqui/perfil.php");
 
 							} else {
@@ -147,7 +154,12 @@ class Cadastro_login extends Site {
 
 						} else {
 
-						// Se já existir o email
+							// Se já existir o email
+							$alerta['tipo'] = 'warning';
+							$alerta['mensagem'] = "Este email já está cadastrado em nosso site.";
+							setcookie('alerta', serialize($alerta), time() + 10);
+
+							header("location: /Lammaaqui/cadastro.php"); 
 
 						}
 
@@ -156,12 +168,22 @@ class Cadastro_login extends Site {
 				} else {
 
 					// Se for menor de 18 anos
+					$alerta['tipo'] = 'danger';
+					$alerta['mensagem'] = "Para se cadastrar é preciso ter mais de 18 anos.";
+					setcookie('alerta', serialize($alerta), time() + 10);
+
+					header("location: /Lammaaqui/cadastro.php"); 
 
 				}
 
 			} else {
 
 				// Se as senahs forem diferentes
+				$alerta['tipo'] = 'warning';
+				$alerta['mensagem'] = "As senhas não conferem. Tente novamente!";
+				setcookie('alerta', serialize($alerta), time() + 10);
+
+				header("location: /Lammaaqui/cadastro.php"); 
 
 			}
 
@@ -187,12 +209,25 @@ class Cadastro_login extends Site {
 				// Se o login funcionar
 					$_SESSION['logado'] = true;
 					$_SESSION['dados'] = $resultado;
-					header("location: /Lammaaqui/match.php");
-				}
-				
-			} else {
 
-				// Se o login falhar
+					header("location: /Lammaaqui/match.php");
+
+				} else {
+
+					// Se o login falhar
+
+					// Não cria sessão
+					$_SESSION['logado'] = false;
+
+					// Mensagem de erro
+					$alerta['tipo'] = 'danger';
+					$alerta['mensagem'] = "Credênciais inválidas!";
+					setcookie('alerta', serialize($alerta), time() + 10);
+
+					header("location: /Lammaaqui/login.php"); 
+
+
+				}
 				
 
 			}

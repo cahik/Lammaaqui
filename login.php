@@ -32,19 +32,18 @@ if (isset($_POST['logar'])) {
 
 	<?php require_once "include/navbar.php"; ?>
 
-	<div class="limiter  ">
+	<div class="limiter">
 		<div class="container-login100">
 
-		
-
-
 			<form class="login100-form" method="POST">
-
 
 				<span class="login100-form-title p-b-43 text-warning">
 					Login
 				</span>
 
+				<?php
+				require_once "include/alertas.php";
+				?>
 
 				<div class="wrap-input100 validate-input">
 					<input class="input100" type="email" name="email" id="email" placeholder="Email">
@@ -60,7 +59,7 @@ if (isset($_POST['logar'])) {
 					<div class="container ">						
 						<div class="row " >
 							<div class="col-12 text-center">
-							<button type="submit" name="logar" class="btn salvarDados mt-2 ">Entrar</button>
+								<button type="submit" name="logar" class="btn salvarDados mt-2 ">Entrar</button>
 							</div>												
 						</div>
 
@@ -83,13 +82,13 @@ if (isset($_POST['logar'])) {
 
 			</form>
 
-		
+			
+
+		</div>	
 
 	</div>	
 
-</div>	
-
-<?php require_once "include/footer.php"; ?>			
+	<?php require_once "include/footer.php"; ?>			
 
 </body>
 
