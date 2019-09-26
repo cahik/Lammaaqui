@@ -7,12 +7,17 @@ require_once "classes/cidades_estados.class.php";
 
 require_once "classes/perfilmatch.class.php";
 
+if (!isset($_GET['id'])) {
+  die('Usuário não encontrado.');
+}
+
+
 // Mostrar dados cadastrados e/ou alterados
 $Mostrar_dados = new Perfil();
 $Mostrar_dados->consulta();
 
 $a = new Perfilmatch();
-$resultados = $a->perfilmatch(7);
+$resultados = $a->perfilmatch($_GET['id']);
 
 
 $date=date_create($resultados['Data_nascimento']);
