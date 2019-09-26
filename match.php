@@ -63,10 +63,15 @@ $matches->mostrar();
           <div class="profile-head">
             <ul class="nav nav-tabs m-0" id="myTab" role="tablist">
               <li class="nav-item">
-                <a class="nav-link" id="home-tab" data-toggle="collapse" href="#collapseExample" role="tab" aria-controls="collapseExample" aria-selected="false">Filtros</a>
+                <a class="nav-link" onclick="hide_menu(1)" id="home-tab" data-toggle="collapse" href="#collapseExample" role="tab" aria-controls="collapseExample" aria-selected="false">Filtros</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" id="profile-tab" data-toggle="collapse" href="#collapseExample2" role="tab" aria-controls="collapseExample2" aria-selected="false">Lista de Matches</a>
+                <a class="nav-link" onclick="hide_menu(2)" id="profile-tab" data-toggle="collapse" href="#collapseExample2" role="tab" aria-controls="collapseExample2" aria-selected="false">Lista de Matches</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">
+                  Ei, você tem um novo <strong>Match</strong>!
+                </a>
               </li>
             </ul>
           </div>
@@ -92,8 +97,8 @@ $matches->mostrar();
                       <!-- Diminuir tamanho da fonte dos filtros-->
                       <small> 
                        <!-- Pode fumar -->
-                       <div class="row mb-4">                
-                        <div class="col-sm">
+                       <div class="row mb-2 mb-md-4">                
+                        <div class="col-sm mt-md-0 mt-3">
                           <label>
                             Pode fumar?
                           </label><br>
@@ -112,7 +117,7 @@ $matches->mostrar();
                         </div>
 
                         <!-- Pode beber? -->
-                        <div class="col-sm">
+                        <div class="col-sm mt-md-0 mt-3">
                           <label>
                             Pode beber?
                           </label><br>
@@ -131,7 +136,7 @@ $matches->mostrar();
                         </div>
 
                         <!-- Pode ter animal? -->
-                        <div class="col-sm">
+                        <div class="col-sm mt-md-0 mt-3">
                           <label>
                             Pode ter animais?
                           </label><br>
@@ -150,7 +155,7 @@ $matches->mostrar();
                         </div>
 
                         <!-- Deve trabalhar? -->                        
-                        <div class="col-sm">
+                        <div class="col-sm mt-md-0 mt-3">
                           <label>
                             Deve trabalhar?
                           </label><br>
@@ -169,7 +174,7 @@ $matches->mostrar();
                         </div>
 
                         <!-- Deve estudar? -->
-                        <div class="col-sm">
+                        <div class="col-sm mt-md-0 mt-3">
                           <label>
                             Deve estudar?
                           </label><br>
@@ -190,12 +195,12 @@ $matches->mostrar();
                       </div>
 
                       <!-- Aceita gênero? -->
-                      <div class="row mb-4">
-                        <div class="col-sm mt-2">
-                          <label>
+                      <div class="row">
+                        <div class="col col-12 col-md-3 mt-3">
+                          <label for="Sexo">
                             Aceita morar com pessoas do sexo:
                           </label>
-                          <select class="select p-2" name="Sexo">
+                          <select class="form-control" id="Sexo" name="Sexo">
                             <option value="NI" <?php if (isset($_POST['Sexo']) and ($_POST['Sexo'] == "NI")) {echo "selected=''";}?>>
                               Não me importo
                             </option>
@@ -209,29 +214,29 @@ $matches->mostrar();
                         </div>
 
                         <!-- Idade minima? --> 
-                        <div class="col-sm mt-2">
+                        <div class="col col-6 col-md-2 mt-3">
                           <label for="menor_idade">
                             Qual a idade minima?
                           </label><br>
-                          <input class="p-2" style="width: 130px;" max="100" min="18" type="number" name="menor_idade" id="menor_idade"  value="<?php if (isset($_POST['menor_idade'])) {echo $_POST['menor_idade'];} else {echo 18;} ?>">
+                          <input class="form-control p-2" style="width: 130px;" max="100" min="18" type="number" name="menor_idade" id="menor_idade"  value="<?php if (isset($_POST['menor_idade'])) {echo $_POST['menor_idade'];} else {echo 18;} ?>">
                         </div>
 
                         <!-- Idade maxima? --> 
-                        <div class="col-sm mt-2">
-                          <label for="maior-idade">
+                        <div class="col col-6 col-md-2 mt-3">
+                          <label for="maior_idade">
                             Qual a idade máxima?
                           </label><br>
-                          <input class="p-2" style="width: 130px;" max="100" min="18" type="number" name="maior_idade" id="maior_idade" value="<?php if (isset($_POST['maior_idade'])) {echo $_POST['maior_idade'];} else {echo 100;} ?>">
+                          <input class="form-control p-2" style="width: 130px;" max="100" min="18" type="number" name="maior_idade" id="maior_idade" value="<?php if (isset($_POST['maior_idade'])) {echo $_POST['maior_idade'];} else {echo 100;} ?>">
                         </div>
                         <!-- Pagar até quanto? -->
-                        <div class="col-sm mt-2">
+                        <div class="col-sm mt-4">
                           <label>
                             Até quanto quer pagar?
                           </label><br>
+                          <input class="mt-3 p-1" id="Aceita_pagar" type="range" name="Aceita_pagar" oninput="getElementById('Porcentagem').innerHTML = this.value;" min="0" max="3000" value="<?php if (isset($_POST['Aceita_pagar'])) {echo $_POST['Aceita_pagar'];} else {echo 0;} ?>" step="50" />
                           <span id="Porcentagem">
                             <?php if (isset($_POST['Aceita_pagar'])) {echo $_POST['Aceita_pagar'];} else {echo 0;} ?>        
                           </span>
-                          <input class="p-1" id="Aceita_pagar" type="range" name="Aceita_pagar" oninput="getElementById('Porcentagem').innerHTML = this.value;" min="0" max="3000" value="<?php if (isset($_POST['Aceita_pagar'])) {echo $_POST['Aceita_pagar'];} else {echo 0;} ?>" step="50" />
                         </div>
                         <!-- Fim da linha "select" -->
                       </div>
@@ -239,7 +244,7 @@ $matches->mostrar();
 
                     <!-- Obs filtro -->
                     <div class="row">
-                      <div class="col-md-10 ">
+                      <div class="col-md-10 mt-md-0 mt-4">
                         <p class="float-left">
                           <small class="text-muted">
                             Caso não marque nenhuma da opções será considerado que não se importa.
@@ -268,13 +273,11 @@ $matches->mostrar();
 
           <!-- Menu lista match -->
           <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-           <div class="collapse-show p-3" id="collapseExample2">
-            <div class="row ml-2 mr-2">                
+           <div class="collapse p-3" id="collapseExample2">
+            <div class="row">                
               <div class="col-md-12">
                 <p>
-                  <small>
-                    Estas são as pessoas que combinaram com você.
-                  </small>
+                  Estas são as pessoas que combinaram com você.
                 </p>
               </div>
             </div>
@@ -314,9 +317,9 @@ $matches->mostrar();
                       </div>
                       <div class="show_botoes">                        
                         <!-- Desfazer match -->
-                        <button onclick="desfazer(<?=$matches->resultado[$key]['Id_match']?>)" class="btn_desfazer"><img class="rounded" src="media/images/icons/lixo.jpg" alt="Excluir match" height="100%"></button>
+                        <button onclick="desfazer(<?=$matches->resultado[$key]['Id_match']?>)" class="btn_desfazer"><img class="rounded" src="media/images/icons/lixo.jpg" alt="Excluir match" height="80%"></button>
                         <!-- Ver Perfil -->
-                        <button class="btn_ver"><a href="#"><img class="rounded" src="media/images/icons/olho.jpg" alt="Ver Perfil" height="100%"></a></button>
+                        <button class="btn_ver"><a href="#"><img class="rounded" src="media/images/icons/olho.jpg" alt="Ver Perfil" width="100%"></a></button>
                       </div>
                     </nav>                   
                   </div>
@@ -382,8 +385,26 @@ $matches->mostrar();
             <!-- Fim card match -->
           </div>
         </div>
+
         <!-- Fim do Foreach -->
       <?php } ?> 
+      <!-- <div class="row">
+        <div class="col-md-10 col-sm-10 mt-2">
+          <div class="card">            
+            <div class="card-body text-center"> 
+              <img class="mx-auto" id="foto" src="media/images/zzz.jpg">
+              <div class="row">
+                <div class="col">
+                  <h6 class="card-title mt-3">
+                    Infelizmente não há pessoas nesse perfil por enquanto...<br>
+                    Volta aqui mais tarde, que logo aparece alguém!  
+                  </h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
       <!-- Fim colunas match -->
     </div>
     <!-- Fim da linha match -->

@@ -1,18 +1,20 @@
 <?php
-require_once "msn_enviada.php";
+
+require_once "../classes/match.class.php";
+require_once "chat.class.php";
 
 
-$a = new msn_enviada();
-$resultado = $a->recebe_msn();
+$a = new Mostrar_matches();
+$a->mostrar();
+
+
+
 
 
 
 ?>
 
-<!-- 		$this->id = $_POST['id'];
-		$this->msn_recebida = $_POST['msn_recebida'];
-		$this->msn_enviada = $_POST['msn_enviada'];
- -->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,36 +26,37 @@ $resultado = $a->recebe_msn();
 
 </head>
 <body>
- <?//php $resultado = mysqli_fetch_array($query);  	
-//echo "$resultado";
-
- 	?>
-
-
-<?php
-require_once "msn_recebida.php";
-
-$re = new msn_recebida();
-
-$recebida_msn = $re->select_msn();
-
-// $oi = mysqli_fetch_array();
-// var_dump($oi);
-
-?>
 
 <div id="container">
 
+  <?php foreach ($a->resultado as $chave => $valor) { ?>
 
 
-<div class="chat__wrapper">
+
+
+
+
+
+
+
+<div class="chat__wrapper" style="float: right;">
   <div class="chat__heading">
     <div class="heading__list">
       <div class="list__avatar">
-        <img src="http://dummyimage.com/100x100/bbb/fff" alt="Dummy Avatar" />
+          <img src="<?php
+
+                        if ($a->resultado[$chave]['Foto'] <> null) {
+
+                           echo '../media/images/fotos_usuarios/'.$a->resultado[$chave]['Foto'];
+
+                           } else {
+
+                            echo '../media/images/fotos_usuarios/avatar.png';
+
+                        }?>">
       </div>
       <div class="list__title">
-        João de Paula
+        <?=$a->resultado [$chave]['Nome']; ?>
       </div>
     </div>
   </div>
@@ -77,33 +80,9 @@ $recebida_msn = $re->select_msn();
   </div>
 </div>
 
-
-
-<div class="row">
-	<div class="container">
-	<form method="post" action="" name="msn_recebida">
-
-
-									<!--  <?php $resultado //= mysqli_fetch_array($query) { 	?> -->
-
-
-	
-
-
-
-
-	<div class="form-group">
-
-		<label for="msn_enviada">Mensage enviada </label>
-		<input type="text" name="msn_enviada" id="msn_enviada"  class="form-control" >		
-	</div>
-
-
-
-<input type="submit" name="btnSalvar" value="Salvar" class="btn btn-primary">
-
-<input type="submit" name="btnExcluir" value="Excluir" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja excluir?')">
+<?php } ?>
 </div>
+
 <script
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
@@ -117,7 +96,6 @@ $recebida_msn = $re->select_msn();
 <script src="chat.js"></script>
 
 
-</form>
-</div>
+
 </body>
 </html>
