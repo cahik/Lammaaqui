@@ -6,38 +6,63 @@
   border-radius: 10px;
 }
 
+.show_nav {
+  min-height: 60px;
+  max-height: 100%;
+}
+
+.show_total {
+  max-height: 500px;
+  overflow: auto;
+}
+
 .show_match {
-  width: 50%;
-  height: 70px;
+  width: 100%;
+  min-height: 60px;
+  max-height: 100px;
+  margin-right: 2%;
   border: 1px solid red;
   border-radius: 5px;
   margin-bottom: 10px;
-  padding: 10px;
-}
-
-@media (max-width: 780px) {
-
-  .show_match {
-  width: 100%;
-}
-
+  padding: 0px 10px;
 }
 
 .show_foto {
-  width: 50px;
-  height: 50px;
-  border-radius: 100%;
+ margin-top: auto;
+ margin-bottom: auto;
+ width: 40px;
+ height: 40px;
 }
 
-/* Imagem */
-
-#foto {
-  border-radius: 100%;
-  width: 300px;
-  height: 300px;
+.show_nome {
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 150px;
 }
 
-/* Botoes */ 
+.show_email {
+ margin-top: auto;
+ margin-bottom: auto;
+ min-width: 200px;
+ max-width: 250px;
+}
+
+.show_celular {
+ margin-top: auto;
+ margin-bottom: auto;
+ width: 143px;
+}
+
+.show_botoes {
+  margin: auto 10px auto auto;
+  width: 90px;
+}
+
+.fotinho {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+}
 
 .btn_desfazer {
  width: 40px;
@@ -45,7 +70,7 @@
  border-radius: 5px;
  border: 3px solid darkred;
  padding: 0px;
- right: 0;
+ float: right;
 }
 
 .btn_ver {
@@ -54,7 +79,31 @@
  border-radius: 5px;
  border: 3px solid darkgreen;
  padding: 0px;
- right: 0;
+ float: left;
+}
+
+@media (max-width: 900px) {
+
+  .show_celular {
+    display: none;
+  }
+
+  .show_email {
+    display: none;
+  }
+
+  .show_nome {
+    max-width: 150px;
+  }
+
+}
+
+
+
+#foto {
+  border-radius: 100%;
+  width: 300px;
+  height: 300px;
 }
 
 #jp {

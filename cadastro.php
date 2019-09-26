@@ -46,7 +46,7 @@ $Executar_cadastro->cadastrar();
 					
 					<!-- Nome -->					
 					<div class="wrap-input100 validate-input">
-						<input class="input100" type="text" name="nome" id="nome" required="" placeholder="Nome" value="<?=utf8_encode($Executar_cadastro->nome)?>">	
+						<input class="input100" type="text" name="nome" id="nome" required="" maxlength="30" placeholder="Nome" value="<?=utf8_encode($Executar_cadastro->nome)?>">	
 					</div>
 					
 					<!-- Email -->

@@ -268,7 +268,7 @@ $matches->mostrar();
 
           <!-- Menu lista match -->
           <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-           <div class="collapse p-3" id="collapseExample2">
+           <div class="collapse-show p-3" id="collapseExample2">
             <div class="row ml-2 mr-2">                
               <div class="col-md-12">
                 <p>
@@ -283,34 +283,40 @@ $matches->mostrar();
 
             <!-- Lista match  -->
 
-            <div class="row mb-2">
-              <div class="col-md-10 col-sm-12">
+            <div class="row mb-2 show_total">
+              <div class="col-12">
                 <!-- Busca de match -->
                 <?php foreach ($matches->resultado as $key => $value) { ?>
 
-                  <div id="<?=$matches->resultado[$key]['Id_match']?>" class="row show_match">
+                  <div id="<?=$matches->resultado[$key]['Id_match']?>" class="show_match">
                     <!-- Borda -->
-                    <nav class="nav">
+                    <nav class="nav show_nav">
                       <!-- Imagem -->
-                      <div class="col-auto">
-                        <img class="show_foto" src="<?php if ($matches->resultado[$key]['Foto'] <> null) { echo 'media/images/fotos_usuarios/'.$matches->resultado[$key]['Foto'];} else { echo 'media/images/fotos_usuarios/avatar.png';} ?>">
+                      <div class="show_foto">
+                        <img class="fotinho" src="<?php if ($matches->resultado[$key]['Foto'] <> null) { echo 'media/images/fotos_usuarios/'.$matches->resultado[$key]['Foto'];} else { echo 'media/images/fotos_usuarios/avatar.png';} ?>">
                       </div>
                       <!-- Nome -->
-                      <div class="col-2">
+                      <div class="show_nome">
                         <a class="nav-link" href="#">
-                          <small><?=utf8_encode($matches->resultado[$key]['Nome'])?></small>  
-                        </a>          
+                          <?=utf8_encode($matches->resultado[$key]['Nome'])?> 
+                        </a> 
                       </div>
-                      <!-- Telefone -->
-                      <div class="nav-link col-2 d-md-block d-none">
+                      <!-- Email -->
+                      <div class="show_email">
+                        <a class="nav-link">
+                          <?=utf8_encode($matches->resultado[$key]['Email'])?> 
+                        </a> 
+                      </div>
+                      <!-- Celular -->
+                      <div class="show_celular">
+                        <strong>Cel:</strong>
                         <small><?php if ($matches->resultado[$key]['Celular'] <> null) {echo utf8_encode($matches->resultado[$key]['Celular']);} else {echo "Não tem celular";}?></small>
                       </div>
-                      <div class="nav-link col-md-auto col-1">
-                        <button class="btn_ver"><a href="#"><img class="rounded" src="media/images/icons/olho.jpg" alt="Ver Perfil" height="100%"></a></button>
-                      </div>
-                      <!-- Desfazer match -->
-                      <div class="nav-link col-md-auto col-1">
+                      <div class="show_botoes">                        
+                        <!-- Desfazer match -->
                         <button onclick="desfazer(<?=$matches->resultado[$key]['Id_match']?>)" class="btn_desfazer"><img class="rounded" src="media/images/icons/lixo.jpg" alt="Excluir match" height="100%"></button>
+                        <!-- Ver Perfil -->
+                        <button class="btn_ver"><a href="#"><img class="rounded" src="media/images/icons/olho.jpg" alt="Ver Perfil" height="100%"></a></button>
                       </div>
                     </nav>                   
                   </div>
@@ -384,7 +390,7 @@ $matches->mostrar();
   </div>
   <!-- Fim container -->
 </div>
-<!-- Fim sessão -->
+<!-- Fim section -->
 </section>
 
 <!-- Footer -->
