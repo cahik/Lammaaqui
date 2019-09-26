@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: 17-Set-2019 às 09:06
+-- Generation Time: 26-Set-2019 às 08:20
 -- Versão do servidor: 5.6.39-log
 -- PHP Version: 5.6.30
 
@@ -21,6 +21,27 @@ SET time_zone = "+00:00";
 --
 -- Database: `llamaaqu_master`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `chat`
+--
+
+CREATE TABLE `chat` (
+  `id` int(11) NOT NULL,
+  `mensagem` mediumtext CHARACTER SET utf8 NOT NULL,
+  `msn_enviada` mediumtext NOT NULL,
+  `acao` enum('enviou','recebeu') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `chat`
+--
+
+INSERT INTO `chat` (`id`, `mensagem`, `msn_enviada`, `acao`) VALUES
+(1, 'oiiiiiiiii', '', 'enviou'),
+(2, 'oiiiiiiiii', '', 'enviou');
 
 -- --------------------------------------------------------
 
@@ -5630,7 +5651,9 @@ INSERT INTO `contato` (`Id`, `Nome`, `Email`, `Assunto`, `Mensagem`) VALUES
 (3, 'João', 'joaozinho@gmail.com', 'Reclamação', 'Isso tá ótimo'),
 (4, 'João', 'joaozinho@gmail.com', 'Reclamação', 'Isso tá ótimo'),
 (5, 'João', 'elenicepaterno@gmail.com', 'oii', 'oiiiiiiiiiii'),
-(6, 'Gustavo', 'vergiliogu@gmail.com', 'To com fome', 'Tem que tirar as roupas do varal');
+(6, 'Gustavo', 'vergiliogu@gmail.com', 'To com fome', 'Tem que tirar as roupas do varal'),
+(7, 'Gustavo', 'vergilio@gmail.com', 'Reclamação', 'Isso é TOP!'),
+(8, 'Alex', 'lele@hotmail.com', 'To com fome', 'É muitaaaa fome');
 
 -- --------------------------------------------------------
 
@@ -5669,16 +5692,13 @@ CREATE TABLE `dados_usuario` (
 --
 
 INSERT INTO `dados_usuario` (`Id`, `Conta_verificada`, `Nome`, `Foto`, `Descricao`, `Email`, `Senha`, `Sexo`, `Data_nascimento`, `Telefone`, `Celular`, `Fk_cidade`, `Fk_estado`, `Fuma`, `Aceita_fumar`, `Bebe`, `Aceita_beber`, `Tem_animal`, `Aceita_animais`, `Trabalha`, `Estuda`, `Aceita_genero`, `Aceita_pagar`) VALUES
-(6, 0, 'Gustavo Vergilio', '', 'Eu me sinto foda!', 'vergiliopoleza@gmail.com', 'gogu1805', 'Masculino', '2003-05-18', NULL, NULL, 3767, 20, 0, 0, 0, 1, 1, 1, 0, 1, 'Feminino', 2000),
-(7, 0, 'Luquinhas', NULL, 'Eu sou a cara da riqueza', 'srvinter@gmail.com', '123', 'Masculino', '1956-06-22', NULL, NULL, 4449, 24, 1, NULL, 0, NULL, 1, NULL, 0, 1, NULL, 200),
-(23, 0, 'Elenice Paterno', NULL, 'Teste', 'teste@gmail.com', '123', 'Feminino', '1995-05-31', NULL, 444444444, 4449, 24, NULL, 0, 0, 0, 1, 0, 0, 0, 'Não me importo', 500),
-(26, 0, 'João', NULL, NULL, 'joao_entra21@gmail.com', '123', 'Masculino', '1998-10-29', 4733256487, 47999323738, 3608, 19, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(27, 0, 'Andressa', NULL, NULL, 'dessa@gmail.com', '123', 'Feminino', '2000-11-19', 8468465465, 78578786786, 4460, 24, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(28, 0, 'Julia Taca Fogo', NULL, NULL, 'julinha.taca.fogo@gmail.com', '12345678', 'Feminino', '2000-11-17', 4444444444, NULL, 2822, 18, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(29, 0, 'Alana', NULL, NULL, 'lina@outlook.com', '12345678', 'Feminino', '2003-10-28', NULL, NULL, 2857, 18, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(30, 0, 'Tonico', NULL, NULL, 'tonin@gmail.com', '12345678', 'Masculino', '1985-11-17', NULL, NULL, 4450, 24, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(31, 0, 'CAHIK DE MATOS SOARES', NULL, NULL, 'cahikmatos@gmail.com', '1234', 'Masculino', '2002-11-18', 7997908218, NULL, 1696, 19, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(32, 0, 'null', NULL, NULL, 'aninha@gmail.com', '12345678', 'Feminino', '2001-05-21', NULL, NULL, 3183, 16, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(6, 0, 'Gustavo Vergilio', '', 'Eu me sinto foda!', 'vergiliopoleza@gmail.com', 'gogu1805', 'Masculino', '2000-05-18', 4740028922, NULL, 4617, 24, 0, 1, 0, 1, 0, 1, 0, 0, 'Não me importo', 1100),
+(7, 0, 'Luquinhas', NULL, 'Eu sou a cara da riqueza!', 'srvinter@gmail.com', '123', 'Masculino', '1956-06-22', NULL, 47940028922, 4617, 24, 0, 1, 0, 0, 0, 1, 0, 0, 'Não me importo', 200),
+(23, 0, 'Elenice Paterno', NULL, 'Olha só, um teste de descrição, essa vai ser uma linda descrição!', 'teste@gmail.com', '123', 'Feminino', '1995-05-31', NULL, 44444444455, 4617, 24, 0, 1, 0, 1, 0, 1, 0, 0, 'Não me importo', 500),
+(31, 0, 'Cahik de Matos Soares', '', 'tudo de bom.', 'cahikmatos@gmail.com', '1234', 'Masculino', '1998-11-18', 7997908218, NULL, 4449, 24, 0, 1, 0, 1, 0, 1, 0, 0, 'Não me importo', 500),
+(33, 0, 'Andressa', NULL, 'Uma descrição qualquer, eu sou uma pessoa TOP!', 'dessa@gmail.com', '12345678', 'Feminino', '2000-10-20', NULL, NULL, 4617, 24, 1, 1, 1, 1, 1, 1, 1, 1, 'Não me importo', 600),
+(35, 0, 'Louyza Bianchi Duarte', NULL, '', 'louyzadut@gmail.com', '12345678', 'Feminino', '1997-08-29', 4792000607, 47920006071, 4617, 24, 0, 1, 1, 1, 1, 1, 1, 1, 'Não me importo', 800),
+(36, 0, 'kpitao', NULL, '', 'xuxa@xuxa.com', '12345678', 'Feminino', '2010-11-20', 4798989564, NULL, 4449, 24, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Não me importo', 0);
 
 -- --------------------------------------------------------
 
@@ -5743,30 +5763,31 @@ CREATE TABLE `like_deslike` (
 --
 
 INSERT INTO `like_deslike` (`id`, `deu`, `recebeu`, `acao`) VALUES
-(26, 31, 6, 'dislike'),
-(27, 31, 7, 'dislike'),
-(28, 31, 23, 'dislike'),
-(29, 31, 26, 'dislike'),
-(30, 31, 27, 'dislike'),
-(31, 31, 28, 'dislike'),
-(32, 31, 29, 'dislike'),
-(33, 31, 30, 'dislike'),
-(34, 31, 31, 'like'),
-(35, 31, 32, 'dislike'),
-(36, 7, 6, 'like'),
-(37, 7, 7, 'like'),
-(38, 7, 23, 'dislike'),
-(39, 7, 26, 'like'),
-(40, 7, 27, 'dislike'),
-(41, 7, 28, 'like'),
-(42, 7, 29, 'dislike'),
-(43, 7, 30, 'dislike'),
-(44, 7, 31, 'dislike'),
-(45, 7, 32, 'dislike');
+(240, 6, 23, 'like'),
+(241, 6, 33, 'dislike');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `matches`
+--
+
+CREATE TABLE `matches` (
+  `Id` int(11) NOT NULL,
+  `Usuario_1` int(11) DEFAULT NULL,
+  `Usuario_2` int(11) DEFAULT NULL,
+  `Data_match` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `chat`
+--
+ALTER TABLE `chat`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `cidade`
@@ -5804,8 +5825,22 @@ ALTER TABLE `like_deslike`
   ADD KEY `like_deslike_ibfk_1` (`recebeu`);
 
 --
+-- Indexes for table `matches`
+--
+ALTER TABLE `matches`
+  ADD PRIMARY KEY (`Id`),
+  ADD KEY `Usuario_1` (`Usuario_1`),
+  ADD KEY `Usuario_2` (`Usuario_2`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `chat`
+--
+ALTER TABLE `chat`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `cidade`
@@ -5817,13 +5852,13 @@ ALTER TABLE `cidade`
 -- AUTO_INCREMENT for table `contato`
 --
 ALTER TABLE `contato`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `dados_usuario`
 --
 ALTER TABLE `dados_usuario`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `estado`
@@ -5835,7 +5870,13 @@ ALTER TABLE `estado`
 -- AUTO_INCREMENT for table `like_deslike`
 --
 ALTER TABLE `like_deslike`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=242;
+
+--
+-- AUTO_INCREMENT for table `matches`
+--
+ALTER TABLE `matches`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- Constraints for dumped tables
@@ -5852,7 +5893,16 @@ ALTER TABLE `dados_usuario`
 -- Limitadores para a tabela `like_deslike`
 --
 ALTER TABLE `like_deslike`
-  ADD CONSTRAINT `like_deslike_ibfk_1` FOREIGN KEY (`recebeu`) REFERENCES `dados_usuario` (`Id`);
+  ADD CONSTRAINT `like_deslike_ibfk_1` FOREIGN KEY (`recebeu`) REFERENCES `dados_usuario` (`Id`),
+  ADD CONSTRAINT `like_deslike_ibfk_2` FOREIGN KEY (`deu`) REFERENCES `dados_usuario` (`Id`),
+  ADD CONSTRAINT `like_deslike_ibfk_3` FOREIGN KEY (`recebeu`) REFERENCES `dados_usuario` (`Id`);
+
+--
+-- Limitadores para a tabela `matches`
+--
+ALTER TABLE `matches`
+  ADD CONSTRAINT `matches_ibfk_1` FOREIGN KEY (`Usuario_1`) REFERENCES `dados_usuario` (`Id`),
+  ADD CONSTRAINT `matches_ibfk_2` FOREIGN KEY (`Usuario_2`) REFERENCES `dados_usuario` (`Id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
