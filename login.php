@@ -20,11 +20,12 @@ if (isset($_POST['logar'])) {
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
 	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
-	<link rel="icon" type="image/png" href="media/images/icons/favicon.ico"/>	
+	<link rel="icon" type="image/png" href="media/images/icons/favicon.ico"/>
 	<link rel="stylesheet" type="text/css" href="lib/vendor/bootstrap/css/bootstrap.min.css">	
 	<link rel="stylesheet" type="text/css" href="media/css/util.css">
 	<link rel="stylesheet" type="text/css" href="media/css/main.css">
 	<link rel="stylesheet" type="text/css" href="media/css/style.css">
+	<link rel="stylesheet" type="text/css" href="media/css/barra.css">
 	<!--===============================================================================================-->
 </head>
 

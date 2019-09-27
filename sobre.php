@@ -126,7 +126,7 @@ $Iniciar = new Site;
               <div class="card-header-d">
                 <div class="card-title-d align-self-center">
                   <h3 class="title-d">
-                    <a href="" class="link-two">Cahik Matos</a>
+                    <a class="link-two">Cahik Matos</a>
                   </h3>
                 </div>
               </div>
@@ -161,7 +161,7 @@ $Iniciar = new Site;
               <div class="card-header-d">
                 <div class="card-title-d align-self-center">
                   <h3 class="title-d">
-                    <a href="agent-single.html" class="link-two">Elenice Paterno</a>
+                    <a class="link-two">Elenice Paterno</a>
                   </h3>
                 </div>
               </div>
@@ -194,7 +194,7 @@ $Iniciar = new Site;
               <div class="card-header-d">
                 <div class="card-title-d align-self-center">
                   <h3 class="title-d">
-                    <a href="" class="link-two">Gustavo Poleza</a>
+                    <a class="link-two">Gustavo Poleza</a>
                   </h3>
                 </div>
               </div>
