@@ -43,21 +43,21 @@ $(document).ready(function() {
 			if (!console.log(resposta)) {
 				return;
 			}
-			$(this).parent().parent('.chat__bubbles');
-			const novo_balao = document.getElementById('balao');
-			console.log(novo_balao);
-			novo_balao.insertAdjacentHTML('afterend', ' <div class="chat__bubbles" id="balao">
-			<?php $mensagens = $chat->todos_mensagem_por_usuario($_SESSION['dados']['Id'], $a->resultado[$chave]['Id']);
-			foreach($mensagens as $key => $mensagem
-			{
-				if ($mensagem['id_enviou'] == $_SESSION['dados']['Id']) {
-					echo' <div class="chat__bubble --right">'.$mensagem['mensagem'].'</div>';
-				} else if ($mensagem['id_enviou'] == $a->resultado[$chave]['Id']) {
-					echo' <div class="chat__bubble --left">'.$mensagem['mensagem'].'</div>';
-				}
-			}
-				?>
-				</div>');
+			// $(this).parent().parent('.chat__bubbles');
+			// const novo_balao = document.getElementById('balao');
+			// console.log(novo_balao);
+			// novo_balao.insertAdjacentHTML('afterend', ' <div class="chat__bubbles" id="balao">
+			// <?php $mensagens = $chat->todos_mensagem_por_usuario($_SESSION['dados']['Id'], $a->resultado[$chave]['Id']);
+			// foreach($mensagens as $key => $mensagem
+			// {
+			// 	if ($mensagem['id_enviou'] == $_SESSION['dados']['Id']) {
+			// 		echo' <div class="chat__bubble --right">'.$mensagem['mensagem'].'</div>';
+			// 	} else if ($mensagem['id_enviou'] == $a->resultado[$chave]['Id']) {
+			// 		echo' <div class="chat__bubble --left">'.$mensagem['mensagem'].'</div>';
+			// 	}
+			// }
+			// 	?>
+			// 	</div>');
 
 		});
 
