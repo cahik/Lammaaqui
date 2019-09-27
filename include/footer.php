@@ -10,9 +10,7 @@
                         <li class="list-inline-item">
                             <a href="/Lammaaqui/sobre.php">Sobre</a>
                         </li>
-                        <li class="list-inline-item">
-                            <a href="/Lammaaqui/contato.php">Contato</a>
-                        </li>
+                        
                     </ul>
                 </nav>
 

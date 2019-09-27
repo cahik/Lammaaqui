@@ -334,7 +334,7 @@ $matches->mostrar();
       <?php foreach ($a->resultado as $chave => $valor) { ?>
 
         <!-- Card -->
-        <div class="card cardlike card_<?=$chave?>" data-numero="<?=$chave?>" style="display: none;">             
+        <div class="card cardlike card_<?=$chave?>" data-numero="<?=$chave?>" style="display: none; padding-bottom: 100px !important;">             
           <div class="card-body text-center"> 
             <!-- Foto -->
             <img class="mx-auto" id="foto" src="media/images/fotos_usuarios/<?php $foto_card = $a->resultado[$chave]['Foto']; if ($foto_card == null || $foto_card == '') {echo 'avatar.png';} else {echo $foto_card;}?>">
@@ -403,7 +403,7 @@ $matches->mostrar();
 </section>
 
 <!-- Footer -->
-<?php require_once "include/footer.php"; ?>
+
 
 <!-- Spinner dourada -->
 <div id="preloader"></div>
@@ -428,6 +428,9 @@ crossorigin="anonymous"></script>
 <script src="media/js/main.js"></script>
 
 </body>
+<footer>
+<?php require_once "include/footer.php"; ?>
 </html>
+</footer>
 
 
