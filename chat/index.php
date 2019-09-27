@@ -7,6 +7,14 @@ require_once "chat.class.php";
 $a = new Mostrar_matches();
 $a->mostrar();
 
+$chat = new Chat();
+
+//echo '<pre>';
+//var_dump($a->resultado);
+//echo '</pre>';
+//
+//die();
+
 
 
 
@@ -30,57 +38,48 @@ $a->mostrar();
 <div id="container">
 
   <?php foreach ($a->resultado as $chave => $valor) { ?>
-
-
-
-
-
-
-
-
-
-<div class="chat__wrapper" style="float: right;">
-  <div class="chat__heading">
-    <div class="heading__list">
-      <div class="list__avatar">
-          <img src="<?php
-
-                        if ($a->resultado[$chave]['Foto'] <> null) {
-
-                           echo '../media/images/fotos_usuarios/'.$a->resultado[$chave]['Foto'];
-
-                           } else {
-
-                            echo '../media/images/fotos_usuarios/avatar.png';
-
-                        }?>">
+    <div class="chat__wrapper" style="float: right;">
+      <div class="chat__heading">
+        <div class="heading__list">
+          <div class="list__avatar">
+              <img src="<?php
+                  if ($a->resultado[$chave]['Foto'] <> null) {
+                    echo '../media/images/fotos_usuarios/'.$a->resultado[$chave]['Foto'];
+                  } else {
+                    echo '../media/images/fotos_usuarios/avatar.png';
+                  }?>
+                ">
+          </div>
+          <div class="list__title">
+            <?=$a->resultado [$chave]['Nome']; ?>
+          </div>
+        </div>
       </div>
-      <div class="list__title">
-        <?=$a->resultado [$chave]['Nome']; ?>
+      <div class="chat__bubbles">
+          <?php
+            $mensagens = $chat->todos_mensagem_por_usuario($_SESSION['dados']['Id'], $a->resultado[$chave]['Id']);
+
+            foreach ($mensagens as $key => $mensagem) {
+                if($mensagem['id_enviou'] == $_SESSION['dados']['Id']) {
+                    echo ' <div class="chat__bubble --right">'.$mensagem['mensagem'].'</div>';
+                } else if ($mensagem['id_enviou'] == $a->resultado[$chave]['Id']) {
+                    echo ' <div class="chat__bubble --left">'.$mensagem['mensagem'].'</div>';
+                }
+            }
+          ?>
+      </div>
+      <div class="chat__input">
+        <div class="chat__input-text" style="margin: 0 !important; padding: 0 !important;">
+            <input type="hidden" name="id_enviou" value="<?=$_SESSION['dados']['Id']?>">
+            <input type="hidden" name="id_recebeu" value="<?=$a->resultado[$chave]['Id']?>">
+            <input type="text" name="msn_enviada" class="enviar_msg">
+        </div>
+        <div class="chat__input-button" id="botao_enviar">
+          <ion-icon name="btnSalvar"></ion-icon>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="chat__bubbles">
-    <div class="chat__bubble --left" >
-  
-    </div>
-    <div class="chat__bubble --right">
-      Ex odit sunt, accusantium. Vero tenetur accusamus quos facilis voluptate, aperiam soluta nesciunt, dolorum similique
-    </div>
-  </div>
-  <div class="chat__input">
-    <div class="chat__input-text">
- 
-		<label for="msn_enviada">Mensage  </label>
-		<input type="text" name="msn_enviada" id="msn_enviada"  class="form-control" >	
-    </div>
-    <div class="chat__input-button">
-      <ion-icon name="btnSalvar"></ion-icon>
-    </div>
-  </div>
-</div>
-
-<?php } ?>
+  <?php } ?>
 </div>
 
 <script

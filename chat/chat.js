@@ -22,4 +22,17 @@ $(document).ready(function() {
 		$(this).parent().children('.chat__input').fadeToggle();
 	});
 
+	$('#botao_enviar').click(function() {
+		var id_enviou = $(this).parent().children().children()[0];
+		var id_recebeu = $(this).parent().children().children()[1];
+		var mensagem = $(this).parent().children().children()[2];
+
+		id_enviou = id_enviou.value;
+		id_recebeu = id_recebeu.value;
+		mensagem = mensagem.value;
+
+		console.log(mensagem);
+
+	});
+
 })
