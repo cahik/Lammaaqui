@@ -64,21 +64,20 @@ $data_nascimento = date_format($date,"d/m/Y");
         <div class="row">
           <div class="col-sm-4">
             <div class="title-single-box">
-              <h5 class="title-single tt"><?=utf8_encode($resultados['Nome'])?> !</h5>      
+              <h5 class="title-single tt"><?=utf8_encode($resultados['Nome'])?></h5>      
             </div>
           </div>
 
 
           <div class="col-sm-4"></div> 
 
-          <div id="foto" class="col-sm-4 tam" onmouseover="foto()" onmouseout="tirar_foto()">
+          <div id="foto" class="col-sm-4 tam">
             <img src= "<?php if ($resultados['Foto'] <> null and $resultados['Foto'] <> '') {echo 'media/images/fotos_usuarios/'.$resultados['Foto'];} else {echo 'media/images/fotos_usuarios/avatar.png';}?>" width="100%" class="rounded float-right img-fluid" alt="<?php if (isset($resultados['Nome'])) {echo $resultados['Nome'];} ?>">
 
             <div class="camera">             
               <center>
                 <div class="profile-img">
-                  <label style="cursor: pointer;" for="arquivos"><img src="media/images/camera.jpg" width="100%"></label>
-                  <input type="file" class="input_foto" name="arquivos[]" id="arquivos" multiple="" >
+                  <img src="media/images/camera.jpg" width="100%">
                 </div>
               </center>
             </div>
