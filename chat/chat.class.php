@@ -9,7 +9,21 @@ class chat extends Site {
         $result = mysqli_fetch_all($query, MYSQLI_ASSOC);
         return $result;
     }
+
+
+    public function click($mensagem, $id_enviou, $id_recebeu) {
+        $sql = "INSERT INTO chat (id, mensagem, id_enviou, id_recebeu, data_hora ) VALUES (DEFAULT, '$mensagem', '$id_enviou', '$id_recebeu','" . date('Y-m-d H:i:s') . "')";
+        if ( mysqli_query($this->con, $sql)) {
+            return true;
+        }else{
+            return false;
+        }
+
+    }
 }
+
+
+
 
 
 

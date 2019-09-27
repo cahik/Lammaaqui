@@ -109,7 +109,19 @@ if (isset($_POST['Enviar'])) {
 </section>
 <!--/ Fim do formulário /-->
 
-<?php require_once "include/footer.php"; ?>
+<footer>
+  <div class="container">
+       
+
+                <div class="copyright-footer">
+                    <p class="copyright color-text-a">
+                        Desenvolvido com muita dedicação e café pelos alunos do curso de Programação em PHP
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+ </footer>
 
 <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 <div id="preloader"></div>
