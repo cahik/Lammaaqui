@@ -157,8 +157,11 @@ $Iniciar = new Site;
             <div class="card-overlay card-overlay-hover">
               <div class="card-header-d">
                 <div class="card-title-d align-self-center">
+
                   <h3  style="text-align: center!important;" class="title-d">
                     <a href="agent-single.html" class="link-two">Elenice Paterno</a>
+
+                 
                   </h3>
                 </div>
               </div>
@@ -187,8 +190,10 @@ $Iniciar = new Site;
             <div class="card-overlay card-overlay-hover">
               <div class="card-header-d">
                 <div class="card-title-d align-self-center">
+
                   <h3  style="text-align: center!important;" class="title-d">
                     <a href="" class="link-two">Gustavo Poleza</a>
+
                   </h3>
                 </div>
               </div>
