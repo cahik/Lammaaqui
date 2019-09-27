@@ -55,7 +55,7 @@ $chat = new Chat();
           </div>
         </div>
       </div>
-      <div class="chat__bubbles">
+      <div class="chat__bubbles" id="balao">
           <?php
             $mensagens = $chat->todos_mensagem_por_usuario($_SESSION['dados']['Id'], $a->resultado[$chave]['Id']);
 
