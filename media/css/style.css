@@ -2164,3 +2164,16 @@ input[type=range]::-webkit-slider-thumb{
   height: 40px;
   border-radius: 100%;
 }
+
+
+@media (max-width: 1200px) {
+  #id_estado, #id_cidade  {
+    width: 90%;
+  }
+}
+
+@media (min-width: 768px) {
+  #id_estado, #id_cidade  {
+    width: 310px;
+  }
+}
