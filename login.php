@@ -62,11 +62,11 @@ if (isset($_POST['logar'])) {
 					<div class="container ">						
 						<div class="row " >
 							<div class="col-12 text-center">
-								<button type="submit" name="logar" class="btn salvarDados mt-2 ">Entrar</button>
+								<button type="submit" name="logar" class="btn salvarDados mt-2">Entrar</button>
 							</div>												
 						</div>
 
-						<div class="flex-sb-m w-full p-t-3 p-b-32 mt-3 ">
+						<div class="flex-sb-m w-full p-t-3 p-b-32 mt-3">
 							<div>
 								<a href="/Lammaaqui/send_email.php" class="txt1">
 									Esqueceu sua senha?
@@ -76,22 +76,17 @@ if (isset($_POST['logar'])) {
 									Cadastre-se
 								</a>
 							</div>
-
 						</div>
-
 					</div>
-
 				</big>
-
-			</form>
-
-			
+			</form>			
 
 		</div>	
 
 	</div>	
 
-	<?php require_once "include/footer.php"; ?>	
+	<!-- Footer -->
+	<?php require_once "include/footer.php"; ?>
 
 	<!-- Biblioteca Boostrap -->
 	<script
