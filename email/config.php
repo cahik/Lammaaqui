@@ -75,14 +75,36 @@ function enviar_email($para, $de, $de_nome, $assunto, $corpo) {
 
 class Email extends Site {
 
+	public $tk;
+
 	function __construct() {
 
 		parent::__construct();
 
 	}
 
+	// Gerando um token aleatorio
+	public function criar_token($Email) {
+
+		$this->tk = mt_rand(100000, 999999);
+		$sql = "SELECT * FROM dados_usuario where Token = $this->tk";
+		$query = mysqli_query($this->con, $sql);
+
+		while (mysqli_num_rows($query) <> 0) {
+
+			$this->tk = mt_rand(100000, 999999);
+
+		}
+
+		$sql = "UPDATE dados_usuario SET Token = $this->tk where Email = '$Email'";
+		mysqli_query($this->con, $sql);
+		return $this->tk;
+
+	}
+
+
 	// Verificando se email existe no banco de dados
-	function verificar_email($Email) {
+	public function verificar_email($Email) {
 
 
 		$sql = "SELECT * FROM dados_usuario where Email = '$Email'";
@@ -94,7 +116,7 @@ class Email extends Site {
 			$alerta['tipo'] = 'success';
 			$alerta['mensagem'] = "Email enviado com sucesso!";
 			setcookie('alerta', serialize($alerta), time() + 10);
-			return true;
+			return $this->tk;
 
 		} else {
 
@@ -108,24 +130,7 @@ class Email extends Site {
 
 	}
 
-	// Gerando um token aleatorio
-	function criar_token($Email) {
 
-		$tk = mt_rand(100000, 999999);
-		$sql = "SELECT * FROM dados_usuario where Token = $tk";
-		$query = mysqli_query($this->con, $sql);
-
-		while (mysqli_num_rows($query) <> 0) {
-
-			$tk = mt_rand(100000, 999999);
-
-		}
-
-		$sql = "UPDATE dados_usuario SET Token = $tk where Email = '$Email'";
-		mysqli_query($this->con, $sql);
-		return $tk;
-
-	}
 
 }
 
