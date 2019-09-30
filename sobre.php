@@ -126,15 +126,15 @@ $Iniciar = new Site;
               <div class="card-header-d">
                 <div class="card-title-d align-self-center">
                   <h3 style="text-align: center!important;" class="title-d">
-                    <a href="" class="link-two">Cahik Matos</a>
+                    <a class="link-two">Cahik Matos</a>
                   </h3>
                 </div>
               </div>
               <div class="card-body-d">
                 <p class="content-d color-text-a">
-                  Mineirin uai, 26 anos, músico, apaixonado por tecnologia desde sempre.
-                  <br>De uns tempos pra cá, resolvi tentar a carreira na área de T.I mais precisamente voltado para a parte de front end.
-                  <br> Atenção empresas... não sou uma function( ) mas me chama que eu vou! :D
+                  Mineirin uai, 26 anos, músico e apaixonado por tecnologia.
+                  De uns tempos pra cá resolvi tentar a carreira na área de T.I, mais precisamente em front-end.
+                  <br> Atenção empresas! Não sou uma function( ) mas me chama que eu vou! :D
                 </p>
               </div>
               <div class="card-footer-d">
@@ -159,7 +159,7 @@ $Iniciar = new Site;
                 <div class="card-title-d align-self-center">
 
                   <h3  style="text-align: center!important;" class="title-d">
-                    <a href="agent-single.html" class="link-two">Elenice Paterno</a>
+                    <a class="link-two">Elenice Paterno</a>
 
                  
                   </h3>
@@ -167,7 +167,7 @@ $Iniciar = new Site;
               </div>
               <div class="card-body-d">
                 <p class="content-d color-text-a">
-                  Sed porttitor lectus nibh, Cras ultricies ligula sed magna dictum porta two.
+                 Gosto de caminhar pelas ruas pra observar como a cidade se comporta, de conversar com novas pessoas para saber o que pensam sobre o que acontece em nossas vidas. As inovações tecnológicas só terão valor se compreendermos os desejos e as necessidades das pessoas.
                 </p>
               </div>
               <div class="card-footer-d">
@@ -192,7 +192,7 @@ $Iniciar = new Site;
                 <div class="card-title-d align-self-center">
 
                   <h3  style="text-align: center!important;" class="title-d">
-                    <a href="" class="link-two">Gustavo Poleza</a>
+                    <a class="link-two">Gustavo Poleza</a>
 
                   </h3>
                 </div>
