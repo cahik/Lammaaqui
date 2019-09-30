@@ -23,6 +23,10 @@
                     </li>
 
                     <li class="nav-item">
+                        <a class="nav-link <?php if ($_SERVER["REQUEST_URI"] == '/Lammaaqui/chat/index.php') {echo 'active';}?>" href="/Lammaaqui/chat/index.php">Chat</a>
+                    </li>
+
+                    <li class="nav-item">
                         <a class="nav-link <?php if ($_SERVER["REQUEST_URI"] == '/Lammaaqui/perfil.php') {echo 'active';}?>" href="/Lammaaqui/perfil.php">Meu Perfil</a>
                     </li>
                     

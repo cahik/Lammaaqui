@@ -102,6 +102,13 @@ class Mostrar_matches extends Site {
 
     }
 
+    public function confirmar_match($id) {
+        $sql = "SELECT count(*) AS total FROM matches WHERE (Usuario_1 = {$_SESSION['dados']['Id']} AND Usuario_2 = $id) OR (Usuario_1 = $id AND Usuario_2 = {$_SESSION['dados']['Id']})";
+        $query = mysqli_query($this->con, $sql);
+        $result = mysqli_fetch_all($query, MYSQLI_ASSOC);
+        return $result;
+    }
+
     public function deletar_match($id_match) {
 
         $this->sql = "DELETE FROM matches where Id = $id_match";

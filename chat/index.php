@@ -4,12 +4,17 @@ require_once "../classes/match.class.php";
 require_once "chat.class.php";
 
 
-$a = new Mostrar_matches();
-$a->mostrar();
+$matches = new Mostrar_matches();
+$matches->mostrar();
 
 $chat = new Chat();
 
 if (isset($_GET['id'])) {
+    $confirmacao = $matches->confirmar_match($_GET['id']);
+
+    if ($confirmacao[0]['total'] == 0)
+        die('Página não encontrada.');
+
     $id_chat = $_GET['id'];
 }
 
@@ -56,17 +61,17 @@ if (isset($_GET['id'])) {
 
                 <div class="col-12 mt-3 mb-2 px-4">
                     <div class="row">
-                        <?php if (count($a->resultado) > 0) : ?>
-                            <?php foreach ($a->resultado as $chave => $valor) : ?>
-                            <a href="chat_teste.php?id=<?=$a->resultado[$chave]['Id']; ?>" class="col-2 text-center user_matches pt-3">
+                        <?php if (count($matches->resultado) > 0) : ?>
+                            <?php foreach ($matches->resultado as $chave => $valor) : ?>
+                            <a href="index.php?id=<?=$matches->resultado[$chave]['Id']; ?>" class="col-2 text-center user_matches pt-3">
                                 <img src="<?php
-                                            if ($a->resultado[$chave]['Foto'] <> null) {
-                                                echo '../media/images/fotos_usuarios/'.$a->resultado[$chave]['Foto'];
+                                            if ($matches->resultado[$chave]['Foto'] <> null) {
+                                                echo '../media/images/fotos_usuarios/'.$matches->resultado[$chave]['Foto'];
                                             } else {
                                                 echo '../media/images/fotos_usuarios/avatar.png';
                                             }?>"
                                      class="img-fluid" style="border-radius: 100%; max-height: 75px;">
-                                <p class="mt-2 <?=((isset($_GET['id']) && ($a->resultado[$chave]['Id'] == $_GET['id'])) ? 'chat_ativo' : '');?>"><?=$a->resultado [$chave]['Nome']; ?></p>
+                                <p class="mt-2 <?=((isset($_GET['id']) && ($matches->resultado[$chave]['Id'] == $_GET['id'])) ? 'chat_ativo' : '');?>"><?=$matches->resultado [$chave]['Nome']; ?></p>
                             </a>
                             <?php endforeach; ?>
                         <?php else : ?>
@@ -75,7 +80,7 @@ if (isset($_GET['id'])) {
                     </div>
                 </div>
 
-                <?php if (!isset($_GET['id']) && count($a->resultado) > 0) : ?>
+                <?php if (!isset($_GET['id']) && count($matches->resultado) > 0) : ?>
                 <div class="col-12 text-center border rounded py-5">
                     <h5 style="color: #ebbf31;">Selecione um usuário para abrir o chat =)</h5>
                 </div>
@@ -85,7 +90,7 @@ if (isset($_GET['id'])) {
                 <div class="col-12 text-center border rounded mt-2">
                     <div class="row">
 
-                        <div class="col-12 pt-4">
+                        <div class="col-12 pt-4 pb-0">
 
                             <div id="mensagens">
                                 <?php
@@ -93,7 +98,7 @@ if (isset($_GET['id'])) {
 
                                     if (count($mensagens) > 0) :
                                         foreach ($mensagens as $key => $mensagem) :
-                                            if($mensagem['id_enviou'] == $a->resultado[$chave]['Id']) {
+                                            if($mensagem['id_enviou'] == $matches->resultado[$chave]['Id']) {
                                                 echo '<div class="answer left mb-2 px-5">';
                                                 echo '<div class="text">' . $mensagem['mensagem'] . '</div>';
                                                 echo '<div class="time">'. date_format(date_create($mensagem['data_hora']),"d.m.y H:i") .'</div>';
@@ -115,17 +120,12 @@ if (isset($_GET['id'])) {
                             </div>
 
                             <div class="row bg-highlight-sidebar pt-3">
-                                <div class="col-10">
+                                <div class="col-12">
                                     <div class="form-group">
                                         <input type="hidden" id="id_enviou" name="id_enviou" value="<?=$_SESSION['dados']['Id']?>">
                                         <input type="hidden" id="id_recebeu" name="id_recebeu" value="<?=$id_chat?>">
-                                        <input type="text" class="form-control" id="mensagem" name="mensagem">
+                                        <input type="text" class="form-control m-0" id="mensagem" name="mensagem" placeholder="Digite aqui sua mensagem...">
                                     </div>
-                                </div>
-                                <div class="col-2">
-                                    <button type="button" class="btn btn-warning cor_botao" id="botao_enviar">
-                                        Enviar
-                                    </button>
                                 </div>
                             </div>
 
