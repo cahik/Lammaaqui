@@ -307,7 +307,7 @@ $matches->mostrar();
                         <!-- Desfazer match -->
                         <button onclick="desfazer(<?=$matches->resultado[$key]['Id_match']?>)" class="btn_desfazer"><img class="rounded" src="media/images/icons/lixo.jpg" alt="Excluir match" height="80%"></button>
                         <!-- Ver Perfil -->
-                        <button class="btn_ver"><a href="#"><img class="rounded" src="media/images/icons/olho.jpg" alt="Ver Perfil" width="100%"></a></button>
+                        <button class="btn_ver"><a href="perfilmatch.php?id=<?=$matches->resultado[$key]['Id']?>"><img class="rounded" src="media/images/icons/olho.jpg" alt="Ver Perfil" width="100%"></a></button>
                       </div>
                     </nav>                   
                   </div>

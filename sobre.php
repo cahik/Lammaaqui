@@ -109,7 +109,7 @@ $Iniciar = new Site;
         <div class="col-md-12">
           <div class="title-wrap d-flex justify-content-between">
             <div class="title-box">
-              <h2 class="title-a">Nosso time</h2>
+              <h2 style="border-left: 3px solid #ebbf31!important;" class="title-a mr-2">&nbsp;Nosso time</h2>
             </div>
           </div>
         </div>
@@ -120,12 +120,12 @@ $Iniciar = new Site;
         <div class="col-md-4">
           <div class="card-box-d">
             <div class="card-img-d">
-              <img src="media/images/hik.jpg" alt="" class="img-d img-fluid">
+              <img src="media/images/cahik.png" alt="" class="img-d img-fluid">
             </div>
             <div class="card-overlay card-overlay-hover">
               <div class="card-header-d">
                 <div class="card-title-d align-self-center">
-                  <h3 class="title-d">
+                  <h3 style="text-align: center!important;" class="title-d">
                     <a href="" class="link-two">Cahik Matos</a>
                   </h3>
                 </div>
@@ -140,10 +140,7 @@ $Iniciar = new Site;
               <div class="card-footer-d">
                 <div class="socials-footer d-flex justify-content-center">
                   <ul class="list-inline">
-                    <li class="list-inline-item">
-                      <a href="https://www.linkedin.com/in/cahik-matos-2725a657/" class="link-one">
-                        <img class="linkedin" src="media/images/linkedin.png">
-                      </a>
+                    <li class="list-inline-item">                     
                     </li>
                   </ul>
                 </div>
@@ -155,13 +152,16 @@ $Iniciar = new Site;
         <div class="col-md-4">
           <div class="card-box-d">
             <div class="card-img-d">
-              <img src="media/images/elenice.jpg" alt="" class="img-d img-fluid">
+              <img src="media/images/elenice.png" alt="" class="img-d img-fluid">
             </div>
             <div class="card-overlay card-overlay-hover">
               <div class="card-header-d">
                 <div class="card-title-d align-self-center">
-                  <h3 class="title-d">
+
+                  <h3  style="text-align: center!important;" class="title-d">
                     <a href="agent-single.html" class="link-two">Elenice Paterno</a>
+
+                 
                   </h3>
                 </div>
               </div>
@@ -173,10 +173,7 @@ $Iniciar = new Site;
               <div class="card-footer-d">
                 <div class="socials-footer d-flex justify-content-center">
                   <ul class="list-inline">
-                    <li class="list-inline-item">
-                      <a href="https://www.linkedin.com/in/elenicempaterno/" class="link-one">
-                        <img class="linkedin" src="media/images/linkedin.png">
-                      </a>
+                    <li class="list-inline-item">                     
                     </li>
                   </ul>
                 </div>
@@ -188,13 +185,15 @@ $Iniciar = new Site;
         <div class="col-md-4">
           <div class="card-box-d">
             <div class="card-img-d">
-              <img src="media/images/Gustavo.jpg" alt="" class="img-d img-fluid">
+              <img src="media/images/gustavo.png" alt="" class="img-d img-fluid">
             </div>
             <div class="card-overlay card-overlay-hover">
               <div class="card-header-d">
                 <div class="card-title-d align-self-center">
-                  <h3 class="title-d">
+
+                  <h3  style="text-align: center!important;" class="title-d">
                     <a href="" class="link-two">Gustavo Poleza</a>
+
                   </h3>
                 </div>
               </div>
@@ -207,10 +206,7 @@ $Iniciar = new Site;
                 <div class="socials-footer d-flex justify-content-center">
                   <ul class="list-inline">
 
-                    <li class="list-inline-item">
-                      <a href="https://www.linkedin.com/in/gustavo-vergilio-aa2a8217b/" class="link-one">
-                        <img class="linkedin" src="media/images/linkedin.png">
-                      </a>
+                    <li class="list-inline-item">                      
                     </li>
                   </ul>
                 </div>
@@ -225,7 +221,7 @@ $Iniciar = new Site;
         <div class="col-md-4 offset-md-2">
           <div class="card-box-d">
             <div class="card-img-d">
-              <img src="media/images/quarto.jpg" alt="" class="img-d img-fluid">
+              <img src="media/images/lou.png" alt="" class="img-d img-fluid">
             </div>
             <div class="card-overlay card-overlay-hover">
               <div class="card-header-d">
@@ -243,10 +239,7 @@ $Iniciar = new Site;
               <div class="card-footer-d">
                 <div class="socials-footer d-flex justify-content-center">
                   <ul class="list-inline">
-                    <li class="list-inline-item">
-                      <a href="#" class="link-one">
-                       <img class="linkedin" src="media/images/linkedin.png">
-                      </a>
+                    <li class="list-inline-item">              
                     </li>
                   </ul>
                 </div>
@@ -260,7 +253,7 @@ $Iniciar = new Site;
         <div class="col-md-4 text-center">
           <div class="card-box-d">
             <div class="card-img-d">
-              <img src="media/images/lucas.jpg" alt="" class="img-d img-fluid">
+              <img src="media/images/lucas.png" alt="" class="img-d img-fluid">
             </div>
             <div class="card-overlay card-overlay-hover">
               <div class="card-header-d">
@@ -278,10 +271,7 @@ $Iniciar = new Site;
               <div class="card-footer-d">
                 <div class="socials-footer d-flex justify-content-center">
                   <ul class="list-inline">
-                    <li class="list-inline-item">
-                      <a href="https://www.linkedin.com/in/lucas-vinter-3b7a67185/" class="link-one">
-                       <img class="linkedin" src="media/images/linkedin.png">
-                      </a>
+                    <li class="list-inline-item">                    
                     </li>
                   </ul>
                 

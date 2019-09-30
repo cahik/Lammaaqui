@@ -40,7 +40,7 @@ $Iniciar = new Site;
   <!--/ Carousel /-->
   <div class="intro intro-carousel">
     <div id="carousel" class="owl-carousel owl-theme">
-      <div class="carousel-item-a intro-item bg-image" style="background-image: url(media/images/obra.png)"><!-- cozinha -->
+      <div class="carousel-item-a intro-item bg-image" style="background-image: url(media/images/salona.jpg)"><!-- cozinha -->
         <div class="overlay overlay-a"></div>
         <div class="intro-content display-table">
           <div class="table-cell">
@@ -63,7 +63,7 @@ $Iniciar = new Site;
           </div>
         </div>
       </div>
-      <div class="carousel-item-a intro-item bg-image" style="background-image: url(media/images/obra.png)"><!-- cama -->
+      <div class="carousel-item-a intro-item bg-image" style="background-image: url(media/images/cozinha.jpg)"><!-- cama -->
         <div class="overlay overlay-a"></div>
         <div class="intro-content display-table">
           <div class="table-cell">
@@ -86,7 +86,7 @@ $Iniciar = new Site;
           </div>
         </div>
       </div>
-      <div class="carousel-item-a intro-item bg-image" style="background-image: url(media/images/obra.png)"><!-- salona -->
+      <div class="carousel-item-a intro-item bg-image" style="background-image: url(media/images/cama.jpg)"><!-- salona -->
         <div class="overlay overlay-a"></div>
         <div class="intro-content display-table">
           <div class="table-cell">

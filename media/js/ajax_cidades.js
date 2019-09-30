@@ -20,6 +20,7 @@ function executar_ajax() {
 
 		var mostrar = JSON.parse(mostrar);
 		$('#id_cidade').empty();
+		$('#del').remove();
 
 		function alterar_selects(cid) {
 
