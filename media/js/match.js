@@ -15,8 +15,6 @@ $(document).ready(function() {
         var numero = Number($(this).parent().parent().parent().attr("data-numero"));
         var proximo = ".card_" + (numero + 1);
         $(proximo).show();
-
-
     });
 });
 
