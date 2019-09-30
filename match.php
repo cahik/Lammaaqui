@@ -288,7 +288,7 @@ $matches->mostrar();
                       </div>
                       <!-- Nome -->
                       <div class="show_nome">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="perfilmatch.php?id=<?=$matches->resultado[$key]['Id']?>">
                           <?=utf8_encode($matches->resultado[$key]['Nome'])?> 
                         </a> 
                       </div>
