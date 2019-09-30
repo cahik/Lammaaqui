@@ -490,7 +490,7 @@ $Mostrar_dados->update();
 
 </div>
 </div>
-</div>F
+</div>
 
 
 </div>         
