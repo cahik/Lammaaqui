@@ -403,7 +403,7 @@ $matches->mostrar();
 </section>
 
 <!-- Footer -->
-
+<?php require_once "include/footer.php"; ?>
 
 <!-- Spinner dourada -->
 <div id="preloader"></div>
