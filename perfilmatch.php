@@ -189,10 +189,10 @@ $data_nascimento = date_format($date,"d/m/Y");
                   </div>
                 </div>   
 
-                <!-- Onde quero morar -->
+                <!-- Onde quer morar -->
                 <div class="row">
                   <div class="col-md-12">
-                    <label class="col-sm mb-3 mt-3 col-form-label">Onde quero morar:</label>
+                    <label class="col-sm mb-3 mt-3 col-form-label">Onde quer morar:</label>
                   </div>
                 </div>
 
