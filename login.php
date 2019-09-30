@@ -66,7 +66,7 @@ if (isset($_POST['logar'])) {
 
 						<div class="flex-sb-m w-full p-t-3 p-b-32 mt-3 ">
 							<div>
-								<a href="/Lammaaqui/rebotsenha.php" class="txt1">
+								<a href="/Lammaaqui/send_email.php" class="txt1">
 									Esqueceu sua senha?
 								</a>
 								<br>
