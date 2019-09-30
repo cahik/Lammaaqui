@@ -33,8 +33,15 @@ $ano = mt_rand(1930, 2000);
 $estado = 24;
 $cidade = mt_rand (4413, 4705);
 
-$final = array ('Nome' => $resultado_nome, 'Email' => $resultado_email, 'Senha' =>$senha, 'Sexo' => $sexo, 'Dia' => $dia, 'Mes' => $mes, 'Ano' => $ano, 'Estado' => $estado, 'Cidade' => $cidade);
-var_dump($final);
+$data - $ano."-".$mes."-".$dia;
+
+
+$sql = "INSERT INTO dados_usuario (Nome, Email, Senha, Sexo, Data_nascimento, Fk_cidade, Fk_estado) values ('$resultado_nome', '$resultado_email', '$senha', '$sexo', 'Data_nascimento', '$cidade', '$estado')";
+
+mysqli_query($con, $sql);
+
+// $final = array ('Nome' => $resultado_nome, 'Email' => $resultado_email, 'Senha' =>$senha, 'Sexo' => $sexo, 'Dia' => $dia, 'Mes' => $mes, 'Ano' => $ano, 'Estado' => $estado, 'Cidade' => $cidade);
+
 
 // }
 
