@@ -145,7 +145,7 @@ $Mostrar_dados->update();
                     <label class="col-sm col-form-label">Nova senha</label>
                   </div>
                   <div class="col-md-6">
-                    <a href="rebotsenha.php" class="form-control mb-3" name="Senha"><small>Se quiser mudar sua senha, clique aqui.</small></a>
+                    <a href="send_email.php" class="form-control mb-3" name="Senha"><small>Se quiser mudar sua senha, clique aqui.</small></a>
                   </div>
                 </div>
 
