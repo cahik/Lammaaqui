@@ -94,7 +94,7 @@ $data_nascimento = date_format($date,"d/m/Y");
       <div class="container emp-profile">
         <div class="row">         
 
-          <!-- Navegação - Dados pessoais e Filtros -->
+          <!-- Navegação - Filtros e lista de match -->
           <div class="col-md-12">
             <div class="profile-head">             
             </div>
@@ -106,7 +106,7 @@ $data_nascimento = date_format($date,"d/m/Y");
           <div class="col-md-12">
             <div class="tab-content profile-tab" id="myTabContent">
 
-              <!-- Dados pessoais -->
+              <!-- Filtros -->
               <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
                 <div class="row mb-4">                

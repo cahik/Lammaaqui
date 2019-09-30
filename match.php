@@ -241,11 +241,11 @@ $matches->mostrar();
                           </button>
                         </div>
                       </div>
-                      </div>
-                    </small>
+                    </div>
+                  </small>
 
-                    <!-- Obs filtro -->
-                    <div class="row">                      
+                  <!-- Obs filtro -->
+                  <div class="row">                      
 
 
                     <!-- Fim dos filtros -->
@@ -279,103 +279,103 @@ $matches->mostrar();
                 <!-- Busca de match -->
                 <?php foreach ($matches->resultado as $key => $value) { ?>
 
-                  <div id="<?=$matches->resultado[$key]['Id_match']?>" class="show_match">
-                    <!-- Borda -->
-                    <nav class="nav show_nav">
-                      <!-- Imagem -->
-                      <div class="show_foto">
-                        <img class="fotinho" src="<?php if ($matches->resultado[$key]['Foto'] <> null) { echo 'media/images/fotos_usuarios/'.$matches->resultado[$key]['Foto'];} else { echo 'media/images/fotos_usuarios/avatar.png';} ?>">
-                      </div>
-                      <!-- Nome -->
-                      <div class="show_nome">
-                        <a class="nav-link" href="perfilmatch.php?id=<?=$matches->resultado[$key]['Id']?>">
-                          <?=utf8_encode($matches->resultado[$key]['Nome'])?> 
-                        </a> 
-                      </div>
-                      <!-- Email -->
-                      <div class="show_email">
-                        <a class="nav-link">
-                          <?=utf8_encode($matches->resultado[$key]['Email'])?> 
-                        </a> 
-                      </div>
-                      <!-- Celular -->
-                      <div class="show_celular">
-                        <strong>Cel:</strong>
-                        <small><?php if ($matches->resultado[$key]['Celular'] <> null) {echo utf8_encode($matches->resultado[$key]['Celular']);} else {echo "Não tem celular";}?></small>
-                      </div>
-                      <div class="show_botoes">                        
-                        <!-- Desfazer match -->
-                        <button onclick="desfazer(<?=$matches->resultado[$key]['Id_match']?>)" class="btn_desfazer"><img class="rounded" src="media/images/icons/lixo.jpg" alt="Excluir match" height="80%"></button>
-                        <!-- Ver Perfil -->
-                        <button class="btn_ver"><a href="perfilmatch.php?id=<?=$matches->resultado[$key]['Id']?>"><img class="rounded" src="media/images/icons/olho.jpg" alt="Ver Perfil" width="100%"></a></button>
-                      </div>
-                    </nav>                   
+                <div id="<?=$matches->resultado[$key]['Id_match']?>" class="show_match">
+                  <!-- Borda -->
+                  <nav class="nav show_nav">
+                    <!-- Imagem -->
+                    <div class="show_foto">
+                      <img class="fotinho" src="<?php if ($matches->resultado[$key]['Foto'] <> null) { echo 'media/images/fotos_usuarios/'.$matches->resultado[$key]['Foto'];} else { echo 'media/images/fotos_usuarios/avatar.png';} ?>">
+                    </div>
+                    <!-- Nome -->
+                    <div class="show_nome">
+                     <!-- Ver Perfil -->
+                     <a class="nav-link" href="perfilmatch.php?id=<?=$matches->resultado[$key]['Id']?>">
+                      <?=utf8_encode($matches->resultado[$key]['Nome'])?> 
+                    </a> 
                   </div>
-                  <!-- Fim foreach -->
-                <?php  } ?>
+                  <!-- Email -->
+                  <div class="show_email">
+                    <a class="nav-link">
+                      <?=utf8_encode($matches->resultado[$key]['Email'])?> 
+                    </a> 
+                  </div>
+                  <!-- Celular -->
+                  <div class="show_celular">
+                    <strong>Cel:</strong>
+                    <small><?php if ($matches->resultado[$key]['Celular'] <> null) {echo utf8_encode($matches->resultado[$key]['Celular']);} else {echo "Não tem celular";}?></small>
+                  </div>
+                  <div class="show_botoes">                        
+                    <!-- Desfazer match -->
+                    <button onclick="desfazer(<?=$matches->resultado[$key]['Id_match']?>)" class="btn_desfazer"><img class="rounded" src="media/images/icons/lixo.jpg" alt="Excluir match" height="80%"></button>
+                    
+                  </div>
+                </nav>                   
               </div>
-              <!-- Fim linha lista match -->
+              <!-- Fim foreach -->
+              <?php  } ?>
             </div>
-            <!-- Borda -->
+            <!-- Fim linha lista match -->
           </div>
-          <!-- Fim menu lista match -->
+          <!-- Borda -->
         </div>
-        <!-- Fim menu -->
+        <!-- Fim menu lista match -->
       </div>
-      <!-- Fim coluna do menu -->
+      <!-- Fim menu -->
     </div>
-    <!-- Fim linha do menu -->
+    <!-- Fim coluna do menu -->
   </div>
+  <!-- Fim linha do menu -->
+</div>
 
-  <!-- Card match -->
-  <div class="row mt-5">
-    <div class="col-md-6 col-sm-12 mt-2">
-      <!-- Foreach para puxar os resultados do array "resultado" e mostrar os dados no card -->
-      <?php foreach ($a->resultado as $chave => $valor) { ?>
+<!-- Card match -->
+<div class="row mt-5">
+  <div class="col-md-6 col-sm-12 mt-2">
+    <!-- Foreach para puxar os resultados do array "resultado" e mostrar os dados no card -->
+    <?php foreach ($a->resultado as $chave => $valor) { ?>
 
-        <!-- Card -->
-        <div class="card cardlike card_<?=$chave?>" data-numero="<?=$chave?>" style="display: none; padding-bottom: 100px !important;">             
-          <div class="card-body text-center"> 
-            <!-- Foto -->
-            <img class="mx-auto" id="foto" src="media/images/fotos_usuarios/<?php $foto_card = $a->resultado[$chave]['Foto']; if ($foto_card == null || $foto_card == '') {echo 'avatar.png';} else {echo $foto_card;}?>">
-            <!-- Nome -->
-            <div class="row">
-              <div class="col">
-                <h6 class="card-title mt-3">
-                  <?=utf8_encode($a->resultado[$chave]['Nome'])?>    
-                </h6>
-              </div>
-            </div>
-            <!-- Descrição -->
-            <div class="row">
-              <div class="col">
-                <p class="card-text my-3"><small>
-                  <?=utf8_encode($a->resultado[$chave]['Descricao'])?>
-                </small></p>
-              </div>
-            </div>
-            <!-- Botões -->               
-            <div class="row">
-              <!-- Like -->
-              <div class="col-6">
-                <button type="button" name="like" class="btn btnlike" onclick="like( <?=$a->resultado[$chave]['Id']?>, <?=$_SESSION['dados']['Id']?>, 'like')">
-                  <img id="botao" src="media/images/icons/like.png">
-                </button>
-              </div>
-              <!-- Dislike -->
-              <div class="col-6">
-                <button type="button" name="dislike" class="btn btndislike" onclick="like( <?= $a->resultado[$chave]['Id'] ?>, <?= $_SESSION['dados']['Id']?>, 'deslike')">
-                  <img id="botao" src="media/images/icons/dislike.png">
-                </button>
-              </div>
-              <!-- Linha botoes -->
-            </div>                
-            <!-- Fim card match -->
+    <!-- Card -->
+    <div class="card cardlike card_<?=$chave?>" data-numero="<?=$chave?>" style="display: none; padding-bottom: 100px !important;">             
+      <div class="card-body text-center"> 
+        <!-- Foto -->
+        <img class="mx-auto" id="foto" src="media/images/fotos_usuarios/<?php $foto_card = $a->resultado[$chave]['Foto']; if ($foto_card == null || $foto_card == '') {echo 'avatar.png';} else {echo $foto_card;}?>">
+        <!-- Nome -->
+        <div class="row">
+          <div class="col">
+            <h6 class="card-title mt-3">
+              <?=utf8_encode($a->resultado[$chave]['Nome'])?>    
+            </h6>
           </div>
         </div>
+        <!-- Descrição -->
+        <div class="row">
+          <div class="col">
+            <p class="card-text my-3"><small>
+              <?=utf8_encode($a->resultado[$chave]['Descricao'])?>
+            </small></p>
+          </div>
+        </div>
+        <!-- Botões -->               
+        <div class="row">
+          <!-- Like -->
+          <div class="col-6">
+            <button type="button" name="like" class="btn btnlike" onclick="like( <?=$a->resultado[$chave]['Id']?>, <?=$_SESSION['dados']['Id']?>, 'like')">
+              <img id="botao" src="media/images/icons/like.png">
+            </button>
+          </div>
+          <!-- Dislike -->
+          <div class="col-6">
+            <button type="button" name="dislike" class="btn btndislike" onclick="like( <?= $a->resultado[$chave]['Id'] ?>, <?= $_SESSION['dados']['Id']?>, 'deslike')">
+              <img id="botao" src="media/images/icons/dislike.png">
+            </button>
+          </div>
+          <!-- Linha botoes -->
+        </div>                
+        <!-- Fim card match -->
+      </div>
+    </div>
 
-        <!-- Fim do Foreach -->
-      <?php } ?> 
+    <!-- Fim do Foreach -->
+    <?php } ?> 
       <!-- <div class="row">
         <div class="col-md-10 col-sm-10 mt-2">
           <div class="card">            
@@ -429,8 +429,8 @@ crossorigin="anonymous"></script>
 
 </body>
 <footer>
-<?php require_once "include/footer.php"; ?>
-</html>
+  <?php require_once "include/footer.php"; ?>
+  </html>
 </footer>
 
 
