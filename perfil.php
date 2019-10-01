@@ -73,7 +73,7 @@ $Mostrar_dados->update();
               <center>
                 <div class="profile-img">
                   <label style="cursor: pointer;" for="arquivos"><img src="media/images/camera.jpg" width="100%"></label>
-                  <input type="file" class="input_foto" name="arquivos[]" id="arquivos" multiple="" >
+                  <input type="file" class="input_foto" name="arquivos[]" id="arquivos" multiple="" ><p ><b style="color:#ebbf31;">Atencao!</b> a imagem será carregada após clicar em "salvar alterações".</p>
                 </div>
               </center>
             </div>
