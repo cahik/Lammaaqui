@@ -270,7 +270,7 @@ $matches->mostrar();
                 <?php if($matches->resultado == null){
                   echo "Ninguem gostou de você";
                 }else{
-                  Estas são as pessoas que combinaram com você.
+                echo"  Estas são as pessoas que combinaram com você.";
                 }
                 ?>
                 </p>
