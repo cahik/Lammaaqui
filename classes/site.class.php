@@ -46,10 +46,14 @@ class Site {
 
 		$this->url = $_SERVER["REQUEST_URI"];
 
+		if (isset($_GET['tk'])){
+			$token = $_GET['tk'];
+		}
+
 
 		if (!isset($_SESSION['logado']) || $_SESSION['logado'] <> true) {
 
-			if ($this->url == "/Lammaaqui/login.php" || $this->url == "/Lammaaqui/cadastro.php" || $this->url == "/Lammaaqui/index.php" || $this->url == "/Lammaaqui/sobre.php" || $this->url == "/Lammaaqui/contato.php" || $this->url == "/Lammaaqui/rebotsenha.php") {
+			if ($this->url == "/Lammaaqui/login.php" || $this->url == "/Lammaaqui/cadastro.php" || $this->url == "/Lammaaqui/index.php" || $this->url == "/Lammaaqui/sobre.php" || $this->url == "/Lammaaqui/contato.php" || $this->url == "/Lammaaqui/send_email.php" || $this->url == "/Lammaaqui/reset_senha.php?tk=".$token) {
 
 			} else {
 

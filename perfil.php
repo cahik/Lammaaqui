@@ -45,7 +45,7 @@ $Mostrar_dados->update();
 <body>
 
   <!-- Nav Bar -->
-  <?php require_once "include/navbar.php"; ?>
+  <?php //require_once "include/navbar.php"; ?>
 
   <!-- Foto, título e formulário -->
   <form method="post" enctype="multipart/form-data">
