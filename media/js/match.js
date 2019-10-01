@@ -11,8 +11,8 @@ $(document).ready(function() {
 
     });
     $(".btndislike").click(function () {
-        $(this).parent().parent().parent().animate({marginRight: "-1000px", opacity: 0}, 300).fadeOut(0);
-        var numero = Number($(this).parent().parent().parent().attr("data-numero"));
+        $(this).parent().parent().parent().parent().animate({marginRight: "-1000px", opacity: 0}, 300).fadeOut(0);
+        var numero = Number($(this).parent().parent().parent().parent().attr("data-numero"));
         var proximo = ".card_" + (numero + 1);
         $(proximo).show();
     });
