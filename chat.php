@@ -92,7 +92,7 @@ if (isset($_GET['id'])) {
 
                         <div class="col-12 pt-4 pb-0">
 
-                            <div id="mensagens"  style="overflow:auto; max-heigth:500px;">
+                            <div id="mensagens"  style="overflow:auto; max-height: 500px;">
                                 <?php
                                     $mensagens = $chat->todos_mensagem_por_usuario($_SESSION['dados']['Id'], $id_chat);
 
