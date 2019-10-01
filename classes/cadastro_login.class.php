@@ -140,10 +140,6 @@ class Cadastro_login extends Site {
 								$_SESSION['logado'] = true;
 								$_SESSION['dados'] = $resultado;
 
-								$alerta['tipo'] = 'success';
-								$alerta['mensagem'] = "Preencha seus dados e suas preferências para ser encontrado!";
-								setcookie('alerta', serialize($alerta), time() + 10);
-
 								header("location: /Lammaaqui/perfil.php");
 
 							} else {
