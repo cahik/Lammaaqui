@@ -86,7 +86,7 @@ $Iniciar = new Site;
                 O Entra 21 se originou pela necessidade de profissionais qualificados no setor de informática do Vale do Itajaí. Para essa qualificação era preciso existir uma formação.
               </p>
               <p class="color-text-a">
-                O projeto é financiado por empresas e instituições que acreditam no potencial dos jovens blumenauenses e estes são beneficiados e encaminhados, na maior parte das vezes, para empregos. A demanda é imediata.
+                O projeto é financiado por empresas e instituições que acreditam no potencial dos residentes de Blumenau e região, sendo estes beneficiados e encaminhados, na maior parte das vezes, para empregos. A demanda é imediata.
               </p>
               <p class="color-text-a">
                Nosso site surgiu com o intuito de promover encontros entre pessoas que buscam dividir os custos de moradia, respeitando os interesses e as necessidades de cada um.
@@ -166,7 +166,7 @@ $Iniciar = new Site;
             </div>
             <div class="card-body-d">
               <p class="content-d color-text-a">
-               Gosto de observar como a cidade se comporta, de conversar com novas pessoas para saber o que pensam sobre o que acontece em nossas vidas. As inovações tecnológicas só terão valor se compreendermos os desejos e as necessidades das pessoas.
+               Gosto de observar como a cidade se comporta e de conversar com novas pessoas para ouvir o que pensam sobre o que acontece em nossas vidas. As inovações tecnológicas só terão valor se compreendermos os desejos e as necessidades das pessoas.
              </p>
            </div>
            <div class="card-footer-d">
