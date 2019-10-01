@@ -4,7 +4,8 @@ require_once "classes/selects.class.php";
 require_once "classes/match.class.php";
 
 $a = new Selects();
-$a->select_pessoas();
+$resultado =$a->select_pessoas();
+
 
 // Lista de match
 $matches = new Mostrar_matches();
