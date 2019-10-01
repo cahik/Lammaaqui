@@ -174,7 +174,7 @@ class Cadastro_login extends Site {
 
 			} else {
 
-				// Se as senahs forem diferentes
+				// Se as senhas forem diferentes
 				$alerta['tipo'] = 'warning';
 				$alerta['mensagem'] = "As senhas não conferem. Tente novamente!";
 				setcookie('alerta', serialize($alerta), time() + 10);
