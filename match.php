@@ -377,10 +377,8 @@ $matches->mostrar();
 
     <!-- Fim do Foreach -->
     <?php } ?> 
-      <!-- <div class="row">
-        <div class="col-md-10 col-sm-10 mt-2">
-          <div class="card">            
-            <div class="card-body text-center"> 
+    <div class="card cardlike card_<?=$chave+1?>" data-numero="<?=$chave+1?>" style="display: none; padding-bottom: 100px !important;">             
+      <div class="card-body text-center">  
               <img class="mx-auto" id="foto" src="media/images/zzz.jpg">
               <div class="row">
                 <div class="col">
@@ -393,7 +391,7 @@ $matches->mostrar();
             </div>
           </div>
         </div>
-      </div> -->
+      </div>
       <!-- Fim colunas match -->
     </div>
     <!-- Fim da linha match -->

@@ -1,5 +1,5 @@
-var i = document.querySelectorAll(".cardlike");
 
+var i = document.querySelectorAll(".cardlike");
 i[0].style.display = "block";
 
 $(document).ready(function() {
