@@ -100,12 +100,12 @@ if (isset($_GET['id'])) {
                                         foreach ($mensagens as $key => $mensagem) :
                                             if($mensagem['id_enviou'] == $matches->resultado[$chave]['Id']) {
                                                 echo '<div class="answer left mb-2 px-5">';
-                                                echo '<div class="text">' . $mensagem['mensagem'] . '</div>';
+                                                echo '<div class="text">' . utf8_encode($mensagem['mensagem']) . '</div>';
                                                 echo '<div class="time">'. date_format(date_create($mensagem['data_hora']),"d.m.y H:i") .'</div>';
                                                 echo '</div>';
                                             } elseif($mensagem['id_enviou'] == $_SESSION['dados']['Id']) {
                                                 echo '<div class="answer right mb-2 px-5">';
-                                                echo '<div class="text">'. $mensagem['mensagem'] .'</div>';
+                                                echo '<div class="text">'. utf8_encode($mensagem['mensagem']) .'</div>';
                                                 echo '<div class="time">'. date_format(date_create($mensagem['data_hora']),"d/m/y H:i") .'</div>';
                                                 echo '</div>';
                                             }

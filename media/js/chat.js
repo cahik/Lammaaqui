@@ -42,13 +42,20 @@ $(document).ready(function() {
 					'<div class="text">' + mensagem + '</div>' +
 					'<div class="time">' + hora  + '</div>'+
 					'</div>'
-				);
+					);
 				$('#mensagem').val(null);
 			}
 		});
 	}
 
+	// function top() {
+
+	// 	$('#mensagens').scrollTop(99999999);
+
+	// }
+
 	$('#botao_enviar').click(sendMessage);
+	// $('#botao_enviar').click(top());
 
 	$("input").keypress(function(event) {
 		if (event.which == 13) {
@@ -71,17 +78,18 @@ $(document).ready(function() {
 				"acao": "receber"
 			}
 		}).done(function (resposta) {
-			console.log(resposta);
+			console.log(resposta);			
 			if (resposta != 0) {
 				hora = new Date();
 				hora  = hora.getDate() + '/' + hora.getMonth() + '/' + hora.getFullYear() + ' ' + hora.getHours() + ':' + hora.getMinutes();
+
 
 				$('#mensagens').append(
 					'<div class="answer left mb-2 px-5">' +
 					'<div class="text">' + resposta + '</div>' +
 					'<div class="time">' + hora  + '</div>'+
 					'</div>'
-				);
+					);
 			}
 
 		});
