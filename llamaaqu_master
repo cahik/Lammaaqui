@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.7
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: 26-Set-2019 às 08:20
--- Versão do servidor: 5.6.39-log
--- PHP Version: 5.6.30
+-- Host: localhost
+-- Tempo de geração: 01/10/2019 às 13:40
+-- Versão do servidor: 10.4.6-MariaDB
+-- Versão do PHP: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,44 +19,46 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `llamaaqu_master`
+-- Banco de dados: `llamaaqui`
 --
+CREATE DATABASE IF NOT EXISTS `llamaaqui` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `llamaaqui`;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `chat`
+-- Estrutura para tabela `chat`
 --
 
-CREATE TABLE `chat` (
-  `id` int(11) NOT NULL,
-  `mensagem` mediumtext CHARACTER SET utf8 NOT NULL,
-  `msn_enviada` mediumtext NOT NULL,
-  `acao` enum('enviou','recebeu') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Extraindo dados da tabela `chat`
---
-
-INSERT INTO `chat` (`id`, `mensagem`, `msn_enviada`, `acao`) VALUES
-(1, 'oiiiiiiiii', '', 'enviou'),
-(2, 'oiiiiiiiii', '', 'enviou');
+CREATE TABLE IF NOT EXISTS `chat` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `mensagem` mediumtext NOT NULL,
+  `id_enviou` int(11) NOT NULL,
+  `id_recebeu` int(11) NOT NULL,
+  `sync_enviou` tinyint(1) NOT NULL,
+  `sync_recebeu` tinyint(1) NOT NULL,
+  `data_hora` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`id`),
+  KEY `id_enviou` (`id_enviou`),
+  KEY `id_recebeu` (`id_recebeu`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `cidade`
+-- Estrutura para tabela `cidade`
 --
 
-CREATE TABLE `cidade` (
-  `Id_cidade` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `cidade` (
+  `Id_cidade` int(11) NOT NULL AUTO_INCREMENT,
   `Nome_cidade` varchar(120) DEFAULT NULL,
-  `Estado` int(5) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `Estado` int(5) DEFAULT NULL,
+  PRIMARY KEY (`Id_cidade`),
+  KEY `fk_Cidade_estado` (`Estado`)
+) ENGINE=InnoDB AUTO_INCREMENT=5565 DEFAULT CHARSET=utf8;
 
 --
--- Extraindo dados da tabela `cidade`
+-- Despejando dados para a tabela `cidade`
 --
 
 INSERT INTO `cidade` (`Id_cidade`, `Nome_cidade`, `Estado`) VALUES
@@ -5630,19 +5632,20 @@ INSERT INTO `cidade` (`Id_cidade`, `Nome_cidade`, `Estado`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `contato`
+-- Estrutura para tabela `contato`
 --
 
-CREATE TABLE `contato` (
-  `Id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `contato` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
   `Nome` varchar(255) DEFAULT NULL,
   `Email` varchar(255) DEFAULT NULL,
   `Assunto` varchar(255) DEFAULT NULL,
-  `Mensagem` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `Mensagem` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 --
--- Extraindo dados da tabela `contato`
+-- Despejando dados para a tabela `contato`
 --
 
 INSERT INTO `contato` (`Id`, `Nome`, `Email`, `Assunto`, `Mensagem`) VALUES
@@ -5658,12 +5661,12 @@ INSERT INTO `contato` (`Id`, `Nome`, `Email`, `Assunto`, `Mensagem`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `dados_usuario`
+-- Estrutura para tabela `dados_usuario`
 --
 
-CREATE TABLE `dados_usuario` (
-  `Id` int(11) NOT NULL,
-  `Conta_verificada` tinyint(1) DEFAULT '0',
+CREATE TABLE IF NOT EXISTS `dados_usuario` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Conta_verificada` tinyint(1) DEFAULT 0,
   `Nome` varchar(255) NOT NULL,
   `Foto` varchar(50) DEFAULT NULL,
   `Descricao` varchar(255) DEFAULT NULL,
@@ -5684,11 +5687,14 @@ CREATE TABLE `dados_usuario` (
   `Trabalha` tinyint(1) DEFAULT NULL,
   `Estuda` tinyint(1) DEFAULT NULL,
   `Aceita_genero` enum('Masculino','Feminino','Não me importo') DEFAULT NULL,
-  `Aceita_pagar` bigint(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `Aceita_pagar` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`Id`),
+  KEY `Id_estado` (`Fk_estado`),
+  KEY `Id_cidade` (`Fk_cidade`)
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
 
 --
--- Extraindo dados da tabela `dados_usuario`
+-- Despejando dados para a tabela `dados_usuario`
 --
 
 INSERT INTO `dados_usuario` (`Id`, `Conta_verificada`, `Nome`, `Foto`, `Descricao`, `Email`, `Senha`, `Sexo`, `Data_nascimento`, `Telefone`, `Celular`, `Fk_cidade`, `Fk_estado`, `Fuma`, `Aceita_fumar`, `Bebe`, `Aceita_beber`, `Tem_animal`, `Aceita_animais`, `Trabalha`, `Estuda`, `Aceita_genero`, `Aceita_pagar`) VALUES
@@ -5703,17 +5709,18 @@ INSERT INTO `dados_usuario` (`Id`, `Conta_verificada`, `Nome`, `Foto`, `Descrica
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `estado`
+-- Estrutura para tabela `estado`
 --
 
-CREATE TABLE `estado` (
-  `Id_estado` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `estado` (
+  `Id_estado` int(11) NOT NULL AUTO_INCREMENT,
   `Nome_estado` varchar(75) DEFAULT NULL,
-  `UF` varchar(5) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `UF` varchar(5) DEFAULT NULL,
+  PRIMARY KEY (`Id_estado`)
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
 
 --
--- Extraindo dados da tabela `estado`
+-- Despejando dados para a tabela `estado`
 --
 
 INSERT INTO `estado` (`Id_estado`, `Nome_estado`, `UF`) VALUES
@@ -5748,149 +5755,64 @@ INSERT INTO `estado` (`Id_estado`, `Nome_estado`, `UF`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `like_deslike`
+-- Estrutura para tabela `like_deslike`
 --
 
-CREATE TABLE `like_deslike` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `like_deslike` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `deu` int(11) NOT NULL,
   `recebeu` int(11) NOT NULL,
-  `acao` enum('like','dislike') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `acao` enum('like','dislike') NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `deu` (`deu`),
+  KEY `like_deslike_ibfk_1` (`recebeu`)
+) ENGINE=InnoDB AUTO_INCREMENT=243 DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `like_deslike`
+-- Despejando dados para a tabela `like_deslike`
 --
 
 INSERT INTO `like_deslike` (`id`, `deu`, `recebeu`, `acao`) VALUES
 (240, 6, 23, 'like'),
-(241, 6, 33, 'dislike');
+(241, 6, 33, 'dislike'),
+(242, 7, 6, 'like');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `matches`
+-- Estrutura para tabela `matches`
 --
 
-CREATE TABLE `matches` (
-  `Id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `matches` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
   `Usuario_1` int(11) DEFAULT NULL,
   `Usuario_2` int(11) DEFAULT NULL,
-  `Data_match` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `Data_match` datetime DEFAULT NULL,
+  PRIMARY KEY (`Id`),
+  KEY `Usuario_1` (`Usuario_1`),
+  KEY `Usuario_2` (`Usuario_2`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
 
 --
--- Indexes for dumped tables
+-- Restrições para dumps de tabelas
 --
 
 --
--- Indexes for table `chat`
+-- Restrições para tabelas `chat`
 --
 ALTER TABLE `chat`
-  ADD PRIMARY KEY (`id`);
+  ADD CONSTRAINT `chat_ibfk_1` FOREIGN KEY (`id_enviou`) REFERENCES `dados_usuario` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `chat_ibfk_2` FOREIGN KEY (`id_recebeu`) REFERENCES `dados_usuario` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Indexes for table `cidade`
---
-ALTER TABLE `cidade`
-  ADD PRIMARY KEY (`Id_cidade`),
-  ADD KEY `fk_Cidade_estado` (`Estado`);
-
---
--- Indexes for table `contato`
---
-ALTER TABLE `contato`
-  ADD PRIMARY KEY (`Id`);
-
---
--- Indexes for table `dados_usuario`
---
-ALTER TABLE `dados_usuario`
-  ADD PRIMARY KEY (`Id`),
-  ADD KEY `Id_estado` (`Fk_estado`),
-  ADD KEY `Id_cidade` (`Fk_cidade`);
-
---
--- Indexes for table `estado`
---
-ALTER TABLE `estado`
-  ADD PRIMARY KEY (`Id_estado`);
-
---
--- Indexes for table `like_deslike`
---
-ALTER TABLE `like_deslike`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `deu` (`deu`),
-  ADD KEY `like_deslike_ibfk_1` (`recebeu`);
-
---
--- Indexes for table `matches`
---
-ALTER TABLE `matches`
-  ADD PRIMARY KEY (`Id`),
-  ADD KEY `Usuario_1` (`Usuario_1`),
-  ADD KEY `Usuario_2` (`Usuario_2`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `chat`
---
-ALTER TABLE `chat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `cidade`
---
-ALTER TABLE `cidade`
-  MODIFY `Id_cidade` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5565;
-
---
--- AUTO_INCREMENT for table `contato`
---
-ALTER TABLE `contato`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT for table `dados_usuario`
---
-ALTER TABLE `dados_usuario`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
-
---
--- AUTO_INCREMENT for table `estado`
---
-ALTER TABLE `estado`
-  MODIFY `Id_estado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
-
---
--- AUTO_INCREMENT for table `like_deslike`
---
-ALTER TABLE `like_deslike`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=242;
-
---
--- AUTO_INCREMENT for table `matches`
---
-ALTER TABLE `matches`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
-
---
--- Constraints for dumped tables
---
-
---
--- Limitadores para a tabela `dados_usuario`
+-- Restrições para tabelas `dados_usuario`
 --
 ALTER TABLE `dados_usuario`
   ADD CONSTRAINT `dados_usuario_ibfk_2` FOREIGN KEY (`Fk_estado`) REFERENCES `estado` (`Id_estado`),
   ADD CONSTRAINT `dados_usuario_ibfk_3` FOREIGN KEY (`Fk_cidade`) REFERENCES `cidade` (`Id_cidade`);
 
 --
--- Limitadores para a tabela `like_deslike`
+-- Restrições para tabelas `like_deslike`
 --
 ALTER TABLE `like_deslike`
   ADD CONSTRAINT `like_deslike_ibfk_1` FOREIGN KEY (`recebeu`) REFERENCES `dados_usuario` (`Id`),
@@ -5898,7 +5820,7 @@ ALTER TABLE `like_deslike`
   ADD CONSTRAINT `like_deslike_ibfk_3` FOREIGN KEY (`recebeu`) REFERENCES `dados_usuario` (`Id`);
 
 --
--- Limitadores para a tabela `matches`
+-- Restrições para tabelas `matches`
 --
 ALTER TABLE `matches`
   ADD CONSTRAINT `matches_ibfk_1` FOREIGN KEY (`Usuario_1`) REFERENCES `dados_usuario` (`Id`),
