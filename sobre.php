@@ -166,7 +166,7 @@ $Iniciar = new Site;
             </div>
             <div class="card-body-d">
               <p class="content-d color-text-a">
-               Gosto de observar como a cidade se comporta, de conversar com novas pessoas para saber o que pensam sobre o que acontece em nossas vidas. As inovações tecnológicas só terão valor se compreendermos os desejos e as necessidades das pessoas.
+               Gosto de observar como a cidade se comporta e de conversar com novas pessoas para ouvir o que pensam sobre o que acontece em nossas vidas. As inovações tecnológicas só terão valor se compreendermos os desejos e as necessidades das pessoas.
              </p>
            </div>
            <div class="card-footer-d">
