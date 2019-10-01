@@ -266,9 +266,11 @@ $matches->mostrar();
             <div class="row">                
               <div class="col-md-12">
                 <p>
-                  Estas são as pessoas que combinaram com você.
+                  
                 <?php if($matches->resultado == null){
                   echo "Ninguem gostou de você";
+                }else{
+                  Estas são as pessoas que combinaram com você.
                 }
                 ?>
                 </p>
