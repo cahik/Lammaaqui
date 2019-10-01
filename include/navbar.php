@@ -23,7 +23,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link <?php if ($_SERVER["REQUEST_URI"] == '/Lammaaqui/chat/index.php') {echo 'active';}?>" href="/Lammaaqui/chat/index.php">Chat</a>
+                        <a class="nav-link <?php if ($_SERVER["REQUEST_URI"] == '/Lammaaqui/chat.php') {echo 'active';}?>" href="/Lammaaqui/chat.php">Chat</a>
                     </li>
 
                     <li class="nav-item">
