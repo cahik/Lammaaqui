@@ -34,7 +34,7 @@ for ($i = 1; $i <= 1000; $i++) {
 
 	$dia = mt_rand(1, 29);
 	$mes = mt_rand(1, 12);
-	$ano = mt_rand(1930, 2000);
+	$ano = mt_rand(1960, 2000);
 
 	$estado = 24;
 	$cidade = mt_rand (4413, 4705);
@@ -46,11 +46,12 @@ for ($i = 1; $i <= 1000; $i++) {
 
 	if (mysqli_num_rows($query) == 0) {
 
-		$sql = "INSERT INTO dados_usuario (Nome, Email, Senha, Sexo, Data_nascimento, Fk_cidade, Fk_estado) values ('$resultado_nome', '$resultado_email', '$senha', '$sexo', 'Data_nascimento', '$cidade', '$estado')";
+		$sql = "INSERT INTO dados_usuario (Nome, Email, Senha, Sexo, Data_nascimento, Fk_cidade, Fk_estado) values ('$resultado_nome', '$resultado_email', '$senha', '$sexo', '$data', '$cidade', '$estado')";
 
 		mysqli_query($con, $sql);
 
 	}
+
 
 }
 
