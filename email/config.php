@@ -110,18 +110,30 @@ class Email extends Site {
 		$sql = "SELECT * FROM dados_usuario where Email = '$Email'";
 		$query = mysqli_query($this->con, $sql);
 
-		if (mysqli_num_rows($query) == 1) {
+		if ($Email <> ""){ 
 
-			$this->criar_token($Email);
-			$alerta['tipo'] = 'success';
-			$alerta['mensagem'] = "Email enviado com sucesso!";
-			setcookie('alerta', serialize($alerta), time() + 10);
-			return $this->tk;
+			if (mysqli_num_rows($query) == 1) {
+
+				$this->criar_token($Email);
+				$alerta['tipo'] = 'success';
+				$alerta['mensagem'] = "Email enviado com sucesso!";
+				setcookie('alerta', serialize($alerta), time() + 10);
+				return $this->tk;
+
+			} else {
+
+				$alerta['tipo'] = 'danger';
+				$alerta['mensagem'] = "Email não está cadastrado!";
+				setcookie('alerta', serialize($alerta), time() + 10);
+				return false;
+				header('Location: send_email.php');
+
+			}
 
 		} else {
 
-			$alerta['tipo'] = 'danger';
-			$alerta['mensagem'] = "Email não está cadastrado!";
+			$alerta['tipo'] = 'warning';
+			$alerta['mensagem'] = "Você precisa escrever algum email para enviar!";
 			setcookie('alerta', serialize($alerta), time() + 10);
 			return false;
 			header('Location: send_email.php');
