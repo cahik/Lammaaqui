@@ -7,7 +7,7 @@ class Site {
 	CONST HOST = "127.0.0.1";
 	CONST USER = "root";
 	CONST PASS = "";
-	CONST DB   = "llamaaqui";
+	CONST DB   = "llamaaqu_master";
 
 	// CONST HOST = "llamaaqui.ml:3306";
 	// CONST USER = "llamaaqui";
