@@ -92,7 +92,7 @@ if (isset($_GET['id'])) {
 
                         <div class="col-12 pt-4 pb-0">
 
-                            <div id="mensagens">
+                            <div id="mensagens"  style="overflow:auto; max-heigth:500px;">
                                 <?php
                                     $mensagens = $chat->todos_mensagem_por_usuario($_SESSION['dados']['Id'], $id_chat);
 
@@ -121,7 +121,7 @@ if (isset($_GET['id'])) {
 
                             <div class="row bg-highlight-sidebar pt-3">
                                 <div class="col-12">
-                                    <div class="form-group">
+                                    <div class="form-group" >
                                         <input type="hidden" id="id_enviou" name="id_enviou" value="<?=$_SESSION['dados']['Id']?>">
                                         <input type="hidden" id="id_recebeu" name="id_recebeu" value="<?=$id_chat?>">
                                         <input type="text" class="form-control m-0" id="mensagem" name="mensagem" placeholder="Digite aqui sua mensagem...">

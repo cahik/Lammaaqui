@@ -35,11 +35,13 @@
         }
 
         public function enviar_mensagem($mensagem, $id_enviou, $id_recebeu) {
+            if($mensagem <> ''){
             $sql = "INSERT INTO chat (id, mensagem, id_enviou, id_recebeu, sync_enviou, sync_recebeu, data_hora ) VALUES (DEFAULT, '$mensagem', '$id_enviou', '$id_recebeu', 1, 0, '" . date('Y-m-d H:i:s') . "')";
             if ( mysqli_query($this->con, $sql)) {
                 return true;
             } else {
                 return false;
+            }
             }
         }
 
