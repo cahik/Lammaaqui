@@ -19,10 +19,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `llamaaqui`
+-- Banco de dados: `llamaaqu_master`
 --
-CREATE DATABASE IF NOT EXISTS `llamaaqui` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `llamaaqui`;
+CREATE DATABASE IF NOT EXISTS `llamaaqu_master` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `llamaaqu_master`;
 
 -- --------------------------------------------------------
 
