@@ -110,7 +110,7 @@ class Email extends Site {
 		$sql = "SELECT * FROM dados_usuario where Email = '$Email'";
 		$query = mysqli_query($this->con, $sql);
 
-		if ($Email <> ""){ 
+		if ($Email <> "") { 
 
 			if (mysqli_num_rows($query) == 1) {
 
