@@ -18,22 +18,7 @@ $matches->mostrar();
   <title>Tinder</title>
   <meta charset="utf-8">
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <!-- Estilos CSS Match-->
-  <link href="media/css/match.css" rel="stylesheet" type="text/css">
-  <link href="media/css/busca.css" rel="stylesheet" type="text/css">
-  <link href="media/css/style.css" rel="stylesheet" type="text/css">
-  <link href="media/css/barra.css" rel="stylesheet" type="text/css">
-
-  <!-- Estilos Gerais -->
-  <link href="media/css/barra.css" rel="stylesheet">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+<?php require_once "include/links.html"; ?>
 
 </head>
 <body>
