@@ -74,7 +74,7 @@ $Iniciar = new Site;
           </div>
           <div class="col-lg-2  d-none d-lg-block">
             <div class="title-vertical d-flex justify-content-start">
-              
+
             </div>
           </div>
           <div class="col-md-6 col-lg-5 section-md-t3">
@@ -103,7 +103,7 @@ $Iniciar = new Site;
 <!--/ About End /-->
 
 <!--/ Team Star /-->
-<section class="section-agents section-t8">
+<section class="section-agents section-t8 mb-5">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
@@ -116,7 +116,7 @@ $Iniciar = new Site;
     </div>
 
     <div class="row">
-      
+
       <div class="col-md-4">
         <div class="card-box-d">
           <div class="card-img-d">
