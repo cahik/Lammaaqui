@@ -59,11 +59,11 @@ if (isset($_GET['id'])) {
                     </div>
                 </div>
 
-                <div class="col-12 mt-3 mb-2 px-4">
-                    <div class="row">
+                <div class="col-12 mt-3 mb-2 px-4 ">
+                    <div class="row ">
                         <?php if (count($matches->resultado) > 0) : ?>
                             <?php foreach ($matches->resultado as $chave => $valor) : ?>
-                            <a href="chat.php?id=<?=$matches->resultado[$chave]['Id']; ?>" class="col-2 text-center user_matches pt-3">
+                            <a href="chat.php?id=<?=$matches->resultado[$chave]['Id']; ?>" class="col-2 text-center user_matches pt-3 m-3">
                                 <img src="<?php
                                             if ($matches->resultado[$chave]['Foto'] <> null) {
                                                 echo 'media/images/fotos_usuarios/'.$matches->resultado[$chave]['Foto'];
@@ -92,7 +92,7 @@ if (isset($_GET['id'])) {
 
                         <div class="col-12 pt-4 pb-0">
 
-                            <div id="mensagens"  style="overflow:auto; max-height: 500px;">
+                            <div id="mensagens"  style="overflow:auto; max-height: 500px; ">
                                 <?php
                                     $mensagens = $chat->todos_mensagem_por_usuario($_SESSION['dados']['Id'], $id_chat);
 
