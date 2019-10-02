@@ -18,21 +18,14 @@ if (isset($_POST['resetar'])) {
 <head>
 	<title>Redefinir senha</title>
 	<meta charset="utf-8">
-
 	
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="media/css/util.css">
-	<link rel="stylesheet" type="text/css" href="media/css/main.css">
-	<link rel="stylesheet" type="text/css" href="media/css/style.css">
-	<link rel="stylesheet" type="text/css" href="media/css/barra.css">
-	<!--===============================================================================================-->
+	<?php require_once "include/links.html"; ?>
+
 </head>
 <body>
 
 	<?php require_once "include/navbar.php"; ?>
 	
-
-
 	<div class="limiter">
 		<div class="container-login100">		
 
@@ -66,8 +59,6 @@ if (isset($_POST['resetar'])) {
 
 		</div>
 	</div>
-
-
 
 	<!-- Footer -->
 	<?php require_once "include/footer.php"; ?>

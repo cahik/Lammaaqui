@@ -21,25 +21,9 @@ $Mostrar_dados->update();
 <head>
   <title>Perfil</title>
   <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta content="" name="keywords">
-  <meta content="" name="description">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
-
-  <!-- Bootstrap CSS File -->
-  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Libraries CSS Files -->
-  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link href="lib/animate/animate.min.css" rel="stylesheet">
-  <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
-  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
-  <!-- Main Stylesheet File -->
-  <link href="media/css/style.css" rel="stylesheet">
-  <link href="media/css/barra.css" rel="stylesheet">
+  
+  <?php require_once "include/links.html"; ?>
+  
 </head>
 
 <body>
@@ -207,7 +191,7 @@ $Mostrar_dados->update();
                     <select class="form-group col-sm-3" name="dia" class="select" required="">
 
                       <?php for ($i = 1; $i <= 31; $i++) {?>
-                      <option <?php if ($data_nascimento[2] == $i) {echo "selected";} ?> ><?=$i?></option>
+                        <option <?php if ($data_nascimento[2] == $i) {echo "selected";} ?> ><?=$i?></option>
                       <?php } ?>
                     </select>
 
@@ -233,7 +217,7 @@ $Mostrar_dados->update();
                     <select class="form-group col-sm-4" name="ano" class="select" required="">
 
                       <?php for ($i = date('Y'); $i >= (date('Y') - 100); $i--) {?>
-                      <option <?php if ($data_nascimento[0] == $i) {echo "selected";} ?> ><?=$i?></option>
+                        <option <?php if ($data_nascimento[0] == $i) {echo "selected";} ?> ><?=$i?></option>
                       <?php } ?>
                     </select>
 
@@ -268,7 +252,7 @@ $Mostrar_dados->update();
 
                     <?php foreach ($Mostrar_cid_est->resultado_estados as $chave => $valor) { ?>
 
-                    <option <?php if ($Mostrar_dados->dados_usuario['Fk_estado'] == $Mostrar_cid_est->resultado_estados[$chave]['Id_estado']) {echo "selected";} ?> value="<?=$Mostrar_cid_est->resultado_estados[$chave]['Id_estado']?>"><?=utf8_encode($Mostrar_cid_est->resultado_estados[$chave]['Nome_estado'])?></option>
+                      <option <?php if ($Mostrar_dados->dados_usuario['Fk_estado'] == $Mostrar_cid_est->resultado_estados[$chave]['Id_estado']) {echo "selected";} ?> value="<?=$Mostrar_cid_est->resultado_estados[$chave]['Id_estado']?>"><?=utf8_encode($Mostrar_cid_est->resultado_estados[$chave]['Nome_estado'])?></option>
 
                     <?php } ?>
 
@@ -292,7 +276,7 @@ $Mostrar_dados->update();
 
                     foreach ($Mostrar_cid_est->resultado_cidades as $chave => $valor) { ?>
 
-                    <option <?php if ($Mostrar_cid_est->resultado_cidades[$chave]['Id_cidade'] == $Mostrar_dados->dados_usuario['Fk_cidade']) {echo "selected";} ?> value="<?=$Mostrar_cid_est->resultado_cidades[$chave]['Id_cidade']?>"><?=utf8_encode($Mostrar_cid_est->resultado_cidades[$chave]['Nome_cidade'])?></option>
+                      <option <?php if ($Mostrar_cid_est->resultado_cidades[$chave]['Id_cidade'] == $Mostrar_dados->dados_usuario['Fk_cidade']) {echo "selected";} ?> value="<?=$Mostrar_cid_est->resultado_cidades[$chave]['Id_cidade']?>"><?=utf8_encode($Mostrar_cid_est->resultado_cidades[$chave]['Nome_cidade'])?></option>
 
                     <?php } ?>
 
