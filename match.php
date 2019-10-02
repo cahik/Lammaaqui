@@ -407,8 +407,7 @@ $matches->mostrar();
 <!-- Fim section -->
 </section>
 
-<!-- Footer -->
-<?php require_once "include/footer.php"; ?>
+
 
 <!-- Spinner dourada -->
 <div id="preloader"></div>
@@ -433,8 +432,10 @@ crossorigin="anonymous"></script>
 <script src="media/js/main.js"></script>
 
 </body>
+<!-- Footer -->
 <footer>
-  <?php require_once "include/footer.php"; ?>
+
+<?php require_once "include/footer.php"; ?>
   </html>
 </footer>
 

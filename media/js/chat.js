@@ -7,7 +7,7 @@ $(document).ready(function() {
 		cursorborder: '0px'
 	});
 
-	$('#mensagens').getNiceScroll(0).doScrollTop(1000, 0);
+	$('#mensagens').scrollTop($('#mensagens')[0].scrollHeight);
 
 	$('#mensagens').scroll(function(e) {
 		if (e.target.scrollTop < 342) {
@@ -34,6 +34,7 @@ $(document).ready(function() {
 			}
 		}).done(function (resposta) {
 			if (resposta=='1') {
+
 				hora = new Date();
 				hora  = hora.getDate() + '/' + hora.getMonth() + '/' + hora.getFullYear() + ' ' + hora.getHours() + ':' + hora.getMinutes();
 
@@ -44,15 +45,16 @@ $(document).ready(function() {
 					'</div>'
 					);
 				$('#mensagem').val(null);
+				$('#mensagens').scrollTop($('#mensagens')[0].scrollHeight);
 			}
 		});
 	}
 
-	// function top() {
+	
 
-	// 	$('#mensagens').scrollTop(99999999);
+	 
 
-	// }
+	
 
 	$('#botao_enviar').click(sendMessage);
 	// $('#botao_enviar').click(top());
@@ -90,6 +92,8 @@ $(document).ready(function() {
 					'<div class="time">' + hora  + '</div>'+
 					'</div>'
 					);
+					$('#mensagens').scrollTop($('#mensagens')[0].scrollHeight);
+
 			}
 
 		});

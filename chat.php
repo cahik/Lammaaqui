@@ -59,11 +59,11 @@ if (isset($_GET['id'])) {
                     </div>
                 </div>
 
-                <div class="col-12 mt-3 mb-2 px-4">
-                    <div class="row">
+                <div class="col-12 mt-3 mb-2 px-4 ">
+                    <div class="row ">
                         <?php if (count($matches->resultado) > 0) : ?>
                             <?php foreach ($matches->resultado as $chave => $valor) : ?>
-                            <a href="chat.php?id=<?=$matches->resultado[$chave]['Id']; ?>" class="col-2 text-center user_matches pt-3">
+                            <a href="chat.php?id=<?=$matches->resultado[$chave]['Id']; ?>" class="col-2 text-center user_matches pt-3 m-3">
                                 <img src="<?php
                                             if ($matches->resultado[$chave]['Foto'] <> null) {
                                                 echo 'media/images/fotos_usuarios/'.$matches->resultado[$chave]['Foto'];
