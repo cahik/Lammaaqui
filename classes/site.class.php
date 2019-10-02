@@ -4,15 +4,18 @@ date_default_timezone_set('America/Sao_Paulo');
 
 class Site {
 
-	CONST HOST = "127.0.0.1";
-	CONST USER = "root";
-	CONST PASS = "";
-	CONST DB   = "llamaaqu_master";
-
 	// CONST HOST = "llamaaqui.ml:3306";
 	// CONST USER = "llamaaqui";
 	// CONST PASS = "entra21@Blusoft";
 	// CONST DB   = "llamaaqu_master";
+
+	// indapl48
+	// entra21@Blusoft
+
+	CONST HOST = "50.116.112.104:3306";
+	CONST USER = "indapl48_gustavo";
+	CONST PASS = "1234qwer";
+	CONST DB   = "indapl48_llamaaqui";
 
 	public $con;
 	private $url;
