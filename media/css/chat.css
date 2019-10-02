@@ -26,6 +26,8 @@
   padding: 0 0 0 58px;
   text-align: left;
   float: left;
+  max-height: 100%!important;
+  word-wrap: break-word;
 }
 .answer {
   position: relative;
@@ -33,6 +35,13 @@
   overflow: hidden;
   clear: both;
 }
+
+@media (max-width: 800px) {
+.answer {
+  max-width: 100%!important;
+}
+}
+
 .answer .name {
   font-size: 14px;
   line-height: 36px;
@@ -76,8 +85,10 @@
 /*RIGHT*/
 .answer.right {
   padding: 0 58px 0 0;
-  text-align: right;
+  text-align: left;
   float: right;
+  max-height: 100%!important;
+  word-wrap: break-word;
 }
 
 .answer.right .text {
