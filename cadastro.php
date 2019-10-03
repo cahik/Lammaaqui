@@ -15,17 +15,9 @@ $Executar_cadastro->cadastrar();
 <head>
 	<title>Cadastro</title>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-	<!-- Google Fonts -->
-	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+	<?php require_once "include/links.html"; ?>
 	
-	<link rel="stylesheet" type="text/css" href="media/css/util.css">
-	<link rel="stylesheet" type="text/css" href="media/css/main.css">
-	<link rel="stylesheet" type="text/css" href="media/css/style.css">
-	<link rel="stylesheet" type="text/css" href="media/css/barra.css">	
 </head>
 <body>
 
@@ -114,7 +106,7 @@ $Executar_cadastro->cadastrar();
 						<div class="col-sm-9">								
 							<select name="dia" class="select col-3 mb-sm-0" required="">
 								<?php for ($i = 1; $i <= 31; $i++) {?>
-								<option <?php if (isset($_POST['dia']) and $_POST['dia'] == $i) {echo "selected";}?> value="<?=$i?>" ><?=$i?></option>
+									<option <?php if (isset($_POST['dia']) and $_POST['dia'] == $i) {echo "selected";}?> value="<?=$i?>" ><?=$i?></option>
 								<?php } ?>
 							</select>
 
@@ -136,7 +128,7 @@ $Executar_cadastro->cadastrar();
 
 							<select name="ano" class="select col-4 mb-sm-0" required="">
 								<?php for ($i = date('Y'); $i >= (date('Y') - 100); $i--) {?>
-								<option <?php if (isset($_POST['ano']) and $_POST['ano'] == $i) {echo "selected";}?> value="<?=$i?>"><?=$i?></option>
+									<option <?php if (isset($_POST['ano']) and $_POST['ano'] == $i) {echo "selected";}?> value="<?=$i?>"><?=$i?></option>
 								<?php } ?>
 							</select>	
 						</div>						
@@ -158,7 +150,7 @@ $Executar_cadastro->cadastrar();
 
 								<?php foreach ($Mostrar_cid_est->resultado_estados as $chave => $valor) { ?>
 
-								<option <?php if (isset($_POST['estado']) and $_POST['estado'] == $Mostrar_cid_est->resultado_estados[$chave]['Id_estado']) {echo "selected";} ?>  value="<?=$Mostrar_cid_est->resultado_estados[$chave]['Id_estado']?>"><?=utf8_encode($Mostrar_cid_est->resultado_estados[$chave]['Nome_estado'])?></option>
+									<option <?php if (isset($_POST['estado']) and $_POST['estado'] == $Mostrar_cid_est->resultado_estados[$chave]['Id_estado']) {echo "selected";} ?>  value="<?=$Mostrar_cid_est->resultado_estados[$chave]['Id_estado']?>"><?=utf8_encode($Mostrar_cid_est->resultado_estados[$chave]['Nome_estado'])?></option>
 								<?php } ?>
 							</select>
 						</div>
@@ -183,47 +175,47 @@ $Executar_cadastro->cadastrar();
 
 									foreach ($Mostrar_cid_est->resultado_cidades as $chave => $valor) { ?>
 
-									<option <?php if (utf8_encode($Mostrar_cid_est->resultado_cidades[$chave]['Nome_cidade']) == $_POST['cidade']) {echo "selected";} ?> value="<?=$Mostrar_cid_est->resultado_cidades[$chave]['Id_cidade']?>"><?=utf8_encode($Mostrar_cid_est->resultado_cidades[$chave]['Nome_cidade'])?></option>
+										<option <?php if (utf8_encode($Mostrar_cid_est->resultado_cidades[$chave]['Nome_cidade']) == $_POST['cidade']) {echo "selected";} ?> value="<?=$Mostrar_cid_est->resultado_cidades[$chave]['Id_cidade']?>"><?=utf8_encode($Mostrar_cid_est->resultado_cidades[$chave]['Nome_cidade'])?></option>
 
-									<?php
-								} 
-							} ?>
+										<?php
+									} 
+								} ?>
 
-						</select>
+							</select>
+						</div>
+					</div>
+				</div>			
+
+				<!-- Botão enviar -->
+				<div class="container-login100-form-btn">
+					<div class="row">
+						<div class="col-12 text-center">
+							<button class="btn salvarDados mt-2" name="cadastrar" type="submit">Enviar</button>
+						</div>
 					</div>
 				</div>
-			</div>			
-
-			<!-- Botão enviar -->
-			<div class="container-login100-form-btn">
-				<div class="row">
-					<div class="col-12 text-center">
-						<button class="btn salvarDados mt-2" name="cadastrar" type="submit">Enviar</button>
-					</div>
-				</div>
-			</div>
-		</form>			
+			</form>			
+		</div>
 	</div>
-</div>
 
-<?php require_once "include/footer.php"; ?>
+	<?php require_once "include/footer.php"; ?>
 
-<!-- Biblioteca Boostrap -->
-<script
-src="https://code.jquery.com/jquery-3.4.1.min.js"
-integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-crossorigin="anonymous"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<!-- Biblioteca Boostrap -->
+	<script
+	src="https://code.jquery.com/jquery-3.4.1.min.js"
+	integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+	crossorigin="anonymous"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-<script src="media/js/main.js"></script>
+	<script src="media/js/main.js"></script>
 
-<!-- Ajax cidades -->
-<script src="media/js/ajax_cidades.js"></script>
+	<!-- Ajax cidades -->
+	<script src="media/js/ajax_cidades.js"></script>
 
-<!-- Mascara para telefone e celular -->
-<script src="media/js/mascara_numeros.js"></script>
+	<!-- Mascara para telefone e celular -->
+	<script src="media/js/mascara_numeros.js"></script>
 
 
 </body>

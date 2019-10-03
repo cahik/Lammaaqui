@@ -98,7 +98,7 @@
                     </li>
 
                     <li>          
-                        <a href="/Lammaaqui/login.php" class="d-none d-md-block btn btn-b-n">Login</a>
+                        <a href="/Lammaaqui/login.php" style="border-right: 0.5px solid #ffc300;" class="d-none d-md-block btn btn-b-n">Login</a>
                     </li>
 
                     <li> 
