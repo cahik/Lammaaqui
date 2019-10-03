@@ -112,7 +112,7 @@ $Iniciar = new Site;
             <div class="card-body-d">
               <p class="content-d color-text-a">
                 Mineirin uai, 26 anos, músico, apaixonado por tecnologia desde sempre.
-                <br>De uns tempos pra cá, resolvi tentar a carreira na área de T.I mas precisamente voltado para a parte de front end.
+                <br>De uns tempos pra cá, resolvi tentar a carreira na área de T.I mais precisamente voltado para a parte de front end.
                 <br> Atenção empresas... não sou uma function( ) mas me chama que eu vou! :D
               </p>
             </div>
