@@ -17,10 +17,10 @@ class Site {
 	// indapl48
 	// entra21@Blusoft
 
-	CONST HOST = "50.116.112.104:3306";
-	CONST USER = "indapl48_gustavo";
-	CONST PASS = "1234qwer";
-	CONST DB   = "indapl48_llamaaqui";
+	CONST HOST = "mysql380.umbler.com:41890";
+	CONST USER = "vintersr1";
+	CONST PASS = "entra21B";
+	CONST DB   = "llamaaqu_master";
 
 	public $con;
 	private $url;
