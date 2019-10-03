@@ -57,10 +57,14 @@ $Mostrar_dados->update();
               <center>
                 <div class="profile-img">
                   <label style="cursor: pointer;" for="arquivos"><img src="media/images/camera.jpg" width="100%"></label>
-                  <input type="file" class="input_foto" name="arquivos[]" id="arquivos" multiple="" ><p ><b style="color:#ebbf31;">Atenção!</b> a imagem será carregada após clicar em "salvar alterações". </p>
+                  <input type="file" class="input_foto" name="arquivos[]" id="arquivos" multiple="" >
                 </div>
               </center>
             </div>
+
+            <center>
+              <p><strong style="color:#ebbf31;">Atenção!</strong> A imagem será carregada após clicar em "salvar alterações".</p>
+            </center>
 
           </div>
 
@@ -439,10 +443,10 @@ $Mostrar_dados->update();
   </div>
   <div class="col-md-4 mb-3">
    <div class="select_sexo">
-    <select name="Aceita_genero" class="select custom-select custom-select">
-      <option value="Não me importo" <?php if (utf8_encode(isset($Mostrar_dados->dados_usuario['Aceita_genero']) and ($Mostrar_dados->dados_usuario['Aceita_genero'] == "Não me importo"))) {echo "selected=''";}?>>Não me importo</option>
+    <select name="Aceita_genero" class="custom-select">
       <option value="Masculino" <?php if (isset($Mostrar_dados->dados_usuario['Aceita_genero']) and ($Mostrar_dados->dados_usuario['Aceita_genero'] == "Masculino")) {echo "selected=''";}?>>Masculino</option>
       <option value="Feminino" <?php if (isset($Mostrar_dados->dados_usuario['Aceita_genero']) and ($Mostrar_dados->dados_usuario['Aceita_genero'] == "Feminino")) {echo "selected=''";}?>>Feminino</option>
+      <option value="Não me importo" <?php if (isset($Mostrar_dados->dados_usuario['Aceita_genero']) and utf8_encode($Mostrar_dados->dados_usuario['Aceita_genero']) == "Não me importo") {echo "selected=''";}?>>Não me importo</option>
       
     </select>
   </div>
@@ -455,7 +459,7 @@ $Mostrar_dados->update();
     <label>Até quanto quer pagar?</label>
   </div>
   <div class="col-md-6">
-    <input id="Aceita_pagar" type="range" name="Aceita_pagar" 
+    <input id="Aceita_pagar" class="p-1" type="range" name="Aceita_pagar" 
     oninput="getElementById('Porcentagem').innerHTML = this.value;" 
     min="0" max="3000" value="<?php if (isset($Mostrar_dados->dados_usuario['Aceita_pagar'])) {echo $Mostrar_dados->dados_usuario['Aceita_pagar'];} else {echo 0;}?>" step="50" />
     <span id="Porcentagem"><?php if (isset($Mostrar_dados->dados_usuario['Aceita_pagar'])) {echo $Mostrar_dados->dados_usuario['Aceita_pagar'];} else {echo 0;}?></span><br><br>

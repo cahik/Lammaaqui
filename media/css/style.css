@@ -2037,10 +2037,10 @@ footer .credits {
 
 .emp-profile{
 /*  padding: 3%;
-  margin-top: 3%;*/
-  margin-bottom: 3%;
-  border-radius: 0.5rem;
-  background: #fff;
+margin-top: 3%;*/
+margin-bottom: 3%;
+border-radius: 0.5rem;
+background: #fff;
 }
 
 /* Foto */
@@ -2129,6 +2129,7 @@ input[type=range] {
 input[type=range]::-webkit-slider-thumb{
   border-radius: 50%;
 }
+
 #Aceita_pagar::-webkit-slider-thumb{
 
   all:unset; /* limpa os estilos iniciais */
@@ -2137,8 +2138,10 @@ input[type=range]::-webkit-slider-thumb{
 
   width: 20px;
   height: 20px;
-  border-radius: 50%;
+  margin-top: 5px;
+  border-radius: 100%;
   background: #ebbf31;
+  
 }
 
 /* Botão salvar alterações */

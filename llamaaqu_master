@@ -21,7 +21,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `llamaaqu_master`
 --
-CREATE DATABASE IF NOT EXISTS `llamaaqu_master` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+CREATE DATABASE IF NOT EXISTS `llamaaqu_master` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `llamaaqu_master`;
 
 -- --------------------------------------------------------

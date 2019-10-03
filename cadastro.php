@@ -104,14 +104,14 @@ $Executar_cadastro->cadastrar();
 
 						<!-- Dia -->
 						<div class="col-sm-9">								
-							<select name="dia" class="select col-3 mb-sm-0" required="">
+							<select name="dia" class="col-3 mb-sm-0" required="">
 								<?php for ($i = 1; $i <= 31; $i++) {?>
 									<option <?php if (isset($_POST['dia']) and $_POST['dia'] == $i) {echo "selected";}?> value="<?=$i?>" ><?=$i?></option>
 								<?php } ?>
 							</select>
 
 							<!-- Mês -->
-							<select name="mes" class="select col-4 mb-sm-0" required="">
+							<select name="mes" class="col-4 mb-sm-0" required="">
 								<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "01") {echo "selected";} ?> value="01">Jan</option>
 								<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "02") {echo "selected";} ?> value="02">Fev</option>
 								<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "03") {echo "selected";} ?> value="03">Mar</option>
@@ -126,7 +126,7 @@ $Executar_cadastro->cadastrar();
 								<option <?php if (isset($_POST['mes']) and $_POST['mes'] == "12") {echo "selected";} ?> value="12">Dez</option>
 							</select>
 
-							<select name="ano" class="select col-4 mb-sm-0" required="">
+							<select name="ano" class="col-4 mb-sm-0" required="">
 								<?php for ($i = date('Y'); $i >= (date('Y') - 100); $i--) {?>
 									<option <?php if (isset($_POST['ano']) and $_POST['ano'] == $i) {echo "selected";}?> value="<?=$i?>"><?=$i?></option>
 								<?php } ?>
