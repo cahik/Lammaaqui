@@ -50,7 +50,7 @@ $Mostrar_dados->update();
 
           <div class="col-sm-4"></div> 
 
-          <div id="foto" class="col-sm-4 tam" onmouseover="foto()" onmouseout="tirar_foto()">
+          <div id="foto" class="col-sm-4 mt-3 tam" onmouseover="foto()" onmouseout="tirar_foto()">
             <img src= "<?php if ($Mostrar_dados->dados_usuario['Foto'] <> null and $Mostrar_dados->dados_usuario['Foto'] <> '') {echo 'media/images/fotos_usuarios/'.$Mostrar_dados->dados_usuario['Foto'];} else {echo 'media/images/fotos_usuarios/avatar.png';}?>" width='100%' height='300' class="rounded float-right img-fluid" alt="<?php if (isset($Mostrar_dados->dados_usuario['Nome'])) {echo $Mostrar_dados->dados_usuario['Nome'];} ?>">
 
             <div class="camera">             
