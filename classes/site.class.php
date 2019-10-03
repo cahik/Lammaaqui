@@ -17,17 +17,7 @@ class Site {
 	// indapl48
 	// entra21@Blusoft
 
-<<<<<<< HEAD
-	CONST HOST = "mysql380.umbler.com:41890";
-	CONST USER = "vintersr1";
-	CONST PASS = "entra21B";
-	CONST DB   = "llamaaqu_master";
-=======
-	// CONST HOST = "50.116.112.104:3306";
-	// CONST USER = "indapl48_gustavo";
-	// CONST PASS = "1234qwer";
-	// CONST DB   = "indapl48_llamaaqui";
->>>>>>> 127877bbd9f848a57d5fe2830a54bea38fe9f477
+
 
 	public $con;
 	private $url;
@@ -73,7 +63,7 @@ class Site {
 			} else {
 
 				$_SESSION['logado'] = false;
-				header("Location: /Lammaaqui/index.php");
+				header("location: /index.php");
 
 			}
 
@@ -81,7 +71,7 @@ class Site {
 
 			if ($this->url == "/Lammaaqui/login.php" || $this->url == "/Lammaaqui/cadastro.php") {
 
-				header("Location: /Lammaaqui/perfil.php");
+				header("location: /perfil.php");
 
 			}
 

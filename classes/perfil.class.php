@@ -314,7 +314,7 @@ class Perfil extends Site {
 		$this->sql = "SELECT * FROM dados_usuario join cidade ON cidade.Id_cidade = dados_usuario.Fk_cidade join estado on estado.Id_estado = dados_usuario.Fk_estado where Id = $this->id;";
 		$query = mysqli_query($this->con, $this->sql);
 		$_SESSION['dados'] = mysqli_fetch_array($query);
-		header("Location: /Lammaaqui/perfil.php");
+		header("location: /perfil.php");
 	}
 
 }

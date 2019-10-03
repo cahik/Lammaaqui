@@ -48,7 +48,7 @@ class Contato extends Site {
 				$alerta['mensagem'] = "Mensagem enviada com sucesso!";
 				setcookie('alerta', serialize($alerta), time() + 10);
 				
-				header("location: /Lammaaqui/contato.php"); 
+				header("location: /contato.php");
 
 			}
 
