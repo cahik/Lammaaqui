@@ -59,11 +59,11 @@ if (isset($_POST['logar'])) {
 
 						<div class="flex-sb-m w-full p-t-3 p-b-32 mt-3">
 							<div>
-								<a href="/Lammaaqui/send_email.php" class="txt1">
+								<a href="/send_email.php" class="txt1">
 									Esqueceu sua senha?
 								</a>
 								<br>
-								<a href="/Lammaaqui/cadastro.php" class="txt1">
+								<a href="/cadastro.php" class="txt1">
 									Cadastre-se
 								</a>
 							</div>

@@ -19,19 +19,19 @@
                 <ul class="navbar-nav ml-auto mr-auto">
 
                     <li class="nav-item">
-                        <a class="nav-link <?php if ($_SERVER["REQUEST_URI"] == '/Lammaaqui/match.php') {echo 'active';}?>" href="/Lammaaqui/match.php">Match</a>
+                        <a class="nav-link <?php if ($_SERVER["REQUEST_URI"] == '/match.php') {echo 'active';}?>" href="/match.php">Match</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link <?php if ($_SERVER["REQUEST_URI"] == '/Lammaaqui/chat.php') {echo 'active';}?>" href="/Lammaaqui/chat.php">Chat</a>
+                        <a class="nav-link <?php if ($_SERVER["REQUEST_URI"] == '/chat.php') {echo 'active';}?>" href="/chat.php">Chat</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link <?php if ($_SERVER["REQUEST_URI"] == '/Lammaaqui/perfil.php') {echo 'active';}?>" href="/Lammaaqui/perfil.php">Meu Perfil</a>
+                        <a class="nav-link <?php if ($_SERVER["REQUEST_URI"] == '/perfil.php') {echo 'active';}?>" href="/perfil.php">Meu Perfil</a>
                     </li>
                     
                     <li class="nav-item">
-                        <a class="nav-link <?php if ($_SERVER["REQUEST_URI"] == '/Lammaaqui/contato.php') {echo 'active';}?>" href="/Lammaaqui/contato.php">Contato</a>
+                        <a class="nav-link <?php if ($_SERVER["REQUEST_URI"] == '/contato.php') {echo 'active';}?>" href="/contato.php">Contato</a>
                     </li>
 
                 </ul>
@@ -60,11 +60,11 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="/Lammaaqui/logout.php" class="d-none d-md-block btn btn-b-n">Sair</a>
+                        <a href="/logout.php" class="d-none d-md-block btn btn-b-n">Sair</a>
                     </li>
 
                     <li class="nav-item">
-                        <a href="/Lammaaqui/logout.php" class="d-block d-md-none btn btn-b-n">Sair</a>
+                        <a href="/logout.php" class="d-block d-md-none btn btn-b-n">Sair</a>
                     </li>
 
                 </ul>
@@ -76,13 +76,13 @@
                 <ul class="navbar-nav ml-auto mr-auto">
 
                     <li class="nav-item">
-                        <a class="nav-link <?php if ($_SERVER["REQUEST_URI"] == '/Lammaaqui/index.php') {echo 'active';}?>" href="/Lammaaqui/index.php">Home</a>
+                        <a class="nav-link <?php if ($_SERVER["REQUEST_URI"] == '/index.php') {echo 'active';}?>" href="/index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link <?php if ($_SERVER["REQUEST_URI"] == '/Lammaaqui/sobre.php') {echo 'active';}?>" href="/Lammaaqui/sobre.php">Sobre</a>
+                        <a class="nav-link <?php if ($_SERVER["REQUEST_URI"] == '/sobre.php') {echo 'active';}?>" href="/sobre.php">Sobre</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link <?php if ($_SERVER["REQUEST_URI"] == '/Lammaaqui/contato.php') {echo 'active';}?>" href="/Lammaaqui/contato.php">Contato</a>
+                        <a class="nav-link <?php if ($_SERVER["REQUEST_URI"] == '/contato.php') {echo 'active';}?>" href="/contato.php">Contato</a>
                     </li>
 
                 </ul>
@@ -98,11 +98,11 @@
                     </li>
 
                     <li>          
-                        <a href="/Lammaaqui/login.php" style="border-right: 0.5px solid #ffc300;" class="d-none d-md-block btn btn-b-n">Login</a>
+                        <a href="/login.php" style="border-right: 0.5px solid #ffc300;" class="d-none d-md-block btn btn-b-n">Login</a>
                     </li>
 
                     <li> 
-                        <a href="/Lammaaqui/cadastro.php" class="d-none d-md-block btn btn-b-n">Cadastro</a>
+                        <a href="/cadastro.php" class="d-none d-md-block btn btn-b-n">Cadastro</a>
                     </li>
 
                 </ul>

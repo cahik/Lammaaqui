@@ -58,7 +58,7 @@ class Site {
 
 		if (!isset($_SESSION['logado']) || $_SESSION['logado'] <> true) {
 
-			if ($this->url == "/Lammaaqui/login.php" || $this->url == "/Lammaaqui/cadastro.php" || $this->url == "/Lammaaqui/index.php" || $this->url == "/Lammaaqui/sobre.php" || $this->url == "/Lammaaqui/contato.php" || $this->url == "/Lammaaqui/send_email.php" || $this->url == "/Lammaaqui/reset_senha.php?tk=".$token) {
+			if ($this->url == "/login.php" || $this->url == "/cadastro.php" || $this->url == "/index.php" || $this->url == "/sobre.php" || $this->url == "/contato.php" || $this->url == "/send_email.php" || $this->url == "/reset_senha.php?tk=".$token) {
 
 			} else {
 
@@ -69,7 +69,7 @@ class Site {
 
 		} elseif (isset($_SESSION['logado']) and $_SESSION['logado'] == true) {
 
-			if ($this->url == "/Lammaaqui/login.php" || $this->url == "/Lammaaqui/cadastro.php") {
+			if ($this->url == "/login.php" || $this->url == "/cadastro.php") {
 
 				header("location: /perfil.php");
 
