@@ -22,7 +22,7 @@ if (isset($_GET['id'])) {
 <!DOCTYPE html>
 <head>
 
-    <title>Tinder</title>
+    <title>Chat</title>
     <meta charset="utf-8">
 
     <?php require_once "include/links.html"; ?>
@@ -55,7 +55,7 @@ if (isset($_GET['id'])) {
                                             echo 'media/images/fotos_usuarios/avatar.png';
                                         }?>"
                                         class="img-fluid" style="border-radius: 100%; max-height: 75px;">
-                                        <p class="mt-2 <?=((isset($_GET['id']) && ($matches->resultado[$chave]['Id'] == $_GET['id'])) ? 'chat_ativo' : '');?>"><?=$matches->resultado [$chave]['Nome']; ?></p>
+                                        <p class="mt-2 <?=((isset($_GET['id']) && ($matches->resultado[$chave]['Id'] == $_GET['id'])) ? 'chat_ativo' : '');?>"><?=utf8_encode($matches->resultado[$chave]['Nome']); ?></p>
                                     </a>
                                 <?php endforeach; ?>
                                 <?php else : ?>

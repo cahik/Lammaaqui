@@ -15,7 +15,7 @@ $matches->mostrar();
 <!DOCTYPE html>
 <head>
 
-  <title>Tinder</title>
+  <title>Matches</title>
   <meta charset="utf-8">
 
   <?php require_once "include/links.html"; ?>
