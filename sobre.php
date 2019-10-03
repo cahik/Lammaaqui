@@ -9,7 +9,6 @@ $Iniciar = new Site;
 <head>
   <meta charset="utf-8">
   <title>Sobre</title>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <?php require_once "include/links.html"; ?>
 

@@ -18,7 +18,7 @@ $matches->mostrar();
   <title>Tinder</title>
   <meta charset="utf-8">
 
-<?php require_once "include/links.html"; ?>
+  <?php require_once "include/links.html"; ?>
 
 </head>
 <body>
@@ -68,7 +68,7 @@ $matches->mostrar();
             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
               <!-- Formulário -->
-              <div class="collapse p-3" id="collapseExample">
+              <div class="collapse p-3" style="border-bottom: 1px solid #dee2e6; transition: all 2s;" id="collapseExample">
                 <form method="POST" action="">
                   <!-- Obs filtros -->
                   <div class="row ml-2 mr-2">
@@ -181,7 +181,7 @@ $matches->mostrar();
                           <label for="Sexo">
                             Aceita morar com pessoas do sexo:
                           </label>
-                          <select class="form-control" id="Sexo" name="Sexo">
+                          <select class="form-control mt-3" id="Sexo" name="Sexo">
                             <option value="NI" <?php if (isset($_POST['Sexo']) and ($_POST['Sexo'] == "NI")) {echo "selected=''";}?>>
                               Não me importo
                             </option>
@@ -210,7 +210,7 @@ $matches->mostrar();
                           <input class="form-control p-2" style="width: 130px;" max="100" min="18" type="number" name="maior_idade" id="maior_idade" value="<?php if (isset($_POST['maior_idade'])) {echo $_POST['maior_idade'];} else {echo 100;} ?>">
                         </div>
                         <!-- Pagar até quanto? -->
-                        <div class="col-sm mt-4">
+                        <div class="col-sm mt-3">
                           <label>
                             Até quanto quer pagar?
                           </label><br>
@@ -220,6 +220,7 @@ $matches->mostrar();
                           </span>
                         </div>
                         <!-- Fim da linha "select" -->
+                        
                         <!-- Botão enviar -->
                         <div class="col col-md col-12 mt-md-5 mt-3">
                           <button type="submit" name="Enviar" class="d-block btn-block btn btn-b-n float-right" id="jp">
@@ -247,7 +248,7 @@ $matches->mostrar();
 
           <!-- Menu lista match -->
           <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-           <div class="collapse p-3" id="collapseExample2">
+           <div class="collapse p-3" id="collapseExample2" style="border-bottom: 1px solid #dee2e6; transition: all 2s;">
             <div class="row">                
               <div class="col-md-12">
                 <p>
