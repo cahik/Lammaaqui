@@ -5,10 +5,10 @@
                 <nav class="nav-footer">
                     <ul class="list-inline">
                         <li class="list-inline-item">
-                            <a href="/Lammaaqui/index.php">Home</a>
+                            <a href="/index.php">Home</a>
                         </li>
                         <li class="list-inline-item">
-                            <a href="/Lammaaqui/sobre.php">Sobre</a>
+                            <a href="/sobre.php">Sobre</a>
                         </li>
                         
                     </ul>

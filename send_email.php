@@ -11,7 +11,7 @@ if (isset($_POST['Send'])) {
 	// Se conseguir enviar o email
 	if ($send->verificar_email($email) == true) {
 
-		$link = 'localhost/Lammaaqui/reset_senha.php?tk='.$send->tk;
+		$link = 'localhost/reset_senha.php?tk='.$send->tk;
 
 
 		$corpo = '<div class="total" style="margin-left: auto; margin-right: auto; width: 45%; font-family: Arial; padding: 0px; border: 2px solid #343a40; border-radius: 10px;">';
