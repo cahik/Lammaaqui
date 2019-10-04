@@ -1,8 +1,8 @@
 <?php
 
-require_once "classes/not.class.php";
+// require_once "classes/not.class.php";
 
-$not = new Notificacoes();
+// $not = new Notificacoes();
 
 ?>
 
@@ -46,13 +46,13 @@ $not = new Notificacoes();
                         <a class="nav-link"><?php if ($_SESSION['dados']['Sexo'] == 'Masculino') {echo "Bem Vindo!";} else {echo "Bem Vinda!";} ?></a>
                     </li>
 
-                    <?php if ($not->Tem_match == true) { ?>
-
+                    <?php //if ($not->Tem_match == true) { ?>
+<!-- 
                         <li>
                             <a href="classes/del_not.php"><img src="media/images/icons/sino.jpg" class="foto_nav" title="Novos Matches!"></a>
-                        </li>
+                        </li> -->
 
-                    <?php } ?>
+                    <?php //} ?>
 
                     <li class="nav-item d-md-block d-none">
                         <img src="<?php 
