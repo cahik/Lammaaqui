@@ -74,7 +74,7 @@ $matches->mostrar();
                   <div class="row ml-2 mr-2">
                     <div class="col-md-12">
                       <!-- Filtros -->
-                      <p class="mb-3"><small class="text-muted">Caso não marque nenhuma da opções será considerado que não se importa.</small></p>
+                      <p class="mb-3"><small class="text-muted">Caso não marque nenhuma das opções será considerado que não se importa.</small></p>
                       <!-- Diminuir tamanho da fonte dos filtros-->
                       <small> 
                        <!-- Pode fumar -->
