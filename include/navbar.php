@@ -1,3 +1,11 @@
+<?php
+
+require_once "classes/not.class.php";
+
+$not = new Notificacoes();
+
+?>
+
 <link rel="stylesheet" type="text/css" href="media/llama.css">
 <nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top pb-3">
     <div class="container">
@@ -38,6 +46,14 @@
                         <a class="nav-link"><?php if ($_SESSION['dados']['Sexo'] == 'Masculino') {echo "Bem Vindo!";} else {echo "Bem Vinda!";} ?></a>
                     </li>
 
+                    <?php if ($not->Tem_match == true) { ?>
+
+                        <li>
+                            <a href="classes/del_not.php"><img src="media/images/icons/sino.jpg" class="foto_nav" title="Novos Matches!"></a>
+                        </li>
+
+                    <?php } ?>
+
                     <li class="nav-item d-md-block d-none">
                         <img src="<?php 
                         
@@ -51,7 +67,7 @@
 
                         }
 
-                        ?>" id="foto_nav">
+                        ?>" class="foto_nav">
 
                     </li>
 
