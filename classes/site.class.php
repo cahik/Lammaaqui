@@ -12,7 +12,7 @@ class Site {
 	CONST HOST = "mysql669.umbler.com:41890";
 	CONST USER = "vintersr";
 	CONST PASS = "entra21B";
-	CONST DB   = "llamaaqu_master";
+	CONST DB   = "llamaaqui_master";
 
 
 	public $con;
