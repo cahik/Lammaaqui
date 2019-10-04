@@ -9,8 +9,8 @@ class Site {
 	// CONST PASS = "";
 	// CONST DB   = "llamaaqu_master";
 
-	CONST HOST = "mysql380.umbler.com:41890";
-	CONST USER = "vintersr1";
+	CONST HOST = "mysql669.umbler.com:41890";
+	CONST USER = "vintersr";
 	CONST PASS = "entra21B";
 	CONST DB   = "llamaaqu_master";
 
