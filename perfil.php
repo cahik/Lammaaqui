@@ -516,7 +516,10 @@ crossorigin="anonymous"></script>
 <script src="media/js/ajax_cidades.js"></script>
 
 <!-- Mascara para telefone e celular -->
+<script src="media/js/jquery.mask.js"></script>
 <script src="media/js/mascara_numeros.js"></script>
+
+
 
 </body>
 </html>
