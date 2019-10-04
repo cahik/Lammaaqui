@@ -62,8 +62,8 @@ $Iniciar = new Site;
                     <h1 class="intro-title mb-4">
                       Economize tempo
                       <br>
+                      <span class="color-b"> E DINHEIRO </span>
                     </h1>
-                    <span class="color-b"> E DINHEIRO </span>
                     <p class="intro-subtitle intro-price">
                       <a href="cadastro.php"><span class="price-a">Comece agora!</span></a>
                     </p>
@@ -180,8 +180,9 @@ $Iniciar = new Site;
 
 
 
-<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-<!-- <div id="preloader"></div> -->
+<!-- Botão de rolagem bottom/top -->
+<a href="#" class="back-to-top"><img style="border-radius: 100%; padding: 10px;" src="media/images/seta.jpg" height="44"></a>
+<div id="preloader"></div>
 
 <!-- JavaScript Libraries -->
 <script src="lib/jquery/jquery.min.js"></script>

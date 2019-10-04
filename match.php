@@ -15,7 +15,7 @@ $matches->mostrar();
 <!DOCTYPE html>
 <head>
 
-  <title>Tinder</title>
+  <title>Matches</title>
   <meta charset="utf-8">
 
   <?php require_once "include/links.html"; ?>
@@ -395,7 +395,8 @@ $matches->mostrar();
 
 <?php require_once "include/footer.php"; ?>
 
-<!-- Spinner dourada -->
+<!-- Botão de rolagem bottom/top -->
+<a href="#" class="back-to-top"><img style="border-radius: 100%; padding: 10px;" src="media/images/seta.jpg" height="44"></a>
 <div id="preloader"></div>
 
 <!-- Biblioteca Javascript -->

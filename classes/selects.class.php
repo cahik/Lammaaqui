@@ -100,7 +100,7 @@ class Selects extends Site {
             }
 
             // Montando o SQL, não deve ser adicionado "AND", a não ser que seja um caso especial, e pelo amor de Odin, não aperte "Enter" pra quebrar a linha.
-            $this->sql = "SELECT * FROM dados_usuario WHERE $this->Aceita_genero $this->Fuma $this->Bebe $this->Tem_animal $this->Trabalha  $this->Estuda Aceita_pagar <= $this->Aceita_pagar;";
+            $this->sql = "SELECT * FROM dados_usuario WHERE $this->Aceita_genero $this->Fuma $this->Bebe $this->Tem_animal $this->Trabalha  $this->Estuda Aceita_pagar <= $this->Aceita_pagar and Fk_cidade = ".$_SESSION['dados']['Fk_cidade'];
 
 
             if ($query = mysqli_query($this->con, $this->sql)) {
@@ -140,13 +140,9 @@ class Selects extends Site {
 
                                                 if ($this->consulta['Id'] <> $this->Usuario['Id']) {
 
-                                                    if ($this->consulta['Fk_cidade'] == $this->Usuario['Fk_cidade']) {
+                                                    if (mysqli_num_rows($query_verifica3) == 0 ) {
 
-                                                        if (mysqli_num_rows($query_verifica3) == 0 ) {
-
-                                                            $this->resultado[] = $this->consulta;
-
-                                                        }
+                                                        $this->resultado[] = $this->consulta;
 
                                                     }
 
@@ -173,7 +169,7 @@ class Selects extends Site {
         // Quando o usuário iniciar a tela de matches sem os filtros.
         } else {
 
-            $this->sql = "SELECT * FROM dados_usuario where Id <> ".$_SESSION['dados']['Id'];
+            $this->sql = "SELECT * FROM dados_usuario where Id <> ".$_SESSION['dados']['Id']." and Fk_cidade = ". $_SESSION['dados']['Fk_cidade'];
 
             if ($query = mysqli_query($this->con, $this->sql)) {
 
@@ -206,13 +202,9 @@ class Selects extends Site {
 
                                             if ($this->consulta['Id'] <> $this->Usuario['Id']) {
 
-                                                if ($this->consulta['Fk_cidade'] == $this->Usuario['Fk_cidade']) {
+                                                if (mysqli_num_rows($query_verifica3) == 0 ) {
 
-                                                    if (mysqli_num_rows($query_verifica3) == 0 ) {
-
-                                                        $this->resultado[] = $this->consulta;
-
-                                                    }
+                                                    $this->resultado[] = $this->consulta;
 
                                                 }
 

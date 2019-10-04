@@ -14,10 +14,6 @@ class Site {
 	CONST PASS = "entra21B";
 	CONST DB   = "llamaaqu_master";
 
-	// indapl48
-	// entra21@Blusoft
-
-
 
 	public $con;
 	private $url;
@@ -56,26 +52,26 @@ class Site {
 		}
 
 
-		if (!isset($_SESSION['logado']) || $_SESSION['logado'] <> true) {
+		// if (!isset($_SESSION['logado']) || $_SESSION['logado'] <> true) {
 
-			if ($this->url == "/login.php" || $this->url == "/cadastro.php" || $this->url == "/index.php" || $this->url == "/sobre.php" || $this->url == "/contato.php" || $this->url == "/send_email.php" || $this->url == "/reset_senha.php?tk=".$token) {
+		// 	if ($this->url == "/login.php" || $this->url == "/cadastro.php" || $this->url == "/index.php" || $this->url == "/sobre.php" || $this->url == "/contato.php" || $this->url == "/send_email.php" || $this->url == "/reset_senha.php?tk=".$token) {
 
-			} else {
+		// 	} else {
 
-				$_SESSION['logado'] = false;
-				header("location: /index.php");
+		// 		$_SESSION['logado'] = false;
+		// 		header("location: /index.php");
 
-			}
+		// 	}
 
-		} elseif (isset($_SESSION['logado']) and $_SESSION['logado'] == true) {
+		// } elseif (isset($_SESSION['logado']) and $_SESSION['logado'] == true) {
 
-			if ($this->url == "/login.php" || $this->url == "/cadastro.php") {
+		// 	if ($this->url == "/login.php" || $this->url == "/cadastro.php") {
 
-				header("location: /perfil.php");
+		// 		header("location: /perfil.php");
 
-			}
+		// 	}
 
-		}
+		// }
 
 	}
 

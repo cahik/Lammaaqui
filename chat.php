@@ -22,7 +22,7 @@ if (isset($_GET['id'])) {
 <!DOCTYPE html>
 <head>
 
-    <title>Tinder</title>
+    <title>Chat</title>
     <meta charset="utf-8">
 
     <?php require_once "include/links.html"; ?>
@@ -55,7 +55,7 @@ if (isset($_GET['id'])) {
                                             echo 'media/images/fotos_usuarios/avatar.png';
                                         }?>"
                                         class="img-fluid" style="border-radius: 100%; max-height: 75px;">
-                                        <p class="mt-2 <?=((isset($_GET['id']) && ($matches->resultado[$chave]['Id'] == $_GET['id'])) ? 'chat_ativo' : '');?>"><?=$matches->resultado [$chave]['Nome']; ?></p>
+                                        <p class="mt-2 <?=((isset($_GET['id']) && ($matches->resultado[$chave]['Id'] == $_GET['id'])) ? 'chat_ativo' : '');?>"><?=utf8_encode($matches->resultado[$chave]['Nome']); ?></p>
                                     </a>
                                 <?php endforeach; ?>
                                 <?php else : ?>
@@ -122,11 +122,13 @@ if (isset($_GET['id'])) {
                 </section>
             </div>
 
-            <!-- Spinner dourada -->
-            <div id="preloader"></div>
-
+            
             <!-- Footer -->
             <?php require_once "include/footer.php"; ?>
+
+            <!-- Botão de rolagem bottom/top -->
+            <a href="#" class="back-to-top"><img style="border-radius: 100%; padding: 10px;" src="media/images/seta.jpg" height="44"></a>
+            <div id="preloader"></div>
 
             <!-- Biblioteca Javascript -->
             <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>

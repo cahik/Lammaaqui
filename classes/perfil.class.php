@@ -11,7 +11,6 @@ class Perfil extends Site {
 	private $id;
 	private $nome;
 	private $foto;
-	private $email;
 	private $senha;
 	private $telefone;
 	private $celular;
@@ -60,12 +59,6 @@ class Perfil extends Site {
 			$this->foto = $_SESSION['dados']['Foto'];
 		} else {
 			$this->foto = $_POST['Foto'];
-		}
-
-		if (!isset($_POST['Email']) || $_POST['Email'] == $_SESSION['dados']['Email']) {
-			$this->email = $_SESSION['dados']['Email'];
-		} else {
-			$this->email = $_POST['Email'];
 		}
 
 		if (!isset($_POST['Senha']) || utf8_encode($_POST['Senha']) == $_SESSION['dados']['Senha']) {
@@ -250,7 +243,7 @@ class Perfil extends Site {
 			if ($this->celular == "") {$this->celular = "DEFAULT";} else {$this->explode_numero_celular($this->celular);}
 
 			    // Dados pessoais
-			$this->sql = "UPDATE dados_usuario SET Nome = '$this->nome', $this->foto, Email = '$this->email', Senha = '$this->senha', Telefone = $this->telefone, Celular = $this->celular, Sexo = '$this->sexo', Fk_estado = '$this->estado', Fk_cidade = '$this->cidade', Data_nascimento = '$this->data_nascimento', Descricao = '$this->descricao', Fuma = $this->Fuma, Aceita_fumar = $this->Aceita_fumar, Bebe = $this->Bebe, Aceita_beber = $this->Aceita_beber, Tem_animal = $this->Tem_animal, Aceita_animais = $this->Aceita_animais, Trabalha = $this->Trabalha, Estuda = $this->Estuda, Aceita_genero = '$this->Aceita_genero', Aceita_pagar = $this->Aceita_pagar WHERE Id = $this->id";
+			$this->sql = "UPDATE dados_usuario SET Nome = '$this->nome', $this->foto, Senha = '$this->senha', Telefone = $this->telefone, Celular = $this->celular, Sexo = '$this->sexo', Fk_estado = '$this->estado', Fk_cidade = '$this->cidade', Data_nascimento = '$this->data_nascimento', Descricao = '$this->descricao', Fuma = $this->Fuma, Aceita_fumar = $this->Aceita_fumar, Bebe = $this->Bebe, Aceita_beber = $this->Aceita_beber, Tem_animal = $this->Tem_animal, Aceita_animais = $this->Aceita_animais, Trabalha = $this->Trabalha, Estuda = $this->Estuda, Aceita_genero = '$this->Aceita_genero', Aceita_pagar = $this->Aceita_pagar WHERE Id = $this->id";
 
 			if (mysqli_query($this->con, $this->sql)) {
 
