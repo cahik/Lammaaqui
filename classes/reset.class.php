@@ -52,15 +52,28 @@ class Reset extends Site {
 		$this->senha2 = $_POST['senha2'];
 		$this->tk = $_GET['tk'];
 
+
 		// Se as senha forem iguais
 		if ($this->senha1 == $this->senha2) {
 
-			$sql = "UPDATE dados_usuario SET Senha = '$this->senha1', Token = null where Token = $this->tk";
-			mysqli_query($this->con, $sql);
-			$alerta['tipo'] = 'success';
-			$alerta['mensagem'] = "Sua senha foi alterada com sucesso!";
-			setcookie('alerta', serialize($alerta), time() + 10);
-			header('location: perfil.php');
+		// Se a senha tiver menos de 8 digitos
+			if (strlen($this->senha1) >= 8) {
+
+				$sql = "UPDATE dados_usuario SET Senha = '$this->senha1', Token = null where Token = $this->tk";
+				mysqli_query($this->con, $sql);
+				$alerta['tipo'] = 'success';
+				$alerta['mensagem'] = "Sua senha foi alterada com sucesso!";
+				setcookie('alerta', serialize($alerta), time() + 10);
+				header('location: perfil.php');
+
+			} else {
+				
+				$alerta['tipo'] = 'warning';
+				$alerta['mensagem'] = "A senha deve ter mais de 8 digitos!";
+				setcookie('alerta', serialize($alerta), time() + 10);
+				header('location: reset_senha.php?tk='.$this->tk);
+
+			}
 
 		} else {
 

@@ -140,7 +140,7 @@ class Cadastro_login extends Site {
 								$_SESSION['logado'] = true;
 								$_SESSION['dados'] = $resultado;
 
-								header("location: /perfil.php");
+								header("location: perfil.php");
 
 							} else {
 
@@ -155,7 +155,7 @@ class Cadastro_login extends Site {
 							$alerta['mensagem'] = "Este email já está cadastrado em nosso site.";
 							setcookie('alerta', serialize($alerta), time() + 10);
 
-							header("location: /cadastro.php");
+							header("location: cadastro.php");
 
 						}
 
@@ -168,7 +168,7 @@ class Cadastro_login extends Site {
 					$alerta['mensagem'] = "Para se cadastrar é preciso ter mais de 18 anos.";
 					setcookie('alerta', serialize($alerta), time() + 10);
 
-					header("location: /cadastro.php");
+					header("location: cadastro.php");
 
 				}
 
@@ -179,7 +179,7 @@ class Cadastro_login extends Site {
 				$alerta['mensagem'] = "As senhas não conferem. Tente novamente!";
 				setcookie('alerta', serialize($alerta), time() + 10);
 
-				header("location: /cadastro.php");
+				header("location: cadastro.php");
 
 			}
 
@@ -206,7 +206,7 @@ class Cadastro_login extends Site {
 					$_SESSION['logado'] = true;
 					$_SESSION['dados'] = $resultado;
 
-					header("location: /match.php");
+					header("location: match.php");
 
 				} else {
 
@@ -220,7 +220,7 @@ class Cadastro_login extends Site {
 					$alerta['mensagem'] = "Credênciais inválidas!";
 					setcookie('alerta', serialize($alerta), time() + 10);
 
-					header("location: /login.php");
+					header("location: login.php");
 
 
 				}

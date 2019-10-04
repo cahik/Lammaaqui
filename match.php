@@ -322,7 +322,7 @@ $matches->mostrar();
 
 <!-- Card match -->
 <div class="row mt-5">
-  <div class="col-md-6 col-sm-12 mt-2">
+  <div class="col-md-6 col-sm-12 mt-2" style="margin-right: auto; margin-left: auto;">
     <!-- Foreach para puxar os resultados do array "resultado" e mostrar os dados no card -->
     <?php foreach ($a->resultado as $chave => $valor) { ?>
 

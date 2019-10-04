@@ -11,7 +11,7 @@
 	// Se conseguir enviar o email
 		if ($send->verificar_email($email) == true) {
 
-			$link = 'localhost/reset_senha.php?tk='.$send->tk;
+			$link = 'vintersr.ga/reset_senha.php?tk='.$send->tk;
 
 
 			$corpo = '<div class="total" style="margin-left: auto; margin-right: auto; width: 45%; font-family: Arial; padding: 0px; border: 2px solid #343a40; border-radius: 10px;">';
@@ -27,7 +27,7 @@
 			$corpo .= '</div>';
 
 			$assunto = "Confirmar redefinição de senha";
-			enviar_email($email, 'contato@llamaaqui.ml', 'Lamma Aqui', $assunto, $corpo);
+			enviar_email($email, 'projetophp0@gmail.com', 'Lamma Aqui', $assunto, $corpo);
 
 		}
 

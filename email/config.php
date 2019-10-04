@@ -6,8 +6,8 @@ require_once "classes/site.class.php";
 require_once "class.phpmailer.php";
 
 	// Definições de acesso
-define('USUARIO', 'contato@llamaaqui.ml');
-define('SENHA', 'entra21@Blusoft');
+define('USUARIO', 'projetophp0@gmail.com');
+define('SENHA', 'projeto2019');
 
 	// Função de enviar e-mails
 function enviar_email($para, $de, $de_nome, $assunto, $corpo) {
@@ -35,7 +35,7 @@ function enviar_email($para, $de, $de_nome, $assunto, $corpo) {
 
 		// Servidor SMTP utilizado para enviar o e-mail
 	$mail->Host = 'smtp.gmail.com';
-		// $mail->Host = 'mail.pojigo.tk';
+	// $mail->Host = 'mail.vintersr.ga';
 
 		// Porta do servidor SMTP
 	$mail->Port = 465;
@@ -68,8 +68,6 @@ function enviar_email($para, $de, $de_nome, $assunto, $corpo) {
 	} else {
 		return $mail->ErrorInfo;
 	}
-
-	var_dump($mail);
 
 }
 
@@ -119,6 +117,7 @@ class Email extends Site {
 				$alerta['mensagem'] = "Email enviado com sucesso!";
 				setcookie('alerta', serialize($alerta), time() + 10);
 				return $this->tk;
+				header('Location: send_email.php');
 
 			} else {
 
