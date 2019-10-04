@@ -395,7 +395,8 @@ $matches->mostrar();
 
 <?php require_once "include/footer.php"; ?>
 
-<!-- Spinner dourada -->
+<!-- Botão de rolagem bottom/top -->
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"><img style="border-radius: 100%; padding: 10px;" src="media/images/seta.jpg" height="44"></i></a>
 <div id="preloader"></div>
 
 <!-- Biblioteca Javascript -->

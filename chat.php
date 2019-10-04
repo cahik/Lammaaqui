@@ -122,11 +122,13 @@ if (isset($_GET['id'])) {
                 </section>
             </div>
 
-            <!-- Spinner dourada -->
-            <div id="preloader"></div>
-
+            
             <!-- Footer -->
             <?php require_once "include/footer.php"; ?>
+
+            <!-- Botão de rolagem bottom/top -->
+            <a href="#" class="back-to-top"><i class="fa fa-chevron-up"><img style="border-radius: 100%; padding: 10px;" src="media/images/seta.jpg" height="44"></i></a>
+            <div id="preloader"></div>
 
             <!-- Biblioteca Javascript -->
             <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>

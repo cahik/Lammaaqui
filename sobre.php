@@ -268,7 +268,7 @@ $Iniciar = new Site;
 <?php require_once "include/footer.php"; ?>
 
 
-<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"><img style="border-radius: 100%; padding: 10px;" src="media/images/seta.jpg" height="44"></i></a>
 <div id="preloader"></div>
 
 <!-- JavaScript Libraries -->

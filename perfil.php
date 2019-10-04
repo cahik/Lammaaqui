@@ -63,7 +63,7 @@ $Mostrar_dados->update();
             </div>
 
             <center>
-              <p><strong style="color:#ebbf31;">Atenção!</strong> A imagem será carregada após clicar em "salvar alterações".</p>
+              <p><strong style="color:#ebbf31;">Atenção!</strong> Alterações na imagem serão carregadas após clicar em "salvar alterações".</p>
             </center>
 
           </div>
@@ -120,10 +120,10 @@ $Mostrar_dados->update();
                 <!-- Email -->
                 <div class="row">
                   <div class="col-md-6">
-                    <label for="id_email" class="col-sm-2 col-form-label">Email</label>
+                    <label class="col-sm-2 col-form-label">Email</label>
                   </div>
                   <div class="col-md-6">
-                    <input class="form-control mb-3" id="id_email" value="<?=utf8_encode($Mostrar_dados->dados_usuario['Email'])?>" placeholder="Seu email" name="Email">
+                    <p class="form-control mb-3 text-muted"><?=utf8_encode($Mostrar_dados->dados_usuario['Email'])?></p>
                   </div>
                 </div>
 
@@ -192,7 +192,7 @@ $Mostrar_dados->update();
                     <?php $data_nascimento = explode ("-", $Mostrar_dados->dados_usuario['Data_nascimento']); ?>
 
                     <!-- Dia -->
-                    <select class="form-group col-sm-3" name="dia" class="select" required="">
+                    <select class="select col-sm-3 mb-2" name="dia" required="">
 
                       <?php for ($i = 1; $i <= 31; $i++) {?>
                         <option <?php if ($data_nascimento[2] == $i) {echo "selected";} ?> ><?=$i?></option>
@@ -200,7 +200,7 @@ $Mostrar_dados->update();
                     </select>
 
                     <!-- Mês -->
-                    <select class="form-group col-sm-4" name="mes" class="select" required="">
+                    <select class="select col-sm-4 mb-2" name="mes" required="">
 
                       <option <?php if ($data_nascimento[1] == '01') {echo "selected";} ?> value="01">Janeiro</option>
                       <option <?php if ($data_nascimento[1] == '02') {echo "selected";} ?> value="02">Fevereiro</option>
@@ -218,7 +218,7 @@ $Mostrar_dados->update();
                     </select>
 
                     <!-- Ano -->
-                    <select class="form-group col-sm-4" name="ano" class="select" required="">
+                    <select class="select col-sm-4 mb-2" name="ano" required="">
 
                       <?php for ($i = date('Y'); $i >= (date('Y') - 100); $i--) {?>
                         <option <?php if ($data_nascimento[0] == $i) {echo "selected";} ?> ><?=$i?></option>
@@ -236,19 +236,12 @@ $Mostrar_dados->update();
                   <div class="col-md-6">
                     <textarea name="Descricao" id="id_descricao" style="resize: none; width: 100%;" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Escreva uma descrição para mostrar aos outros usuários quão legal você é." maxlength="255"><?=utf8_encode($Mostrar_dados->dados_usuario['Descricao'])?></textarea>
                   </div>
-                </div>   
-
-                <!-- Onde quero morar -->
-                <div class="row">
-                  <div class="col-md-12">
-                    <label class="col-sm mb-3 mt-3 col-form-label">Onde quero morar:</label>
-                  </div>
                 </div>
 
                 <!-- Estado -->
-                <div class="row">
+                <div class="row mt-3">
                   <div class="col-md-6">
-                    <label for="id_estado" class="col-sm-2 col-form-label">Estado</label>
+                    <label for="id_estado" class="col-sm-12 col-form-label">Estado que deseja morar</label>
                   </div>
 
                   <div class="col-md-6">
@@ -268,7 +261,7 @@ $Mostrar_dados->update();
               <!-- Cidade -->
               <div class="row">
                 <div class="col-md-6">
-                  <label for="id_cidade" class="col-sm-2 col-form-label">Cidade</label>
+                  <label for="id_cidade" class="col-sm-12 col-form-label">Cidade que deseja morar</label>
                 </div>
                 <div class="col-md-6">
 
@@ -490,7 +483,7 @@ $Mostrar_dados->update();
 <?php require_once "include/footer.php"; ?>
 
 <!-- Botão de rolagem bottom/top -->
-<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"><img style="border-radius: 100%; padding: 10px;" src="media/images/seta.jpg" height="44"></i></a>
 <div id="preloader"></div>
 
 <!-- Biblioteca Boostrap -->
