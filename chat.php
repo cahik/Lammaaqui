@@ -43,7 +43,7 @@ if (isset($_GET['id'])) {
                                     <img src="<?php
                                     if ($matches->resultado[$chave]['Foto'] <> null) {
                                         echo 'media/images/fotos_usuarios/'.$matches->resultado[$chave]['Foto'];
-                                        } else {
+                                        } else if {
                                             echo 'media/images/fotos_usuarios/avatar.png';
                                         }?>"
                                         class="img-fluid" style="border-radius: 100%; max-height: 75px;">
