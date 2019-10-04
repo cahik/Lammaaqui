@@ -34,7 +34,7 @@ if (isset($_GET['id'])) {
     <?php require_once "include/navbar.php"; ?>
 
     <!-- Titulo -->
-    <div class="container">
+    <div class="container" style="<?php if (!isset($_GET['id'])) {echo 'margin-bottom: 90px';}?>">
         <section class="intro-single margemEsquerda">
             <div class="row">
                 <div class="col-12 mb-1 px-0">
