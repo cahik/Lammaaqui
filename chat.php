@@ -45,8 +45,9 @@ if (isset($_GET['id'])) {
 
                 <div class="col-12 mt-3 mb-2 px-4 ">
                     <div class="row ">
-                        <?php if (count($matches->resultado) > 0) : ?>
-                            <?php foreach ($matches->resultado as $chave => $valor) { ?>
+                        <?php if (count($matches->resultado) > 0) { ?>
+                            <?php foreach ($matches->resultado as $chave => $valor) { 
+                                ?>
                                 <a href="chat.php?id=<?=$matches->resultado[$chave]['Id']; ?>" class="col-2 text-center user_matches pt-3 m-3">
                                     <img src="<?php
                                     if ($matches->resultado[$chave]['Foto'] <> null) {
@@ -57,8 +58,9 @@ if (isset($_GET['id'])) {
                                         class="img-fluid" style="border-radius: 100%; max-height: 75px;">
                                         <p class="mt-2 <?=((isset($_GET['id']) && ($matches->resultado[$chave]['Id'] == $_GET['id'])) ? 'chat_ativo' : '');?>"><?=utf8_encode($matches->resultado[$chave]['Nome']); ?></p>
                                     </a>
-                                <?php endforeach; ?>
-                            <?php } else { ?>
+                                <?php } 
+
+                            } else { ?>
                                 <p class="pt-3 col-12 text-center">Nenhum match até o momento! Conecte-se com alguém para iniciar um chat ;)</p>
                             <?php } ?>
                         </div>
@@ -81,7 +83,8 @@ if (isset($_GET['id'])) {
                                     $mensagens = $chat->todos_mensagem_por_usuario($_SESSION['dados']['Id'], $id_chat);
 
                                     if (count($mensagens) > 0) {
-                                        foreach ($mensagens as $key => $mensagem) :
+                                        foreach ($mensagens as $key => $mensagem) {
+
                                             if($mensagem['id_enviou'] == $matches->resultado[$chave]['Id']) {
                                                 echo '<div class="answer left mb-2 px-5">';
                                                 echo '<div class="text">' . utf8_encode($mensagem['mensagem']) . '</div>';
@@ -93,14 +96,13 @@ if (isset($_GET['id'])) {
                                                 echo '<div class="time">'. date_format(date_create($mensagem['data_hora']),"d/m/y H:i") .'</div>';
                                                 echo '</div>';
                                             }
-                                        endforeach;
+
+                                        }
                                     } else { ?>
                                         <p class="mt-4 mb-5 text-center">
                                             Vocês se conectaram recentemente! Inicie uma conversa =)
                                         </p>
-                                        <?php
-                                    }
-                                    ?>
+                                    <?php } ?>
                                 </div>
 
                                 <div class="row bg-highlight-sidebar pt-3">
