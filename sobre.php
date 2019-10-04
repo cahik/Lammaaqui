@@ -243,7 +243,7 @@ $Iniciar = new Site;
           </div>
           <div class="card-body-d">
             <p style="text-align: left !important;" class="content-d color-text-a">
-            Sou novo na área de TI porem gostei muito, ver como tudo isso funciona me fascina vendo que uma máquina faz todo o trabalho através de código. Sou empenhado, gosto de dar o máximo de mim pra fazer tudo não importo se e algo fácil ou não, pra mim sempre devemos nos esforçarmos, devemos sempre estar evoluindo.
+            Sou novo na área de TI porem gostei muito, ver como tudo isso funciona me fascina vendo que uma máquina faz todo o trabalho através de código. Gosto de dar o máximo de mim pra fazer tudo não importo se e algo fácil ou não, pra mim sempre devemos nos esforçarmos, devemos sempre estar evoluindo.
             </p>
           </div>
           <div class="card-footer-d">
