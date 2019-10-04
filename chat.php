@@ -44,20 +44,22 @@ if (isset($_GET['id'])) {
                 </div>
 
                 <div class="col-12 mt-3 mb-2 px-4 ">
-                    <div class="row ">
+                    <div class="row mb-4">
                         <?php if (count($matches->resultado) > 0) { ?>
                             <?php foreach ($matches->resultado as $chave => $valor) { 
                                 ?>
-                                <a href="chat.php?id=<?=$matches->resultado[$chave]['Id']; ?>" class="col-2 text-center user_matches pt-3 m-3">
-                                    <img src="<?php
-                                    if ($matches->resultado[$chave]['Foto'] <> null) {
-                                        echo 'media/images/fotos_usuarios/'.$matches->resultado[$chave]['Foto'];
-                                        } else {
-                                            echo 'media/images/fotos_usuarios/avatar.png';
-                                        }?>"
-                                        class="img-fluid" style="border-radius: 100%; max-height: 75px;">
-                                        <p class="mt-2 <?=((isset($_GET['id']) && ($matches->resultado[$chave]['Id'] == $_GET['id'])) ? 'chat_ativo' : '');?>"><?=utf8_encode($matches->resultado[$chave]['Nome']); ?></p>
-                                    </a>
+                                <div class="col-5 col-md-2 text-center user_matches pt-3 m-2" style="width: 130px !important; height: 130px !important;">
+                                    <a href="chat.php?id=<?=$matches->resultado[$chave]['Id']; ?>">
+                                        <img src="<?php
+                                        if ($matches->resultado[$chave]['Foto'] <> null) {
+                                            echo 'media/images/fotos_usuarios/'.$matches->resultado[$chave]['Foto'];
+                                            } else {
+                                                echo 'media/images/fotos_usuarios/avatar.png';
+                                            }?>"
+                                            class="img-fluid" style="border-radius: 100%; height: 70px; width: 70px;">
+                                            <p class="mt-2 <?=((isset($_GET['id']) && ($matches->resultado[$chave]['Id'] == $_GET['id'])) ? 'chat_ativo' : '');?>"><?=utf8_encode($matches->resultado[$chave]['Nome']); ?></p>
+                                        </a>
+                                    </div>
                                 <?php } 
 
                             } else { ?>
