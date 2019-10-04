@@ -13,11 +13,6 @@ CONST DB   = "llamaaqu_master";
 	// indapl48
 	// entra21@Blusoft
 
-	// CONST HOST = "50.116.112.104:3306";
-	// CONST USER = "indapl48_gustavo";
-	// CONST PASS = "1234qwer";
-	// CONST DB   = "indapl48_llamaaqui";
-
 $con = mysqli_connect(HOST, USER, PASS, DB);
 
 $estado = $_POST['estado'];

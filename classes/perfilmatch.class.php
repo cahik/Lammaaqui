@@ -33,7 +33,7 @@ class Perfilmatch extends Site {
 
 		if (mysqli_num_rows(mysqli_query($this->con, $sql)) == 0) {
 
-			header('Location: perfil.php');
+			header('Location: /perfil.php');
 
 		}
 
