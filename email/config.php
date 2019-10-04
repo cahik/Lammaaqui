@@ -34,7 +34,7 @@ function enviar_email($para, $de, $de_nome, $assunto, $corpo) {
 	$mail->SMTPSecure = 'ssl';
 
 		// Servidor SMTP utilizado para enviar o e-mail
-	$mail->Host = 'mail.llamaaqui.ml';
+	$mail->Host = 'smtp.gmail.com';
 		// $mail->Host = 'mail.pojigo.tk';
 
 		// Porta do servidor SMTP

@@ -181,7 +181,7 @@ $Iniciar = new Site;
 
 
 <!-- Botão de rolagem bottom/top -->
-<a href="#" class="back-to-top"><i class="fa fa-chevron-up"><img style="border-radius: 100%; padding: 10px;" src="media/images/seta.jpg" height="44"></i></a>
+<a href="#" class="back-to-top"><img style="border-radius: 100%; padding: 10px;" src="media/images/seta.jpg" height="44"></a>
 <div id="preloader"></div>
 
 <!-- JavaScript Libraries -->

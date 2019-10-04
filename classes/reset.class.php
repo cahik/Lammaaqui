@@ -60,7 +60,7 @@ class Reset extends Site {
 			$alerta['tipo'] = 'success';
 			$alerta['mensagem'] = "Sua senha foi alterada com sucesso!";
 			setcookie('alerta', serialize($alerta), time() + 10);
-			header('reset_senha.php?tk='.$this->tk);
+			header('location: perfil.php');
 
 		} else {
 

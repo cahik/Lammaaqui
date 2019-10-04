@@ -59,11 +59,11 @@ if (isset($_POST['logar'])) {
 
 						<div class="flex-sb-m w-full p-t-3 p-b-32 mt-3">
 							<div>
-								<a href="/send_email.php" class="txt1">
+								<a href="send_email.php" class="txt1">
 									Esqueceu sua senha?
 								</a>
 								<br>
-								<a href="/cadastro.php" class="txt1">
+								<a href="cadastro.php" class="txt1">
 									Cadastre-se
 								</a>
 							</div>
@@ -80,7 +80,7 @@ if (isset($_POST['logar'])) {
 	<?php require_once "include/footer.php"; ?>
 
 	<!-- Botão de rolagem bottom/top -->
-	<a href="#" class="back-to-top"><i class="fa fa-chevron-up"><img style="border-radius: 100%; padding: 10px;" src="media/images/seta.jpg" height="44"></i></a>
+	<a href="#" class="back-to-top"><img style="border-radius: 100%; padding: 10px;" src="media/images/seta.jpg" height="44"></a>
 
 	<!-- Biblioteca Boostrap -->
 	<script
