@@ -170,14 +170,14 @@ $Iniciar = new Site;
             <div class="card-title-d align-self-center">
 
               <h3  style="text-align: center!important;" class="title-d">
-                <a class="link-two">Gustavo Poleza</a>
+                <a class="link-two">Gustavo Vergilio Poleza</a>
 
               </h3>
             </div>
           </div>
           <div class="card-body-d">
             <p class="content-d color-text-a">
-              Sed porttitor lectus nibh, Cras ultricies ligula sed magna dictum porta two.
+             &nbsp;Acho incrível entender o funcionamento interno das coisas ao meu redor, ver algo que os outros não conseguem é simplesmente fantástico. Quero
             </p>
           </div>
           <div class="card-footer-d">
