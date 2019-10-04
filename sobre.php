@@ -61,16 +61,16 @@ $Iniciar = new Site;
               <h3 class="title-d">Projeto
                 <span class="color-d">Entra21</span> 2019</h3>
               </div>
-              <p class="color-text-a">
+              <p class="color-text-a mb-3">
                 O Entra 21 se originou pela necessidade de profissionais qualificados no setor de informática do Vale do Itajaí. Para essa qualificação era preciso existir uma formação.
               </p>
-              <p class="color-text-a">
+              <p class="color-text-a  mb-3">
                 O projeto é financiado por empresas e instituições que acreditam no potencial dos residentes de Blumenau e região, sendo estes beneficiados e encaminhados, na maior parte das vezes, para empregos. A demanda é imediata.
               </p>
-              <p class="color-text-a">
+              <p class="color-text-a  mb-3">
                Nosso site surgiu com o intuito de promover encontros entre pessoas que buscam dividir os custos de moradia, respeitando os interesses e as necessidades de cada um.
              </p>
-             <p class="color-text-a">
+             <p class="color-text-a  mb-3">
               O resultado da busca dos perfis aparece por meio de filtros de pesquisa e se for de interesse de ambos, poderão se conectar e conversar via chat. Experamos que você encontre o que busca!                
             </p>
           </div>
@@ -104,7 +104,7 @@ $Iniciar = new Site;
           <div class="card-overlay card-overlay-hover">
             <div class="card-header-d">
               <div class="card-title-d align-self-center">
-                <h3 style="text-align: center!important;" class="title-d">
+                <h3 style="text-align: center!important; font-size: 12px;" class="title-d">
                   <a class="link-two">Cahik Matos</a>
                 </h3>
               </div>
