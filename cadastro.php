@@ -215,11 +215,15 @@ $Executar_cadastro->cadastrar();
 
 	<script src="media/js/main.js"></script>
 
+	<script src="media/js/jquery.mask.js"></script>
+
 	<!-- Ajax cidades -->
 	<script src="media/js/ajax_cidades.js"></script>
 
 	<!-- Mascara para telefone e celular -->
 	<script src="media/js/mascara_numeros.js"></script>
+
+
 
 
 </body>
