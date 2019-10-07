@@ -149,7 +149,7 @@ $idade = intval($atual) - intval($nascimento);
             <label class="col-sm-12 col-form-label">Descrição</label>
           </div>
           <div class="col-md-6">
-            <textarea style="resize: none; width: 100%; min-height: 182px !important;" class="form-control mb-3"><?=$resultados['Descricao']?></textarea>
+            <textarea style="resize: none; width: 100%; min-height: 182px !important;" class="form-control mb-3"><?=utf8_encode($resultados['Descricao'])?></textarea>
           </div>
         </div>
 
