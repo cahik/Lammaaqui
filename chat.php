@@ -79,6 +79,7 @@ if (isset($_GET['id'])) {
                                     <div id="mensagens"  style="overflow:auto; max-height: 500px; ">
                                         <?php
                                         $mensagens = $chat->todos_mensagem_por_usuario($_SESSION['dados']['Id'], $id_chat);
+                                        var_dump($mesnsagem);
 
                                         if (count($mensagens) > 0) :
                                             foreach ($mensagens as $key => $mensagem) :
