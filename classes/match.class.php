@@ -1,3 +1,4 @@
+
 <?php
 
 require_once "site.class.php";
@@ -26,9 +27,9 @@ class match extends Site {
                 
                 mysqli_query($this->con, $sql);
 
-                $sql2 = "INSERT INTO notificacoes values (DEFAULT, $id_recebe, $Id_da, '".date('Y-m-d H:i:s')."')";
+                // $sql2 = "INSERT INTO notificacoes values (DEFAULT, $id_recebe, $Id_da, '".date('Y-m-d H:i:s')."')";
 
-                mysqli_query($this->con, $sql2);
+                // mysqli_query($this->con, $sql2);
 
             }
 
