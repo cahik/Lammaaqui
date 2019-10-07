@@ -116,7 +116,7 @@ class Selects extends Site {
                     $sqlverifica2 = "SELECT * FROM like_deslike WHERE deu = ".$this->consulta['Id']."  and recebeu = ".$_SESSION['dados']['Id']." and acao = 'dislike'";
                     $query_verifica2 = mysqli_query($this->con, $sqlverifica2);
 
-                    $sqlverifica3 = "SELECT * FROM matches WHERE Usuario_1 = ".$_SESSION['dados']['Id']." or Usuario_2 = ".$_SESSION['dados']['Id'];
+                    $sqlverifica3 = "SELECT * FROM matches WHERE (Usuario_1 = ".$_SESSION['dados']['Id']." and Usuario_2 = ".$this->consulta['Id'].") or (Usuario_2 = ".$_SESSION['dados']['Id']." and Usuario_1 = ".$this->consulta['Id'].");";
                     $query_verifica3 = mysqli_query($this->con, $sqlverifica3);
 
 
