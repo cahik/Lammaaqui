@@ -33,7 +33,7 @@ $(document).ready(function() {
 				"acao": "enviar"
 			}
 		}).done(function (resposta) {
-			if (resposta=='1') {
+			if (resposta != 0) {
 
 				hora = new Date();
 				hora  = hora.getDate() + '/' + hora.getMonth() + '/' + hora.getFullYear() + ' ' + hora.getHours() + ':' + hora.getMinutes();
